@@ -1,0 +1,1 @@
+<set_variable name="mymesh.x" value="2"/><set_variable name="mymesh.y" value="3"/><set_variable name="mymesh.z" value="5"/><set_variable name="mymesh.nested.r" value="1"/><set_variable name="mymesh.nested.g" value="0.5"/><set_variable name="mymesh.nested.b" value="0"/>

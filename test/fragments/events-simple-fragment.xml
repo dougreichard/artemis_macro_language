@@ -1,0 +1,1 @@
+<event name="The Ancient One Destroyed"><if_not_exists name="The Ancient One"/><set_variable name="The_Ancient_One" value="2"/></event>

@@ -1,0 +1,13 @@
+events:
+  - name: The Ancient One Destroyed
+    conditions:
+      - if_not_exists: The Ancient One
+      - The_Ancient_One == 1.0
+
+    timers:
+      - The_Ancient_One: 300
+      
+    variables:
+      The_Ancient_One: 2.0
+
+  

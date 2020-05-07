@@ -1,0 +1,1 @@
+<event name="Viper Tow Rat"><if_variable name="Rat" comparator="EQUALS" value="10"/><if_exists name="Viper"/><set_relative_position name2="Rat" distance="100" angle="180" name1="Viper"/></event>
