@@ -181,10 +181,19 @@ class YamlModule {
   addVariables(event, variables, struct) {
     if (!variables) {
       return
+    } else if (!isObject(variables) && !Array.isArray(variables) && struct) {
+      // make sure this is a string, even if empty
+      event.append('set_variable', { name:struct, value: variables })
     }
 
     for (let kv of Object.entries(variables)) {
-      if (isObject(kv[1])) {
+      if (Array.isArray(kv[1])) {
+        for(let i=0,l=kv[1].length;i<l;i++ ) {
+          let name = `${kv[0]}[${i+1}]`
+          struct = struct ? struct : ''
+          let value = this.addVariables(event, kv[1][i], struct + name)
+       }
+      } else if (isObject(kv[1])) {
         // make sure this is a string, even if empty
         struct = struct ? struct : ''
         this.addVariables(event, kv[1], struct + kv[0] + this.structSeparator)
