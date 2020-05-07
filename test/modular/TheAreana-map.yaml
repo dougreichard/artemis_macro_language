@@ -1,0 +1,189 @@
+
+#
+# all imported starts should be merged together
+#
+start:
+  # in slot order, will set PlayerShipNames as well as set slots
+  player:
+    - name: Artemis
+      _prototype: Player
+      x: 50000.0
+      y: 10.0
+      z: 95000.0
+      
+    - name: Intrepid
+      _prototype: Player
+      x: 95000.0
+      y: 10.0
+      z: 5000.0
+      
+    - name: Aegis
+      _prototype: Player
+      x: 95000.0
+      y: 10.0
+      z: 95000.0
+      
+
+    - name: Horatio
+      _prototype: Player
+      x: 50000.0
+      y: 10.0
+      z: 5000.0
+      
+    - name: Excalibur
+      _prototype: Player
+      x: 50000.0
+      y: 10.0
+      z: 95000.0
+      
+    - name: Hera
+      _prototype: Player
+      x: 50000.0
+      y: 10.0
+      z: 5000.0
+      
+    - name: Ceres
+      _prototype: Player
+      x: 5000.0
+      y: 10.0
+      z: 50000.0
+      
+    - name: Diana
+      _prototype: Player
+      x: 95000.0
+      y: 10.0
+      z: 50000.0
+      
+
+  stations:
+    - x: 50000.0
+      y: 0.0
+      z: 95000.0
+      name: Artemis Station
+      raceKeys: Arvonian
+      hullKeys: Command Base
+      sideValue: 10
+    - x: 95000.0
+      y: 0.0
+      z: 5000.0
+      name: Intrepid Station
+      raceKeys: Arvonian
+      hullKeys: Command Base
+      sideValue: 11
+    - x: 95000.0
+      y: 0.0
+      z: 95000.0
+      name: Aegis Station
+      raceKeys: Arvonian
+      hullKeys: Command Base
+      sideValue: 4
+    - x: 5000.0
+      y: 0.0
+      z: 5000.0
+      name: Horatio Station
+      raceKeys: Arvonian
+      hullKeys: Command Base
+      sideValue: 5
+    - x: 5000.0
+      y: 0.0
+      z: 95000.0
+      name: Excalibur Station
+      raceKeys: Arvonian
+      hullKeys: Command Base
+      sideValue: 6
+    - x: 50000.0
+      y: 0.0
+      z: 5000.0
+      name: Hera Station
+      raceKeys: Arvonian
+      hullKeys: Command Base
+      sideValue: 7
+    - x: 5000.0
+      y: 0.0
+      z: 50000.0
+      name: Ceres Station
+      raceKeys: Arvonian
+      hullKeys: Command Base
+      sideValue: 8
+    - x: 95000.0
+      y: 0.0
+      z: 50000.0
+      name: Diana Station
+      raceKeys: Arvonian
+      hullKeys: Command Base
+      sideValue: 9
+  nebulas:
+    - count: 60 
+      startX: 50000.0
+      startY: 100.0
+      startZ: 50000.0
+      radius: 25000
+      randomRange: 4000
+      randomSeed: 15
+    - count: 60 
+      startX: 50000.0
+      startY: -100.0
+      startZ: 50000.0
+      radius: 30000
+      randomRange: 4000
+      randomSeed: 20
+    - count: 60 
+      startX: 50000.0
+      startY: 0.0
+      startZ: 50000.0
+      radius: 40000
+      randomRange: 4000
+      randomSeed: 35
+    - count: 60 
+      startX: 50000.0
+      startY: 0.0
+      startZ: 50000.0
+      radius: 15000
+      randomRange: 4000
+      randomSeed: 40
+    - count: 60 
+      startX: 50000.0
+      startY: 0.0
+      startZ: 50000.0
+      radius: 50000
+      randomRange: 4000
+      randomSeed: 55
+
+  asteroids:
+    - count: 75 
+      startX: 50000.0
+      startY: 0.0
+      startZ: 50000.0
+      radius: 26000
+      randomRange: 4000
+      randomSeed: 30
+    - count: 75 
+      startX: 50000.0
+      startY: 0.0
+      startZ: 50000.0
+      radius: 36000
+      randomRange: 4000
+      randomSeed: 25
+    - count: 30 
+      startX: 50000.0
+      startY: 0.0
+      startZ: 50000.0
+      radius: 7000
+      randomRange: 1000
+      randomSeed: 21
+
+  genericMesh:
+    # This is the Egg
+    - x: 50000.0
+      y: -50.0
+      z: 50000.0
+      name: "."
+      meshFileName: dat\asteroid7.dxs
+      textureFileName: dat\Asteroid_7_AO.png
+    # This is used to set the positions of the stations
+    - x: 50000.0
+      y: 5.0
+      z: 50000.0
+      name: _
+      meshFileName: dat\asteroid8.dxs
+      textureFileName: dat\Asteroid_8_AO.png

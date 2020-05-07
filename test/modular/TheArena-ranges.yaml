@@ -1,0 +1,62 @@
+ranges:
+  AllShips:
+    - ship: Artemis
+      sideValue: 10
+    - ship: Intrepid
+      sideValue: 11
+    - ship: Aegis
+      sideValue: 4
+    - ship: Horatio
+      sideValue: 5
+    - ship: Excalibur
+      sideValue: 6
+    - ship: Hera
+      sideValue: 7
+    - ship: Ceres
+      sideValue: 8
+    - ship: Diana
+      sideValue: 9
+
+  Eggs:
+    - egg: egg1
+      playerCount: 0
+      x: 50000
+      y: 10
+      z: 50000
+    - egg: egg2
+      playerCount: 3.0
+      x: 49000
+      y: 3
+      z: 49000 
+    - egg: egg3
+      playerCount: 4.0
+      x: 51000
+      y: 3
+      z: 51000 
+    - egg: egg4
+      playerCount: 6.0
+      x: 49000
+      y: 3
+      z: 51000
+    - egg: egg5
+      playerCount: 7.0
+      x: 51000
+      y: 3
+      z: 49000 
+
+
+  Wreaks:
+    - wreak: wreak${_index}
+      _from: 1
+      _to: 8
+
+  Anomalies:
+    - anomaly: anomaly${_index}
+      _from: 1
+      _to: 8
+
+  # Nested Ranges??
+  EggsAndShips:
+    _outer: Eggs
+    _inner: AllShips
+    

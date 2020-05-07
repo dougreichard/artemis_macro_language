@@ -1,0 +1,18 @@
+imports:
+  - './TheArena-ranges'
+  - './checkin-button-prototypes'
+
+events:
+  # Create multiple events using the range
+  - _prototype: CheckinButton
+    _range: AllShips
+    
+  # Check in Button Refresh
+  - _prototype: CheckinButtonRefresh
+    _range: AllShips
+  
+  - _prototype: PressPlay
+    _range: AllShips
+  
+  - _prototype: ResetWithPlayerCheckedIn
+    _range: AllShips
