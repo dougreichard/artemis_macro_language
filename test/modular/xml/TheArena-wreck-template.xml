@@ -1,0 +1,37 @@
+<mission_data version="1.0">
+  <range name="Wrecks">
+    <item wreck="Wreck[1]" />
+    <item wreck="Wreck[2]" />
+    <item wreck="Wreck[3]" />
+    <item wreck="Wreck[4]" />
+    <item wreck="Wreck[5]" />
+    <item wreck="Wreck[6]" />
+    <item wreck="Wreck[7]" />
+    <item wreck="Wreck[8]" />
+  </range>
+
+  <start>
+    <repeat range="Wrecks">
+      <template required="wreck">
+        <set_variable name="${wreck}" value="1.0"/>
+      </template>
+    </repeat>
+    <set_variable name="Respawn_Wreck_Time" value="50.0"/>
+  </start>
+
+  <repeat range="Wrecks">
+      <event name="${wreck} Destroyed">
+        <if_not_exists name="${wreck}"/>
+        <if_variable name="${wreck}" comparator="EQUALS" value="1.0"/>
+        <set_timer name="${wreck}" seconds="Respawn_Wreck_Time"/>
+        <set_variable name="${wreck}" value="2.0"/>
+      </event>
+      <event name="${wreck} Respawn">
+        <if_variable name="${wreck}" comparator="EQUALS" value="2.0"/>
+        <if_timer_finished name="${wreck}"/>
+        <create type="monster" monsterType="8" x="48000.0" y="10.0" z="48000.0" name="${wreck}"/>
+        <set_variable name="${wreck}" value="1.0"/>
+        <add_ai type="RELEASE_PIRANHAS" value1="0" value2="5000" value3="8" value4="1" name="${wreck}"/>
+      </event>
+  </repeat>
+</mission_data>

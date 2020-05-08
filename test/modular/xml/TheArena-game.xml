@@ -1,6 +1,5 @@
 <mission_data version="1.0">
   <start>
-
     <set_variable name="Game_Timer" value="30.0"/>
     <set_timer name="Game_Timer" seconds="71"/>
     <set_variable name="Spawn_Piranhas" value="1.0"/>
@@ -8,8 +7,8 @@
 
     <set_variable name="Scoring_Allowed" value="1.0"/>
     <set_variable name="Number_of_Players" value="0.0"/>
-     <set_timer name="start_mission_timer_1" seconds="10"/>
-      <big_message title="The Arena" subtitle1="by Paul Rockwell"/>
+    <set_timer name="start_mission_timer_1" seconds="10"/>
+    <big_message title="The Arena" subtitle1="by Paul Rockwell"/>
 
   </start>
   <event name="Game Timer" id_arme="e4d84bc7-0069-46de-85cc-e468b5292939">
