@@ -1,0 +1,13 @@
+<mission_data version="1.0">
+    <start>
+        <create type="player" player_slot="0" x="50000.0" y="10.0" z="95000.0" name="Artemis" sideValue="10" raceKeys="Pirate" hullKeys="Strongbow" warp="no"/>
+        <create type="player" player_slot="1" x="95000.0" y="10.0" z="5000.0" name="Intrepid" sideValue="11" raceKeys="Pirate" hullKeys="Strongbow" warp="no"/>
+        <create type="player" player_slot="2" x="95000.0" y="10.0" z="95000.0" name="Aegis" sideValue="4" raceKeys="Pirate" hullKeys="Strongbow" warp="no"/>
+        <create type="player" player_slot="3" x="5000.0" y="10.0" z="5000.0" name="Horatio" sideValue="5" raceKeys="Pirate" hullKeys="Strongbow" warp="no"/>
+        <create type="player" player_slot="4" x="5000.0" y="10.0" z="95000.0" name="Excalibur" sideValue="6" raceKeys="Pirate" hullKeys="Strongbow" warp="no"/>
+        <create type="player" player_slot="5" x="50000.0" y="10.0" z="5000.0" name="Hera" sideValue="7" raceKeys="Pirate" hullKeys="Strongbow" warp="no"/>
+        <create type="player" player_slot="6" x="5000.0" y="10.0" z="50000.0" name="Ceres" sideValue="8" raceKeys="Pirate" hullKeys="Strongbow" warp="no"/>
+        <create type="player" player_slot="7" x="95000.0" y="10.0" z="50000.0" name="Diana" sideValue="9" raceKeys="Pirate" hullKeys="Strongbow" warp="no"/>
+
+    </start>
+</mission_data>

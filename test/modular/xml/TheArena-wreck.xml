@@ -1,0 +1,119 @@
+<mission_data version="1.0">
+    <start>
+     <set_variable name="Wreck_1" value="1.0"/>
+    <set_variable name="Wreck_2" value="1.0"/>
+    <set_variable name="Wreck_3" value="1.0"/>
+    <set_variable name="Wreck_4" value="1.0"/>
+    <set_variable name="Wreck_5" value="1.0"/>
+    <set_variable name="Wreck_6" value="1.0"/>
+    <set_variable name="Wreck_7" value="1.0"/>
+    <set_variable name="Wreck_8" value="1.0"/>
+        <set_variable name="Respawn_Wreck_Time" value="50.0"/>
+
+   
+    </start>
+  <event name="Wreck 1 Destroyed" id_arme="1b5f29f6-ebef-443e-be81-858a5f334ae3">
+    <if_not_exists name="Wreck 1"/>
+    <if_variable name="Wreck_1" comparator="EQUALS" value="1.0"/>
+    <set_timer name="Wreck_1" seconds="Respawn_Wreck_Time"/>
+    <set_variable name="Wreck_1" value="2.0"/>
+  </event>
+  <event name="Wreck 1 Respawn" id_arme="09088f65-2f1c-43bc-9f93-e14249c29529">
+    <if_variable name="Wreck_1" comparator="EQUALS" value="2.0"/>
+    <if_timer_finished name="Wreck_1"/>
+    <create type="monster" monsterType="8" x="48000.0" y="10.0" z="48000.0" name="Wreck 1"/>
+    <set_variable name="Wreck_1" value="1.0"/>
+    <add_ai type="RELEASE_PIRANHAS" value1="0" value2="5000" value3="8" value4="1" name="Wreck 1"/>
+  </event>
+  <event name="Wreck 2 Destroyed" id_arme="8e527e44-3fdc-48e2-a913-59864d9dc2df">
+    <if_not_exists name="Wreck 2"/>
+    <if_variable name="Wreck_2" comparator="EQUALS" value="1.0"/>
+    <set_timer name="Wreck_2" seconds="Respawn_Wreck_Time"/>
+    <set_variable name="Wreck_2" value="2.0"/>
+  </event>
+  <event name="Wreck 2 Respawn" id_arme="8b1097f0-51ba-49a5-bdf3-6ba2a537336d">
+    <if_variable name="Wreck_2" comparator="EQUALS" value="2.0"/>
+    <if_timer_finished name="Wreck_2"/>
+    <create type="monster" monsterType="8" x="52000.0" y="10.0" z="52000.0" name="Wreck 2"/>
+    <set_variable name="Wreck_2" value="1.0"/>
+    <add_ai type="RELEASE_PIRANHAS" value1="0" value2="5000" value3="8" value4="1" name="Wreck 2"/>
+  </event>
+  <event name="Wreck 3 Destroyed" id_arme="0d735179-608d-4faa-9586-04e1e537ab4e">
+    <if_not_exists name="Wreck 3"/>
+    <if_variable name="Wreck_3" comparator="EQUALS" value="1.0"/>
+    <set_timer name="Wreck_3" seconds="Respawn_Wreck_Time"/>
+    <set_variable name="Wreck_3" value="2.0"/>
+  </event>
+  <event name="Wreck 3 Respawn" id_arme="2a8aa937-e2a8-490c-ac71-46acdd606be0">
+    <if_variable name="Wreck_3" comparator="EQUALS" value="2.0"/>
+    <if_timer_finished name="Wreck_3"/>
+    <create type="monster" monsterType="8" x="52000.0" y="10.0" z="48000.0" name="Wreck 3"/>
+    <set_variable name="Wreck_3" value="1.0"/>
+    <add_ai type="RELEASE_PIRANHAS" value1="0" value2="5000" value3="8" value4="1" name="Wreck 3"/>
+  </event>
+  <event name="Wreck 4 Destroyed" id_arme="4ad61cfe-7b82-4b74-bd2f-4883c09b3cd6">
+    <if_not_exists name="Wreck 4"/>
+    <if_variable name="Wreck_4" comparator="EQUALS" value="1.0"/>
+    <set_timer name="Wreck_4" seconds="Respawn_Wreck_Time"/>
+    <set_variable name="Wreck_4" value="2.0"/>
+  </event>
+  <event name="Wreck 4 Respawn" id_arme="f3cfdd29-aa01-4744-b91f-c61a65a24f31">
+    <if_variable name="Wreck_4" comparator="EQUALS" value="2.0"/>
+    <if_timer_finished name="Wreck_4"/>
+    <create type="monster" monsterType="8" x="48000.0" y="10.0" z="52000.0" name="Wreck 4"/>
+    <set_variable name="Wreck_4" value="1.0"/>
+    <add_ai type="RELEASE_PIRANHAS" value1="0" value2="5000" value3="8" value4="1" name="Wreck 4"/>
+  </event>
+  <event name="Wreck 5 Destroyed" id_arme="33f38883-452d-44c0-990e-488c7da1f0c6">
+    <if_not_exists name="Wreck 5"/>
+    <if_variable name="Wreck_5" comparator="EQUALS" value="1.0"/>
+    <set_timer name="Wreck_5" seconds="Respawn_Wreck_Time"/>
+    <set_variable name="Wreck_5" value="2.0"/>
+  </event>
+  <event name="Wreck 5 Respawn" id_arme="04395168-5f27-413e-8ac6-4defe87d9e3a">
+    <if_variable name="Wreck_5" comparator="EQUALS" value="2.0"/>
+    <if_timer_finished name="Wreck_5"/>
+    <create type="monster" monsterType="8" x="48000.0" y="10.0" z="50000.0" name="Wreck 5"/>
+    <set_variable name="Wreck_5" value="1.0"/>
+    <add_ai type="RELEASE_PIRANHAS" value1="0" value2="5000" value3="8" value4="1" name="Wreck 5"/>
+  </event>
+  <event name="Wreck 6 Destroyed" id_arme="3a0a7941-ad60-4597-8c7d-3a6493857476">
+    <if_not_exists name="Wreck 6"/>
+    <if_variable name="Wreck_6" comparator="EQUALS" value="1.0"/>
+    <set_timer name="Wreck_6" seconds="Respawn_Wreck_Time"/>
+    <set_variable name="Wreck_6" value="2.0"/>
+    <add_ai type="RELEASE_PIRANHAS" value1="0" value2="5000" value3="8" value4="1" name="Wreck 6"/>
+  </event>
+  <event name="Wreck 6 Respawn" id_arme="5eab045f-ee52-4ea5-8be7-044449e09556">
+    <if_variable name="Wreck_6" comparator="EQUALS" value="2.0"/>
+    <if_timer_finished name="Wreck_6"/>
+    <create type="monster" monsterType="8" x="52000.0" y="10.0" z="50000.0" name="Wreck 6"/>
+    <set_variable name="Wreck_6" value="1.0"/>
+  </event>
+  <event name="Wreck 7 Destroyed" id_arme="8ff04f61-086a-4960-85ef-a823a52ea910">
+    <if_not_exists name="Wreck 7"/>
+    <if_variable name="Wreck_7" comparator="EQUALS" value="1.0"/>
+    <set_timer name="Wreck_7" seconds="Respawn_Wreck_Time"/>
+    <set_variable name="Wreck_7" value="2.0"/>
+  </event>
+  <event name="Wreck 7 Respawn" id_arme="7436e90b-96c3-475c-9d73-6331a35cf2d6">
+    <if_variable name="Wreck_7" comparator="EQUALS" value="2.0"/>
+    <if_timer_finished name="Wreck_7"/>
+    <create type="monster" monsterType="8" x="50000.0" y="10.0" z="52000.0" name="Wreck 7"/>
+    <set_variable name="Wreck_7" value="1.0"/>
+    <add_ai type="RELEASE_PIRANHAS" value1="0" value2="5000" value3="8" value4="1" name="Wreck 7"/>
+  </event>
+  <event name="Wreck 8 Destroyed" id_arme="c8f42bfd-244c-414c-a19a-6af92dc4b132">
+    <if_not_exists name="Wreck 8"/>
+    <if_variable name="Wreck_8" comparator="EQUALS" value="1.0"/>
+    <set_timer name="Wreck_8" seconds="Respawn_Wreck_Time"/>
+    <set_variable name="Wreck_8" value="2.0"/>
+  </event>
+  <event name="Wreck 8 Respawn" id_arme="99d8ddbc-06c8-4415-a1c7-b038e96df811">
+    <if_variable name="Wreck_8" comparator="EQUALS" value="2.0"/>
+    <if_timer_finished name="Wreck_8"/>
+    <create type="monster" monsterType="8" x="50000.0" y="10.0" z="48000.0" name="Wreck 8"/>
+    <set_variable name="Wreck_8" value="1.0"/>
+    <add_ai type="RELEASE_PIRANHAS" value1="0" value2="5000" value3="8" value4="1" name="Wreck 7"/>
+  </event>
+</mission_data>

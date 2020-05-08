@@ -1,23 +1,51 @@
 const { interpolate } = require('./template-string.js')
 const { XML_TEMPLATES } = require('./xml-templates.js')
 
+const needs_end_tag = {
+  'mission': true,
+  'event': true,
+  'start': true
+}
+const isText = {
+  'incoming_comms_text': true,
+  'mission_description': true
+}
+
 class XmlElement {
-  constructor(template, values) {
+  constructor(tag, attrib) {
     this.begin = ''
 
-    this.expand(template, values)
+    this.expand(tag, attrib)
     this.children = []
   }
-  expand(template, values) {
-    let xml = XML_TEMPLATES[template]
-    if (!xml) return
-
-    if (xml.begin) {
-      this.begin = interpolate(xml.begin, values)
+  escapeText(s) {
+    // Should help avoid bad text 
+    return s;
+  }
+  // Will prepend space
+  expandAttrib(attrib, skips) {
+    if (!attrib) {
+      return ''
     }
-    if (xml.end) {
-      this.end = interpolate(xml.end, values)
+    let kv = Object.entries(attrib)
+    let ret=''
+    for (let i=0,l=kv.length;i<l;i++) {
+        ret += ` ${kv[i][0]}="${kv[i][1]}"`
     }
+    return ret
+  }
+  expand(tag, attrib) {
+    if (!tag) return;
+    if (attrib && attrib.text) {
+      let text = this.escapeText(attrib.text)
+      this.begin = `<${tag}${this.expandAttrib(attrib, {text:true})}>${text}</${tag}>`
+    } else  if (needs_end_tag[tag]) {
+      this.begin = `<${tag}${this.expandAttrib(attrib)}>`
+      this.end = `</${tag}>`
+    } else {
+      this.begin = `<${tag}${this.expandAttrib(attrib)}/>`
+    }
+  
     return this
   }
   close() {
@@ -40,7 +68,7 @@ class XmlElement {
       // Error      
     }
      // Allow for default single argument
-     if (values.constructor === String) {
+     if (values && values.constructor === String) {
       values = {name: values}
     }
     let child = new XmlElement(template, values)

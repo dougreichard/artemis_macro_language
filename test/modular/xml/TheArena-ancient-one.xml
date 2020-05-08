@@ -1,0 +1,18 @@
+<mission_data version="1.0">
+<start>
+    <set_variable name="The_Ancient_One" value="1.0"/>
+</start>
+
+<event name="The Ancient One Destroyed">
+    <if_not_exists name="The Ancient One"/>
+    <if_variable name="The_Ancient_One" comparator="EQUALS" value="1.0"/>
+    <set_timer name="The_Ancient_One" seconds="300"/>
+    <set_variable name="The_Ancient_One" value="2.0"/>
+  </event>
+  <event name="The Ancient One Respawn">
+    <if_variable name="The_Ancient_One" comparator="EQUALS" value="2.0"/>
+    <if_timer_finished name="The_Ancient_One"/>
+    <create type="monster" monsterType="5" age="3" x="50000.0" y="-10.0" z="50000.0" name="The Ancient One"/>
+    <set_variable name="The_Ancient_One" value="1.0"/>
+  </event>
+</mission_data>

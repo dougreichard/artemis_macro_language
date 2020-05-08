@@ -21,7 +21,8 @@ function getFragmentType(name) {
     let calls = {
         variables: 'addVariables',
         events: 'addEvents',
-        event_prototypes: 'testEventPrototypes'
+        event_prototypes: 'testEventPrototypes',
+        imports: 'testImports'
     }
     var s = name.split('-')
     return {type:s[0], call: calls[s[0]]}
@@ -29,14 +30,14 @@ function getFragmentType(name) {
 
 async function testFileFragment(name) {
     it(name, async () => {
-        let yaml = await fs.readFile(path.resolve(__dirname, 'fragments', name + '.yaml'), 'utf-8')
+        //let yaml = await fs.readFile(path.resolve(__dirname, 'fragments', name + '.yaml'), 'utf-8')
         let expected = await fs.readFile(path.resolve(__dirname, 'fragments', name + '.xml'), 'utf-8')
 
-        let expanded = YamlModule.fromString(yaml)
+        let expanded = await YamlModule.fromFile(path.resolve(__dirname, 'fragments', name + '.yaml'))
         let {type, call} = getFragmentType(name)
         expect(expanded.model[type]).to.exist;
         let xml = new XmlElement()
-        expanded[call](xml, expanded.model[type])
+        await expanded[call](xml, expanded.model[type])
         xml.close()
         expect(xml.begin).to.equal(expected)
     })

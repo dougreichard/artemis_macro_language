@@ -112,65 +112,67 @@ start:
       raceKeys: Arvonian
       hullKeys: Command Base
       sideValue: 9
-  nebulas:
-    - count: 60 
-      startX: 50000.0
-      startY: 100.0
-      startZ: 50000.0
-      radius: 25000
-      randomRange: 4000
-      randomSeed: 15
-    - count: 60 
-      startX: 50000.0
-      startY: -100.0
-      startZ: 50000.0
-      radius: 30000
-      randomRange: 4000
-      randomSeed: 20
-    - count: 60 
-      startX: 50000.0
-      startY: 0.0
-      startZ: 50000.0
-      radius: 40000
-      randomRange: 4000
-      randomSeed: 35
-    - count: 60 
-      startX: 50000.0
-      startY: 0.0
-      startZ: 50000.0
-      radius: 15000
-      randomRange: 4000
-      randomSeed: 40
-    - count: 60 
-      startX: 50000.0
-      startY: 0.0
-      startZ: 50000.0
-      radius: 50000
-      randomRange: 4000
-      randomSeed: 55
+      
+  terrain:
+    nebulas:
+      - count: 60 
+        startX: 50000.0
+        startY: 100.0
+        startZ: 50000.0
+        radius: 25000
+        randomRange: 4000
+        randomSeed: 15
+      - count: 60 
+        startX: 50000.0
+        startY: -100.0
+        startZ: 50000.0
+        radius: 30000
+        randomRange: 4000
+        randomSeed: 20
+      - count: 60 
+        startX: 50000.0
+        startY: 0.0
+        startZ: 50000.0
+        radius: 40000
+        randomRange: 4000
+        randomSeed: 35
+      - count: 60 
+        startX: 50000.0
+        startY: 0.0
+        startZ: 50000.0
+        radius: 15000
+        randomRange: 4000
+        randomSeed: 40
+      - count: 60 
+        startX: 50000.0
+        startY: 0.0
+        startZ: 50000.0
+        radius: 50000
+        randomRange: 4000
+        randomSeed: 55
 
-  asteroids:
-    - count: 75 
-      startX: 50000.0
-      startY: 0.0
-      startZ: 50000.0
-      radius: 26000
-      randomRange: 4000
-      randomSeed: 30
-    - count: 75 
-      startX: 50000.0
-      startY: 0.0
-      startZ: 50000.0
-      radius: 36000
-      randomRange: 4000
-      randomSeed: 25
-    - count: 30 
-      startX: 50000.0
-      startY: 0.0
-      startZ: 50000.0
-      radius: 7000
-      randomRange: 1000
-      randomSeed: 21
+    asteroids:
+      - count: 75 
+        startX: 50000.0
+        startY: 0.0
+        startZ: 50000.0
+        radius: 26000
+        randomRange: 4000
+        randomSeed: 30
+      - count: 75 
+        startX: 50000.0
+        startY: 0.0
+        startZ: 50000.0
+        radius: 36000
+        randomRange: 4000
+        randomSeed: 25
+      - count: 30 
+        startX: 50000.0
+        startY: 0.0
+        startZ: 50000.0
+        radius: 7000
+        randomRange: 1000
+        randomSeed: 21
 
   genericMesh:
     # This is the Egg

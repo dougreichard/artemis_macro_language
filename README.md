@@ -6,6 +6,7 @@ An experiment in creating a pre-processor/macro language for Artemis Spaceship b
 
 The language leverage yaml for syntax but build beyond that semantically
 
+http://artemiswiki.pbworks.com/w/page/51088806/Mission%20Scripting
 
 - Modular - reuse and import content
 - Allows for, structures and arrays

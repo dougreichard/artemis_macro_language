@@ -36,7 +36,29 @@
             "${workspaceFolder}/test/expand-fragment.spec.js"
         ],
         "env": {
-            "fragment": "event_prototypes-simple-fragment"
+            "fragment": "imports-nested-fragment"
+        },
+        "internalConsoleOptions": "openOnSessionStart",
+        "skipFiles": [
+            "<node_internals>/**"
+        ]
+    },
+    ,
+    {
+        "type": "node",
+        "request": "launch",
+        "name": "Single Module Test",
+        "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+        "args": [
+            "-u",
+            "bdd",
+            "--timeout",
+            "999999",
+            "--colors",
+            "${workspaceFolder}/test/expand-modular.spec.js"
+        ],
+        "env": {
+            "xxxfragment": "imports-nested-fragment"
         },
         "internalConsoleOptions": "openOnSessionStart",
         "skipFiles": [

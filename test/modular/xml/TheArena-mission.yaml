@@ -1,0 +1,29 @@
+version: 1.0
+# For XML with no track dependencies
+# order of import could be important
+# e.g. Creating and object before it is used in a set Relative Position
+# or does the game account for that?
+imports:
+  - 'TheArena-terrain.xml'
+  - 'TheArena-ancient-one.xml'
+  - 'TheArena-anomalies.xml'
+  - 'TheArena-checkin-buttons.xml'
+  - 'TheArena-declare-winner.xml'
+  - 'TheArena-drones.xml'
+  - 'TheArena-game.xml'
+  - 'TheArena-hacking.xml'
+  - 'TheArena-penalties.xml'
+  - 'TheArena-players.xml'
+  - 'TheArena-ships.xml'
+  - 'TheArena-stations.xml'
+  - 'TheArena-wreck.xml'
+  
+mission:
+  name: MISS_TheArena
+  # Example multiline string
+  description: >
+    Multiplayer mission with Jump drive ships. 
+    Capture the most eggs by towing them to your station. 
+    Eggs can only be towed at impulse. 
+    Comms Button at start of mission must be pressed to join game. 
+
