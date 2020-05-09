@@ -8,7 +8,7 @@ let path = require('path')
 function loopTest() {
     // Mocha is shit for async with iteration
     // so I have to use sync version of readir
-    let files =  readdirSync(path.resolve(__dirname, 'fragments'), { withFileTypes: true })
+    let files =  readdirSync(path.resolve(__dirname, 'fragments', 'yaml'), { withFileTypes: true })
     for (let file of files) {
         if (path.extname(file.name) == '.yaml') {
             testFileFragment(path.basename(file.name, ".yaml"))

@@ -33,7 +33,7 @@
             "--timeout",
             "999999",
             "--colors",
-            "${workspaceFolder}/test/expand-fragment.spec.js"
+            "${workspaceFolder}/test/imports-xml.spec.js"
         ],
         "env": {
             "fragment": "imports-nested-fragment"
@@ -43,7 +43,6 @@
             "<node_internals>/**"
         ]
     },
-    ,
     {
         "type": "node",
         "request": "launch",
@@ -72,7 +71,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\index.js"
+            "program": "${workspaceFolder}\\xml-module.js"
         }
     ]
 }
