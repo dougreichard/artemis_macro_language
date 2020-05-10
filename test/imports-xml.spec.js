@@ -3,20 +3,19 @@ const expect = require('chai').expect
 let fs = require('fs').promises
 let readdirSync = require('fs').readdirSync
 let path = require('path')
+const { MissionParser } = require('../mission-parser.js')
 
 
-function findFirstDiffPos(a, b)
-{
-   var shorterLength = Math.min(a.length, b.length);
+function findFirstDiffPos(a, b) {
+    var shorterLength = Math.min(a.length, b.length);
 
-   for (var i = 0; i < shorterLength; i++)
-   {
-       if (a[i] !== b[i]) return i;
-   }
+    for (var i = 0; i < shorterLength; i++) {
+        if (a[i] !== b[i]) return i;
+    }
 
-   if (a.length !== b.length) return shorterLength;
+    if (a.length !== b.length) return shorterLength;
 
-   return -1;
+    return -1;
 }
 
 function loopTest() {
@@ -25,7 +24,7 @@ function loopTest() {
     let files = readdirSync(path.resolve(__dirname, 'fragments'), { withFileTypes: true })
     for (let file of files) {
         if (path.basename(file.endsWith("-fragment"))) {
-            let expected = path.basename(file.name.subst(-"-fragment".length))+"-expected"
+            let expected = path.basename(file.name.subst(-"-fragment".length)) + "-expected"
             testFileFragment(path.basename(expected, ".xml"))
         }
     }
@@ -58,7 +57,7 @@ async function testFileFragment(name) {
     })
 }
 
-describe('expand-yaml', () => {
+describe('Mission File', () => {
     describe('Fragment tests', () => {
         // allow the debugging of a specific fragment
         // if (process.env.fragment) {
@@ -68,17 +67,17 @@ describe('expand-yaml', () => {
         // }
         it("Test Tree Navigation", async () => {
             let mission = await MissionFile.fromFile(path.resolve('test', 'fragments', 'xml', 'import-simple-fragment.xml'))
-            let mission_data = mission.findFirstChild(mission.model,"mission_data")
+            let mission_data = mission.findFirstChild(mission.model, "mission_data")
             expect(mission_data).to.exist
-            
-            let imports = mission.findFirstChild(mission_data,"imports")
+
+            let imports = mission.findFirstChild(mission_data, "imports")
             expect(imports).to.exist
 
-            let {element, root} = mission.findPath(mission.model,["mission_data","imports"])
+            let { element, root } = mission.findPath(mission.model, ["mission_data", "imports"])
             expect(imports).to.equal(element)
             expect(mission_data).to.equal(root.mission_data)
 
-            let removed  = mission.removeFirstChild(mission_data,"imports")
+            let removed = mission.removeFirstChild(mission_data, "imports")
             expect(imports).to.equal(removed)
 
             let gone = mission.findFirstChild(mission_data, "imports")
@@ -94,7 +93,7 @@ describe('expand-yaml', () => {
             let xml = mission.toXML()
 
             await fs.writeFile(path.resolve('test', 'fragments', 'xml', 'import-simple-output.xml'), xml, "utf8")
- 
+
         })
         it("Test The Arena merge", async () => {
             let mission = await MissionFile.fromFile(path.resolve('test', 'modular', 'xml', 'TheArena-mission.xml'))
@@ -102,8 +101,22 @@ describe('expand-yaml', () => {
             let xml = mission.toXML()
 
             await fs.writeFile(path.resolve('test', 'modular', 'xml', 'MISS_TheArena.xml'), xml, "utf8")
- 
+
         })
+        it ("Covert xml to miss", async () => {
+            let files = readdirSync(path.resolve(__dirname, 'modular', 'xml'), { withFileTypes: true })
+            for (let file of files) {
+                if (path.extname(file.name) == '.xml') {
+                    let outFile = path.basename(file.name) + ".miss"
+                    let xmlFile = path.resolve(__dirname, 'modular', 'xml', file.name)
+                    let mission = await MissionParser.fromFile(xmlFile)
+                    let output = mission.toMiss()
+
+                    await fs.writeFile(path.resolve('test', 'modular', 'miss', outFile), output, "utf8")
+                }
+            }
+        })
+      
     });
 
 })

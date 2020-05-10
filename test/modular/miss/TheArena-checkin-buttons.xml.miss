@@ -1,0 +1,297 @@
+mission_data(version="1.0")
+    start
+        set_variable(name="Artemis_here" value="0")
+        set_variable(name="Intrepid_here" value="0")
+        set_variable(name="Aegis_here" value="0")
+        set_variable(name="Horatio_here" value="0")
+        set_variable(name="Excalibur_here" value="0")
+        set_variable(name="Hera_here" value="0")
+        set_variable(name="Ceres_here" value="0")
+        set_variable(name="Diana_here" value="0")
+        set_variable(name="Player_Check" value="1.0")
+        set_variable(name="Artemis_Checkin_Button" value="1.0")
+        set_timer(name="Artemis_Checkin_Button" seconds="5")
+        set_variable(name="Intrepid_Checkin_Button" value="1.0")
+        set_timer(name="Intrepid_Checkin_Button" seconds="5")
+        set_variable(name="Aegis_Checkin_Button" value="1.0")
+        set_timer(name="Aegis_Checkin_Button" seconds="5")
+        set_variable(name="Horatio_Checkin_Button" value="1.0")
+        set_timer(name="Horatio_Checkin_Button" seconds="5")
+        set_variable(name="Excalibur_Checkin_Button" value="1.0")
+        set_timer(name="Excalibur_Checkin_Button" seconds="5")
+        set_variable(name="Hera_Checkin_Button" value="1.0")
+        set_timer(name="Hera_Checkin_Button" seconds="5")
+        set_variable(name="Ceres_Checkin_Button" value="1.0")
+        set_timer(name="Ceres_Checkin_Button" seconds="5")
+        set_variable(name="Diana_Checkin_Button" value="1.0")
+        set_timer(name="Diana_Checkin_Button" seconds="5")
+        set_timer(name="Player_Check" seconds="60")
+
+    event(name="Artemis Checkin Button" id_arme="7fa69f90-b3ce-46ed-bcab-730b3f841378")
+        if_variable(name="Artemis_Checkin_Button" comparator="EQUALS" value="1.0")
+        if_variable(name="Artemis_here" comparator="NOT" value="1.0")
+        set_variable(name="Artemis_Checkin_Button" value="2.0")
+        set_comms_button(text="Artemis Press to Join Game" sideValue="10")
+        set_timer(name="Artemis_Checkin_Button" seconds="10")
+
+    event(name="Artemis Checkin Button Refresh" id_arme="d18f7723-9209-4312-ace7-7de3dbc69cbd")
+        if_variable(name="Artemis_Checkin_Button" comparator="EQUALS" value="2.0")
+        if_timer_finished(name="Artemis_Checkin_Button")
+        clear_comms_button(text="Artemis Press to Join Game")
+        set_variable(name="Artemis_Checkin_Button" value="1.0")
+
+    event(name="Intrepid Checkin Button" id_arme="7fa69f90-b3ce-46ed-bcab-730b3f841378")
+        if_variable(name="Intrepid_Checkin_Button" comparator="EQUALS" value="1.0")
+        if_variable(name="Intrepid_here" comparator="NOT" value="1.0")
+        set_variable(name="Intrepid_Checkin_Button" value="2.0")
+        set_comms_button(text="Intrepid Press to Join Game" sideValue="11")
+        set_timer(name="Intrepid_Checkin_Button" seconds="10")
+
+    event(name="Intrepid Checkin Button Refresh" id_arme="d18f7723-9209-4312-ace7-7de3dbc69cbd")
+        if_variable(name="Intrepid_Checkin_Button" comparator="EQUALS" value="2.0")
+        if_timer_finished(name="Intrepid_Checkin_Button")
+        clear_comms_button(text="Intrepid Press to Join Game")
+        set_variable(name="Intrepid_Checkin_Button" value="1.0")
+
+    event(name="Aegis Checkin Button" id_arme="7fa69f90-b3ce-46ed-bcab-730b3f841378")
+        if_variable(name="Aegis_Checkin_Button" comparator="EQUALS" value="1.0")
+        if_variable(name="Aegis_here" comparator="NOT" value="1.0")
+        set_variable(name="Aegis_Checkin_Button" value="2.0")
+        set_comms_button(text="Aegis Press to Join Game" sideValue="4")
+        set_timer(name="Aegis_Checkin_Button" seconds="10")
+
+    event(name="Aegis Checkin Button Refresh" id_arme="d18f7723-9209-4312-ace7-7de3dbc69cbd")
+        if_variable(name="Aegis_Checkin_Button" comparator="EQUALS" value="2.0")
+        if_timer_finished(name="Aegis_Checkin_Button")
+        clear_comms_button(text="Aegis Press to Join Game")
+        set_variable(name="Aegis_Checkin_Button" value="1.0")
+
+    event(name="Horatio Checkin Button" id_arme="7fa69f90-b3ce-46ed-bcab-730b3f841378")
+        if_variable(name="Horatio_Checkin_Button" comparator="EQUALS" value="1.0")
+        if_variable(name="Horatio_here" comparator="NOT" value="1.0")
+        set_variable(name="Horatio_Checkin_Button" value="2.0")
+        set_comms_button(text="Horatio Press to Join Game" sideValue="5")
+        set_timer(name="Horatio_Checkin_Button" seconds="10")
+
+    event(name="Horatio Checkin Button Refresh" id_arme="d18f7723-9209-4312-ace7-7de3dbc69cbd")
+        if_variable(name="Horatio_Checkin_Button" comparator="EQUALS" value="2.0")
+        if_timer_finished(name="Horatio_Checkin_Button")
+        clear_comms_button(text="Horatio Press to Join Game")
+        set_variable(name="Horatio_Checkin_Button" value="1.0")
+
+    event(name="Excalibur Checkin Button" id_arme="7fa69f90-b3ce-46ed-bcab-730b3f841378")
+        if_variable(name="Excalibur_Checkin_Button" comparator="EQUALS" value="1.0")
+        if_variable(name="Excalibur_here" comparator="NOT" value="1.0")
+        set_variable(name="Excalibur_Checkin_Button" value="2.0")
+        set_comms_button(text="Excalibur Press to Join Game" sideValue="6")
+        set_timer(name="Excalibur_Checkin_Button" seconds="10")
+
+    event(name="Excalibur Checkin Button Refresh" id_arme="d18f7723-9209-4312-ace7-7de3dbc69cbd")
+        if_variable(name="Excalibur_Checkin_Button" comparator="EQUALS" value="2.0")
+        if_timer_finished(name="Excalibur_Checkin_Button")
+        clear_comms_button(text="Excalibur Press to Join Game")
+        set_variable(name="Excalibur_Checkin_Button" value="1.0")
+
+    event(name="Hera Checkin Button" id_arme="7fa69f90-b3ce-46ed-bcab-730b3f841378")
+        if_variable(name="Hera_Checkin_Button" comparator="EQUALS" value="1.0")
+        if_variable(name="Hera_here" comparator="NOT" value="1.0")
+        set_variable(name="Hera_Checkin_Button" value="2.0")
+        set_comms_button(text="Hera Press to Join Game" sideValue="7")
+        set_timer(name="Hera_Checkin_Button" seconds="10")
+
+    event(name="Hera Checkin Button Refresh" id_arme="d18f7723-9209-4312-ace7-7de3dbc69cbd")
+        if_variable(name="Hera_Checkin_Button" comparator="EQUALS" value="2.0")
+        if_timer_finished(name="Hera_Checkin_Button")
+        clear_comms_button(text="Hera Press to Join Game")
+        set_variable(name="Hera_Checkin_Button" value="1.0")
+
+    event(name="Ceres Checkin Button" id_arme="7fa69f90-b3ce-46ed-bcab-730b3f841378")
+        if_variable(name="Ceres_Checkin_Button" comparator="EQUALS" value="1.0")
+        if_variable(name="Ceres_here" comparator="NOT" value="1.0")
+        set_variable(name="Ceres_Checkin_Button" value="2.0")
+        set_comms_button(text="Ceres Press to Join Game" sideValue="8")
+        set_timer(name="Ceres_Checkin_Button" seconds="10")
+
+    event(name="Ceres Checkin Button Refresh" id_arme="d18f7723-9209-4312-ace7-7de3dbc69cbd")
+        if_variable(name="Ceres_Checkin_Button" comparator="EQUALS" value="2.0")
+        if_timer_finished(name="Ceres_Checkin_Button")
+        clear_comms_button(text="Ceres Press to Join Game")
+        set_variable(name="Ceres_Checkin_Button" value="1.0")
+
+    event(name="Diana Checkin Button" id_arme="7fa69f90-b3ce-46ed-bcab-730b3f841378")
+        if_variable(name="Diana_Checkin_Button" comparator="EQUALS" value="1.0")
+        if_variable(name="Diana_here" comparator="NOT" value="1.0")
+        set_variable(name="Diana_Checkin_Button" value="2.0")
+        set_comms_button(text="Diana Press to Join Game" sideValue="9")
+        set_timer(name="Diana_Checkin_Button" seconds="10")
+
+    event(name="Diana Checkin Button Refresh" id_arme="d18f7723-9209-4312-ace7-7de3dbc69cbd")
+        if_variable(name="Diana_Checkin_Button" comparator="EQUALS" value="2.0")
+        if_timer_finished(name="Diana_Checkin_Button")
+        clear_comms_button(text="Diana Press to Join Game")
+        set_variable(name="Diana_Checkin_Button" value="1.0")
+
+    event(name="Artemis Press Play" id_arme="29844370-b203-4f93-9637-c332126069e5")
+        if_comms_button(text="Artemis Press to Join Game")
+        clear_comms_button(text="Artemis Press to Join Game")
+        set_variable(name="Artemis_here" value="1")
+        set_variable(name="Number_of_Players" value="Number_of_Players+1")
+        incoming_comms_text(from="CyberSecurity Suite IV" sideValue="10" type="FRIEND") Your anti-virus definitions are out of date. Attempting to update.... Update Failed! Could not connect to remote VAX server due to local sector interference. Without updated virus definition we will be susceptible to cyber-attacks. Emergency manual protocols enacted. I can warn of impending cyber-attack but you will have to manually remove them. Choosing which safeguard program to run from the comms console. 
+        incoming_comms_text(from="Armory" sideValue="10" type="FRIEND") We just got our hands on some new ordinance in the last raid called TAGS. Normally used for scientific research of local wildlife, but I can use their data uplink capability to hack into an enemy ship and deploy a virus. Fired the TAG like a torpedo, and once attached to a ship, choose a hacking program from the comms console. Be wary though I am sure others have figured this out and will try the same thing against us. 
+        incoming_comms_text(from="Tractor Control" sideValue="10" type="FRIEND") We have equipped our ship with a Tractor for towing the eggs back since they are too big for our Cargo Hold. Eggs can only be towed at Impulse though if you jump we will lose control of the egg. 
+        incoming_comms_text(from="Hanger Bay" sideValue="10" type="FRIEND") It's as dense as whale soup out there. Luckily, I have converted one of our shuttles to a Drone. You can launch it with the button on your comms console. With all the life-support and radiation shielding removed this drone can travel faster than normal shuttles. Use it to help survey and scout the area. 
+        incoming_comms_text(from="The Arena" sideValue="10" type="FRIEND") Welcome to the Arena. Collect the most Eggs to win! Eggs must be towed to your station to score. If you die you will respawn in |Respawn_Player_Time| seconds. If your station explodes it will respawn in |Respawn_Station_Time| seconds. You have |Game_Timer| minutes. Good luck! 
+
+    event(name="Intrepid Press Play" id_arme="c31dcf76-4ae6-4dc0-86d4-54ab1d77e141")
+        if_comms_button(text="Intrepid Press to Join Game")
+        clear_comms_button(text="Intrepid Press to Join Game")
+        set_variable(name="Intrepid_here" value="1")
+        set_variable(name="Number_of_Players" value="Number_of_Players+1")
+        incoming_comms_text(from="CyberSecurity Suite IV" sideValue="11" type="FRIEND") Your anti-virus definitions are out of date. Attempting to update.... Update Failed! Could not connect to remote VAX server due to local sector interference. Without updated virus definition we will be susceptible to cyber-attacks. Emergency manual protocols enacted. I can warn of impending cyber-attack but you will have to manually remove them. Choosing which safeguard program to run from the comms console. 
+        incoming_comms_text(from="Armory" sideValue="11" type="FRIEND") We just got our hands on some new ordinance in the last raid called TAGS. Normally used for scientific research of local wildlife, but I can use their data uplink capability to hack into an enemy ship and deploy a virus. Fired the TAG like a torpedo, and once attached to a ship, choose a hacking program from the comms console. Be wary though I am sure others have figured this out and will try the same thing against us. 
+        incoming_comms_text(from="Tractor Control" sideValue="11" type="FRIEND") We have equipped our ship with a Tractor for towing the eggs back since they are too big for our Cargo Hold. Eggs can only be towed at Impulse though if you jump we will lose control of the egg. 
+        incoming_comms_text(from="Hanger Bay" sideValue="11" type="FRIEND") It's as dense as whale soup out there. Luckily, I have converted one of our shuttles to a Drone. You can launch it with the button on your comms console. With all the life-support and radiation shielding removed this drone can travel faster than normal shuttles. Use it to help survey and scout the area. 
+        incoming_comms_text(from="The Arena" sideValue="11" type="FRIEND") Welcome to the Arena. Collect the most Eggs to win! Eggs must be towed to your station to score. If you die you will respawn in |Respawn_Player_Time| seconds. If your station explodes it will respawn in |Respawn_Station_Time| seconds. You have |Game_Timer| minutes. Good luck! 
+
+    event(name="Aegis Press Play" id_arme="0742e33c-ee04-4e63-b9ea-0300544bcb02")
+        if_comms_button(text="Aegis Press to Join Game")
+        clear_comms_button(text="Aegis Press to Join Game")
+        set_variable(name="Aegis_here" value="1")
+        set_variable(name="Number_of_Players" value="Number_of_Players+1")
+        incoming_comms_text(from="CyberSecurity Suite IV" sideValue="4" type="FRIEND") Your anti-virus definitions are out of date. Attempting to update.... Update Failed! Could not connect to remote VAX server due to local sector interference. Without updated virus definition we will be susceptible to cyber-attacks. Emergency manual protocols enacted. I can warn of impending cyber-attack but you will have to manually remove them. Choosing which safeguard program to run from the comms console. 
+        incoming_comms_text(from="Armory" sideValue="4" type="FRIEND") We just got our hands on some new ordinance in the last raid called TAGS. Normally used for scientific research of local wildlife, but I can use their data uplink capability to hack into an enemy ship and deploy a virus. Fired the TAG like a torpedo, and once attached to a ship, choose a hacking program from the comms console. Be wary though I am sure others have figured this out and will try the same thing against us. 
+        incoming_comms_text(from="Tractor Control" sideValue="4" type="FRIEND") We have equipped our ship with a Tractor for towing the eggs back since they are too big for our Cargo Hold. Eggs can only be towed at Impulse though if you jump we will lose control of the egg. 
+        incoming_comms_text(from="Hanger Bay" sideValue="4" type="FRIEND") It's as dense as whale soup out there. Luckily, I have converted one of our shuttles to a Drone. You can launch it with the button on your comms console. With all the life-support and radiation shielding removed this drone can travel faster than normal shuttles. Use it to help survey and scout the area. 
+        incoming_comms_text(from="The Arena" sideValue="4" type="FRIEND") Welcome to the Arena. Collect the most Eggs to win! Eggs must be towed to your station to score. If you die you will respawn in |Respawn_Player_Time| seconds. If your station explodes it will respawn in |Respawn_Station_Time| seconds. You have |Game_Timer| minutes. Good luck! 
+
+    event(name="Horatio Press Play" id_arme="33a99f95-543e-4bd3-8c92-7cdc5a3506d1")
+        if_comms_button(text="Horatio Press to Join Game")
+        clear_comms_button(text="Horatio Press to Join Game")
+        set_variable(name="Horatio_here" value="1")
+        set_variable(name="Number_of_Players" value="Number_of_Players+1")
+        incoming_comms_text(from="CyberSecurity Suite IV" sideValue="5" type="FRIEND") Your anti-virus definitions are out of date. Attempting to update.... Update Failed! Could not connect to remote VAX server due to local sector interference. Without updated virus definition we will be susceptible to cyber-attacks. Emergency manual protocols enacted. I can warn of impending cyber-attack but you will have to manually remove them. Choosing which safeguard program to run from the comms console. 
+        incoming_comms_text(from="Armory" sideValue="5" type="FRIEND") We just got our hands on some new ordinance in the last raid called TAGS. Normally used for scientific research of local wildlife, but I can use their data uplink capability to hack into an enemy ship and deploy a virus. Fired the TAG like a torpedo, and once attached to a ship, choose a hacking program from the comms console. Be wary though I am sure others have figured this out and will try the same thing against us. 
+        incoming_comms_text(from="Tractor Control" sideValue="5" type="FRIEND") We have equipped our ship with a Tractor for towing the eggs back since they are too big for our Cargo Hold. Eggs can only be towed at Impulse though if you jump we will lose control of the egg. 
+        incoming_comms_text(from="Hanger Bay" sideValue="5" type="FRIEND") It's as dense as whale soup out there. Luckily, I have converted one of our shuttles to a Drone. You can launch it with the button on your comms console. With all the life-support and radiation shielding removed this drone can travel faster than normal shuttles. Use it to help survey and scout the area. 
+        incoming_comms_text(from="The Arena" sideValue="5" type="FRIEND") Welcome to the Arena. Collect the most Eggs to win! Eggs must be towed to your station to score. If you die you will respawn in |Respawn_Player_Time| seconds. If your station explodes it will respawn in |Respawn_Station_Time| seconds. You have |Game_Timer| minutes. Good luck! 
+
+    event(name="Excalibur Press Play" id_arme="a15c9c08-9606-46bc-a949-15643b26e000")
+        if_comms_button(text="Excalibur Press to Join Game")
+        clear_comms_button(text="Excalibur Press to Join Game")
+        set_variable(name="Excalibur_here" value="1")
+        set_variable(name="Number_of_Players" value="Number_of_Players+1")
+        incoming_comms_text(from="CyberSecurity Suite IV" sideValue="6" type="FRIEND") Your anti-virus definitions are out of date. Attempting to update.... Update Failed! Could not connect to remote VAX server due to local sector interference. Without updated virus definition we will be susceptible to cyber-attacks. Emergency manual protocols enacted. I can warn of impending cyber-attack but you will have to manually remove them. Choosing which safeguard program to run from the comms console. 
+        incoming_comms_text(from="Armory" sideValue="6" type="FRIEND") We just got our hands on some new ordinance in the last raid called TAGS. Normally used for scientific research of local wildlife, but I can use their data uplink capability to hack into an enemy ship and deploy a virus. Fired the TAG like a torpedo, and once attached to a ship, choose a hacking program from the comms console. Be wary though I am sure others have figured this out and will try the same thing against us. 
+        incoming_comms_text(from="Tractor Control" sideValue="6" type="FRIEND") We have equipped our ship with a Tractor for towing the eggs back since they are too big for our Cargo Hold. Eggs can only be towed at Impulse though if you jump we will lose control of the egg. 
+        incoming_comms_text(from="Hanger Bay" sideValue="6" type="FRIEND") It's as dense as whale soup out there. Luckily, I have converted one of our shuttles to a Drone. You can launch it with the button on your comms console. With all the life-support and radiation shielding removed this drone can travel faster than normal shuttles. Use it to help survey and scout the area. 
+        incoming_comms_text(from="The Arena" sideValue="6" type="FRIEND") Welcome to the Arena. Collect the most Eggs to win! Eggs must be towed to your station to score. If you die you will respawn in |Respawn_Player_Time| seconds. If your station explodes it will respawn in |Respawn_Station_Time| seconds. You have |Game_Timer| minutes. Good luck! 
+
+    event(name="Hera Press Play" id_arme="62492ada-3424-4d83-8ebe-385a50269e67")
+        if_comms_button(text="Hera Press to Join Game")
+        clear_comms_button(text="Hera Press to Join Game")
+        set_variable(name="Hera_here" value="1")
+        set_variable(name="Number_of_Players" value="Number_of_Players+1")
+        incoming_comms_text(from="CyberSecurity Suite IV" sideValue="7" type="FRIEND") Your anti-virus definitions are out of date. Attempting to update.... Update Failed! Could not connect to remote VAX server due to local sector interference. Without updated virus definition we will be susceptible to cyber-attacks. Emergency manual protocols enacted. I can warn of impending cyber-attack but you will have to manually remove them. Choosing which safeguard program to run from the comms console. 
+        incoming_comms_text(from="Armory" sideValue="10" type="FRIEND") We just got our hands on some new ordinance in the last raid called TAGS. Normally used for scientific research of local wildlife, but I can use their data uplink capability to hack into an enemy ship and deploy a virus. Fired the TAG like a torpedo, and once attached to a ship, choose a hacking program from the comms console. Be wary though I am sure others have figured this out and will try the same thing against us. 
+        incoming_comms_text(from="Tractor Control" sideValue="7" type="FRIEND") We have equipped our ship with a Tractor for towing the eggs back since they are too big for our Cargo Hold. Eggs can only be towed at Impulse though if you jump we will lose control of the egg. 
+        incoming_comms_text(from="Hanger Bay" sideValue="7" type="FRIEND") It's as dense as whale soup out there. Luckily, I have converted one of our shuttles to a Drone. You can launch it with the button on your comms console. With all the life-support and radiation shielding removed this drone can travel faster than normal shuttles. Use it to help survey and scout the area. 
+        incoming_comms_text(from="The Arena" sideValue="7" type="FRIEND") Welcome to the Arena. Collect the most Eggs to win! Eggs must be towed to your station to score. If you die you will respawn in |Respawn_Player_Time| seconds. If your station explodes it will respawn in |Respawn_Station_Time| seconds. You have |Game_Timer| minutes. Good luck! 
+
+    event(name="Ceres Press Play" id_arme="4692124a-84ec-44c6-94e5-1bed972f50e6")
+        if_comms_button(text="Ceres Press to Join Game")
+        clear_comms_button(text="Ceres Press to Join Game")
+        set_variable(name="Ceres_here" value="1")
+        set_variable(name="Number_of_Players" value="Number_of_Players+1")
+        incoming_comms_text(from="CyberSecurity Suite IV" sideValue="8" type="FRIEND") Your anti-virus definitions are out of date. Attempting to update.... Update Failed! Could not connect to remote VAX server due to local sector interference. Without updated virus definition we will be susceptible to cyber-attacks. Emergency manual protocols enacted. I can warn of impending cyber-attack but you will have to manually remove them. Choosing which safeguard program to run from the comms console. 
+        incoming_comms_text(from="Armory" sideValue="8" type="FRIEND") We just got our hands on some new ordinance in the last raid called TAGS. Normally used for scientific research of local wildlife, but I can use their data uplink capability to hack into an enemy ship and deploy a virus. Fired the TAG like a torpedo, and once attached to a ship, choose a hacking program from the comms console. Be wary though I am sure others have figured this out and will try the same thing against us. 
+        incoming_comms_text(from="Tractor Control" sideValue="8" type="FRIEND") We have equipped our ship with a Tractor for towing the eggs back since they are too big for our Cargo Hold. Eggs can only be towed at Impulse though if you jump we will lose control of the egg. 
+        incoming_comms_text(from="Hanger Bay" sideValue="8" type="FRIEND") It's as dense as whale soup out there. Luckily, I have converted one of our shuttles to a Drone. You can launch it with the button on your comms console. With all the life-support and radiation shielding removed this drone can travel faster than normal shuttles. Use it to help survey and scout the area. 
+        incoming_comms_text(from="The Arena" sideValue="8" type="FRIEND") Welcome to the Arena. Collect the most Eggs to win! Eggs must be towed to your station to score. If you die you will respawn in |Respawn_Player_Time| seconds. If your station explodes it will respawn in |Respawn_Station_Time| seconds. You have |Game_Timer| minutes. Good luck! 
+
+    event(name="Diana Press Play" id_arme="6fa492be-8dd7-4d4f-b290-5e68a9f48d7f")
+        if_comms_button(text="Diana Press to Join Game")
+        clear_comms_button(text="Diana Press to Join Game")
+        set_variable(name="Diana_here" value="1")
+        set_variable(name="Number_of_Players" value="Number_of_Players+1")
+        incoming_comms_text(from="CyberSecurity Suite IV" sideValue="9" type="FRIEND") Your anti-virus definitions are out of date. Attempting to update.... Update Failed! Could not connect to remote VAX server due to local sector interference. Without updated virus definition we will be susceptible to cyber-attacks. Emergency manual protocols enacted. I can warn of impending cyber-attack but you will have to manually remove them. Choosing which safeguard program to run from the comms console. 
+        incoming_comms_text(from="Armory" sideValue="9" type="FRIEND") We just got our hands on some new ordinance in the last raid called TAGS. Normally used for scientific research of local wildlife, but I can use their data uplink capability to hack into an enemy ship and deploy a virus. Fired the TAG like a torpedo, and once attached to a ship, choose a hacking program from the comms console. Be wary though I am sure others have figured this out and will try the same thing against us. 
+        incoming_comms_text(from="Tractor Control" sideValue="9" type="FRIEND") We have equipped our ship with a Tractor for towing the eggs back since they are too big for our Cargo Hold. Eggs can only be towed at Impulse though if you jump we will lose control of the egg. 
+        incoming_comms_text(from="Hanger Bay" sideValue="9" type="FRIEND") It's as dense as whale soup out there. Luckily, I have converted one of our shuttles to a Drone. You can launch it with the button on your comms console. With all the life-support and radiation shielding removed this drone can travel faster than normal shuttles. Use it to help survey and scout the area. 
+        incoming_comms_text(from="The Arena" sideValue="9" type="FRIEND") Welcome to the Arena. Collect the most Eggs to win! Eggs must be towed to your station to score. If you die you will respawn in |Respawn_Player_Time| seconds. If your station explodes it will respawn in |Respawn_Station_Time| seconds. You have |Game_Timer| minutes. Good luck! 
+
+    event(name="Artemis Reset with Players Checked in" id_arme="ae0aed9b-8297-4acc-8a0f-2dceec330cb0")
+        if_timer_finished(name="Player_Check")
+        if_variable(name="Player_Check" comparator="EQUALS" value="1.0")
+        if_variable(name="Artemis_here" comparator="EQUALS" value="0.0")
+        if_exists(name="Artemis")
+        destroy(name="Artemis")
+        destroy(name="Artemis Station")
+
+    event(name="Intrepid Reset with Players Checked in" id_arme="aa455b4f-47f1-4a21-adb6-96576af5999d")
+        if_timer_finished(name="Player_Check")
+        if_variable(name="Player_Check" comparator="EQUALS" value="1.0")
+        if_variable(name="Intrepid_here" comparator="EQUALS" value="0.0")
+        if_exists(name="Intrepid")
+        destroy(name="Intrepid")
+        destroy(name="Intrepid Station")
+
+    event(name="Aegis Reset with Players Checked in" id_arme="aaa9fb27-56f6-4abd-9301-bc04b339f064")
+        if_timer_finished(name="Player_Check")
+        if_variable(name="Player_Check" comparator="EQUALS" value="1.0")
+        if_variable(name="Aegis_here" comparator="EQUALS" value="0.0")
+        if_exists(name="Aegis")
+        destroy(name="Aegis")
+        destroy(name="Aegis Station")
+
+    event(name="Horatio Reset with Players Checked in" id_arme="e115e21e-54fe-4fcf-89a6-a3f8fa9c1061")
+        if_timer_finished(name="Player_Check")
+        if_variable(name="Player_Check" comparator="EQUALS" value="1.0")
+        if_variable(name="Horatio_here" comparator="EQUALS" value="0.0")
+        if_exists(name="Horatio")
+        destroy(name="Horatio")
+        destroy(name="Horatio Station")
+
+    event(name="Excalibur Reset with Players Checked in" id_arme="e6797d60-a23c-46fb-963e-b95ef5260c19")
+        if_timer_finished(name="Player_Check")
+        if_variable(name="Player_Check" comparator="EQUALS" value="1.0")
+        if_variable(name="Excalibur_here" comparator="EQUALS" value="0.0")
+        if_exists(name="Excalibur")
+        destroy(name="Excalibur")
+        destroy(name="Excalibur Station")
+
+    event(name="Hera Reset with Players Checked in" id_arme="4eafcd40-19ae-48c3-b708-827e075d2a70")
+        if_timer_finished(name="Player_Check")
+        if_variable(name="Player_Check" comparator="EQUALS" value="1.0")
+        if_variable(name="Hera_here" comparator="EQUALS" value="0.0")
+        if_exists(name="Hera")
+        destroy(name="Hera")
+        destroy(name="Hera Station")
+
+    event(name="Ceres Reset with Players Checked in" id_arme="57e79a0f-701c-49d9-b5d7-f57ca7110f06")
+        if_timer_finished(name="Player_Check")
+        if_variable(name="Player_Check" comparator="EQUALS" value="1.0")
+        if_variable(name="Ceres_here" comparator="EQUALS" value="0.0")
+        if_exists(name="Ceres")
+        destroy(name="Ceres")
+        destroy(name="Ceres Station")
+
+    event(name="Diana Reset with Players Checked in" id_arme="c2cb9044-d496-47a6-9f27-c9ab64e6f14c")
+        if_timer_finished(name="Player_Check")
+        if_variable(name="Player_Check" comparator="EQUALS" value="1.0")
+        if_variable(name="Diana_here" comparator="EQUALS" value="0.0")
+        if_exists(name="Diana")
+        destroy(name="Diana")
+        destroy(name="Diana Station")
+
+    event(name="clear check in comm buttons" id_arme="14981bf7-662e-4857-9d26-0ed9d7a8e607")
+        if_timer_finished(name="Player_Check")
+        if_variable(name="Player_Check_Button" comparator="EQUALS" value="1.0")
+        clear_comms_button(text="Intrepid Press to Join Game")
+        clear_comms_button(text="Aegis Press to Join Game")
+        clear_comms_button(text="Horatio Press to Join Game")
+        clear_comms_button(text="Excalibur Press to Join Game")
+        clear_comms_button(text="Hera Press to Join Game")
+        clear_comms_button(text="Ceres Press to Join Game")
+        clear_comms_button(text="Diana Press to Join Game")
+        clear_comms_button(text="Artemis Press to Join Game")
+        set_variable(name="Player_Check_Button" value="0.0")

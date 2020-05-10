@@ -71,7 +71,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\xml-module.js"
+            "program": "${workspaceFolder}\\convert-mission-files.js"
         }
     ]
 }

@@ -8,7 +8,6 @@
         <import name="TheArena-declare-winner.xml" />
         <import name="TheArena-drones.xml" />
         <import name="TheArena-eggs.xml" />
-        <hi f="4"/>
         <import name="TheArena-game.xml" />
         <import name="TheArena-hacking.xml" />
         <import name="TheArena-penalties.xml" />
