@@ -2,7 +2,6 @@
 
   <imports>
     <import name="TheArena-ranges.xml"/>
-    <import name="TheArena-ranges.xml"/>
   </imports>
 
   <start>

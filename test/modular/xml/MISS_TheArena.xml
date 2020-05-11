@@ -1,4 +1,185 @@
 <mission_data version="1.0">
+    <start id_arme="3d24d6dd-7a11-465f-a063-1e31ddbcf0a8">
+        <create type="genericMesh" x="50000.0" y="-50.0" z="50000.0" name="." meshFileName="dat\asteroid7.dxs" textureFileName="dat\Asteroid_7_AO.png"/>
+        <set_object_property property="pushRadius" value="0.0" name="."/>
+        <create type="genericMesh" x="50000.0" y="5.0" z="50000.0" name="_" meshFileName="dat\asteroid8.dxs" textureFileName="dat\Asteroid_8_AO.png"/>
+        <set_object_property property="pushRadius" value="0.0" name="_"/>
+        <create count="60" type="nebulas" startX="50000.0" startY="100.0" startZ="50000.0" radius="25000" randomRange="4000" randomSeed="15"/>
+        <create count="60" type="nebulas" startX="50000.0" startY="-100.0" startZ="50000.0" radius="30000" randomRange="4000" randomSeed="20"/>
+        <create count="60" type="nebulas" startX="50000.0" startY="0.0" startZ="50000.0" radius="40000" randomRange="4000" randomSeed="35"/>
+        <create count="60" type="nebulas" startX="50000.0" startY="0.0" startZ="50000.0" radius="15000" randomRange="4000" randomSeed="40"/>
+        <create count="60" type="nebulas" startX="50000.0" startY="0.0" startZ="50000.0" radius="50000" randomRange="4000" randomSeed="55"/>
+        <create count="75" type="asteroids" startX="50000.0" startY="0.0" startZ="50000.0" radius="26000" randomRange="4000" randomSeed="30"/>
+        <create count="75" type="asteroids" startX="50000.0" startY="0.0" startZ="50000.0" radius="36000" randomRange="4000" randomSeed="25"/>
+        <create count="30" type="asteroids" startX="50000.0" startY="0.0" startZ="50000.0" radius="7000" randomRange="1000" randomSeed="21"/>
+        <set_difficulty_level value="5"/>
+        <set_skybox_index index="7"/>
+        <set_object_property property="nebulaIsOpaque" value="0"/>
+        <set_object_property property="sensorSetting" value="3"/>
+        <set_object_property property="nonPlayerSpeed" value="100"/>
+        <set_object_property property="nonPlayerShield" value="100"/>
+        <set_object_property property="nonPlayerWeapon" value="100"/>
+        <set_object_property property="playerWeapon" value="100"/>
+        <set_object_property property="playerShields" value="100"/>
+        <set_variable name="The_Ancient_One" value="1.0"/>
+        <set_variable name="Anomaly_1" value="1.0"/>
+        <set_variable name="Anomaly_2" value="1.0"/>
+        <set_variable name="Anomaly_3" value="1.0"/>
+        <set_variable name="Anomaly_4" value="1.0"/>
+        <set_variable name="Anomaly_5" value="1.0"/>
+        <set_variable name="Anomaly_6" value="1.0"/>
+        <set_variable name="Anomaly_7" value="1.0"/>
+        <set_variable name="Anomaly_8" value="1.0"/>
+        <set_variable name="Respawn_Anomaly_Time" value="90.0"/>
+        <set_variable name="Artemis_here" value="0"/>
+        <set_variable name="Intrepid_here" value="0"/>
+        <set_variable name="Aegis_here" value="0"/>
+        <set_variable name="Horatio_here" value="0"/>
+        <set_variable name="Excalibur_here" value="0"/>
+        <set_variable name="Hera_here" value="0"/>
+        <set_variable name="Ceres_here" value="0"/>
+        <set_variable name="Diana_here" value="0"/>
+        <set_variable name="Player_Check" value="1.0"/>
+        <set_variable name="Artemis_Checkin_Button" value="1.0"/>
+        <set_timer name="Artemis_Checkin_Button" seconds="5"/>
+        <set_variable name="Intrepid_Checkin_Button" value="1.0"/>
+        <set_timer name="Intrepid_Checkin_Button" seconds="5"/>
+        <set_variable name="Aegis_Checkin_Button" value="1.0"/>
+        <set_timer name="Aegis_Checkin_Button" seconds="5"/>
+        <set_variable name="Horatio_Checkin_Button" value="1.0"/>
+        <set_timer name="Horatio_Checkin_Button" seconds="5"/>
+        <set_variable name="Excalibur_Checkin_Button" value="1.0"/>
+        <set_timer name="Excalibur_Checkin_Button" seconds="5"/>
+        <set_variable name="Hera_Checkin_Button" value="1.0"/>
+        <set_timer name="Hera_Checkin_Button" seconds="5"/>
+        <set_variable name="Ceres_Checkin_Button" value="1.0"/>
+        <set_timer name="Ceres_Checkin_Button" seconds="5"/>
+        <set_variable name="Diana_Checkin_Button" value="1.0"/>
+        <set_timer name="Diana_Checkin_Button" seconds="5"/>
+        <set_timer name="Player_Check" seconds="60"/>
+        <set_variable name="Artemis_Score" value="0.0"/>
+        <set_variable name="Intrepid_Score" value="0.0"/>
+        <set_variable name="Aegis_Score" value="0.0"/>
+        <set_variable name="Horatio_Score" value="0.0"/>
+        <set_variable name="Excalibur_Score" value="0.0"/>
+        <set_variable name="Hera_Score" value="0.0"/>
+        <set_variable name="Ceres_Score" value="0.0"/>
+        <set_variable name="Diana_Score" value="0.0"/>
+        <set_variable name="Drone_Speed" value="6.0"/>
+        <set_variable name="Artemis_Sensor_Drone_Built" value="1.0"/>
+        <set_timer name="Artemis_Sensor_Drone_Built" seconds="5"/>
+        <set_variable name="Intrepid_Sensor_Drone_Built" value="1.0"/>
+        <set_timer name="Intrepid_Sensor_Drone_Built" seconds="5"/>
+        <set_variable name="Aegis_Sensor_Drone_Built" value="1.0"/>
+        <set_timer name="Aegis_Sensor_Drone_Built" seconds="5"/>
+        <set_variable name="Horatio_Sensor_Drone_Built" value="1.0"/>
+        <set_timer name="Horatio_Sensor_Drone_Built" seconds="5"/>
+        <set_variable name="Excalibur_Sensor_Drone_Built" value="1.0"/>
+        <set_timer name="Excalibur_Sensor_Drone_Built" seconds="5"/>
+        <set_variable name="Hera_Sensor_Drone_Built" value="1.0"/>
+        <set_timer name="Hera_Sensor_Drone_Built" seconds="5"/>
+        <set_variable name="Ceres_Sensor_Drone_Built" value="1.0"/>
+        <set_timer name="Ceres_Sensor_Drone_Built" seconds="5"/>
+        <set_variable name="Diana_Sensor_Drone_Built" value="1.0"/>
+        <set_timer name="Diana_Sensor_Drone_Built" seconds="5"/>
+        <set_variable name="egg1" value="1.0"/>
+        <set_variable name="egg2" value="1.0"/>
+        <set_variable name="egg3" value="1.0"/>
+        <set_variable name="egg4" value="1.0"/>
+        <set_variable name="egg5" value="1.0"/>
+        <set_timer name="egg1_Timer" seconds="25"/>
+        <set_timer name="egg2_Timer" seconds="30"/>
+        <set_timer name="egg3_Timer" seconds="35"/>
+        <set_timer name="egg4_Timer" seconds="35"/>
+        <set_timer name="egg5_Timer" seconds="35"/>
+        <set_variable name="Artemis_Cargo" value="0.0"/>
+        <set_variable name="Intrepid_Cargo" value="0.0"/>
+        <set_variable name="Aegis_Cargo" value="0.0"/>
+        <set_variable name="Horatio_Cargo" value="0.0"/>
+        <set_variable name="Excalibur_Cargo" value="0.0"/>
+        <set_variable name="Hera_Cargo" value="0.0"/>
+        <set_variable name="Ceres_Cargo" value="0.0"/>
+        <set_variable name="Diana_Cargo" value="0.0"/>
+        <set_variable name="Game_Timer" value="30.0"/>
+        <set_timer name="Game_Timer" seconds="71"/>
+        <set_variable name="Spawn_Piranhas" value="1.0"/>
+        <set_variable name="Spawn_Piranhas_Trigger" value="5000.0"/>
+        <set_variable name="Scoring_Allowed" value="1.0"/>
+        <set_variable name="Number_of_Players" value="0.0"/>
+        <set_timer name="start_mission_timer_1" seconds="10"/>
+        <big_message title="The Arena" subtitle1="by Paul Rockwell"/>
+        <create type="player" player_slot="0" x="50000.0" y="10.0" z="95000.0" name="Artemis" sideValue="10" raceKeys="Pirate" hullKeys="Strongbow" warp="no"/>
+        <create type="player" player_slot="1" x="95000.0" y="10.0" z="5000.0" name="Intrepid" sideValue="11" raceKeys="Pirate" hullKeys="Strongbow" warp="no"/>
+        <create type="player" player_slot="2" x="95000.0" y="10.0" z="95000.0" name="Aegis" sideValue="4" raceKeys="Pirate" hullKeys="Strongbow" warp="no"/>
+        <create type="player" player_slot="3" x="5000.0" y="10.0" z="5000.0" name="Horatio" sideValue="5" raceKeys="Pirate" hullKeys="Strongbow" warp="no"/>
+        <create type="player" player_slot="4" x="5000.0" y="10.0" z="95000.0" name="Excalibur" sideValue="6" raceKeys="Pirate" hullKeys="Strongbow" warp="no"/>
+        <create type="player" player_slot="5" x="50000.0" y="10.0" z="5000.0" name="Hera" sideValue="7" raceKeys="Pirate" hullKeys="Strongbow" warp="no"/>
+        <create type="player" player_slot="6" x="5000.0" y="10.0" z="50000.0" name="Ceres" sideValue="8" raceKeys="Pirate" hullKeys="Strongbow" warp="no"/>
+        <create type="player" player_slot="7" x="95000.0" y="10.0" z="50000.0" name="Diana" sideValue="9" raceKeys="Pirate" hullKeys="Strongbow" warp="no"/>
+        <set_variable name="Diana" value="1.0"/>
+        <set_variable name="Artemis" value="1.0"/>
+        <set_variable name="Intrepid" value="1.0"/>
+        <set_variable name="Aegis" value="1.0"/>
+        <set_variable name="Horatio" value="1.0"/>
+        <set_variable name="Excalibur" value="1.0"/>
+        <set_variable name="Hera" value="1.0"/>
+        <set_variable name="Ceres" value="1.0"/>
+        <set_variable name="Respawn_Player_Time" value="60.0"/>
+        <set_relative_position name2="Artemis" distance="30100" angle="180" name1="_"/>
+        <set_relative_position name2="Diana" distance="30100" angle="315" name1="_"/>
+        <set_relative_position name2="Ceres" distance="30100" angle="225" name1="_"/>
+        <set_relative_position name2="Hera" distance="30100" angle="135" name1="_"/>
+        <set_relative_position name2="Excalibur" distance="30100" angle="45" name1="_"/>
+        <set_relative_position name2="Horatio" distance="30100" angle="270" name1="_"/>
+        <set_relative_position name2="Aegis" distance="30100" angle="90" name1="_"/>
+        <set_relative_position name2="Intrepid" distance="30100" angle="0" name1="_"/>
+        <set_variable name="Station_Prime" value="1.0"/>
+        <set_variable name="Artemis_Station" value="1.0"/>
+        <set_variable name="Intrepid_Station" value="1.0"/>
+        <set_variable name="Aegis_Station" value="1.0"/>
+        <set_variable name="Horatio_Station" value="1.0"/>
+        <set_variable name="Excalibur_Station" value="1.0"/>
+        <set_variable name="Hera_Station" value="1.0"/>
+        <set_variable name="Ceres_Station" value="1.0"/>
+        <set_variable name="Diana_Station" value="1.0"/>
+        <create type="station" x="50000.0" y="0.0" z="95000.0" name="Artemis Station" raceKeys="Arvonian" hullKeys="Command Base" sideValue="10"/>
+        <create type="station" x="95000.0" y="0.0" z="5000.0" name="Intrepid Station" raceKeys="Arvonian" hullKeys="Command Base" sideValue="11"/>
+        <create type="station" x="95000.0" y="0.0" z="95000.0" name="Aegis Station" raceKeys="Arvonian" hullKeys="Command Base" sideValue="4"/>
+        <create type="station" x="5000.0" y="0.0" z="5000.0" name="Horatio Station" raceKeys="Arvonian" hullKeys="Command Base" sideValue="5"/>
+        <create type="station" x="5000.0" y="0.0" z="95000.0" name="Excalibur Station" raceKeys="Arvonian" hullKeys="Command Base" sideValue="6"/>
+        <create type="station" x="50000.0" y="0.0" z="5000.0" name="Hera Station" raceKeys="Arvonian" hullKeys="Command Base" sideValue="7"/>
+        <create type="station" x="5000.0" y="0.0" z="50000.0" name="Ceres Station" raceKeys="Arvonian" hullKeys="Command Base" sideValue="8"/>
+        <create type="station" x="95000.0" y="0.0" z="50000.0" name="Diana Station" raceKeys="Arvonian" hullKeys="Command Base" sideValue="9"/>
+        <set_object_property property="pirateRepWithStations" value="1.0" name="Artemis"/>
+        <set_object_property property="pirateRepWithStations" value="1.0" name="Intrepid"/>
+        <set_object_property property="pirateRepWithStations" value="1.0" name="Aegis"/>
+        <set_object_property property="pirateRepWithStations" value="1.0" name="Horatio"/>
+        <set_object_property property="pirateRepWithStations" value="1.0" name="Excalibur"/>
+        <set_object_property property="pirateRepWithStations" value="1.0" name="Hera"/>
+        <set_object_property property="pirateRepWithStations" value="1.0" name="Ceres"/>
+        <set_object_property property="pirateRepWithStations" value="1.0" name="Diana"/>
+        <set_relative_position name2="Artemis Station" distance="30000" angle="180" name1="_"/>
+        <set_relative_position name2="Intrepid Station" distance="30000" angle="0" name1="_"/>
+        <set_relative_position name2="Aegis Station" distance="30000" angle="90" name1="_"/>
+        <set_relative_position name2="Horatio Station" distance="30000" angle="270" name1="_"/>
+        <set_relative_position name2="Excalibur Station" distance="30000" angle="45" name1="_"/>
+        <set_relative_position name2="Hera Station" distance="30000" angle="135" name1="_"/>
+        <set_relative_position name2="Ceres Station" distance="30000" angle="225" name1="_"/>
+        <set_relative_position name2="Diana Station" distance="30000" angle="315" name1="_"/>
+        <create type="genericMesh" x="50000.0" y="-50.0" z="50000.0" name="." meshFileName="dat\asteroid7.dxs" textureFileName="dat\Asteroid_7_AO.png"/>
+        <set_object_property property="pushRadius" value="0.0" name="."/>
+        <set_variable name="Respawn_Station_Time" value="90.0"/>
+        <set_timer name="Station_Prime" seconds="5"/>
+        <set_variable name="Wreck_1" value="1.0"/>
+        <set_variable name="Wreck_2" value="1.0"/>
+        <set_variable name="Wreck_3" value="1.0"/>
+        <set_variable name="Wreck_4" value="1.0"/>
+        <set_variable name="Wreck_5" value="1.0"/>
+        <set_variable name="Wreck_6" value="1.0"/>
+        <set_variable name="Wreck_7" value="1.0"/>
+        <set_variable name="Wreck_8" value="1.0"/>
+        <set_variable name="Respawn_Wreck_Time" value="50.0"/>
+    </start>
     <mission_description>  Multiplayer mission with Jump drive ships. Capture the most eggs by towing them to your station. Eggs can only be towed at impulse. Comms Button at start of mission must be pressed to join game. </mission_description>
     <event name="The Ancient One Destroyed">
         <if_not_exists name="The Ancient One"/>

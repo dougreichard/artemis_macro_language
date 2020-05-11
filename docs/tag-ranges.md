@@ -1,3 +1,18 @@
+# The Ranges, Range and Item tag
+
+## Ranges
+The ranges tag is defined under the mission_data tag
+ranges define a set of data for use with [repeat tags](tag-repeat.md) and macro statements.
+
+
+``` xml
+<ranges>
+    <range name="AllShips">
+        . . .
+    </range>
+</ranges>
+
+``` xml
 <mission_data version="1.0">
   <ranges>
     <range name="AllShips">
@@ -20,3 +35,4 @@
     </range>
   </ranges>
 </mission_data>
+```

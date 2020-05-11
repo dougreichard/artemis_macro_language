@@ -11,7 +11,7 @@
   </range>
 
 <start>
-    <repeat range="Anomolies">
+    <repeat range="Anomalies">
       <set_variable name="${anomaly}" value="1.0"/>
     </repeat>
     <set_variable name="Respawn_Anomaly_Time" value="90.0"/>
