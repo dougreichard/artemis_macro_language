@@ -9,8 +9,7 @@
     <repeat range="Eggs">
         <set_variable name="${egg}" value="1.0"/>
         <set_timer name="${egg}_Timer" seconds="${seconds}"/>
-
-    </range>
+    </repeat>
     <repeat range="AllShips">
       <set_variable name="${ship}_Cargo" value="0.0"/>
     </repeat>
@@ -41,8 +40,6 @@
         scoreVariable="${ship.ship}_Score"
         scoringEnabledVariable="Scoring_Allowed" />
     </repeat>
-  </repeat>
-
   </repeat>
   
 </mission_data>

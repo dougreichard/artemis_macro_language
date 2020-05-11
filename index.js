@@ -1,10 +1,12 @@
-const yaml = require('js-yaml');
-const {MissonParser} = require('./convert-mission-files.js');
 
-async function main() {
-//   yaml.safeLoad(await fs.readFile(filename, 'utf8'))
-  
-}
+const marko = require("marko/node-require");
+ 
+var fs = require("fs");
+var hello = require("./components/test/hello");
+
+var out = fs.createWriteStream("MISS_Hello.xml", { encoding: "utf8" });
+hello.render({ name: "Frank" }, out);
+
 
 
 

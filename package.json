@@ -4,17 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha -u bdd --timeout 999999 --colors ./test/",
+    "docs": "jsdoc -c jsdoc-config.json"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "js-yaml": "^3.13.1",
     "xml-js": "^1.6.11",
     "xmlbuilder2": "^2.1.2"
   },
   "devDependencies": {
     "chai": "^4.2.0",
+    "jsdoc": "^3.6.4",
     "mocha": "^7.1.2"
   }
 }

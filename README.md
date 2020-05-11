@@ -15,35 +15,27 @@ http://artemiswiki.pbworks.com/w/page/51088806/Mission%20Scripting
  - event prototypes 
 
 ``` yaml
-event_prototypes:
+templates
   # TowObject: 
   #     Event for towing an object
   # inputs:
   #     ship: Name of the ship
   #     object: Object to capture
   #     sideValue: Number for ship to use in text message etc.
-  TowObject:
-    name: ${ship} Tow ${object}
-    conditions:
-      - if_variable:
-          name: ${object}
-          comparator: "EQUALS"
-          value: ${sideValue}
-      - if_exists: ${ship}
+  template name=TowObject
+    event name="${ship} Tow ${object}"
+      if_variable name="${object}" comparator="EQUALS"value="${sideValue}"
+      if_exists name="${ship}"
     # note assumes object has no space in the name for mesh, minor rewrite in not 
-    relative_positions:
-      - name2: ${object}
-        distance: ${distance}
-        angle: ${angle}
-        name1: ${ship}
+    set_relative_position name2=${object} distance=${distance} angle=${angle} name1=${ship}
 
-events:
-  - _prototype: TowObject
-    ship: Viper
-    object: Rat
-    sideValue: 10
-    distance: 100
-    angle: 180
+
+expand name="TowObject"
+    ship="Viper"
+    object="Rat"
+    sideValue="10"
+    distance="100"
+    angle="180"
 ```
 
 can be used to generate the follow XML

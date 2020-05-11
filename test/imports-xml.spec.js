@@ -1,9 +1,9 @@
-const { MissionFile } = require('../mission-file.js')
+const { MissionFile } = require('../lib/mission-file.js')
 const expect = require('chai').expect
 let fs = require('fs').promises
 let readdirSync = require('fs').readdirSync
 let path = require('path')
-const { MissionParser } = require('../mission-parser.js')
+const { MissionParser } = require('../lib/mission-parser.js')
 
 
 function findFirstDiffPos(a, b) {
@@ -67,25 +67,40 @@ describe('Mission File', () => {
         // }
         it("Test Tree Navigation", async () => {
             let mission = await MissionFile.fromFile(path.resolve('test', 'fragments', 'xml', 'import-simple-fragment.xml'))
-            let mission_data = mission.findFirstChild(mission.model, "mission_data")
+            let mission_data = mission.findFirstElement(mission.model, "mission_data")
             expect(mission_data).to.exist
 
-            let imports = mission.findFirstChild(mission_data, "imports")
+            let imports = mission.findFirstElement(mission_data, "imports")
             expect(imports).to.exist
 
-            let { element, root } = mission.findPath(mission.model, ["mission_data", "imports"])
-            expect(imports).to.equal(element)
-            expect(mission_data).to.equal(root.mission_data)
+            let  {imports:ie, mission_data:md } = mission.findPath(mission.model, ["mission_data", "imports"])
+            expect(imports).to.equal(ie)
+            expect(mission_data).to.equal(md)
 
-            let removed = mission.removeFirstChild(mission_data, "imports")
+            let removed = mission.removeFirstElement(mission_data, "imports")
             expect(imports).to.equal(removed)
 
-            let gone = mission.findFirstChild(mission_data, "imports")
+            let gone = mission.findFirstElement(mission_data, "imports")
             expect(gone).to.not.exist
 
             let xml = mission.toXML()
             let expected = await fs.readFile(path.resolve('test', 'fragments', 'xml', 'import-simple-expected.xml'), 'utf-8')
             expect(xml).to.equal(expected)
+        })
+        it("Ranges ", async () => {
+            let mission = await MissionFile.fromFile(path.resolve('test', 'fragments', 'xml', 'ranges-simple-fragment.xml'))
+            mission.processRanges()
+            expect(mission.ranges['Eggs']).to.exist
+            expect(mission.ranges['AllShips']).to.exist
+            expect(mission.ranges['Eggs'].length).to.equal(5)
+            expect(mission.ranges['AllShips'].length).to.equal(8)
+            expect(mission.ranges['Eggs'][0].egg).to.equal('egg1')
+            expect(mission.ranges['AllShips'][0].ship).to.equal('Artemis')
+            expect(mission.ranges['AllShips'][0].sideValue).to.equal('10')
+
+
+            // let expected = await fs.readFile(path.resolve('test', 'fragments', 'xml', 'import-simple-expected.xml'), 'utf-8')
+            //expect(xml).to.equal(expected)
         })
         it("Test simple merge", async () => {
             let mission = await MissionFile.fromFile(path.resolve('test', 'fragments', 'xml', 'import-simple-fragment.xml'))
@@ -103,20 +118,7 @@ describe('Mission File', () => {
             await fs.writeFile(path.resolve('test', 'modular', 'xml', 'MISS_TheArena.xml'), xml, "utf8")
 
         })
-        it ("Covert xml to miss", async () => {
-            let files = readdirSync(path.resolve(__dirname, 'modular', 'xml'), { withFileTypes: true })
-            for (let file of files) {
-                if (path.extname(file.name) == '.xml') {
-                    let outFile = path.basename(file.name) + ".miss"
-                    let xmlFile = path.resolve(__dirname, 'modular', 'xml', file.name)
-                    let mission = await MissionParser.fromFile(xmlFile)
-                    let output = mission.toMiss()
-
-                    await fs.writeFile(path.resolve('test', 'modular', 'miss', outFile), output, "utf8")
-                }
-            }
-        })
-      
+       
     });
 
 })

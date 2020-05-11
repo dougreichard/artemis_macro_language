@@ -1,15 +1,4 @@
 <mission_data version="1.0">
-    <start>
-        <set_variable name="The_Ancient_One" value="1.0"/>
-        <set_variable name="Game_Timer" value="30.0"/>
-        <set_timer name="Game_Timer" seconds="71"/>
-        <set_variable name="Spawn_Piranhas" value="1.0"/>
-        <set_variable name="Spawn_Piranhas_Trigger" value="5000.0"/>
-        <set_variable name="Scoring_Allowed" value="1.0"/>
-        <set_variable name="Number_of_Players" value="0.0"/>
-        <set_timer name="start_mission_timer_1" seconds="10"/>
-        <big_message title="The Arena" subtitle1="by Paul Rockwell"/>
-    </start>
     <mission_description>  Multiplayer mission with Jump drive ships. Capture the most eggs by towing them to your station. Eggs can only be towed at impulse. Comms Button at start of mission must be pressed to join game. </mission_description>
     <event name="The Ancient One Destroyed">
         <if_not_exists name="The Ancient One"/>
