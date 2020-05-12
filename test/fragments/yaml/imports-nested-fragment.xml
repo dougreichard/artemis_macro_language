@@ -1,1 +1,0 @@
-<event name="The Ancient One Destroyed"><if_not_exists name="The Ancient One"/><if-variable name="The_Ancient_One" comparator="EQUALS" value="1.0"/><set_variable name="The_Ancient_One" value="2"/></event>

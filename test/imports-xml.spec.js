@@ -110,12 +110,20 @@ describe('Mission File', () => {
             await fs.writeFile(path.resolve('test', 'fragments', 'xml', 'import-simple-output.xml'), xml, "utf8")
 
         })
-        it("Test The Arena merge", async () => {
+        it("Test The Arena non-template merge", async () => {
             let mission = await MissionFile.fromFile(path.resolve('test', 'modular', 'xml', 'TheArena-mission.xml'))
             await mission.processImports(mission)
             let xml = mission.toXML()
 
             await fs.writeFile(path.resolve('test', 'modular', 'xml', 'MISS_TheArena.xml'), xml, "utf8")
+
+        })
+        it("Test simple repeats", async () => {
+            let mission = await MissionFile.fromFile(path.resolve('test', 'fragments', 'xml', 'repeat-simple-fragment.xml'))
+            await mission.processFile()
+            let xml = mission.toXML()
+
+            await fs.writeFile(path.resolve('test', 'fragments', 'xml', 'repeat-simple-output.xml'), xml, "utf8")
 
         })
        

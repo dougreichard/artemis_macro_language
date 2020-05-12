@@ -1,9 +1,0 @@
-variables:
-  mymesh:
-    x: 2.0
-    y: 3.0
-    z: 5.0
-    nested:
-      r: 1.0
-      g: 0.5
-      b: 0.0
