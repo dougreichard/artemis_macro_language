@@ -1,1 +1,11 @@
 theme: jekyll-theme-slate
+title: Artemis Macro Language
+description: A Macro language for scripting the Artemis Spaceship Bridge Simulator game
+plugins:
+  - jekyll-relative-links
+relative_links:
+  enabled: true
+  collections: true
+include:
+  - about.md
+  - README.md
