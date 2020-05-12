@@ -1,8 +1,13 @@
 <mission_data version="1.0">
     <start>
-        <repeat range="Anomalies">
-            <set_variable name="${anomaly}" value="1.0"/>
-        </repeat>
+        <set_variable name="Anomaly[1]" value="1.0"/>
+        <set_variable name="Anomaly[2]" value="1.0"/>
+        <set_variable name="Anomaly[3]" value="1.0"/>
+        <set_variable name="Anomaly[4]" value="1.0"/>
+        <set_variable name="Anomaly[5]" value="1.0"/>
+        <set_variable name="Anomaly[6]" value="1.0"/>
+        <set_variable name="Anomaly[7]" value="1.0"/>
+        <set_variable name="Anomaly[8]" value="1.0"/>
         <set_variable name="Respawn_Anomaly_Time" value="90.0"/>
     </start>
     <event name="Anomaly[1] Destroyed">

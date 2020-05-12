@@ -126,6 +126,14 @@ describe('Mission File', () => {
             await fs.writeFile(path.resolve('test', 'fragments', 'xml', 'repeat-simple-output.xml'), xml, "utf8")
 
         })
+        it("Test simple nested repeats", async () => {
+            let mission = await MissionFile.fromFile(path.resolve('test', 'fragments', 'xml', 'repeat-simple-nested-fragment.xml'))
+            await mission.processFile()
+            let xml = mission.toXML()
+
+            await fs.writeFile(path.resolve('test', 'fragments', 'xml', 'repeat-simple-nested-output.xml'), xml, "utf8")
+
+        })
        
     });
 
