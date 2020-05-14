@@ -46,6 +46,27 @@
     {
         "type": "node",
         "request": "launch",
+        "name": "Just Schema Test",
+        "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+        "args": [
+            "-u",
+            "bdd",
+            "--timeout",
+            "999999",
+            "--colors",
+            "${workspaceFolder}/test/mission-schema.spec.js"
+        ],
+        "env": {
+            "fragment": "imports-nested-fragment"
+        },
+        "internalConsoleOptions": "openOnSessionStart",
+        "skipFiles": [
+            "<node_internals>/**"
+        ]
+    },
+    {
+        "type": "node",
+        "request": "launch",
         "name": "Single Module Test",
         "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
         "args": [
@@ -71,7 +92,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\index.js"
+            "program": "${workspaceFolder}\\test-fast.js"
         }
     ]
 }

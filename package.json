@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha -u bdd --timeout 999999 --colors ./test/",
-    "docs": "jsdoc -c jsdoc-config.json"
+    "docs": "jsdoc -c jsdoc-config.json",
+    "pkg": "pkg index.js  --output build\\aml.exe  -t win-x64"
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +16,7 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "jsdoc": "^3.6.4",
-    "mocha": "^7.1.2"
+    "mocha": "^7.1.2",
+    "pkg": "^4.4.8"
   }
 }

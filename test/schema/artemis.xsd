@@ -1,0 +1,398 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="mission_data">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="xs:string" name="mission_description"/>
+        <xs:element name="start">
+          <xs:complexType>
+            <xs:choice maxOccurs="unbounded" minOccurs="0">
+              <xs:element name="set_variable" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:string" name="name" use="optional"/>
+                      <xs:attribute type="xs:float" name="value" use="optional"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="create" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:string" name="type" use="optional"/>
+                      <xs:attribute type="xs:byte" name="player_slot" use="optional"/>
+                      <xs:attribute type="xs:float" name="x" use="optional"/>
+                      <xs:attribute type="xs:float" name="y" use="optional"/>
+                      <xs:attribute type="xs:float" name="z" use="optional"/>
+                      <xs:attribute type="xs:string" name="name" use="optional"/>
+                      <xs:attribute type="xs:byte" name="sideValue" use="optional"/>
+                      <xs:attribute type="xs:string" name="raceKeys" use="optional"/>
+                      <xs:attribute type="xs:string" name="hullKeys" use="optional"/>
+                      <xs:attribute type="xs:string" name="warp" use="optional"/>
+                      <xs:attribute type="xs:string" name="meshFileName" use="optional"/>
+                      <xs:attribute type="xs:string" name="textureFileName" use="optional"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="set_object_property" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:string" name="property" use="optional"/>
+                      <xs:attribute type="xs:float" name="value" use="optional"/>
+                      <xs:attribute type="xs:string" name="name" use="optional"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="set_relative_position" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:string" name="name2" use="optional"/>
+                      <xs:attribute type="xs:short" name="distance" use="optional"/>
+                      <xs:attribute type="xs:short" name="angle" use="optional"/>
+                      <xs:attribute type="xs:string" name="name1" use="optional"/>
+                      <xs:attribute type="xs:string" name="type" use="optional"/>
+                      <xs:attribute type="xs:float" name="x" use="optional"/>
+                      <xs:attribute type="xs:float" name="y" use="optional"/>
+                      <xs:attribute type="xs:float" name="z" use="optional"/>
+                      <xs:attribute type="xs:string" name="name" use="optional"/>
+                      <xs:attribute type="xs:string" name="meshFileName" use="optional"/>
+                      <xs:attribute type="xs:string" name="textureFileName" use="optional"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="set_difficulty_level">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:byte" name="value"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="set_skybox_index">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:byte" name="index" use="optional"/>
+                      <xs:attribute type="xs:string" name="property" use="optional"/>
+                      <xs:attribute type="xs:byte" name="value" use="optional"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="big_message">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:string" name="title"/>
+                      <xs:attribute type="xs:string" name="subtitle1"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="set_timer">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:string" name="name" use="optional"/>
+                      <xs:attribute type="xs:byte" name="seconds" use="optional"/>
+                      <xs:attribute type="xs:float" name="value" use="optional"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+            </xs:choice>
+            <xs:attribute type="xs:string" name="id_arme"/>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="event" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:choice maxOccurs="unbounded" minOccurs="0">
+              <xs:element name="if_variable">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:string" name="name" use="optional"/>
+                      <xs:attribute type="xs:string" name="comparator" use="optional"/>
+                      <xs:attribute type="xs:string" name="value" use="optional"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="if_timer_finished">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:string" name="name" use="optional"/>
+                      <xs:attribute type="xs:string" name="comparator" use="optional"/>
+                      <xs:attribute type="xs:float" name="value" use="optional"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="if_comms_button">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:string" name="text" use="optional"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="clear_comms_button">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:string" name="text" use="optional"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="set_variable">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:string" name="name" use="optional"/>
+                      <xs:attribute type="xs:string" name="value" use="optional"/>
+                      <xs:attribute type="xs:string" name="property" use="optional"/>
+                      <xs:attribute type="xs:float" name="randomFloatLow" use="optional"/>
+                      <xs:attribute type="xs:float" name="randomFloatHigh" use="optional"/>
+                      <xs:attribute type="xs:byte" name="randomIntLow" use="optional"/>
+                      <xs:attribute type="xs:short" name="randomIntHigh" use="optional"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="set_comms_button">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:string" name="text" use="optional"/>
+                      <xs:attribute type="xs:byte" name="sideValue" use="optional"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="set_timer">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:string" name="name" use="optional"/>
+                      <xs:attribute type="xs:string" name="seconds" use="optional"/>
+                      <xs:attribute type="xs:float" name="value" use="optional"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="incoming_comms_text">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:string" name="from" use="optional"/>
+                      <xs:attribute type="xs:byte" name="sideValue" use="optional"/>
+                      <xs:attribute type="xs:string" name="type" use="optional"/>
+                      <xs:attribute type="xs:string" name="name" use="optional"/>
+                      <xs:attribute type="xs:string" name="value" use="optional"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="if_exists">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:string" name="name" use="optional"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="destroy">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:string" name="name" use="optional"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="big_message">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:string" name="title" use="optional"/>
+                      <xs:attribute type="xs:string" name="subtitle1" use="optional"/>
+                      <xs:attribute type="xs:string" name="subtitle2" use="optional"/>
+                      <xs:attribute type="xs:string" name="name" use="optional"/>
+                      <xs:attribute type="xs:float" name="value" use="optional"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="set_object_property">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:string" name="property" use="optional"/>
+                      <xs:attribute type="xs:string" name="value" use="optional"/>
+                      <xs:attribute type="xs:string" name="name" use="optional"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="if_not_exists">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:string" name="name" use="optional"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="create">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:string" name="type" use="optional"/>
+                      <xs:attribute type="xs:float" name="x" use="optional"/>
+                      <xs:attribute type="xs:float" name="y" use="optional"/>
+                      <xs:attribute type="xs:float" name="z" use="optional"/>
+                      <xs:attribute type="xs:string" name="name" use="optional"/>
+                      <xs:attribute type="xs:string" name="raceKeys" use="optional"/>
+                      <xs:attribute type="xs:string" name="hullKeys" use="optional"/>
+                      <xs:attribute type="xs:byte" name="sideValue" use="optional"/>
+                      <xs:attribute type="xs:byte" name="player_slot" use="optional"/>
+                      <xs:attribute type="xs:string" name="warp" use="optional"/>
+                      <xs:attribute type="xs:byte" name="monsterType" use="optional"/>
+                      <xs:attribute type="xs:byte" name="pickupType" use="optional"/>
+                      <xs:attribute type="xs:string" name="meshFileName" use="optional"/>
+                      <xs:attribute type="xs:string" name="textureFileName" use="optional"/>
+                      <xs:attribute type="xs:byte" name="age" use="optional"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="set_relative_position">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:string" name="name2" use="optional"/>
+                      <xs:attribute type="xs:int" name="distance" use="optional"/>
+                      <xs:attribute type="xs:short" name="angle" use="optional"/>
+                      <xs:attribute type="xs:string" name="name1" use="optional"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="warning_popup_message">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:string" name="message" use="optional"/>
+                      <xs:attribute type="xs:string" name="consoles" use="optional"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="add_ai">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:string" name="type" use="optional"/>
+                      <xs:attribute type="xs:byte" name="value1" use="optional"/>
+                      <xs:attribute type="xs:short" name="value2" use="optional"/>
+                      <xs:attribute type="xs:byte" name="value3" use="optional"/>
+                      <xs:attribute type="xs:byte" name="value4" use="optional"/>
+                      <xs:attribute type="xs:string" name="name" use="optional"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="set_ship_text">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:string" name="name" use="optional"/>
+                      <xs:attribute type="xs:string" name="race" use="optional"/>
+                      <xs:attribute type="xs:string" name="class" use="optional"/>
+                      <xs:attribute type="xs:string" name="desc" use="optional"/>
+                      <xs:attribute type="xs:string" name="scan_desc" use="optional"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="if_distance">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:string" name="name1" use="optional"/>
+                      <xs:attribute type="xs:string" name="name2" use="optional"/>
+                      <xs:attribute type="xs:string" name="comparator" use="optional"/>
+                      <xs:attribute type="xs:float" name="value" use="optional"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="if_docked">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:string" name="player_name" use="optional"/>
+                      <xs:attribute type="xs:string" name="name" use="optional"/>
+                      <xs:attribute type="xs:string" name="comparator" use="optional"/>
+                      <xs:attribute type="xs:float" name="value" use="optional"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="addto_object_property">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:string" name="value" use="optional"/>
+                      <xs:attribute type="xs:string" name="property" use="optional"/>
+                      <xs:attribute type="xs:string" name="name" use="optional"/>
+                      <xs:attribute type="xs:float" name="randomFloatLow" use="optional"/>
+                      <xs:attribute type="xs:float" name="randomFloatHigh" use="optional"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="if_object_tag_matches">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:string" name="objectName" use="optional"/>
+                      <xs:attribute type="xs:string" name="string" use="optional"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="set_named_object_tag_state">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:string" name="name" use="optional"/>
+                      <xs:attribute type="xs:byte" name="tagged" use="optional"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element type="xs:string" name="end_mission"/>
+            </xs:choice>
+            <xs:attribute type="xs:string" name="name" use="optional"/>
+            <xs:attribute type="xs:string" name="id_arme" use="optional"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute type="xs:float" name="version"/>
+      <xs:attribute type="xs:string" name="background_id_arme"/>
+      <xs:attribute type="xs:string" name="playerShipNames_arme"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

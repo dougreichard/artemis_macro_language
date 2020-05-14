@@ -1,0 +1,805 @@
+{
+  "commands": {
+    "create": {
+      "desc": " (the command that creates UNnamed objects in the game)",
+      "type": {
+        "description": "nebulas, asteroids, mines"
+      },
+      "count": {
+        "description": "0 to 500"
+      },
+      "radius": {
+        "description": "0 to 100000"
+      },
+      "randomRange": {
+        "description": "0 to 100000"
+      },
+      "startX": {
+        "description": "0 to 100000"
+      },
+      "startY": {
+        "description": "-100000 to 100000"
+      },
+      "startZ": {
+        "description": "0 to 100000"
+      },
+      "use_gm_position": {
+        "description": "anything, just use this attribute to cause the startX,startY,startZ to be at the game master's selected position"
+      },
+      "endX": {
+        "description": "0 to 100000"
+      },
+      "endY": {
+        "description": "-100000 to 100000"
+      },
+      "endZ": {
+        "description": "0 to 100000"
+      },
+      "randomSeed": {
+        "description": "0 to big number"
+      },
+      "startAngle": {
+        "description": "0 to 360"
+      },
+      "endAngle": {
+        "description": "0 to 360"
+      },
+      "nebType": {
+        "description": "1 to 3"
+      }
+    },
+    "destroy": {
+      "desc": " (the command that removes something named from the game)",
+      "name": {
+        "description": "text"
+      },
+      "use_gm_selection": {
+        "description": "anything, just use this attribute to use the game master's selected object"
+      }
+    },
+    "destroy_near": {
+      "desc": " (the command that removes unnamed objects from the game, if near a point)",
+      "type": {
+        "description": "nebulas, asteroids, mines, whales, drones, all"
+      },
+      "centerX": {
+        "description": "0 to 100000"
+      },
+      "centerY": {
+        "description": "-100000 to 100000"
+      },
+      "centerZ": {
+        "description": "0 to 100000"
+      },
+      "radius": {
+        "description": "0 to 100000"
+      },
+      "name": {
+        "description": "text"
+      },
+      "nebType": {
+        "description": "1 to 3"
+      },
+      "use_gm_position": {
+        "description": "anything, just use this attribute to cause the center to be at the game master's selected position"
+      }
+    },
+    "add_ai": {
+      "desc": " (the command that adds an AI decision to a neutral or enemy's brain stack, OR a monster's monster-brain stack)",
+      "name": {
+        "description": "text, the name of the object"
+      },
+      "use_gm_selection": {
+        "description": "anything, just use this attribute to use the game master's selected object"
+      },
+      "targetName": {
+        "description": "text, the target object of SOME AI blocks (currently only meaningful for ATTACK and TARGET_THROTTLE)"
+      },
+      "type": {
+        "description": "text, one of a list of AI blocks."
+      },
+      "value1": {
+        "description": "-100000 to 100000, contextual to the type of the AI block"
+      },
+      "value2": {
+        "description": "-100000 to 100000, contextual to the type of the AI block"
+      },
+      "value3": {
+        "description": "-100000 to 100000, contextual to the type of the AI block"
+      },
+      "value4": {
+        "description": "-100000 to 100000, contextual to the type of the AI block"
+      }
+    },
+    "clear_ai": {
+      "desc": " (removes all AI decision blocks from a neutral or enemy's brain stack)",
+      "name": {
+        "description": "text, the name of the object"
+      },
+      "use_gm_selection": {
+        "description": "anything, just use this attribute to use the game master's selected object"
+      }
+    },
+    "direct": {
+      "desc": " (the command that tells a non-player ship to go somewhere or fight something)",
+      "name": {
+        "description": "text"
+      },
+      "targetName": {
+        "description": "text"
+      },
+      "pointX": {
+        "description": "0 to 100000"
+      },
+      "pointY": {
+        "description": "-100000 to 100000"
+      },
+      "pointZ": {
+        "description": "0 to 100000"
+      },
+      "scriptThrottle": {
+        "description": "0.0 to 1.0"
+      }
+    },
+    "set_variable": {
+      "desc": " (makes or sets a named value)",
+      "name": {
+        "description": "text"
+      },
+      "value": {
+        "description": "0 to big number"
+      },
+      "randomIntHigh": {
+        "description": "number"
+      },
+      "randomIntLow": {
+        "description": "number lower than randomIntHigh"
+      },
+      "randomFloatHigh": {
+        "description": "number"
+      },
+      "randomFloatLow": {
+        "description": "number lower than randomFloatHigh"
+      }
+    },
+    "set_timer": {
+      "desc": " (makes or sets a named timer)",
+      "name": {
+        "description": "text"
+      },
+      "seconds": {
+        "description": "0 to big number"
+      }
+    },
+    "incoming_message": {
+      "desc": " (creates a Comms button to play a media file on the main screen)",
+      "from": {
+        "description": "text"
+      },
+      "fileName": {
+        "description": "text"
+      },
+      "mediaType": {
+        "description": "0 (for OGG audio files)"
+      }
+    },
+    "big_message": {
+      "desc": " (creates a chapter title on main screen(s))",
+      "title": {
+        "description": "text"
+      },
+      "subtitle1": {
+        "description": "text"
+      },
+      "subtitle2": {
+        "description": "text"
+      },
+      "side": {
+        "description": "0-,  0 = all sides, 1 = enemy (normally), 2+ = player side (normally)"
+      }
+    },
+    "end_mission": {
+      "desc": " (stops the mission)"
+    },
+    "incoming_comms_text": {
+      "desc": " (sends a block of text to the Comms station)",
+      "from": {
+        "description": "text"
+      },
+      "type": {
+        "description": "multiple lines of text"
+      },
+      "sideValue": {
+        "description": "0-31 (default is 1=enemy, 2 = friendly and players, 0=no side)"
+      }
+    },
+    "log": {
+      "desc": " (sends text to the mission's log file)",
+      "text": {
+        "description": "text"
+      }
+    },
+    "set_object_property": {
+      "desc": " (sets a named space object's named property to a value)",
+      "name": {
+        "description": "text"
+      },
+      "property": {
+        "description": "text (check the big list at the bottom of this file)"
+      },
+      "value": {
+        "description": "signed floating point value"
+      }
+    },
+    "set_fleet_property": {
+      "desc": " (sets a numbered enemy fleet's named property to a value)",
+      "fleetIndex": {
+        "description": "0-99"
+      },
+      "property": {
+        "description": "text (fleetSpacing, fleetMaxRadius)"
+      },
+      "value": {
+        "description": "signed floating point value"
+      }
+    },
+    "addto_object_property": {
+      "desc": " (adds a value to a named space object's named property)",
+      "name": {
+        "description": "text"
+      },
+      "property": {
+        "description": "text (check the big list at the bottom of this file)"
+      },
+      "value": {
+        "description": "signed floating point value"
+      }
+    },
+    "copy_object_property": {
+      "desc": " (copies a named property from one named space object to another, name1 to name2)",
+      "name1": {
+        "description": "text"
+      },
+      "name2": {
+        "description": "text"
+      },
+      "property": {
+        "description": "text (check the big list at the bottom of this file)"
+      }
+    },
+    "set_relative_position": {
+      "desc": " (moves one named space object (name2) to a point near another (name1), relative to name1's heading)",
+      "name1": {
+        "description": "text"
+      },
+      "name2": {
+        "description": "text"
+      },
+      "angle": {
+        "description": "0 to 360"
+      },
+      "distance": {
+        "description": "0 100000"
+      }
+    },
+    "set_to_gm_position": {
+      "desc": " (moves one named space object (name) to the point specified by clicking on the game master console screen)",
+      "name": {
+        "description": "text, the name of the object"
+      },
+      "use_gm_selection": {
+        "description": "anything, just use this attribute to use the game master's selected object"
+      },
+      "angle": {
+        "description": "0 to 360"
+      },
+      "distance": {
+        "description": "0 100000"
+      }
+    },
+    "set_skybox_index": {
+      "desc": " (sets the skybox of the main screen to 0-9)",
+      "index": {
+        "description": "0-9"
+      }
+    },
+    "warning_popup_message": {
+      "desc": " (sends a very short message to the screens specified)",
+      "message": {
+        "description": "text"
+      },
+      "consoles": {
+        "description": "text, a collection of the letters MHWESCO, defining which console the message appears on"
+      }
+    },
+    "set_difficulty_level": {
+      "desc": " (overrides the difficulty level set on the server control screen)",
+      "value": {
+        "description": "1-10"
+      }
+    },
+    "set_player_grid_damage": {
+      "desc": " (changes the damage value of a ship system in the 3D grid)",
+      "systemType": {},
+      "value": {
+        "description": "0.0-1.0 ( 0.0 is no damage, 1.0 is full damage)"
+      },
+      "countFrom": {
+        "description": "left, top, or front"
+      },
+      "index": {
+        "description": "0-100 (you can't damage more systems than the ship has)"
+      }
+    },
+    "play_sound_now": {
+      "desc": "",
+      "filename": {
+        "description": "text (name of the WAV file in the mission's directory)"
+      }
+    },
+    "set_damcon_members": {
+      "desc": " (changes the count of team members in a specific damcon team)",
+      "team_index": {
+        "description": "0-2"
+      },
+      "value": {
+        "description": "0-6"
+      }
+    },
+    "set_ship_text": {
+      "desc": {
+        "description": "description the science console sees after one scan"
+      },
+      "name": {
+        "description": "text name of existing enemy or neutral OR monster"
+      },
+      "newname": {
+        "description": "text name to change it to"
+      },
+      "race": {
+        "description": "text of race"
+      },
+      "class": {
+        "description": "text of class"
+      },
+      "scan_desc": {
+        "description": "description the science console sees after two scans"
+      },
+      "hailtext": {
+        "description": "text this ship will reply with when comms \"hails\" them"
+      }
+    },
+    "start_getting_keypresses_from": {
+      "desc": " (sets a client console to key-active; it sends key press messages to the server)",
+      "consoles": {
+        "description": "text, a collection of the letters MHWESCO, defining which console(s) we want"
+      }
+    },
+    "end_getting_keypresses_from": {
+      "desc": " (sets a client console to NOT key-active)",
+      "consoles": {
+        "description": "text, a collection of the letters MHWESCO, defining which console(s) we want"
+      }
+    },
+    "set_special": {
+      "desc": " (changes the \"specialCaptainType\" and \"specialShipType\" variables of an AIShip, and rebuilds the scan text for the ship; also adjusts the special abilities of an AIShip)",
+      "name": {
+        "description": "text name of existing NPC ship"
+      },
+      "ship": {
+        "description": "-1 to 3"
+      },
+      "captain": {
+        "description": "-1 to 5"
+      },
+      "ability": {
+        "description": "text, consisting of one of the following:"
+      },
+      "clear": {
+        "description": "anything"
+      }
+    },
+    "set_side_value": {
+      "desc": " (changes the sideValue of a game object)",
+      "name": {
+        "description": "text name of existing ship or station"
+      },
+      "value": {
+        "description": "0-,  0 = no side, 1 = enemy (normally), 2+ = player side (normally)"
+      }
+    },
+    "set_gm_button": {
+      "desc": " (adds a button to the current GM console)",
+      "text": {
+        "description": "name of button.  If this button doens't have a position set, it's a menu button, and can have sub-menus by adding / character to this text, such as \"Create Enemy/Extras/Minefield arc\""
+      },
+      "x": {
+        "description": "1-1000"
+      },
+      "menu_w": {
+        "description": "1-1000"
+      }
+    },
+    "set_comms_button": {
+      "desc": " (adds a button to all relavent comms consoles)",
+      "text": {
+        "description": "name of button."
+      },
+      "sideValue": {
+        "description": "0-,  0 = all sides, 1 = enemy (normally), 2+ = player side (normally)"
+      }
+    },
+    "clear_gm_button": {
+      "desc": " (removes a button from the current GM console)",
+      "text": {
+        "description": "name of existing button. Use the exact text you used to create the button (with set_gm_button)."
+      }
+    },
+    "clear_comms_button": {
+      "desc": " (removes a button from all relavent comms consoles)",
+      "text": {
+        "description": "name of existing button. Use the exact text you used to create the button (with set_comms_button)."
+      },
+      "sideValue": {
+        "description": "0-,  0 = all sides, 1 = enemy (normally), 2+ = player side (normally)"
+      }
+    },
+    "set_player_carried_type": {
+      "desc": " (defines a singleseat ship to be carried inside another PLAYER ship)",
+      "name": {
+        "description": "text"
+      },
+      "hullID": {
+        "description": "0-?  (corresponds to the unique hull ID in vesselData.xml)"
+      },
+      "raceKeys": {
+        "description": "text (corresponds to hullRace name and keys in vesselData.xml)"
+      },
+      "hullKeys": {
+        "description": "text (corresponds to vessel className and broadType in vesselData.xml)"
+      },
+      "player_slot": {
+        "description": "0-7  (corresponds to the 8 player capital (not fighter) ships allowed in the game)"
+      },
+      "bay_slot": {
+        "description": "0-?  (corresponds to the bay number inside the carrier ship)"
+      }
+    },
+    "set_monster_tag_data": {
+      "desc": " (defines tag text for a monster)",
+      "name": {
+        "description": "text, name of monster"
+      },
+      "use_gm_selection": {
+        "description": "anything; the text activates the use"
+      },
+      "tag_slot": {
+        "description": "0-3  (each monster has 4 tag slots, each slot has  \"source_name\" and \"date\" text fields)"
+      },
+      "sourcetext": {
+        "description": "text"
+      },
+      "datetext": {
+        "description": "text"
+      }
+    },
+    "set_named_object_tag_state": {
+      "desc": " (defines tag info for a named object)",
+      "name": {
+        "description": "text, name of named object you want to set the tag info for"
+      },
+      "use_gm_selection": {
+        "description": "anything; the text activates the use"
+      },
+      "tagged": {
+        "description": "anything; with this attribute, the tag state of the object will be set to TRUE, otherwise FALSE"
+      },
+      "tagSourceSide": {
+        "description": "0-31  (side value that hit the object with the tag)"
+      },
+      "tagSourceName": {
+        "description": "text"
+      }
+    }
+  },
+  "conditions": {
+    "if_inside_box": {
+      "desc": " (tests if named object is inside a rectangle in space)",
+      "name": {
+        "description": "text"
+      },
+      "leastX": {
+        "description": "0 to 100000"
+      },
+      "leastZ": {
+        "description": "0 to 100000"
+      },
+      "mostX": {
+        "description": "0 to 100000"
+      },
+      "mostZ": {
+        "description": "0 to 100000"
+      }
+    },
+    "if_outside_box": {
+      "desc": " (tests if named object is outside a rectangle in space)",
+      "name": {
+        "description": "text"
+      },
+      "leastX": {
+        "description": "0 to 100000"
+      },
+      "leastZ": {
+        "description": "0 to 100000"
+      },
+      "mostX": {
+        "description": "0 to 100000"
+      },
+      "mostZ": {
+        "description": "0 to 100000"
+      }
+    },
+    "if_inside_sphere": {
+      "desc": " (tests if named object is inside a sphere in space)",
+      "name": {
+        "description": "text"
+      },
+      "centerX": {
+        "description": "0 to 100000"
+      },
+      "centerY": {
+        "description": "-100000 to 100000"
+      },
+      "centerZ": {
+        "description": "0 to 100000"
+      },
+      "radius": {
+        "description": "0 to 100000"
+      }
+    },
+    "if_outside_sphere": {
+      "desc": " (tests if named object is outside a sphere in space)",
+      "name": {
+        "description": "text"
+      },
+      "centerX": {
+        "description": "0 to 100000"
+      },
+      "centerY": {
+        "description": "-100000 to 100000"
+      },
+      "centerZ": {
+        "description": "0 to 100000"
+      },
+      "radius": {
+        "description": "0 to 100000"
+      }
+    },
+    "if_distance": {
+      "desc": " (tests the distance between two named objects against a condition)",
+      "name1": {
+        "description": "text"
+      },
+      "name2": {
+        "description": "text"
+      },
+      "player_slot1": {
+        "description": "0 to 7"
+      },
+      "player_slot2": {
+        "description": "0 to 7"
+      },
+      "pointX": {
+        "description": "0 to 100000"
+      },
+      "pointY": {
+        "description": "-100000 to 100000"
+      },
+      "pointZ": {
+        "description": "0 to 100000"
+      },
+      "comparator": {
+        "description": "=, !=, <, >, <=, >=, EQUALS, NOT, GREATER, LESS, GREATER_EQUAL, LESS_EQUAL"
+      },
+      "value": {
+        "description": "signed floating point value"
+      }
+    },
+    "if_variable": {
+      "desc": " (tests a named variable against a condition)",
+      "name": {
+        "description": "text"
+      },
+      "comparator": {
+        "description": "=, !=, <, >, <=, >=, EQUALS, NOT, GREATER, LESS, GREATER_EQUAL, LESS_EQUAL"
+      },
+      "value": {
+        "description": "signed floating point value"
+      }
+    },
+    "if_damcon_members": {
+      "desc": " (tests the count of team members in a specific damcon team against a condition)",
+      "team_index": {
+        "description": "0, 1, or 2"
+      },
+      "comparator": {
+        "description": "=, !=, <, >, <=, >=, EQUALS, NOT, GREATER, LESS, GREATER_EQUAL, LESS_EQUAL"
+      },
+      "value": {
+        "description": "signed floating point value"
+      }
+    },
+    "if_fleet_count": {
+      "desc": " (tests an indexed fleet's membership count against a condition)",
+      "name": {
+        "description": "text"
+      },
+      "comparator": {
+        "description": "=, !=, <, >, <=, >=, EQUALS, NOT, GREATER, LESS, GREATER_EQUAL, LESS_EQUAL"
+      },
+      "value": {
+        "description": "signed floating point value"
+      },
+      "fleetnumber": {
+        "description": "0-99"
+      },
+      "sideValue": {
+        "description": "0-30, <0 means count all non-player ships (including \"friendly\" ships), enemies are typically side 1"
+      },
+      "countSurrendered": {
+        "description": "0-99  normally this doesn't include surrendered ships in the count.  Setting \"countSurrendered\" to 1 includes them in the count"
+      }
+    },
+    "if_difficulty": {
+      "desc": " (tests the current game's difficulty level against a condition)",
+      "comparator": {
+        "description": "=, !=, <, >, <=, >=, EQUALS, NOT, GREATER, LESS, GREATER_EQUAL, LESS_EQUAL"
+      },
+      "value": {
+        "description": "signed floating point value"
+      }
+    },
+    "if_docked": {
+      "desc": " (tests if a player is docked with a named station)",
+      "name": {
+        "description": "text (name of station the ship is or is not docked with) (optional)"
+      },
+      "use_gm_selection": {
+        "description": "use this attribute to use the game master's selected player ship (this will fail if the selected object isn't a player ship) (optional)"
+      },
+      "player_name": {
+        "description": "text (name of player ship) (optional)"
+      },
+      "player_slot": {
+        "description": "0-7  (corresponds to the 8 player ships allowed in the game)"
+      },
+      "not": {
+        "description": "anything (inverts the logic of this command, to test if the player ship is NOT currently docked)"
+      }
+    },
+    "if_player_is_targeting": {
+      "desc": " (tests if the Artemis's weapons officer has a lock on the named object)",
+      "name": {
+        "description": "text"
+      }
+    },
+    "if_timer_finished": {
+      "desc": " (tests if a timer has counted down to zero yet)",
+      "name": {
+        "description": "text"
+      }
+    },
+    "if_exists": {
+      "desc": " (tests if named object exists right now)",
+      "name": {
+        "description": "text"
+      }
+    },
+    "if_not_exists": {
+      "desc": " (tests if named object does NOT exist right now)",
+      "name": {
+        "description": "text"
+      }
+    },
+    "if_object_property": {
+      "desc": " (tests a named space object's named property against a condition)",
+      "name": {
+        "description": "text"
+      },
+      "property": {
+        "description": "property (check the big list at the bottom of this file)"
+      },
+      "comparator": {
+        "description": "=, !=, <, >, <=, >=, EQUALS, NOT, GREATER, LESS, GREATER_EQUAL, LESS_EQUAL"
+      },
+      "value": {
+        "description": "signed floating point value"
+      }
+    },
+    "if_scan_level": {
+      "desc": " (tests a named space object's scan level (side-based) against a condition)",
+      "name": {
+        "description": "name of object that has a scan, so AIShips, monsters, and pickups"
+      },
+      "comparator": {
+        "description": "=, !=, <, >, <=, >=, EQUALS, NOT, GREATER, LESS, GREATER_EQUAL, LESS_EQUAL"
+      },
+      "value": {
+        "description": "signed floating point value (but scan levels are usually 0,1, or 2)"
+      },
+      "use_gm_selection": {
+        "description": "use this attribute to use the game master's selected player ship (this will fail if the selected object isn't a player ship) (optional)"
+      },
+      "player_slot": {
+        "description": "0-7  (corresponds to the 8 player ships allowed in the game)"
+      },
+      "side": {
+        "description": "integer value (sides are 0-31, 0 = no side, 1 = enemy (normally), 2+ = player side (normally))"
+      }
+    },
+    "if_gm_key": {
+      "desc": " (triggers when a key is pressed on a game master console)",
+      "keyText": {
+        "description": "text, single letter (usually upper case)"
+      },
+      "value": {
+        "description": "0-128 (raw key scan code)"
+      }
+    },
+    "if_client_key": {
+      "desc": " (triggers when a key is pressed on a key-activated console)",
+      "keyText": {
+        "description": "text, single letter (usually upper case)"
+      },
+      "value": {
+        "description": "0-128 (raw key scan code)"
+      }
+    },
+    "if_gm_button": {
+      "desc": " (triggers when a button from the current GM console is clicked)",
+      "text": {
+        "description": "name of existing button. Use the exact text you used to create the button (with set_gm_button)."
+      }
+    },
+    "if_comms_button": {
+      "desc": " (triggers when a specal button from a comms console is clicked)",
+      "text": {
+        "description": "name of existing button. Use the exact text you used to create the button (with set_comms_button)."
+      }
+    },
+    "if_monster_tag_matches": {
+      "desc": " (tests the tags attached to a monster)",
+      "name": {
+        "description": "text"
+      },
+      "string": {
+        "description": "text, text to compare with the tag text"
+      }
+    },
+    "if_object_tag_matches": {
+      "desc": " (tests the tag source name attached to a named object)",
+      "objectName": {
+        "description": "text (name of object that has a tag attached to it)"
+      },
+      "string": {
+        "description": "text, text to compare with the tag's text"
+      }
+    },
+    "if_in_nebula": {
+      "desc": " (tests a named space object's current state regarding nebulas)",
+      "exists": true,
+      "name": {
+        "description": "name of object that has a scan, so AIShips, monsters, and pickups"
+      },
+      "use_gm_selection": {
+        "description": "use this attribute to use the game master's selected object (optional)"
+      },
+      "player_slot": {
+        "description": "0-7  (corresponds to the 8 player ships allowed in the game)"
+      },
+      "compare": {
+        "description": "integer value 0-3 (as of 2/14/2018, nebulas come in 3 types, 1,2, and 3.  Use 0 if you want this condition to be true when the object is NOT inside a nebula)"
+      }
+    }
+  }
+}

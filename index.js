@@ -1,11 +1,20 @@
+const { MissionFile } = require('./lib/mission-file.js')
+const fs = require("fs").promises
+const path = require("path")
 
-const marko = require("marko/node-require");
- 
-var fs = require("fs");
-var hello = require("./components/test/hello");
 
-var out = fs.createWriteStream("MISS_Hello.xml", { encoding: "utf8" });
-hello.render({ name: "Frank" }, out);
+console.log(`Processing ${process.argv[2]}`)
+
+async function main() {
+  let mission = await MissionFile.fromFile(path.resolve(process.argv[2]))
+  await mission.processFile(mission)
+  let xml = mission.toXML()
+  
+  await fs.writeFile(path.resolve('MISS_TheArena.xml'), xml, "utf8")
+}
+main()
+
+
 
 
 
