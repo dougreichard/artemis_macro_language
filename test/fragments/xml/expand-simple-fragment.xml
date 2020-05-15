@@ -1,0 +1,11 @@
+<mission_data version="1.0">
+    <templates>
+        <template name="hello">
+            <big_message title="${message}" />
+        </template>
+    </templates>
+
+    <start>
+        <expand template="hello" message="Hello, World" />
+    </start>
+</mission_data>

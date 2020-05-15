@@ -1,18 +1,37 @@
 const { MissionFile } = require('./lib/mission-file.js')
-const fs = require("fs").promises
+const fs = require("fs")
 const path = require("path")
 
 
-console.log(`Processing ${process.argv[2]}`)
+// console.log(`Processing ${process.argv[2]}`)
+async function watch(file) {
+  /// if log doesn't exist write it
+  // **** log file for mission MISS_AmlTest ****
+  let base = path.basename(file, ".xml")
+  let log = path.resolve(base+"_LOG.txt")
+  fs.watchFile(log, (curr, prev) => {
+      console.log('Log changed')
+      main(file)
+  });
+}
 
-async function main() {
-  let mission = await MissionFile.fromFile(path.resolve(process.argv[2]))
+async function main(file) {
+  
+  let base = path.basename(file, ".xml")
+  let src = path.resolve(base+"_SOURCE.xml")
+  console.log(`Building ${base} for ${src}`)
+  let mission = await MissionFile.fromFile(src)
   await mission.processFile(mission)
   let xml = mission.toXML()
-  
-  await fs.writeFile(path.resolve('MISS_TheArena.xml'), xml, "utf8")
+
+  await fs.promises.writeFile(path.resolve(file), xml, "utf8")
+
 }
-main()
+let file = process.argv[2]
+main(file)
+if (process.argv[3]==="watch") {
+  watch(file)
+}
 
 
 

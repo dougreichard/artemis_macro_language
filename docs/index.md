@@ -12,6 +12,10 @@ The Artemis Scripting Macro Language enhances the existing XML to enable:
   - have separate files per quest in mission
   - create resuable modules for use in multiple missions
 
+## Getting started
+
+- [Quick start tutorial](tut01/start.md)
+
 
 ## Additional tags
 

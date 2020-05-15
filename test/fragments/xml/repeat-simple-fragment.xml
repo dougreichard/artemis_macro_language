@@ -19,7 +19,7 @@
     <set_variable name="Respawn_Anomaly_Time" value="90.0"/>
   </start>
 
-  <repeat range="Anomalies">
+  <repeat range="Anomalies" _skip="${object == 'A5'}">
     <event name="${anomaly} Destroyed">
       <if_not_exists name="${object}"/>
       <if_variable name="${anomaly}" comparator="EQUALS" value="1.0"/>
