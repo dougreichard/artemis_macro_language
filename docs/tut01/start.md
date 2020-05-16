@@ -68,7 +68,7 @@ aml MISS_HelloWorld.xml --run -artemis C:\artemis
 This may seem like we ADDED code to get our mission file.
 The goal is to have LESS. 
 
-Well this is just the beginning. You can look into other tags like <repeat>, <template> etc.
+Well this is just the beginning. You can look into other tags like repeat, template etc.
 These are the things that will really help reduce the amount of cut and paste you'll need.
 
 
