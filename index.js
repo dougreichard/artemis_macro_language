@@ -4,6 +4,7 @@ const path = require("path")
 const commandLineArgs = require('command-line-args')
 const commandLineUsage = require('command-line-usage')
 const chalk = require('chalk')
+const child_process = require('child_process')
 
 
 // Nice generator: http://patorjk.com/software/taag/#p=display&h=0&v=0&f=Letters&t=Artemis%0A%0A
@@ -113,11 +114,15 @@ const sections = [
 
 const options = commandLineArgs(optionDefinitions)
 
-let artemisDir = process.env['ARTEMIS_HOME']
+let artemisDir = options.artemis.artemis
+if (!artemisDir) {
+  artemisDir = process.env['ARTEMIS_HOME']
+}
+
 if (artemisDir) {
   console.log(`Using Artemis in folder ${artemisDir}`)
 } else {
-  console.log(`SET ARTEMIS_HOME to run and sync with artemis directory`)
+  console.log(`use --artemis or SET environment variable ARTEMIS_HOME to run and sync with artemis directory`)
 }
 
 async function watch(file) {
@@ -131,10 +136,30 @@ async function watch(file) {
   });
 }
 
+async function runArtemis() {
+  if (!options.artemis.run) return
+  if (!artemisDir) return
+
+  let artemis = path.join(artemisDir, 'Artemis.exe')
+  console.log(`Running ${artemis}`)
+  let game = child_process.spawn(artemis,
+  {
+    cwd: artemisDir,
+    detached: true,
+    stdio: 'ignore'
+  });
+  
+  game.unref();
+
+}
+
 async function main(file) {
   try {
     let base = path.basename(file, ".xml")
     let src = path.resolve(base + "_SOURCE.xml")
+    if (options.main.source) {
+      src = options.main.source
+    }
     console.log(`Building ${base} for ${src}`)
     let mission = await MissionFile.fromFile(src)
     if (mission.model) {
@@ -142,7 +167,7 @@ async function main(file) {
       if (!mission.hasErrors()) {
         let xml = mission.toXML()
         await fs.promises.writeFile(path.resolve(file), xml, "utf8")
-        if (artemisDir) {
+        if (artemisDir && options.artemis.install) {
           let missionDir = path.join(artemisDir, "dat", "missions", base)
           console.log('MissDir' + missionDir)
           await fs.promises.mkdir(missionDir, { recursive: true })
@@ -154,21 +179,24 @@ async function main(file) {
     }
     if (mission.hasErrors()) {
       mission.dumpAllErrors()
-    } else if (options.run) {
-
-    }
+    } 
+    runArtemis()
+    
   } catch (e) {
     console.log(e.message)
   }
 }
-let file = options.source
-if (options.watch) {
+let file = options.main.mission
+if (options.main['watch-log']) {
   watch(file)
 }
 
 if (options.main.help) {
   const usage = commandLineUsage(sections)
   console.log(usage)
-} else {
+} else if (file) {
   main(file)
+} else if (options.artemis.run) {
+  runArtemis()
 }
+//console.log(JSON.stringify(options,null, 2))

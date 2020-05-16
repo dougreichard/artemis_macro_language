@@ -1,0 +1,12 @@
+<mission_data version="1.0">
+  <values>
+    <value hello="Hello, world"/>
+  </values>
+    <start>
+        <create type="player" player_slot="" x="50000" y="0" z="50000" name="Artemis"/>
+        <set_difficulty_level value="5"/>
+        <expand>
+            <big_message title="${hello}" subtitle1="" subtitle2=""/>
+        </expand>
+    </start>
+</mission_data>

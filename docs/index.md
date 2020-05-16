@@ -1,5 +1,7 @@
 # Artemis Scripting Macro Language
 
+![Logo](logo.png)
+
 The Artemis Scripting Macro Language enhances the existing XML to enable:
 
 - Produces a Single XML from multiple parts
