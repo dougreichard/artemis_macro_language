@@ -5,7 +5,7 @@ class MyPlugin{
 }
 
 async function init( basedir) {
-    console.log('Plugin init')
+    //console.log('Plugin init')
 }
 
 exports.init = init

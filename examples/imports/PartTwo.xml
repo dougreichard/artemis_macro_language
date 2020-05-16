@@ -1,0 +1,8 @@
+<mission_data>
+    <event name="Part Two">
+        <if_timer name="PartTwo" />
+        <if_variable name="part" comparator="EQUALS" value="1" />
+        <set_variable name="part" value="2" />
+        <big_message title="Part Two" />
+    </event>
+</mission_data>

@@ -1,0 +1,14 @@
+<mission_data>
+    <start>
+        <set_variable name="part" value="0" />
+        <set_timer name="parts" seconds="5" />
+    </start>
+     <event name="Part Two">
+        <if_timer name="parts" />
+        <if_variable name="part" comparator="EQUALS" value="0" />
+
+        <big_message title="Part One" />
+        <set_variable name="part" value="0" />
+        <set_timer name="parts" seconds="5" />
+    </event>
+</mission_data>

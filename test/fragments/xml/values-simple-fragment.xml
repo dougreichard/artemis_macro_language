@@ -1,0 +1,21 @@
+<mission_data version="1.0">
+  <values>
+    <value CONST_TIMER_SECONDS="30"/>
+    <struct name="mystructure" >
+      <value anomaly="Anomaly[1]" angle="90" pickupType="5" object="A1" y="1.0" />
+      <struct name="inner" >
+        <value health="5" />
+        <value XP="34" />
+      </struct>   
+    </struct>
+  </values>
+
+  <start>
+    <expand>
+      <set_variable name="${mystructure.anomaly}" value="${CONST_TIMER_SECONDS*5}"/>
+      <set_variable name="${mystructure.anomaly}" value="${CONST_TIMER_SECONDS}"/>
+    </expand>
+  </start>
+
+  
+</mission_data>

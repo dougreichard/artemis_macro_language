@@ -1,5 +1,5 @@
 <mission_data version="1.0">
-  <ranges>
+  <values>
     <range name="AllShips">
       <item ship="Artemis" sideValue="10" />
       <item ship="Intrepid" sideValue="11" />
@@ -18,7 +18,7 @@
       <item egg="egg4" seconds="35" playerCount="6.0" x="49000" y="3" z="5100" />
       <item egg="egg5" seconds="35" playerCount="7.0" x="51000" y="3" z="49000" />
     </range>
-  </ranges>
+  </values>
 
   <start>
     <repeat range="Eggs">

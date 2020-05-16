@@ -1,0 +1,6 @@
+<mission_data>
+    <imports>
+        <import name="PartOne.xml" />
+        <import name="PartTwo.xml" />
+    </imports>
+</mission_data>

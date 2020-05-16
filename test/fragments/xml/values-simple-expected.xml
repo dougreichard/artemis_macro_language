@@ -1,0 +1,6 @@
+<mission_data version="1.0">
+    <start>
+        <set_variable name="Anomaly[1]" value="150"/>
+        <set_variable name="Anomaly[1]" value="30"/>
+    </start>
+</mission_data>

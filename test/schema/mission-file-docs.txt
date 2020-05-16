@@ -319,8 +319,10 @@ COMMAND: destroy (the command that removes something named from the game)
 			VALID: text
 	ATTRIBUTE: use_gm_selection
 			VALID: anything, just use this attribute to use the game master's selected object
+	ATTRIBUTE: player_slot
+			VALID: 0-7  (corresponds to the 8 player capital (not fighter) ships allowed in the game)
 
-	you only need to use one, either name OR use_gm_selection
+	you only need to use one, either name OR use_gm_selection OR player_slot
 
 			
 -----------------------------------------------------------------------------
@@ -533,10 +535,28 @@ COMMAND: log (sends text to the mission's log file)
 COMMAND: set_object_property (sets a named space object's named property to a value)
 	ATTRIBUTE: name
 			VALID: text
+	ATTRIBUTE: player_slot
+			VALID: 0-7  (corresponds to the 8 player capital (not fighter) ships allowed in the game)
+	ATTRIBUTE: use_gm_selection
+			VALID: anything, just use this attribute to use the game master's selected object
 	ATTRIBUTE: property
 			VALID: text (check the big list at the bottom of this file)
 	ATTRIBUTE: value
 			VALID: 	 signed floating point value
+
+
+-----------------------------------------------------------------------------
+COMMAND: get_object_property (copies a named space object's named property to a variable)
+	ATTRIBUTE: name
+			VALID: text
+	ATTRIBUTE: player_slot
+			VALID: 0-7  (corresponds to the 8 player capital (not fighter) ships allowed in the game)
+	ATTRIBUTE: use_gm_selection
+			VALID: anything, just use this attribute to use the game master's selected object
+	ATTRIBUTE: property
+			VALID: text (check the big list at the bottom of this file)
+	ATTRIBUTE: variable
+			VALID: 	 name of a variable
 
 
 -----------------------------------------------------------------------------
@@ -556,6 +576,10 @@ COMMAND: set_fleet_property (sets a numbered enemy fleet's named property to a v
 COMMAND: addto_object_property (adds a value to a named space object's named property)
 	ATTRIBUTE: name
 			VALID: text
+	ATTRIBUTE: player_slot
+			VALID: 0-7  (corresponds to the 8 player capital (not fighter) ships allowed in the game)
+	ATTRIBUTE: use_gm_selection
+			VALID: anything, just use this attribute to use the game master's selected object
 	ATTRIBUTE: property
 			VALID: text (check the big list at the bottom of this file)
 	ATTRIBUTE: value
@@ -566,8 +590,12 @@ COMMAND: addto_object_property (adds a value to a named space object's named pro
 COMMAND: copy_object_property (copies a named property from one named space object to another, name1 to name2)
 	ATTRIBUTE: name1
 			VALID: text
+	ATTRIBUTE: player_slot1
+			VALID: 0-7  (corresponds to the 8 player capital (not fighter) ships allowed in the game)
 	ATTRIBUTE: name2
 			VALID: text
+	ATTRIBUTE: player_slot1
+			VALID: 0-7  (corresponds to the 8 player capital (not fighter) ships allowed in the game)
 	ATTRIBUTE: property
 			VALID: text (check the big list at the bottom of this file)
 
@@ -576,8 +604,12 @@ COMMAND: copy_object_property (copies a named property from one named space obje
 COMMAND: set_relative_position (moves one named space object (name2) to a point near another (name1), relative to name1's heading)
 	ATTRIBUTE: name1
 			VALID: text
+	ATTRIBUTE: player_slot1
+			VALID: 0-7  (corresponds to the 8 player capital (not fighter) ships allowed in the game)
 	ATTRIBUTE: name2
 			VALID: text
+	ATTRIBUTE: player_slot2
+			VALID: 0-7  (corresponds to the 8 player capital (not fighter) ships allowed in the game)
 	ATTRIBUTE: angle
 			VALID: 	0 to 360
 	ATTRIBUTE: distance
@@ -589,6 +621,8 @@ COMMAND: set_to_gm_position (moves one named space object (name) to the point sp
 			VALID: text, the name of the object
 	ATTRIBUTE: use_gm_selection
 			VALID: anything, just use this attribute to use the game master's selected object
+	ATTRIBUTE: player_slot
+			VALID: 0-7  (corresponds to the 8 player capital (not fighter) ships allowed in the game)
 
 	you only need to use one, either name OR use_gm_selection
 	
@@ -599,9 +633,9 @@ COMMAND: set_to_gm_position (moves one named space object (name) to the point sp
 
 
 -----------------------------------------------------------------------------
-COMMAND: set_skybox_index (sets the skybox of the main screen to 0-9)
+COMMAND: set_skybox_index (sets the skybox of the main screen to 0-29)
 	ATTRIBUTE: index
-			VALID: 0-9
+			VALID: 0-29
 
 
 -----------------------------------------------------------------------------
@@ -610,6 +644,10 @@ COMMAND: warning_popup_message (sends a very short message to the screens specif
 			VALID: text
 	ATTRIBUTE: consoles
 			VALID: text, a collection of the letters MHWESCO, defining which console the message appears on
+	ATTRIBUTE: name
+			VALID: text, the name of the ship to send the message to
+	ATTRIBUTE: player_slot
+			VALID: 0-7  (corresponds to the 8 player capital (not fighter) ships allowed in the game)
 
 
 -----------------------------------------------------------------------------
@@ -619,6 +657,12 @@ COMMAND: set_difficulty_level (overrides the difficulty level set on the server 
 
 -----------------------------------------------------------------------------
 COMMAND: set_player_grid_damage (changes the damage value of a ship system in the 3D grid)
+
+	ATTRIBUTE: name
+			VALID: text, the name of the ship to modify
+	ATTRIBUTE: player_slot
+			VALID: 0-7  (corresponds to the 8 player capital (not fighter) ships allowed in the game)
+
 	ATTRIBUTE: systemType
 		systemBeam
 		systemTorpedo
@@ -647,6 +691,10 @@ COMMAND: play_sound_now
 
 -----------------------------------------------------------------------------
 COMMAND: set_damcon_members (changes the count of team members in a specific damcon team)
+	ATTRIBUTE: name
+			VALID: text, the name of the ship to modify
+	ATTRIBUTE: player_slot
+			VALID: 0-7  (corresponds to the 8 player capital (not fighter) ships allowed in the game)
 	ATTRIBUTE: team_index
 			VALID: 0-2
 	ATTRIBUTE: value
@@ -731,6 +779,8 @@ COMMAND: set_special (changes the "specialCaptainType" and "specialShipType" var
 COMMAND: set_side_value (changes the sideValue of a game object)
 	ATTRIBUTE: name
 			VALID: text name of existing ship or station
+	ATTRIBUTE: player_slot
+			VALID: 0-7  (corresponds to the 8 player capital (not fighter) ships allowed in the game)
 	ATTRIBUTE: value
 			VALID: 0-,  0 = no side, 1 = enemy (normally), 2+ = player side (normally)
 
@@ -849,6 +899,8 @@ COMMAND: set_named_object_tag_state (defines tag info for a named object)
 CONDITION: if_inside_box (tests if named object is inside a rectangle in space)
 	ATTRIBUTE: name
 			VALID: text
+	ATTRIBUTE: player_slot
+			VALID: 0-7  (corresponds to the 8 player capital (not fighter) ships allowed in the game)
 
 	ATTRIBUTE: leastX
 			VALID: 	 0 to 100000
@@ -863,6 +915,8 @@ CONDITION: if_inside_box (tests if named object is inside a rectangle in space)
 CONDITION: if_outside_box (tests if named object is outside a rectangle in space)
 	ATTRIBUTE: name
 			VALID: text
+	ATTRIBUTE: player_slot
+			VALID: 0-7  (corresponds to the 8 player capital (not fighter) ships allowed in the game)
 
 	ATTRIBUTE: leastX
 			VALID: 	 0 to 100000
@@ -878,6 +932,8 @@ CONDITION: if_outside_box (tests if named object is outside a rectangle in space
 CONDITION: if_inside_sphere (tests if named object is inside a sphere in space)
 	ATTRIBUTE: name
 			VALID: text
+	ATTRIBUTE: player_slot
+			VALID: 0-7  (corresponds to the 8 player capital (not fighter) ships allowed in the game)
 
 	ATTRIBUTE: centerX
 			VALID: 	 0 to 100000
@@ -892,6 +948,8 @@ CONDITION: if_inside_sphere (tests if named object is inside a sphere in space)
 CONDITION: if_outside_sphere (tests if named object is outside a sphere in space)
 	ATTRIBUTE: name
 			VALID: text
+	ATTRIBUTE: player_slot
+			VALID: 0-7  (corresponds to the 8 player capital (not fighter) ships allowed in the game)
 
 	ATTRIBUTE: centerX
 			VALID: 	 0 to 100000
@@ -944,7 +1002,16 @@ CONDITION: if_variable (tests a named variable against a condition)
 
 
 -----------------------------------------------------------------------------
-CONDITION: if_damcon_members (tests the count of team members in a specific damcon team against a condition)
+CONDITION: if_damcon_members (tests the count of team members in a specific damcon team on a specific player ship against a condition)
+
+
+	ATTRIBUTE: name
+			VALID: text
+	ATTRIBUTE: player_slot
+			VALID: 0-7  (corresponds to the 8 player capital (not fighter) ships allowed in the game)
+	ATTRIBUTE: use_gm_selection
+			VALID: anything, just use this attribute to use the game master's selected object
+
 	ATTRIBUTE: team_index
 			VALID: 	 0, 1, or 2
 	ATTRIBUTE: comparator
@@ -996,9 +1063,20 @@ CONDITION: if_docked (tests if a player is docked with a named station)
 
 
 -----------------------------------------------------------------------------
-CONDITION: if_player_is_targeting (tests if the Artemis's weapons officer has a lock on the named object)
+CONDITION: if_player_is_targeting (tests if a player ship's weapons officer has a lock on the named object)
+	ATTRIBUTE: use_gm_selection
+			VALID: use this attribute to use the game master's selected player ship (as the ship that does the targeting, not the target) (optional)
+	ATTRIBUTE: player_name
+			VALID: text (name of player ship that does the targeting, not the target) (optional)
+	ATTRIBUTE: player_slot
+			VALID: 0-7  (corresponds to the 8 player ships allowed in the game) (for player ship that does the targeting, not the target)
+			use this instead of a "player_name" or "use_gm_selection" attribute (optional)
 	ATTRIBUTE: name
-			VALID: text
+			VALID: text (the name of the target that the player ship might be targetting)
+	ATTRIBUTE: target_slot
+			VALID: 0-7  (corresponds to the 8 player ships allowed in the game) (for player ship that IS the target)
+			use this instead of a "name" attribute (optional)
+			
 
 -----------------------------------------------------------------------------
 CONDITION: if_timer_finished (tests if a timer has counted down to zero yet)
@@ -1010,18 +1088,26 @@ CONDITION: if_timer_finished (tests if a timer has counted down to zero yet)
 CONDITION: if_exists (tests if named object exists right now)
 	ATTRIBUTE: name
 			VALID: text
+	ATTRIBUTE: player_slot
+			VALID: 0-7  (corresponds to the 8 player capital (not fighter) ships allowed in the game)
 
 
 -----------------------------------------------------------------------------
 CONDITION: if_not_exists (tests if named object does NOT exist right now)
 	ATTRIBUTE: name
 			VALID: text
+	ATTRIBUTE: player_slot
+			VALID: 0-7  (corresponds to the 8 player capital (not fighter) ships allowed in the game)
 
 
 -----------------------------------------------------------------------------
 CONDITION: if_object_property (tests a named space object's named property against a condition)
 	ATTRIBUTE: name
 			VALID: text
+	ATTRIBUTE: player_slot
+			VALID: 0-7  (corresponds to the 8 player capital (not fighter) ships allowed in the game)
+	ATTRIBUTE: use_gm_selection
+			VALID: anything, just use this attribute to use the game master's selected object
 	ATTRIBUTE: property
 			VALID: property (check the big list at the bottom of this file)
 	ATTRIBUTE: comparator
@@ -1171,6 +1257,9 @@ CONDITION: if_in_nebula (tests a named space object's current state regarding ne
 			// values for Stations
 				shieldState
 				canBuild
+				canShoot
+				canLaunchFighters
+				
 				missileStoresHoming
 				missileStoresNuke
 				missileStoresMine
@@ -1220,6 +1309,14 @@ CONDITION: if_in_nebula (tests a named space object's current state regarding ne
 				exitPointX
 				exitPointY
 				exitPointZ
+
+			// values for Monsters
+				speed    
+				health   
+				maxHealth
+				turnRate 
+				age      
+				size     
 
 			// values for Players
 				countHoming
@@ -1301,6 +1398,10 @@ const int ELITE_DRONE_LAUNCHER       = 128
 const int ELITE_ANTI_MINE_BEAMS      = 256
 const int ELITE_ANTI_TORP_BEAMS      = 512
 const int ELITE_ANTI_SHIELD          = 1024
+const int SPCL_VAMP_SHIELD          = 2048   
+const int SPCL_TELEPORT_BACKWARDS   = 4096   
+const int SPCL_SHLD_SCRAMBLE        = 8192   
+
 
 
 take the number of all the abilities you want the elite enemy to have, add them together, and that's the number you should set in eliteAbilityBits.

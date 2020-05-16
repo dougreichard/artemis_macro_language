@@ -35,12 +35,20 @@ const { interpolate } = require('./template-string')
 // For jsdoc
 require('./typedefs')
 
+const START_LOG_DATA = "&lt;&lt;&lt;START_AML_DATA>>>"
+const END_LOG_DATA = "&lt;&lt;&lt;END_AML_DATA>>>"
+
 /** Class representing mission file data */
 class MissionFile {
-    constructor(model, filename) {
-        this.model = model
+    constructor(init, filename) {
         this.filename = filename
-        this.ranges = {}
+        this.model = init.model
+        this.allErrors = {}
+        if (init.errors) {
+            this.error(init.errors)
+        }
+        //this.ranges = {}
+        this.data = {}
         this.templates = {}
         this.plugins = {}
     }
@@ -48,16 +56,45 @@ class MissionFile {
         return path.dirname(this.filename)
     }
     /**
-     * Dump an error message
+     * Add error message
      */
     error(e) {
-        console.error(e)
+        if (!this.allErrors[this.filename]) {
+            this.allErrors[this.filename] = []
+        }
+        this.allErrors[this.filename].push(e)
+    }
+    /**
+    * Add all errors (to a main)
+    */
+    addErrors(mission) {
+        Object.assign(this.allErrors, mission.allErrors)
+    }
+    /**
+     * Has erros
+     */
+    hasErrors() {
+        if (!this.allErrors) return;
+        return Object.entries(this.allErrors).length
+    }
+    /**
+    * Dump all the error messages
+    */
+    dumpAllErrors() {
+        if (!this.allErrors) return;
+        for (let [key, value] of Object.entries(this.allErrors)) {
+            console.error(`Errors from file: ${key}`)
+            for (let j = 0, jl = value.length; j &lt; jl; j++) {
+                console.error(value[j].message)
+            }
+        }
     }
     /**
    * Convert to a string of XML
    * @return {string} The XML as a string
    */
     toXML() {
+        if (!this.model) return
         let xml = convert.js2xml(this.model, { compact: false, spaces: 4 });
         return xml.replace(/\n/g, '\r\n')
     }
@@ -70,11 +107,15 @@ class MissionFile {
     static async fromFile(filename) {
         try {
             let result = await MissionParser.fromFile(filename)
-            return new MissionFile(result.model, filename)
+            return new MissionFile(result, filename)
         } catch (e) {
 
         }
     }
+    /**
+     *  Adds a plugin from javascript
+     * @param {string} filename The javascript file
+     */
     async fromScript(filename) {
         if (!path.isAbsolute(filename)) {
             filename = path.resolve(this.basedir, filename)
@@ -83,19 +124,85 @@ class MissionFile {
         if (script)  {
             // Enable an asynchronous initialize
             if (script.init) {
-                console.log('pre')
                 let data = await script.init(this.basedir)
-                //delete script.init 
-                console.log('post', data)
                 Object.assign(this.plugins, script)
             } else {
                 Object.assign(this.plugins, script)
             }
-           
         }
-        
         return
     }
+    /**
+   * Opens a Json file and it to data
+   * @param {string} filename - The filename
+   * 
+   */
+    async fromJson(filename, name) {
+        if (!path.isAbsolute(filename)) {
+            filename = path.resolve(this.basedir, filename)
+        }
+        try {
+            let data = await fs.readFile(filename, 'utf8')
+            let v = JSON.parse(data)
+            if (name) {
+                Object.assign(this.data[name], v)
+            } else {
+                Object.assign(this.data, v)
+            }
+        } catch (e) {
+            this.error(e)
+        }
+
+    }
+    /**
+   * Opens a log file Json file and it to data
+   * @param {string} filename - The filename
+   * 
+   */
+    async fromLogToJson(filename, name) {
+        if (!path.isAbsolute(filename)) {
+            filename = path.resolve(this.basedir, filename)
+        }
+        try {
+            let json = await this.getLogData(filename, name)
+            if (!json) return
+            let v = JSON.parse(json)
+            if (name) {
+                Object.assign(this.data[name], v)
+            }
+            else {
+                Object.assign(this.data, v)
+            }
+        } catch (e) {
+            this.error(e)
+        }
+    }
+    async getLogData(filename) {
+        let log = await fs.readFile(filename, 'utf8')
+        let start = log.search(START_LOG_DATA + '\r\n')
+        let end = log.search(END_LOG_DATA)
+        if (start >= 0 &amp;&amp; end > start) {
+            return log.substring(start + START_LOG_DATA.length + 2, end - 2)
+        }
+    }
+
+    /**
+   * Opens a log file Json file and it to data
+   * @param {string} filename - The filename
+   * 
+   */
+  async fromLogToXml(filename) {
+    if (!path.isAbsolute(filename)) {
+        filename = path.resolve(this.basedir, filename)
+    }
+    try {
+        let xml = await this.getLogData(filename)
+        let result = await MissionParser.fromXmlString(xml)
+        return new MissionFile(result, filename)
+    } catch (e) {
+        this.error(e)
+    }
+}
     /**
        * returns the first element of a specified tag
        * XML and mission file build a common model
@@ -128,11 +235,11 @@ class MissionFile {
         return { element: undefined, index: -1 }
     }
     /**
-   * Finds all child elements that match a tag
-   * @param {ModelElement} parent The element to search
-   * @param {string} tag The tag to find
-   * @returns {ModelElement[]} The element objects matching tag
-   */
+    * Finds all child elements that match a tag
+    * @param {ModelElement} parent The element to search
+    * @param {string} tag The tag to find
+    * @returns {ModelElement[]} The element objects matching tag
+    */
     findElements(parent, tag) {
         let ret = []
         for (let i = 0, l = parent.elements.length; i &lt; l; i++) {
@@ -146,11 +253,11 @@ class MissionFile {
         return ret
     }
     /**
-   * Finds all child elements that match a tag
-   * @param {ModelElement} parent The element to search
-   * @param {string} tag The tag to find
-   * @returns {FoundChild[]} The element objects matching tag
-   */
+    * Finds all child elements that match a tag
+    * @param {ModelElement} parent The element to search
+    * @param {string} tag The tag to find
+    * @returns {FoundChild[]} The element objects matching tag
+    */
     findChildren(parent, tag) {
         let ret = []
         for (let i = 0, l = parent.elements.length; i &lt; l; i++) {
@@ -164,11 +271,11 @@ class MissionFile {
         return ret
     }
     /**
-  * Finds all child elements that match a tag and removes them
-  * @param {ModelElement} parent The element to search
-  * @param {string} tag The tag to find
-  * @returns {FoundChild[]} The element objects matching tag
-  */
+    * Finds all child elements that match a tag and removes them
+    * @param {ModelElement} parent The element to search
+    * @param {string} tag The tag to find
+    * @returns {FoundChild[]} The element objects matching tag
+    */
     removeChildren(parent, tag) {
         let ret = []
         let filtered = []
@@ -186,11 +293,11 @@ class MissionFile {
         return ret
     }
     /**
-  * Finds the first child element that matches a tag and removes it
-  * @param {ModelElement} parent The element to search
-  * @param {string} tag The tag to find
-  * @returns {ModelElement} The element objects matching tag
-  */
+    * Finds the first child element that matches a tag and removes it
+    * @param {ModelElement} parent The element to search
+    * @param {string} tag The tag to find
+    * @returns {ModelElement} The element objects matching tag
+    */
     removeFirstElement(parent, tag) {
         let { element } = this.removeFirstChild(parent, tag)
         return element
@@ -226,6 +333,9 @@ class MissionFile {
      * @param {ModelElement} main The root element of the Main file 
      */
     mergeStart(main) {
+        if (!this.model) {
+            return
+        }
         let { start: main_start, mission_data: main_root } = this.findPath(main.model, ["mission_data", "start"])
         let { start } = this.findPath(this.model, ["mission_data", "start"])
         // if there is nothing to merge 
@@ -246,6 +356,9 @@ class MissionFile {
     * @param {ModelElement} main The root element of Main file 
     */
     mergeEvents(main) {
+        if (!this.model) {
+            return
+        }
         let main_mission_data = this.findFirstElement(main.model, "mission_data")
         if (!main_mission_data) return
 
@@ -259,26 +372,61 @@ class MissionFile {
         main_mission_data.elements = main_mission_data.elements.concat(merge)
     }
     /**
-    * Finds all ranges in the file, expands them to values, then remove the elements
+    * Finds all values in the file, expands them to values, then remove the elements
     */
-    processRanges() {
+    processValues(main) {
         let mission_data = this.findFirstElement(this.model, "mission_data")
         if (!mission_data) return
-        let rangesTag = this.removeFirstElement(mission_data, "ranges")
-        if (!rangesTag) return
-        let ranges = this.findElements(rangesTag, "range")
+        let values = this.removeFirstElement(mission_data, "values")
+        if (!values) return
+        this.processRanges(values, main.data)
+        this.processStructs(values, main.data)
+        this.processValueTags(values, main.data)
+    }
+    /**
+    * Finds all structures  in the file, expands them to values, then remove the elements
+    */
+    processStructs(parent, addTo) {
+        let structs = this.findElements(parent, "struct")
+        for (let r = 0, rl = structs.length; r &lt; rl; r++) {
+            let ele = structs[r]
+            let name = ele.attributes.name
+            addTo[name] = {}
+            this.processValueTags(structs[r], addTo[name])
+            this.processStructs(structs[r], addTo[name])
+            this.processRanges(structs[r], addTo)
+        }
+    }
+    /**
+    * Finds all value tags in the file, expands them to values, then remove the elements
+    */
+    processValueTags(parent, addTo) {
+        let items = this.findElements(parent, "value")
+        for (let i = 0, l = items.length; i &lt; l; i++) {
+            Object.assign(addTo, items[i].attributes)
+        }
+    }
+    /**
+    * Finds all ranges in the file, expands them to values, then remove the elements
+    */
+    processRanges(values, addTo) {
+        let ranges = this.findElements(values, "range")
         for (let r = 0, rl = ranges.length; r &lt; rl; r++) {
             let ele = ranges[r]
             let name = ele.attributes.name
-            this.ranges[name] = []
-            let items = this.findElements(ranges[r], "item")
-            for (let i = 0, l = items.length; i &lt; l; i++) {
-                this.ranges[name].push(items[i].attributes)
+            addTo[name] = []
+            if (ele.elements &amp;&amp; ele.elements.length) {
+                let items = this.findElements(ele, "value")
+                for (let i = 0, l = items.length; i &lt; l; i++) {
+                    addTo[name].push(items[i].attributes)
+                }
+            } else {
+                this.error({ message: 'A range requires values' })
             }
         }
     }
     /**
-    * 
+    * Grabs all the templates
     */
     processTemplateParameters(template, args) {
         let paramsTag = this.findFirstElement(template, "params")
@@ -296,14 +444,14 @@ class MissionFile {
                 // Add the default value
                 args[name] = defaultValue
             } else {
-                this.error(`${template.attributes.name} missing parameter ${name}`)
+                this.error({ message: `${template.attributes.name} missing parameter ${name}` })
                 valid = false
             }
         }
         return valid
     }
     /**
-    * 
+    * Expand all the templates
     */
     async processExpandTemplates(parent) {
         let expands = this.findChildren(parent, "expand")
@@ -314,21 +462,25 @@ class MissionFile {
             if (ele.attributes &amp;&amp; ele.attributes.template) {
                 let templateName = ele.attributes.template
                 template = this.templates[templateName]
-                 ///  processTemplateParameters(template, args)
+                ///  processTemplateParameters(template, args)
             }
-           
 
-            let values = { plugins: this.plugins }
-            Object.assign(values, ele.attributes)
-            
+            let outerScope = { plugins: this.plugins }
+            Object.assign(outerScope, this.data)
+            Object.assign(outerScope, ele.attributes)
+            // Include data from repeats
+            if (ele.__scope) {
+                Object.assign(outerScope, ele.__scope)
+            }
+
             let childElements = template.elements
             let replaceWith = []
             for (let c = 0, cl = childElements.length; c &lt; cl; c++) {
                 if (childElements[c].name === "repeat") {
-                    this.error(`Repeats are not allowed within templates`)
+                    this.error({ message: `Repeats are not allowed within templates` })
                     continue
                 }
-                let clone = await this.deepInterpolate(childElements[c], values)
+                let clone = await this.deepInterpolate(childElements[c], outerScope)
                 if (clone) {
                     replaceWith.push(clone)
                 }
@@ -400,7 +552,7 @@ class MissionFile {
                     clone.attributes[key] = await interpolate(value, values)
                 }
                 catch (e) {
-                    this.error(e.message)
+                    this.error({ message: `no data for macro expression ${e.message}` })
                 }
             }
         }
@@ -433,13 +585,26 @@ class MissionFile {
         let hasNested = false
         for (let r = repeats.length - 1; r >= 0; r--) {
             let element = repeats[r].element
-            let rangeName = element.attributes.range
-            if (!rangeName) {
-                this.error(`Range not defined for repeat`)
-                continue
-            }
 
             let outerScope = { plugins: this.plugins }
+            Object.assign(outerScope, this.data)
+
+            let rangeName = element.attributes.range
+            let isActuallyArray
+            let range
+            if (rangeName) {
+                range = this.data[rangeName]
+                if (!range) {
+                    this.error({ message: `Range not found ${rangeName}` })
+                    continue
+                }
+                isActuallyArray = Array.isArray(range)
+            } else if (element.attributes.length) {
+                range = { length: parseInt(element.attributes.length) }
+                if (!range.length) {
+                    this.error({ message: `Repeat needs a range or a length` })
+                }
+            }
             let skipFilter = element.attributes["_skip"]
             // Copy the attributes of the repeat to scope
             Object.assign(outerScope, element.attributes)
@@ -452,26 +617,24 @@ class MissionFile {
             if (element.__scope) {
                 Object.assign(outerScope, element.__scope)
             }
-            let range = this.ranges[rangeName]
-            if (!range) {
-                this.error(`Range not found ${rangeName}`)
-            }
+
             // Accumulate all the elements
             let childElements = repeats[r].element.elements
             let replaceWith = []
             for (let i = 0, l = range.length; i &lt; l; i++) {
-                let values = range[i]
-                let scope = {}
+                let scope = { _index: i }
+                if (isActuallyArray) {
+                    Object.assign(scope, range[i])
+                }
                 // Clone outerscope
                 scope = Object.assign(scope, outerScope)
-                scope[rangeAs] = values
 
                 if (rangeAs) {
-                    values[rangeAs] = values
+                    scope[rangeAs] = scope
                 }
-                values = Object.assign(values, outerScope)
+
                 if (skipFilter) {
-                    let test = await interpolate(skipFilter, values)
+                    let test = await interpolate(skipFilter, scope)
                     if (test == 'true') {
                         continue
                     }
@@ -480,7 +643,7 @@ class MissionFile {
                 /// Clone and expand all the content
                 for (let c = 0, cl = childElements.length; c &lt; cl; c++) {
                     if (childElements[c].name != "repeat") {
-                        let clone = await this.deepInterpolate(childElements[c], values)
+                        let clone = await this.deepInterpolate(childElements[c], scope)
                         if (clone) {
                             replaceWith.push(clone)
                         }
@@ -495,7 +658,7 @@ class MissionFile {
                         Object.assign(clone, childElements[c])
                         // Add scope dat to repeats
                         clone.__scope = {}
-                        Object.assign(clone.__scope, values)
+                        Object.assign(clone.__scope, scope)
                         replaceWith.push(clone)
                     }
                 }
@@ -519,11 +682,11 @@ class MissionFile {
         // Process them at the top level
         let mission_data = this.findFirstElement(this.model, "mission_data")
         if (!mission_data) return
-        this.processAllRepeatsFor(mission_data)
+        await this.processAllRepeatsFor(mission_data)
         // Process them in start
         let start = this.findFirstElement(mission_data, "start")
         if (start &amp;&amp; start.elements) {
-            this.processAllRepeatsFor(start)
+            await this.processAllRepeatsFor(start)
         }
         // process them in every event
         let events = this.findElements(mission_data, "event")
@@ -561,36 +724,62 @@ class MissionFile {
         for (let i = 0, l = importEles.length; i &lt; l; i++) {
             let ele = importEles[i]
             let name = ele.attributes.name
+            let value = ele.attributes.value
+            let as = ele.attributes.as
             if (!name) {
-
+                this.error(`Import without a name`)
             }
-            if (path.extname(name)===".js") {
+            if (path.extname(name) === ".js") {
                 await this.fromScript(name)
                 continue
             }
-            let mission = await MissionFile.fromFile(path.resolve(this.basedir, name))
-            if (mission) {
-                // Expand templates
-                //mission.processFile()
+            if (path.extname(name) === ".json") {
+                await this.fromJson(name, value)
+                continue
+            }
 
-                // Merge / Start
-                mission.mergeStart(main)
-                // Merge  events
-                mission.mergeEvents(main)
+            let mission
+            if (path.extname(name) === ".txt") {
+                if (as === "json") {
+                    await this.fromLogToJson(name, value)
+                    continue                    
+                } else {
+                    mission = await this.fromLogToXml(name)
+                }
+                
+            } else {
+                mission = await MissionFile.fromFile(path.resolve(this.basedir, name))
+            }
+             
+            if (mission) {
+                main.addErrors(mission)
+                // Expand templates
+                mission.processFile(main)
+
+                if (main.model) {
+                    // Merge / Start
+                    mission.mergeStart(main)
+                    // Merge  events
+                    mission.mergeEvents(main)
+                    Object.assign(main.data, mission.data)
+                }
+
             }
         }
     }
     /**
      * Process the imports,ranges,repeats, templates and expands of a main document
      */
-    async processFile() {
-        let mission_data = this.findFirstElement(this.model, "mission_data")
-        if (!mission_data) return
-        await this.processImports(this.model)
-        this.processRanges()
-        await this.processAllRepeats()
-        await this.processTemplates()
-        await this.processAllExpands()
+    async processFile(main) {
+        if (this.model) {
+            let mission_data = this.findFirstElement(this.model, "mission_data")
+            if (!mission_data) return
+            await this.processImports(main ? main : this)
+            this.processValues(main ? main : this)
+            await this.processAllRepeats()
+            await this.processTemplates()
+            await this.processAllExpands()
+        }
     }
 }
 
@@ -610,7 +799,7 @@ exports.MissionFile = MissionFile</code></pre>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.4</a> on Fri May 15 2020 08:55:31 GMT-0400 (Eastern Daylight Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.4</a> on Sat May 16 2020 16:26:11 GMT-0400 (Eastern Daylight Time)
 </footer>
 
 <script> prettyPrint(); </script>

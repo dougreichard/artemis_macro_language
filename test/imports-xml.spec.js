@@ -11,11 +11,12 @@ let DEBUG = true
 async function expectReadCheck(xml, filename) {
     if (DEBUG) {
         await fs.writeFile(path.resolve('test', 'fragments', 'xml', filename), xml, "utf8")
+        return true
     } else {
         let content = await fs.readFile(path.resolve('test', 'fragments', 'xml', filename), xml, "utf8")
         return context === xml
     }
-} 
+}
 
 
 
@@ -34,11 +35,10 @@ function findFirstDiffPos(a, b) {
 function loopTest() {
     // Mocha is shit for async with iteration
     // so I have to use sync version of readir
-    let files = readdirSync(path.resolve(__dirname, 'fragments'), { withFileTypes: true })
+    let files = readdirSync(path.resolve(__dirname, 'fragments','xml'), { withFileTypes: true })
     for (let file of files) {
-        if (path.basename(file.endsWith("-fragment"))) {
-            let expected = path.basename(file.name.subst(-"-fragment".length)) + "-expected"
-            testFileFragment(path.basename(expected, ".xml"))
+        if (file.name.endsWith("-fragment.xml")) {
+            testFileFragment(file.name)
         }
     }
 }
@@ -57,36 +57,34 @@ function getFragmentType(name) {
 
 async function testFileFragment(name) {
     it(name, async () => {
-        //let yaml = await fs.readFile(path.resolve(__dirname, 'fragments', name + '.yaml'), 'utf-8')
-        let expected = await fs.readFile(path.resolve(__dirname, 'fragments', name + '.xml'), 'utf-8')
-
-        let expanded = await YamlModule.fromFile(path.resolve(__dirname, 'fragments', name + '.yaml'))
-        let { type, call } = getFragmentType(name)
-        expect(expanded.model[type]).to.exist;
-        let xml = new XmlElement()
-        await expanded[call](xml, expanded.model[type])
-        xml.close()
-        expect(xml.begin).to.equal(expected)
+        let expected = name.replace("-fragment.xml", "-expected.xml")
+        name = path.resolve(__dirname, 'fragments','xml', name)
+        let mission = await MissionFile.fromFile(name)
+        await mission.processFile()
+        mission.dumpAllErrors()
+        let xml = mission.toXML()
+        await expectReadCheck(xml, expected)
     })
 }
 
 describe('Mission File', () => {
     describe('Fragment tests', () => {
-        // allow the debugging of a specific fragment
-        // if (process.env.fragment) {
-        //     testFileFragment(process.env.fragment)
-        // } else {
-        //     loopTest()
-        // }
+        //allow the debugging of a specific fragment
+        if (process.env.fragment) {
+            testFileFragment(process.env.fragment)
+        } else {
+            loopTest()
+        }
         it("Test Tree Navigation", async () => {
             let mission = await MissionFile.fromFile(path.resolve('test', 'fragments', 'xml', 'import-simple-fragment.xml'))
+
             let mission_data = mission.findFirstElement(mission.model, "mission_data")
             expect(mission_data).to.exist
 
             let imports = mission.findFirstElement(mission_data, "imports")
             expect(imports).to.exist
 
-            let  {imports:ie, mission_data:md } = mission.findPath(mission.model, ["mission_data", "imports"])
+            let { imports: ie, mission_data: md } = mission.findPath(mission.model, ["mission_data", "imports"])
             expect(imports).to.equal(ie)
             expect(mission_data).to.equal(md)
 
@@ -97,66 +95,82 @@ describe('Mission File', () => {
             expect(gone).to.not.exist
 
             let xml = mission.toXML()
-            let expected = await fs.readFile(path.resolve('test', 'fragments', 'xml', 'import-simple-expected.xml'), 'utf-8')
-            expect(xml).to.equal(expected)
+            let expected = await expectReadCheck(xml, path.resolve('test', 'fragments', 'xml', 'import-simple-expected.xml'))
+            expect(expected).to.equal(true)
         })
         it("Ranges ", async () => {
             let mission = await MissionFile.fromFile(path.resolve('test', 'fragments', 'xml', 'ranges-simple-fragment.xml'))
-            mission.processRanges()
-            expect(mission.ranges['Eggs']).to.exist
-            expect(mission.ranges['AllShips']).to.exist
-            expect(mission.ranges['Eggs'].length).to.equal(5)
-            expect(mission.ranges['AllShips'].length).to.equal(8)
-            expect(mission.ranges['Eggs'][0].egg).to.equal('egg1')
-            expect(mission.ranges['AllShips'][0].ship).to.equal('Artemis')
-            expect(mission.ranges['AllShips'][0].sideValue).to.equal('10')
-
-
+            mission.processValues(mission)
+            expect(mission.data['Eggs']).to.exist
+            expect(mission.data['AllShips']).to.exist
+            expect(mission.data['Eggs'].length).to.equal(5)
+            expect(mission.data['AllShips'].length).to.equal(8)
+            expect(mission.data['Eggs'][0].egg).to.equal('egg1')
+            expect(mission.data['AllShips'][0].ship).to.equal('Artemis')
+            expect(mission.data['AllShips'][0].sideValue).to.equal('10')
             // let expected = await fs.readFile(path.resolve('test', 'fragments', 'xml', 'import-simple-expected.xml'), 'utf-8')
             //expect(xml).to.equal(expected)
         })
-        it("Test simple merge", async () => {
-            let mission = await MissionFile.fromFile(path.resolve('test', 'fragments', 'xml', 'import-simple-fragment.xml'))
-            await mission.processImports(mission)
-            let xml = mission.toXML()
-            await expectReadCheck(xml, 'import-simple-output.xml')
-            // await fs.writeFile(path.resolve('test', 'fragments', 'xml', 'import-simple-output.xml'), xml, "utf8")
+        it("Values", async () => {
+            let mission = await MissionFile.fromFile(path.resolve('test', 'fragments', 'xml', 'values-simple-fragment.xml'))
+            await mission.processFile()
+            expect(mission.data['CONST_TIMER_SECONDS']).to.exist
+            expect(mission.data['CONST_TIMER_SECONDS']).to.equal("30")
 
+            expect(mission.data['mystructure']).to.exist
+            expect(mission.data['mystructure']['inner']).to.exist
+            expect(mission.data['mystructure']['inner']['XP']).to.exist
+            expect(mission.data['mystructure']['inner']['health']).to.exist
+            expect(mission.data.mystructure.inner.XP).to.equal("34")
+            expect(mission.data.mystructure.inner.health).to.equal("5")
+
+            let xml = mission.toXML()
+            await expectReadCheck(xml, 'values-simple-expected.xml')
         })
+       
         it("Test The Arena non-template merge", async () => {
             let mission = await MissionFile.fromFile(path.resolve('test', 'modular', 'xml', 'TheArena-mission.xml'))
             await mission.processImports(mission)
             let xml = mission.toXML()
-            // await expectReadCheck(xml, 'repeat-simple-nested-output.xml')
+            // await expectReadCheck(xml, 'repeat-simple-nested-expected.xml')
             await fs.writeFile(path.resolve('test', 'modular', 'xml', 'MISS_TheArena.xml'), xml, "utf8")
 
         })
-        it("Test simple repeats", async () => {
-            let mission = await MissionFile.fromFile(path.resolve('test', 'fragments', 'xml', 'repeat-simple-fragment.xml'))
-            await mission.processFile()
-            let xml = mission.toXML()
-            await fs.writeFile(path.resolve('test', 'fragments', 'xml', 'repeat-simple-output.xml'), xml, "utf8")
-        })
-        it("Test simple nested repeats", async () => {
-            let mission = await MissionFile.fromFile(path.resolve('test', 'fragments', 'xml', 'repeat-simple-nested-fragment.xml'))
-            await mission.processFile()
-            let xml = mission.toXML()
-            await expectReadCheck(xml, 'repeat-simple-nested-output.xml')
+        // it("Test simple merge", async () => {
+        //     let mission = await MissionFile.fromFile(path.resolve('test', 'fragments', 'xml', 'import-simple-fragment.xml'))
+        //     await mission.processFile()
+        //     mission.dumpAllErrors()
+        //     let xml = mission.toXML()
+        //     await expectReadCheck(xml, 'import-simple-expected.xml')
+        //     // await fs.writeFile(path.resolve('test', 'fragments', 'xml', 'import-simple-expected.xml'), xml, "utf8")
 
-        })
-        it("Test simple templates", async () => {
-            let mission = await MissionFile.fromFile(path.resolve('test', 'fragments', 'xml', 'expand-simple-fragment.xml'))
-            await mission.processFile()
-            let xml = mission.toXML()
-            await expectReadCheck(xml, 'expand-simple-output.xml')
-        })
-        it("Test import js", async () => {
-            let mission = await MissionFile.fromFile(path.resolve('test', 'fragments', 'xml', 'script-simple-fragment.xml'))
-            await mission.processFile()
-            let xml = mission.toXML()
-            await expectReadCheck(xml, 'script-simple-output.xml')
-        })
-       
+        // })
+        // it("Test simple repeats", async () => {
+        //     let mission = await MissionFile.fromFile(path.resolve('test', 'fragments', 'xml', 'repeat-simple-fragment.xml'))
+        //     await mission.processFile()
+        //     let xml = mission.toXML()
+        //     await fs.writeFile(path.resolve('test', 'fragments', 'xml', 'repeat-simple-expected.xml'), xml, "utf8")
+        // })
+        // it("Test simple nested repeats", async () => {
+        //     let mission = await MissionFile.fromFile(path.resolve('test', 'fragments', 'xml', 'repeat-simple-nested-fragment.xml'))
+        //     await mission.processFile()
+        //     let xml = mission.toXML()
+        //     await expectReadCheck(xml, 'repeat-simple-nested-expected.xml')
+
+        // })
+        // it("Test simple templates", async () => {
+        //     let mission = await MissionFile.fromFile(path.resolve('test', 'fragments', 'xml', 'expand-simple-fragment.xml'))
+        //     await mission.processFile()
+        //     let xml = mission.toXML()
+        //     await expectReadCheck(xml, 'expand-simple-expected.xml')
+        // })
+        // it("Test import js", async () => {
+        //     let mission = await MissionFile.fromFile(path.resolve('test', 'fragments', 'xml', 'script-simple-fragment.xml'))
+        //     await mission.processFile()
+        //     let xml = mission.toXML()
+        //     await expectReadCheck(xml, 'script-simple-expected.xml')
+        // })
+
     });
 
 })

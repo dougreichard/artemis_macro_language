@@ -3,22 +3,38 @@ The repeat tag will repeat the content within it using a range for values
 
 ``` xml
  <start>
-    <repeat range="Eggs">
-        <set_variable name="${egg}" value="1.0"/>
-        <set_timer name="${egg}_Timer" seconds="${seconds}"/>
+    <repeat length="5" >
+        <set_variable name="egg${_index}" value="1.0"/>
+        <set_timer name="egg${_index}}_Timer" seconds="${25+_index*5}"/>
     </repeat>
   </start>
 ```
+
+``` xml
+<start>
+  <set_variable name="egg0" value="1.0"/>
+  <set_timer name="egg0_Timer" seconds="25"/>
+  <set_variable name="egg1" value="1.0"/>
+  <set_timer name="egg1_Timer" seconds="30"/>
+  <set_variable name="egg2" value="1.0"/>
+  <set_timer name="egg2_Timer" seconds="35"/>
+  <set_variable name="egg3" value="1.0"/>
+  <set_timer name="egg3_Timer" seconds="40"/>
+  <set_variable name="egg4" value="1.0"/>
+  <set_timer name="egg4_Timer" seconds="45"/>
+</start>
+```
+
 
 When paired with this data defined in a range
 
 ```xml
 <range name="Eggs">
-    <item egg="egg1" seconds="25" playerCount="0" x="50000" y="10" z="5000" />
-    <item egg="egg2" seconds="30" playerCount="3.0" x="49000" y="3" z="49000" />
-    <item egg="egg3" seconds="35" playerCount="4.0" x="51000" y="3" z="51000" />
-    <item egg="egg4" seconds="35" playerCount="6.0" x="49000" y="3" z="5100" />
-    <item egg="egg5" seconds="35" playerCount="7.0" x="51000" y="3" z="49000" />
+    <value egg="egg1" seconds="25" playerCount="0" x="50000" y="10" z="5000" />
+    <value egg="egg2" seconds="30" playerCount="3.0" x="49000" y="3" z="49000" />
+    <value egg="egg3" seconds="35" playerCount="4.0" x="51000" y="3" z="51000" />
+    <value egg="egg4" seconds="35" playerCount="6.0" x="49000" y="3" z="5100" />
+    <value egg="egg5" seconds="35" playerCount="7.0" x="51000" y="3" z="49000" />
 </range>
 ```
 

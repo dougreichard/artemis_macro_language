@@ -1,0 +1,8 @@
+*** The stuff Artemis puts in ***
+<<<START_AML_DATA>>>
+<mission_data>
+    <values>
+        <value count_xml="67"/>
+    </values>
+</mission_data>
+<<<END_AML_DATA>>>

@@ -55,6 +55,9 @@
       },
       "use_gm_selection": {
         "description": "anything, just use this attribute to use the game master's selected object"
+      },
+      "player_slot": {
+        "description": "0-7  (corresponds to the 8 player capital (not fighter) ships allowed in the game)"
       }
     },
     "destroy_near": {
@@ -224,11 +227,35 @@
       "name": {
         "description": "text"
       },
+      "player_slot": {
+        "description": "0-7  (corresponds to the 8 player capital (not fighter) ships allowed in the game)"
+      },
+      "use_gm_selection": {
+        "description": "anything, just use this attribute to use the game master's selected object"
+      },
       "property": {
         "description": "text (check the big list at the bottom of this file)"
       },
       "value": {
         "description": "signed floating point value"
+      }
+    },
+    "get_object_property": {
+      "desc": " (copies a named space object's named property to a variable)",
+      "name": {
+        "description": "text"
+      },
+      "player_slot": {
+        "description": "0-7  (corresponds to the 8 player capital (not fighter) ships allowed in the game)"
+      },
+      "use_gm_selection": {
+        "description": "anything, just use this attribute to use the game master's selected object"
+      },
+      "property": {
+        "description": "text (check the big list at the bottom of this file)"
+      },
+      "variable": {
+        "description": "name of a variable"
       }
     },
     "set_fleet_property": {
@@ -248,6 +275,12 @@
       "name": {
         "description": "text"
       },
+      "player_slot": {
+        "description": "0-7  (corresponds to the 8 player capital (not fighter) ships allowed in the game)"
+      },
+      "use_gm_selection": {
+        "description": "anything, just use this attribute to use the game master's selected object"
+      },
       "property": {
         "description": "text (check the big list at the bottom of this file)"
       },
@@ -259,6 +292,9 @@
       "desc": " (copies a named property from one named space object to another, name1 to name2)",
       "name1": {
         "description": "text"
+      },
+      "player_slot1": {
+        "description": "0-7  (corresponds to the 8 player capital (not fighter) ships allowed in the game)"
       },
       "name2": {
         "description": "text"
@@ -272,8 +308,14 @@
       "name1": {
         "description": "text"
       },
+      "player_slot1": {
+        "description": "0-7  (corresponds to the 8 player capital (not fighter) ships allowed in the game)"
+      },
       "name2": {
         "description": "text"
+      },
+      "player_slot2": {
+        "description": "0-7  (corresponds to the 8 player capital (not fighter) ships allowed in the game)"
       },
       "angle": {
         "description": "0 to 360"
@@ -290,6 +332,9 @@
       "use_gm_selection": {
         "description": "anything, just use this attribute to use the game master's selected object"
       },
+      "player_slot": {
+        "description": "0-7  (corresponds to the 8 player capital (not fighter) ships allowed in the game)"
+      },
       "angle": {
         "description": "0 to 360"
       },
@@ -298,9 +343,9 @@
       }
     },
     "set_skybox_index": {
-      "desc": " (sets the skybox of the main screen to 0-9)",
+      "desc": " (sets the skybox of the main screen to 0-29)",
       "index": {
-        "description": "0-9"
+        "description": "0-29"
       }
     },
     "warning_popup_message": {
@@ -310,6 +355,12 @@
       },
       "consoles": {
         "description": "text, a collection of the letters MHWESCO, defining which console the message appears on"
+      },
+      "name": {
+        "description": "text, the name of the ship to send the message to"
+      },
+      "player_slot": {
+        "description": "0-7  (corresponds to the 8 player capital (not fighter) ships allowed in the game)"
       }
     },
     "set_difficulty_level": {
@@ -320,6 +371,12 @@
     },
     "set_player_grid_damage": {
       "desc": " (changes the damage value of a ship system in the 3D grid)",
+      "name": {
+        "description": "text, the name of the ship to modify"
+      },
+      "player_slot": {
+        "description": "0-7  (corresponds to the 8 player capital (not fighter) ships allowed in the game)"
+      },
       "systemType": {},
       "value": {
         "description": "0.0-1.0 ( 0.0 is no damage, 1.0 is full damage)"
@@ -339,6 +396,12 @@
     },
     "set_damcon_members": {
       "desc": " (changes the count of team members in a specific damcon team)",
+      "name": {
+        "description": "text, the name of the ship to modify"
+      },
+      "player_slot": {
+        "description": "0-7  (corresponds to the 8 player capital (not fighter) ships allowed in the game)"
+      },
       "team_index": {
         "description": "0-2"
       },
@@ -403,6 +466,9 @@
       "desc": " (changes the sideValue of a game object)",
       "name": {
         "description": "text name of existing ship or station"
+      },
+      "player_slot": {
+        "description": "0-7  (corresponds to the 8 player capital (not fighter) ships allowed in the game)"
       },
       "value": {
         "description": "0-,  0 = no side, 1 = enemy (normally), 2+ = player side (normally)"
@@ -508,6 +574,9 @@
       "name": {
         "description": "text"
       },
+      "player_slot": {
+        "description": "0-7  (corresponds to the 8 player capital (not fighter) ships allowed in the game)"
+      },
       "leastX": {
         "description": "0 to 100000"
       },
@@ -525,6 +594,9 @@
       "desc": " (tests if named object is outside a rectangle in space)",
       "name": {
         "description": "text"
+      },
+      "player_slot": {
+        "description": "0-7  (corresponds to the 8 player capital (not fighter) ships allowed in the game)"
       },
       "leastX": {
         "description": "0 to 100000"
@@ -544,6 +616,9 @@
       "name": {
         "description": "text"
       },
+      "player_slot": {
+        "description": "0-7  (corresponds to the 8 player capital (not fighter) ships allowed in the game)"
+      },
       "centerX": {
         "description": "0 to 100000"
       },
@@ -561,6 +636,9 @@
       "desc": " (tests if named object is outside a sphere in space)",
       "name": {
         "description": "text"
+      },
+      "player_slot": {
+        "description": "0-7  (corresponds to the 8 player capital (not fighter) ships allowed in the game)"
       },
       "centerX": {
         "description": "0 to 100000"
@@ -618,7 +696,16 @@
       }
     },
     "if_damcon_members": {
-      "desc": " (tests the count of team members in a specific damcon team against a condition)",
+      "desc": " (tests the count of team members in a specific damcon team on a specific player ship against a condition)",
+      "name": {
+        "description": "text"
+      },
+      "player_slot": {
+        "description": "0-7  (corresponds to the 8 player capital (not fighter) ships allowed in the game)"
+      },
+      "use_gm_selection": {
+        "description": "anything, just use this attribute to use the game master's selected object"
+      },
       "team_index": {
         "description": "0, 1, or 2"
       },
@@ -678,9 +765,21 @@
       }
     },
     "if_player_is_targeting": {
-      "desc": " (tests if the Artemis's weapons officer has a lock on the named object)",
+      "desc": " (tests if a player ship's weapons officer has a lock on the named object)",
+      "use_gm_selection": {
+        "description": "use this attribute to use the game master's selected player ship (as the ship that does the targeting, not the target) (optional)"
+      },
+      "player_name": {
+        "description": "text (name of player ship that does the targeting, not the target) (optional)"
+      },
+      "player_slot": {
+        "description": "0-7  (corresponds to the 8 player ships allowed in the game) (for player ship that does the targeting, not the target)"
+      },
       "name": {
-        "description": "text"
+        "description": "text (the name of the target that the player ship might be targetting)"
+      },
+      "target_slot": {
+        "description": "0-7  (corresponds to the 8 player ships allowed in the game) (for player ship that IS the target)"
       }
     },
     "if_timer_finished": {
@@ -693,18 +792,30 @@
       "desc": " (tests if named object exists right now)",
       "name": {
         "description": "text"
+      },
+      "player_slot": {
+        "description": "0-7  (corresponds to the 8 player capital (not fighter) ships allowed in the game)"
       }
     },
     "if_not_exists": {
       "desc": " (tests if named object does NOT exist right now)",
       "name": {
         "description": "text"
+      },
+      "player_slot": {
+        "description": "0-7  (corresponds to the 8 player capital (not fighter) ships allowed in the game)"
       }
     },
     "if_object_property": {
       "desc": " (tests a named space object's named property against a condition)",
       "name": {
         "description": "text"
+      },
+      "player_slot": {
+        "description": "0-7  (corresponds to the 8 player capital (not fighter) ships allowed in the game)"
+      },
+      "use_gm_selection": {
+        "description": "anything, just use this attribute to use the game master's selected object"
       },
       "property": {
         "description": "property (check the big list at the bottom of this file)"
