@@ -4,8 +4,6 @@
 
 An experiment in creating a pre-processor/macro language for Artemis Spaceship bridge simulator
 
-The language leverage yaml for syntax but build beyond that semantically
-
 http://artemiswiki.pbworks.com/w/page/51088806/Mission%20Scripting
 
 - Modular - reuse and import content
@@ -14,36 +12,82 @@ http://artemiswiki.pbworks.com/w/page/51088806/Mission%20Scripting
  - Value prototype
  - event prototypes 
 
-``` yaml
-templates
-  # TowObject: 
-  #     Event for towing an object
-  # inputs:
-  #     ship: Name of the ship
-  #     object: Object to capture
-  #     sideValue: Number for ship to use in text message etc.
-  template name=TowObject
-    event name="${ship} Tow ${object}"
-      if_variable name="${object}" comparator="EQUALS"value="${sideValue}"
-      if_exists name="${ship}"
-    # note assumes object has no space in the name for mesh, minor rewrite in not 
-    set_relative_position name2=${object} distance=${distance} angle=${angle} name1=${ship}
+## Addition XML tags for scripting
 
-
-expand name="TowObject"
-    ship="Viper"
-    object="Rat"
-    sideValue="10"
-    distance="100"
-    angle="180"
-```
-
-can be used to generate the follow XML
+### import
+Allows you to break up you script into easier no manage modules
 
 ``` xml
-<event name="Viper Tow Rat">
-    <if_variable name="Rat" comparator="EQUALS" value="10"/>
-    <if_exists name="Viper"/>
-    <set_relative_position name2="Rat" distance="100" angle="180" name1="Viper"/>
-</event>
+<imports>
+    <import name="sub-file-one.xml" />
+    <import name="sub-file-two.xml" />
+</imports>
 ```
+
+
+
+
+### values (macro values)
+Values allow you to create MACRO values for use in expanding templates.
+
+Macro values can be used to expand to text in the generated script
+This can be used to:
+- Reduce variables in the generated script (reducing memory)
+- Used to generated multiple copies of similar code
+ - less code you write
+ - faster updates (fix problem once)
+
+``` xml
+<values>
+  <value ship="Artemis" />
+</values>
+```
+
+### Template string
+Templates strings are used to expand into values
+
+Template strings are marked with ${expression} where the expression is an expression using macro values.
+
+For the example below if the value is "Artemis"
+
+``` xml
+<big_message title="Hello, ${ship}" subtitle1="by Unknown Author" subtitle2=""/>
+```
+Will result in the following in the generated script
+
+``` xml
+<big_message title="Hello, Artemis" subtitle1="by Unknown Author" subtitle2=""/>
+```
+
+### ranges
+A range is a set of data that you can use to expand thing multiple time.
+
+``` xml
+<values>
+  <range name="AllShips">
+    <value ship="Artemis" sideValue="10" />
+    <value ship="Intrepid" sideValue="11" />
+    <value ship="Aegis" sideValue="4" />
+    <value ship="Horatio" sideValue="5" />
+    <value ship="Excalibur" sideValue="6" />
+    <value ship="Hera" sideValue="7" />
+    <value ship="Ceres" sideValue="8" />
+    <value ship="Diana" sideValue="9" />
+  </range>
+</values>
+```
+
+### Repeat
+repeat execute multiple times using a length or a range.
+
+``` xml
+<repeat range="AllShips">
+  <incoming_comms_text from="The game" sideValue="${sideValue}" type="ALERT">Welcome to the game ${ship}</incoming_comms_text>
+</repeat>
+```
+
+### template
+Templates define a set of things to expand.
+
+
+

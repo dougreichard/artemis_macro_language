@@ -1,0 +1,11 @@
+<mission_data version="1.0">
+    <start>
+        <create type="player" player_slot="" x="50000" y="0" z="50000" name="Artemis"/>
+        <set_difficulty_level value="5"/>
+        <set_variable name="count" value="4"/>
+        <big_message title="Count 4" subtitle1="by Unknown Author" subtitle2=""/>
+        <log text="<<<START_AML_DATA>>>"/>
+        <log text="{&quot;count&quot;:5}"/>
+        <log text="<<<END_AML_DATA>>>"/>
+    </start>
+</mission_data>

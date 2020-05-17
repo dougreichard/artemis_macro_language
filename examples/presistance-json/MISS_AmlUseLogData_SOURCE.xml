@@ -1,0 +1,16 @@
+<mission_data version="1.0">
+  <imports>
+    <import name="MISS_AmlUseLogData_LOG.txt" as="json"/>
+  </imports>
+  <start>
+    <create type="player" player_slot="" x="50000" y="0" z="50000" name="Artemis" />
+    <set_difficulty_level value="5" />
+    <expand>
+      <set_variable name="count" value="${count}"/>
+      <big_message title="Count ${count}" subtitle1="by Unknown Author" subtitle2="" />
+      <log text="<<<START_AML_DATA>>>" />
+      <log text="{&quot;count&quot;:${count+1}}"/>
+      <log text="<<<END_AML_DATA>>>" />
+    </expand>
+  </start>
+</mission_data>

@@ -1,0 +1,4 @@
+**** log file for mission MISS_AmlTest ****
+<<<START_AML_DATA>>>
+{"count":4.0}
+<<<END_AML_DATA>>>
