@@ -125,16 +125,7 @@ if (artemisDir) {
   console.log(`use --artemis or SET environment variable ARTEMIS_HOME to run and sync with artemis directory`)
 }
 
-async function watch(file) {
-  /// if log doesn't exist write it
-  // **** log file for mission MISS_AmlTest ****
-  let base = path.basename(file, ".xml")
-  let log = path.resolve(base + "_LOG.txt")
-  fs.watchFile(log, (curr, prev) => {
-    console.log('Log changed')
-    main(file)
-  });
-}
+
 
 async function runArtemis() {
   if (!options.artemis.run) return
@@ -143,13 +134,43 @@ async function runArtemis() {
   let artemis = path.join(artemisDir, 'Artemis.exe')
   console.log(`Running ${artemis}`)
   let game = child_process.spawn(artemis,
-  {
-    cwd: artemisDir,
-    detached: true,
-    stdio: 'ignore'
-  });
-  
-  game.unref();
+    {
+      cwd: artemisDir,
+      detached: true,
+      stdio: 'ignore'
+    })
+
+  game.unref()
+  // Only run once
+  if (options.artemis.run) {
+    options.artemis.run = false
+  }
+}
+
+async function copyLog(missionLog, localLog) {
+  try {
+    let l = await fs.promises.readFile(missionLog, "utf8")
+    if (l.search("<<<END_AML_DATA>>>")) {
+      await fs.promises.writeFile(localLog, l, "utf8")
+      console.log('AML DATA Found rebuilding')
+      return true
+    }
+  } catch (e) {
+
+  }
+  return false
+}
+
+async function watch(missionLog, localLog, file) {
+  // if Running in artemis watch mission log
+  fs.watchFile(missionLog, async (curr, prev) => {
+    console.log('Log changed')
+    if (await copyLog(missionLog, localLog)) {
+      main(file)
+    }
+  })
+  // Avoid rewatching
+  options.script['watch-log'] = false
 
 }
 
@@ -169,9 +190,17 @@ async function main(file) {
         await fs.promises.writeFile(path.resolve(file), xml, "utf8")
         if (artemisDir && options.artemis.install) {
           let missionDir = path.join(artemisDir, "dat", "missions", base)
+          let missionFile = path.resolve(missionDir, file)
+
           console.log('MissDir' + missionDir)
           await fs.promises.mkdir(missionDir, { recursive: true })
-          await fs.promises.writeFile(path.resolve(missionDir, file), xml, "utf8")
+          await fs.promises.writeFile(missionFile, xml, "utf8")
+
+          if (options.script['watch-log']) {
+            let missionLog = path.resolve(missionDir, base + "_LOG.txt")
+            let localLog = path.resolve(base + "_LOG.txt")
+            watch(missionLog, localLog, file)
+          }
         }
       } else {
         mission.dumpAllErrors()
@@ -179,23 +208,23 @@ async function main(file) {
     }
     if (mission.hasErrors()) {
       mission.dumpAllErrors()
-    } 
+    }
     runArtemis()
-    
+
   } catch (e) {
     console.log(e.message)
   }
 }
-let file = options.main.mission
-if (options.main['watch-log']) {
-  watch(file)
+
+if (options.artemis.run) {
+  options.artemis.install = true
 }
 
 if (options.main.help) {
   const usage = commandLineUsage(sections)
   console.log(usage)
-} else if (file) {
-  main(file)
+} else if (options.main.mission) {
+  main(options.main.mission)
 } else if (options.artemis.run) {
   runArtemis()
 }

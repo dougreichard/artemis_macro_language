@@ -15,7 +15,7 @@ http://artemiswiki.pbworks.com/w/page/51088806/Mission%20Scripting
 ## Addition XML tags for scripting
 
 ### import
-Allows you to break up you script into easier no manage modules
+Allows you to break up you script into easier to manage modules
 
 ``` xml
 <imports>
