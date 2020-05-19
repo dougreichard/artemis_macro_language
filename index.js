@@ -20,7 +20,9 @@ AA   AA       ***                         ****
 AA   AA      **                              ***  
 `
 
-
+/**
+ * Commandline options
+ */
 let header = chalk.bgBlue.white(gg) // chalklet.generate(text, colorOptions);
 const optionDefinitions = [
   {
@@ -58,6 +60,7 @@ const optionDefinitions = [
   },
   {
     name: 'define',
+    alias: 'd',
     type: String,
     multiple: true,
     group: "script",
@@ -87,7 +90,9 @@ const optionDefinitions = [
 ]
 
 
-
+/**
+ * This is for the help output
+ */
 const sections = [
   {
     //header: 'Artemis: Macro Language',
@@ -114,7 +119,7 @@ const sections = [
 
 const options = commandLineArgs(optionDefinitions)
 
-let artemisDir = options.artemis.artemis
+let artemisDir = options._all.artemis
 if (!artemisDir) {
   artemisDir = process.env['ARTEMIS_HOME']
 }
@@ -126,9 +131,11 @@ if (artemisDir) {
 }
 
 
-
+/**
+ * Spawns artemis
+ */
 async function runArtemis() {
-  if (!options.artemis.run) return
+  if (!options._all.run) return
   if (!artemisDir) return
 
   let artemis = path.join(artemisDir, 'Artemis.exe')
@@ -142,11 +149,16 @@ async function runArtemis() {
 
   game.unref()
   // Only run once
-  if (options.artemis.run) {
-    options.artemis.run = false
+  if (options._all.run) {
+    options._all.run = false
   }
 }
 
+/**
+ * Copy a file (used to copy the mission log file)
+ * @param {string} missionLog The Log file in the artemis directory
+ * @param {string} localLog The local copy 
+ */
 async function copyLog(missionLog, localLog) {
   try {
     let l = await fs.promises.readFile(missionLog, "utf8")
@@ -160,35 +172,46 @@ async function copyLog(missionLog, localLog) {
   }
   return false
 }
-
+/**
+ * Watches the log file and regenerates when it changes adding an END_AML_DATA
+ * @param {string} missionLog The filename in the mission directory
+ * @param {string} localLog Te filename of the local log file
+ * @param {string} file The mission filename
+ */
 async function watch(missionLog, localLog, file) {
   // if Running in artemis watch mission log
   fs.watchFile(missionLog, async (curr, prev) => {
     console.log('Log changed')
     if (await copyLog(missionLog, localLog)) {
-      main(file)
+      processMission(file)
     }
   })
   // Avoid rewatching
   options.script['watch-log'] = false
-
 }
-
-async function main(file) {
+/**
+ * Generate the mission file
+ * @param {string} file the mission file
+ */
+async function processMission(file) {
   try {
     let base = path.basename(file, ".xml")
     let src = path.resolve(base + "_SOURCE.xml")
-    if (options.main.source) {
-      src = options.main.source
+    if (options._all.source) {
+      src = options._all.source
     }
     console.log(`Building ${base} for ${src}`)
     let mission = await MissionFile.fromFile(src)
     if (mission.model) {
-      await mission.processFile(mission)
+      let values
+       if (options && options._all ) {
+         values = options._all.define
+       }
+      await mission.processFile(mission, values)
       if (!mission.hasErrors()) {
         let xml = mission.toXML()
         await fs.promises.writeFile(path.resolve(file), xml, "utf8")
-        if (artemisDir && options.artemis.install) {
+        if (artemisDir && options._all.install) {
           let missionDir = path.join(artemisDir, "dat", "missions", base)
           let missionFile = path.resolve(missionDir, file)
 
@@ -196,7 +219,7 @@ async function main(file) {
           await fs.promises.mkdir(missionDir, { recursive: true })
           await fs.promises.writeFile(missionFile, xml, "utf8")
 
-          if (options.script['watch-log']) {
+          if (options._all['watch-log']) {
             let missionLog = path.resolve(missionDir, base + "_LOG.txt")
             let localLog = path.resolve(base + "_LOG.txt")
             watch(missionLog, localLog, file)
@@ -215,17 +238,52 @@ async function main(file) {
     console.log(e.message)
   }
 }
+/**
+ * Process the commandline options
+ */
+async function main() {
+  if (options._all.help) {
+    const usage = commandLineUsage(sections)
+    console.log(usage)
+    return
+  }
+  if (options&& options._all && options._all.define) {
+    let defs = options._all.define
+    let values = {}
+    //console.log(`${options._all.define}`)
+    for(let i=0,l=defs.length;i<l;i++) {
+      let eq = defs[i].search("=")
+      
+      if (eq >= 0) {
+        let key = defs[i].substring(0,eq)
+        let value = defs[i].substring(eq+1)
+        values[key] = value
+        //console.log(`${key} = ${value}`)
+      }
+    }
+    options._all.define = values
+  }
+  try {
+    let json = await fs.promises.readFile("aml.json", "utf8")
+    if (json) {
+      let values = JSON.parse(json)
+      if (values) {
+        Object.assign(options._all, values)
+      }
+    }
+  } catch (e) {
 
-if (options.artemis.run) {
-  options.artemis.install = true
-}
+  }
 
-if (options.main.help) {
-  const usage = commandLineUsage(sections)
-  console.log(usage)
-} else if (options.main.mission) {
-  main(options.main.mission)
-} else if (options.artemis.run) {
-  runArtemis()
+  if (options._all.run) {
+    options._all.install = true
+  }
+
+  if (options._all.mission) {
+    processMission(options._all.mission)
+  } else if (options._all.run) {
+    runArtemis()
+  }
+  //console.log(JSON.stringify(options, null, 2))
 }
-//console.log(JSON.stringify(options,null, 2))
+main()

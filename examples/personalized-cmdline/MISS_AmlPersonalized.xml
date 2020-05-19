@@ -1,0 +1,7 @@
+<mission_data version="1.0">
+    <start>
+        <set_difficulty_level value="5"/>
+        <create type="player" player_slot="" x="50000" y="0" z="50000" name="Minnow"/>
+        <big_message title="Adventures of Minnow: Featuring Captain: Skipper Helm: Gilligan Weapons: Mary Ann Science: The Professor Comms: Ginger" subtitle1="and introducing Lovey As the Engineer" subtitle2=""/>
+    </start>
+</mission_data>

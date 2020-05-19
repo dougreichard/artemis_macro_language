@@ -13,6 +13,7 @@ http://artemiswiki.pbworks.com/w/page/51088806/Mission%20Scripting
  - event prototypes 
 
 ## Addition XML tags for scripting
+The [documents](https://github.com/dougreichard/artemis_macro_language) has more  details 
 
 ### import
 Allows you to break up you script into easier to manage modules

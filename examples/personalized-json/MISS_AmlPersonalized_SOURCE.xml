@@ -1,0 +1,21 @@
+<mission_data version="1.0">
+  <values>
+    <!-- default Values -->
+    <value captain="Greg" helm="Bobby" weapons="Marcia" />
+    <value science="Jan" comms="Peter" engineer="Cindy" />
+    <value ship="The Bunch" />
+  </values>
+  <imports>
+    <!-- Edit config.json to override default Values -->
+    <import name="crew.json" />
+  </imports>
+  <start>
+    <expand>
+      <create type="player" player_slot="" x="50000" y="0" z="50000" name="${ship}"/>
+    </expand>
+    <set_difficulty_level value="5"/>
+    <expand>
+      <big_message title="Adventures of ${ship}: Featuring Captain: ${captain} Helm: ${helm} Weapons: ${weapons} Science: ${science} Comms: ${comms}" subtitle1="and introducing ${engineer} As the Engineer" subtitle2=""/>
+    </expand>
+  </start>
+</mission_data>

@@ -7,6 +7,7 @@ The imports tag is a child of the mission_data tag
 ``` xml
     <imports>
         <import name="sub-file-one.xml" />
+        <import name="sub-file-nope.xml" skip="${skipNope}" />
         <import name="sub-file-two.xml" create="CreateEventName" destroy="DestroyEventName" />
     </imports>
 ```
@@ -16,8 +17,16 @@ The imports tag is a child of the mission_data tag
 The import tag specifies a name of a file to import.
 The file's path is relative to the file importing it.
 
+## Skip
+You can make your generated script smaller by excluding some aspects, or create create your own adventure like scripts.
+
+If import includes the skip attribute. The value of the skip attribute will be calculated.
+If true it will not include that file.
+
+
+
 ### Experimental WIP: Create and Destory Events
-You can convert the imported file's start block into an event by supplying the event attribute.
+You can convert the imported file's **start** block into an event by supplying the event attribute.
 
 This is useful to create maps using a tool and then using that file to add new Map content via an event.
 A timer and variable of the same name will be created to manage triggering
