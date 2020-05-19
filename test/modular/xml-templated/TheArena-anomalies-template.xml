@@ -1,13 +1,13 @@
 <mission_data version="1.0">  
   <range name="Anomalies">
-    <item anomaly="Anomaly[1]" angle="90" pickupType="5" object="A1" y="1.0" />
-    <item anomaly="Anomaly[2]" angle="180" pickupType="5" object="A2" y="2.0" />
-    <item anomaly="Anomaly[3]" angle="270" pickupType="4" object="A3" y="2.0" />
-    <item anomaly="Anomaly[4]" angle="0" pickupType="4" object="A4" y="4.0" />
-    <item anomaly="Anomaly[5]" angle="45" pickupType="6" object="A5" y="5.0" />
-    <item anomaly="Anomaly[6]" angle="225" pickupType="6" object="A6" y="6.0" />
-    <item anomaly="Anomaly[7]" angle="135" pickupType="1" object="A7" y="7.0" />
-    <item anomaly="Anomaly[8]" angle="315" pickupType="6" object="A8" y="8.0" />
+    <value anomaly="Anomaly[1]" angle="90" pickupType="5" object="A1" y="1.0" />
+    <value anomaly="Anomaly[2]" angle="180" pickupType="5" object="A2" y="2.0" />
+    <value anomaly="Anomaly[3]" angle="270" pickupType="4" object="A3" y="2.0" />
+    <value anomaly="Anomaly[4]" angle="0" pickupType="4" object="A4" y="4.0" />
+    <value anomaly="Anomaly[5]" angle="45" pickupType="6" object="A5" y="5.0" />
+    <value anomaly="Anomaly[6]" angle="225" pickupType="6" object="A6" y="6.0" />
+    <value anomaly="Anomaly[7]" angle="135" pickupType="1" object="A7" y="7.0" />
+    <value anomaly="Anomaly[8]" angle="315" pickupType="6" object="A8" y="8.0" />
   </range>
 
 <start>

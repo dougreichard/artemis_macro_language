@@ -1,0 +1,37 @@
+<mission_data version="1.0">
+  <start>
+    <set_variable name="Drone_Speed" value="6.0"/>
+
+    <repeat range="AllShips">
+      <set_variable name="${ship}_Sensor_Drone_Built" value="1.0"/>
+      <set_timer name="${ship}_Sensor_Drone_Built" seconds="5"/>
+    </repeat>
+
+  </start>
+  <repeat range="AllShips">
+    <event name="Sensor Drone ${ship} Create Comms button">
+      <if_variable name="${ship}_Sensor_Drone_Built" comparator="EQUALS" value="1.0"/>
+      <set_comms_button text="Launch ${ship} Sensor Drone" sideValue="${sideValue}"/>
+      <set_timer name="${ship}_Sensor_Drone_Built" seconds="60"/>
+      <set_variable name="${ship}_Sensor_Drone_Built" value="2.0"/>
+      <set_object_property property="pirateRepWithStations" value="1.0" name="${ship}"/>
+    </event>
+    <event name="Sensor Drone ${ship} Create Comms button timer refresh">
+      <if_variable name="${ship}_Sensor_Drone_Built" comparator="EQUALS" value="2.0"/>
+      <if_timer_finished name="${ship}_Sensor_Drone_Built"/>
+      <clear_comms_button text="Launch ${ship} Sensor Drone"/>
+      <set_variable name="${ship}_Sensor_Drone_Built" value="1.0"/>
+    </event>
+    <event name="${ship} Sensor Drone launched" id_arme="b972f672-b615-4808-a201-8cc7f326ea15">
+      <if_variable name="${ship}_Sensor_Drone_Built" comparator="EQUALS" value="2.0"/>
+      <if_comms_button text="Launch ${ship} Sensor Drone"/>
+      <clear_comms_button text="Launch ${ship} Sensor Drone"/>
+      <set_timer name="${ship}_Sensor_Drone_Built" seconds="180"/>
+      <create type="neutral" x="50000.0" y="1000.0" z="50000.0" name="${ship} Drone" raceKeys="TSN" hullKeys="TSN LR Shuttle" sideValue="${sideValue}"/>
+      <set_relative_position name2="${ship} Drone" distance="200" angle="180" name1="${ship}"/>
+      <add_ai type="FOLLOW_COMMS_ORDERS" name="${ship} Drone"/>
+      <set_object_property property="topSpeed" value="Drone_Speed" name="${ship} Drone"/>
+      <set_ship_text name="${ship} Drone" race="Remote" class="Drone" desc="Long Range Drone" scan_desc="A shuttle refit with faster engines and larger fuel reserves. Built for long range reconnaissance"/>
+    </event>
+  </repeat>
+</mission_data>

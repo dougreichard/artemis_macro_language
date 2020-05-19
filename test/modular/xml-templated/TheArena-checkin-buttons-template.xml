@@ -1,0 +1,63 @@
+<mission_data version="1.0">
+  <imports>
+    <import name="TheArena-ranges.xml"/>
+  </imports>
+
+  <start>
+    <repeat range="AllShips">
+      <set_variable name="${ship}_here" value="0"/>
+      <set_variable name="${ship}_Checkin_Button" value="1.0"/>
+      <set_timer name="${ship}_Checkin_Button" seconds="5"/>
+    </repeat>
+    <set_variable name="Player_Check" value="1.0"/>
+    <set_timer name="Player_Check" seconds="60"/>
+  </start>
+
+  <repeat range="AllShips">
+    <event name="${ship} Checkin Button">
+      <if_variable name="${ship}_Checkin_Button" comparator="EQUALS" value="1.0"/>
+      <if_variable name="${ship}_here" comparator="NOT" value="1.0"/>
+      <set_variable name="${ship}_Checkin_Button" value="2.0"/>
+      <set_comms_button text="${ship} Press to Join Game" sideValue="${sideValue}"/>
+      <set_timer name="${ship}_Checkin_Button" seconds="10"/>
+    </event>
+    <event name="${ship} Checkin Button Refresh">
+      <if_variable name="${ship}_Checkin_Button" comparator="EQUALS" value="2.0"/>
+      <if_timer_finished name="${ship}_Checkin_Button"/>
+      <clear_comms_button text="${ship} Press to Join Game"/>
+      <set_variable name="${ship}_Checkin_Button" value="1.0"/>
+    </event>
+    <event name="${ship} Press Play">
+      <if_comms_button text="${ship} Press to Join Game"/>
+      <clear_comms_button text="${ship} Press to Join Game"/>
+      <set_variable name="${ship}_here" value="1"/>
+      <set_variable name="Number_of_Players" value="Number_of_Players+1"/>
+      <incoming_comms_text from="CyberSecurity Suite IV" sideValue="${sideValue}" type="FRIEND">Your anti-virus definitions are out of date. Attempting to update.... Update Failed! Could not connect to remote VAX server due to local sector interference. Without updated virus definition we will be susceptible to cyber-attacks. Emergency manual protocols enacted. I can warn of impending cyber-attack but you will have to manually remove them. Choosing which safeguard program to run from the comms console. </incoming_comms_text>
+      <incoming_comms_text from="Armory" sideValue="${sideValue}" type="FRIEND">We just got our hands on some new ordinance in the last raid called TAGS. Normally used for scientific research of local wildlife, but I can use their data uplink capability to hack into an enemy ship and deploy a virus. Fired the TAG like a torpedo, and once attached to a ship, choose a hacking program from the comms console. Be wary though I am sure others have figured this out and will try the same thing against us. </incoming_comms_text>
+      <incoming_comms_text from="Tractor Control" sideValue="${sideValue}" type="FRIEND">We have equipped our ship with a Tractor for towing the eggs back since they are too big for our Cargo Hold. Eggs can only be towed at Impulse though if you jump we will lose control of the egg. </incoming_comms_text>
+      <incoming_comms_text from="Hanger Bay" sideValue="${sideValue}" type="FRIEND">It's as dense as whale soup out there. Luckily, I have converted one of our shuttles to a Drone. You can launch it with the button on your comms console. With all the life-support and radiation shielding removed this drone can travel faster than normal shuttles. Use it to help survey and scout the area. </incoming_comms_text>
+      <incoming_comms_text from="The Arena" sideValue="${sideValue}" type="FRIEND">Welcome to the Arena. Collect the most Eggs to win! Eggs must be towed to your station to score. If you die you will respawn in |Respawn_Player_Time| seconds. If your station explodes it will respawn in |Respawn_Station_Time| seconds. You have |Game_Timer| minutes. Good luck! </incoming_comms_text>
+    </event>
+    <event name="${ship} Reset with Players Checked in">
+      <if_timer_finished name="Player_Check"/>
+      <if_variable name="Player_Check" comparator="EQUALS" value="1.0"/>
+      <if_variable name="${ship}_here" comparator="EQUALS" value="0.0"/>
+      <if_exists name="${ship}"/>
+      <destroy name="${ship}"/>
+      <destroy name="${ship} Station"/>
+    </event>
+  </repeat>
+
+  <!-- Event to clear all the buttons -->
+  <event name="clear check in comm buttons">
+    <if_timer_finished name="Player_Check"/>
+    <if_variable name="Player_Check_Button" comparator="EQUALS" value="1.0"/>
+
+    <!-- Clear for all ships-->
+    <repeat range="AllShips">
+      <clear_comms_button text="${ship} Press to Join Game"/>
+    </repeat>
+
+    <set_variable name="Player_Check_Button" value="0.0"/>
+  </event>
+</mission_data>

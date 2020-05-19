@@ -1,0 +1,62 @@
+<mission_data version="1.0">
+  <imports>
+    <import name="TheArena-ranges.xml" />
+  </imports>
+  <start>
+    <set_variable name="Station_Prime" value="1.0"/>
+    <repeat range="AllShips">
+      <set_variable name="${ship}_Station" value="1.0"/>
+      <create type="station" x="${x}" y="0.0" z="${z}" name="${ship} Station" raceKeys="Arvonian" hullKeys="Command Base" sideValue="${sideValue}"/>
+      <set_object_property property="pirateRepWithStations" value="1.0" name="${ship}"/>
+      <set_relative_position name2="${ship} Station" distance="30000" angle="${angle}" name1="_"/>
+    </repeat>
+
+    <create type="genericMesh" x="50000.0" y="-50.0" z="50000.0" name="." meshFileName="dat\asteroid7.dxs" textureFileName="dat\Asteroid_7_AO.png"/>
+    <set_object_property property="pushRadius" value="0.0" name="."/>
+
+    <set_variable name="Respawn_Station_Time" value="90.0"/>
+    <set_timer name="Station_Prime" seconds="5"/>
+
+  </start>
+  <event name="Station Prime">
+    <if_variable name="Station_Prime" comparator="EQUALS" value="1.0"/>
+    <if_timer_finished name="Station_Prime"/>
+    
+    <repeat range="AllShips">
+      <set_object_property property="missileStoresHoming" value="5" name="${ship} Station"/>
+      <set_object_property property="missileStoresNuke" value="1" name="${ship} Station"/>
+      <set_object_property property="missileStoresEMP" value="1" name="${ship} Station"/>
+      <set_object_property property="missileStoresPShock" value="2" name="${ship} Station"/>
+      <set_object_property property="missileStoresMine" value="2" name="${ship} Station"/>
+    </repeat>
+    
+    <set_variable name="Station_Prime" value="0.0"/>
+
+    <set_object_property property="angleDelta" value="0.2" name="_"/>
+    <set_object_property property="angleDelta" value="0.2" name="."/>
+    <set_object_property property="pushRadius" value="0.0" name="."/>
+    <set_object_property property="pushRadius" value="0.0" name="_"/>
+  </event>
+
+<repeat range="AllShips">
+  <event name="${ship} Station Destroyed">
+    <if_not_exists name="${ship} Station"/>
+    <if_variable name="${ship}_Station" comparator="EQUALS" value="1.0"/>
+    <set_timer name="${ship}_Station" seconds="Respawn_Station_Time"/>
+    <set_variable name="${ship}_Station" value="2.0"/>
+  </event>
+  <event name="${ship} Station Respawn">
+    <if_variable name="${ship}_Station" comparator="EQUALS" value="2.0"/>
+    <if_timer_finished name="${ship}_Station"/>
+    <if_variable name="${ship}_here" comparator="EQUALS" value="1.0"/>
+    <create type="station" x="${x}" y="0.0" z="${z}" name="${ship} Station" raceKeys="Arvonian" hullKeys="Command Base" sideValue="${sideValue}"/>
+    <set_relative_position name2="${ship} Station" distance="30000" angle="${angle}" name1="_"/>
+    <set_variable name="${ship}_Station" value="1.0"/>
+    <set_object_property property="missileStoresPShock" value="0" name="${ship} Station"/>
+    <set_object_property property="missileStoresMine" value="0" name="${ship} Station"/>
+    <set_object_property property="missileStoresEMP" value="0" name="${ship} Station"/>
+    <set_object_property property="missileStoresNuke" value="0" name="${ship} Station"/>
+    <set_object_property property="missileStoresHoming" value="0" name="${ship} Station"/>
+  </event>
+</repeat>
+</mission_data>

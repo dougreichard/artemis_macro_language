@@ -1,0 +1,38 @@
+<mission_data version="1.0">
+  <start>
+    <set_variable name="Respawn_Player_Time" value="60.0"/>
+    <repeat range="AllShips">
+      <set_variable name="${ship}" value="1.0"/>
+      <set_relative_position name2="${ship}" distance="30100" angle="${angle}" name1="_"/>
+    </repeat>
+  </start>
+  <repeat range="AllShips">
+    <event name="${ship} Destroyed">
+      <if_not_exists name="${ship}"/>
+      <if_variable name="${ship}" comparator="EQUALS" value="1.0"/>
+      <set_timer name="${ship}" seconds="Respawn_Player_Time"/>
+      <set_variable name="${ship}" value="2.0"/>
+      <set_variable name="${ship}_Shield_Drain" value="0.0"/>
+      <set_variable name="${ship}_Overload_Torpedo" value="0.0"/>
+      <set_variable name="${ship}_Overheat" value="0.0"/>
+      <set_variable name="${ship}_Scramble_Nav" value="0.0"/>
+      <set_variable name="${ship}_Infection" value="0"/>
+      <set_variable name="${ship}_Check_Health" value="0.0"/>
+      <clear_comms_button text="${ship} Rotate Shield Frequencies Program"/>
+      <clear_comms_button text="${ship} Safe Torpedoes Program"/>
+      <clear_comms_button text="${ship} Reset Coolant Protocols Program"/>
+      <clear_comms_button text="${ship} Reboot Thruster Algorithms Program"/>
+      <clear_comms_button text="${ship} Choose Cyber Defense Program"/>
+      <warning_popup_message message="${ship} Died. ${ship} will respawn in |Respawn_Player_Time| seconds" consoles="MHWESCO"/>
+    </event>
+    <event name="${ship} Respawn">
+      <if_variable name="${ship}" comparator="EQUALS" value="2.0"/>
+      <if_timer_finished name="${ship}"/>
+      <if_variable name="${ship}_here" comparator="EQUALS" value="1.0"/>
+      <create type="player" player_slot="${index}" x="${x}" y="10.0" z="${z}" name="${ship}" sideValue="${sideValue}" raceKeys="Pirate" hullKeys="Strongbow" warp="no"/>
+      <set_relative_position name2="${ship}" distance="30100" angle="${angle}" name1="_"/>
+      <set_variable name="${ship}" value="1.0"/>
+      <set_object_property property="pirateRepWithStations" value="1.0" name="${ship}"/>
+    </event>
+  </repeat>
+</mission_data>

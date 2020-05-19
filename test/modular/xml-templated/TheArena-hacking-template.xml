@@ -1,0 +1,96 @@
+<mission_data version="1.0">
+
+  <imports>
+    <import name="TheArena_ranges.xml" />
+  </imports>
+
+  <!-- Nested Looop -->
+
+  <repeat range="AllShips" as="hacker">
+    <repeat range="AllShips" as="target" _skip="${target.ship == hacker.ship}">
+      <event name="${hacker.ship} Tagged ${target.ship}">
+        <if_object_tag_matches objectName="${target.ship}" string="${hacker.ship}"/>
+        <set_comms_button text="${hacker.ship} Choose Hacking Program vs ${target.ship}?" sideValue="${hacker.sideValue}"/>
+      </event>
+
+      <event name="${hacker.ship} Choose Hacking Program vs ${target.ship}" id_arme="b0d925cf-3d02-4612-ac31-79890dd1727a">
+        <if_comms_button text="${hacker.ship} Choose Hacking Program vs ${target.ship}?"/>
+        <clear_comms_button text="${hacker.ship} Choose Hacking Program vs ${target.ship}?"/>
+        <set_comms_button text="${hacker.ship} Hacking Program Shield Drain vs ${target.ship}" sideValue="${hacker.sideValue}"/>
+        <set_comms_button text="${hacker.ship} Hacking Program Overload Torpedo vs ${target.ship}" sideValue="${hacker.sideValue}"/>
+        <set_comms_button text="${hacker.ship} Hacking Program OverHeat vs ${target.ship}" sideValue="${hacker.sideValue}"/>
+        <set_comms_button text="${hacker.ship} Hacking Program Scramble Navigation vs ${target.ship}" sideValue="${hacker.sideValue}"/>
+        <set_named_object_tag_state name="${target.ship}" tagged="0"/>
+        <incoming_comms_text from="CyberSecurity System Alert" sideValue="${target.sideValue}" type="ALERT">Enemy Ship Tag Detected. Cyber Attack imminent</incoming_comms_text>
+      </event>
+      <event name="${hacker.ship} Shield Drain Hacking Program vs ${target.ship}" id_arme="f6c96570-5029-4170-89be-16adebfeec29">
+        <if_comms_button text="${hacker.ship} Hacking Program Shield Drain vs ${target.ship}"/>
+        <clear_comms_button text="${hacker.ship} Hacking Program Shield Drain vs ${target.ship}"/>
+        <clear_comms_button text="${hacker.ship} Hacking Program Overload Torpedo vs ${target.ship}"/>
+        <clear_comms_button text="${hacker.ship} Hacking Program OverHeat vs ${target.ship}"/>
+        <clear_comms_button text="${hacker.ship} Hacking Program Scramble Navigation vs ${target.ship}"/>
+        <set_variable name="Garbled1" randomIntLow="100" randomIntHigh="1000"/>
+        <set_variable name="Garbled2" randomIntLow="100" randomIntHigh="1000"/>
+        <set_variable name="Garbled3" randomIntLow="100" randomIntHigh="1000"/>
+        <set_variable name="Garbled4" randomIntLow="100" randomIntHigh="1000"/>
+        <incoming_comms_text from="Data Link Upload" sideValue="${hacker.sideValue}" type="ALERT FRIEND">Successfully Targeted ${target.ship} with Program: A|Garbled1|DL|Garbled2|EI|Garbled3|H|Garbled4|S</incoming_comms_text>
+        <incoming_comms_text from="Hacking Program" sideValue="${target.sideValue}" type="ALERT">A|Garbled1|DL|Garbled2|EI|Garbled3|H|Garbled4|S</incoming_comms_text>
+        <set_variable name="${target.ship}_Infection" value="${target.ship}_Infection+1"/>
+        <set_variable name="${target.ship}_Shield_Drain" value="${target.ship}_Shield_Drain+1"/>
+        <set_variable name="${target.ship}_Check_Health" value="1.0"/>
+        <set_timer name="${target.ship}_Shield_Drain" seconds="10"/>
+      </event>
+      <event name="${hacker.ship} Overload Torpedoes Hacking Program vs ${target.ship}" id_arme="65ad960b-6416-4056-810c-43a89c83cffb">
+        <if_comms_button text="${hacker.ship} Hacking Program Overload Torpedo vs ${target.ship}"/>
+        <clear_comms_button text="${hacker.ship} Hacking Program Shield Drain vs ${target.ship}"/>
+        <clear_comms_button text="${hacker.ship} Hacking Program Overload Torpedo vs ${target.ship}"/>
+        <clear_comms_button text="${hacker.ship} Hacking Program OverHeat vs ${target.ship}"/>
+        <clear_comms_button text="${hacker.ship} Hacking Program Scramble Navigation vs ${target.ship}"/>
+        <set_variable name="Garbled1" randomIntLow="100" randomIntHigh="1000"/>
+        <set_variable name="Garbled2" randomIntLow="100" randomIntHigh="1000"/>
+        <set_variable name="Garbled3" randomIntLow="100" randomIntHigh="1000"/>
+        <set_variable name="Garbled4" randomIntLow="100" randomIntHigh="1000"/>
+        <incoming_comms_text from="Data Link Upload" sideValue="${hacker.sideValue}" type="FRIEND">Successfully Targeted ${target.ship} with Program: A|Garbled1|O|Garbled2|DE|Garbled3|PR|Garbled4|OT</incoming_comms_text>
+        <incoming_comms_text from="Hacking Program" sideValue="${target.sideValue}" type="ALERT">A|Garbled1|O|Garbled2|DE|Garbled3|PR|Garbled4|OT</incoming_comms_text>
+        <set_variable name="${target.ship}_Infection" value="${target.ship}_Infection+1"/>
+        <set_variable name="${target.ship}_Overload_Torpedo" value="${target.ship}_Overload_Torpedo+1"/>
+        <set_variable name="${target.ship}_Check_Health" value="1.0"/>
+        <set_timer name="${target.ship}_Overload_Torpedo" seconds="20"/>
+      </event>
+      <event name="${hacker.ship} Overheat Hacking Program vs ${target.ship}" id_arme="0e343f43-0113-4f3f-8675-c85ddcd06496">
+        <if_comms_button text="${hacker.ship} Hacking Program OverHeat vs ${target.ship}"/>
+        <clear_comms_button text="${hacker.ship} Hacking Program Shield Drain vs ${target.ship}"/>
+        <clear_comms_button text="${hacker.ship} Hacking Program Overload Torpedo vs ${target.ship}"/>
+        <clear_comms_button text="${hacker.ship} Hacking Program OverHeat vs ${target.ship}"/>
+        <clear_comms_button text="${hacker.ship} Hacking Program Scramble Navigation vs ${target.ship}"/>
+        <set_variable name="Garbled1" randomIntLow="100" randomIntHigh="1000"/>
+        <set_variable name="Garbled2" randomIntLow="100" randomIntHigh="1000"/>
+        <set_variable name="Garbled3" randomIntLow="100" randomIntHigh="1000"/>
+        <set_variable name="Garbled4" randomIntLow="100" randomIntHigh="1000"/>
+        <incoming_comms_text from="Data Link Upload" sideValue="${hacker.sideValue}" type="FRIEND">Successfully Targeted ${target.ship} with Program: A|Garbled1|TA|Garbled2|EH|Garbled3|RE|Garbled4|VO</incoming_comms_text>
+        <incoming_comms_text from="Hacking Program" sideValue="${target.sideValue}" type="ALERT">A|Garbled1|TA|Garbled2|EH|Garbled3|RE|Garbled4|VO</incoming_comms_text>
+        <set_variable name="${target.ship}_Infection" value="${target.ship}_Infection+1"/>
+        <set_variable name="${target.ship}_Overheat" value="${target.ship}_Overheat+1"/>
+        <set_variable name="${target.ship}_Check_Health" value="1.0"/>
+        <set_timer name="${target.ship}_Overheat" seconds="10"/>
+      </event>
+      <event name="${hacker.ship} Scramble Navigation Hacking Program vs ${target.ship}" id_arme="3a9c0761-8849-4dc5-b4b2-7b3a7134c4a5">
+        <if_comms_button text="${hacker.ship} Hacking Program Scramble Navigation vs ${target.ship}"/>
+        <clear_comms_button text="${hacker.ship} Hacking Program Shield Drain vs ${target.ship}"/>
+        <clear_comms_button text="${hacker.ship} Hacking Program Overload Torpedo vs ${target.ship}"/>
+        <clear_comms_button text="${hacker.ship} Hacking Program OverHeat vs ${target.ship}"/>
+        <clear_comms_button text="${hacker.ship} Hacking Program Scramble Navigation vs ${target.ship}"/>
+        <set_variable name="Garbled1" randomIntLow="100" randomIntHigh="1000"/>
+        <set_variable name="Garbled2" randomIntLow="100" randomIntHigh="1000"/>
+        <set_variable name="Garbled3" randomIntLow="100" randomIntHigh="1000"/>
+        <set_variable name="Garbled4" randomIntLow="100" randomIntHigh="1000"/>
+        <incoming_comms_text from="Data Link Upload" sideValue="${hacker.sideValue}" type="FRIEND">Successfully Targeted ${target.ship} with Program: A|Garbled1|NO|Garbled2|IT|Garbled3|AGI|Garbled4|VAN</incoming_comms_text>
+        <incoming_comms_text from="Hacking Program" sideValue="${target.sideValue}" type="ALERT">A|Garbled1|NO|Garbled2|IT|Garbled3|AGI|Garbled4|VAN</incoming_comms_text>
+        <set_variable name="${target.ship}_Infection" value="${target.ship}_Infection+1"/>
+        <set_variable name="${target.ship}_Scramble_Nav" value="${target.ship}_Scramble_Nav+1"/>
+        <set_variable name="${target.ship}_Check_Health" value="1.0"/>
+        <set_timer name="${target.ship}_Scramble_Nav" seconds="10"/>
+      </event>
+    </repeat>
+  </repeat>
+</mission_data>

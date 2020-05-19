@@ -1,13 +1,13 @@
 <mission_data version="1.0">
   <range name="Wrecks">
-    <item wreck="Wreck[1]" />
-    <item wreck="Wreck[2]" />
-    <item wreck="Wreck[3]" />
-    <item wreck="Wreck[4]" />
-    <item wreck="Wreck[5]" />
-    <item wreck="Wreck[6]" />
-    <item wreck="Wreck[7]" />
-    <item wreck="Wreck[8]" />
+    <value wreck="Wreck[1]" x="48000.0" y="10.0" z="48000.0" />
+    <value wreck="Wreck[2]" x="52000.0" y="10.0" z="52000.0" />
+    <value wreck="Wreck[3]" x="52000.0" y="10.0" z="48000.0" />
+    <value wreck="Wreck[4]" x="48000.0" y="10.0" z="52000.0" />
+    <value wreck="Wreck[5]" x="48000.0" y="10.0" z="50000.0" />
+    <value wreck="Wreck[6]" x="52000.0" y="10.0" z="50000.0" />
+    <value wreck="Wreck[7]" x="50000.0" y="10.0" z="52000.0" />
+    <value wreck="Wreck[8]" x="50000.0" y="10.0" z="48000.0" />
   </range>
 
   <start>
@@ -29,7 +29,7 @@
       <event name="${wreck} Respawn">
         <if_variable name="${wreck}" comparator="EQUALS" value="2.0"/>
         <if_timer_finished name="${wreck}"/>
-        <create type="monster" monsterType="8" x="48000.0" y="10.0" z="48000.0" name="${wreck}"/>
+        <create type="monster" monsterType="8" x="${x}" y="${y}" z="${z}" name="${wreck}"/>
         <set_variable name="${wreck}" value="1.0"/>
         <add_ai type="RELEASE_PIRANHAS" value1="0" value2="5000" value3="8" value4="1" name="${wreck}"/>
       </event>

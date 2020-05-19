@@ -1,0 +1,7 @@
+<mission_data version="1.0">
+    <start>
+        <repeat range="AllShips">
+            <create type="player" player_slot="${_index}" x="${x}" y="${y}" z="${z}" name="${ship}" sideValue="${sideValue}" raceKeys="Pirate" hullKeys="Strongbow" warp="no"/>
+        </repeat>
+    </start>
+</mission_data>

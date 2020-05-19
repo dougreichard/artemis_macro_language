@@ -7,10 +7,11 @@
     <import name="TheArena-checkin-buttons-template.xml" />
     <import name="TheArena-declare-winner-template.xml" />
     <import name="TheArena-drones-template.xml" />
+    <import name="TheArena-eggs-template.xml" />
     <import name="TheArena-game.xml" />
     <import name="TheArena-hacking-tempate.xml" />
     <import name="TheArena-penalties-template.xml" />
-    <import name="TheArena-players.xml" />
+    <import name="TheArena-players-template.xml" />
     <import name="TheArena-ships-template.xml" />
     <import name="TheArena-stations-template.xml" />
     <import name="TheArena-wreck-template.xml" />

@@ -1,0 +1,148 @@
+<mission_data version="1.0">
+  <imports>
+    <import name="TheArena-ranges.xml" />
+  </imports>
+
+  <repeat range="AllShips">
+    <event name="${ship} Shield Drain" id_arme="89afa4dc-2ee9-4dfc-bcd0-bc44b04dc187">
+      <if_timer_finished name="${ship}_Shield_Drain"/>
+      <if_variable name="${ship}_Shield_Drain" comparator="GREATER" value="0.0"/>
+      <set_object_property property="systemCurEnergyFrontShield" value="0.0" name="${ship}"/>
+      <set_object_property property="systemCurEnergyBackShield" value="0.0" name="${ship}"/>
+      <set_timer name="${ship}_Shield_Drain" seconds="3"/>
+    </event>
+    <event name="${ship} Overload Torpedos" id_arme="15455340-14f2-4373-b240-21cc609e7302">
+      <if_timer_finished name="${ship}_Overload_Torpedo"/>
+      <if_variable name="${ship}_Overload_Torpedo" comparator="GREATER" value="0.0"/>
+      <addto_object_property value="-1.0" property="countHoming" name="${ship}"/>
+      <set_object_property property="systemCurHeatTorpedo" value="1.0" name="${ship}"/>
+      <set_timer name="${ship}_Overload_Torpedo" seconds="30"/>
+    </event>
+    <event name="${ship} Overheat" id_arme="cc4fc6f3-6118-43ed-9cc2-03159abce08f">
+      <if_timer_finished name="${ship}_Overheat"/>
+      <if_variable name="${ship}_Overheat" comparator="GREATER" value="0.0"/>
+      <addto_object_property value="0.001" property="systemCurHeatBeam" name="${ship}"/>
+      <addto_object_property value="0.001" property="systemCurHeatTorpedo" name="${ship}"/>
+      <addto_object_property value="0.001" property="systemCurHeatTactical" name="${ship}"/>
+      <addto_object_property value="0.001" property="systemCurHeatTurning" name="${ship}"/>
+      <addto_object_property value="0.001" property="systemCurHeatImpulse" name="${ship}"/>
+      <addto_object_property value="0.001" property="systemCurHeatWarp" name="${ship}"/>
+      <addto_object_property value="0.001" property="systemCurHeatFrontShield" name="${ship}"/>
+      <addto_object_property value="0.001" property="systemCurHeatBackShield" name="${ship}"/>
+      <set_timer name="${ship}_Overheat" seconds="5"/>
+    </event>
+    <event name="${ship} Scramble Navigation" id_arme="0bb4c457-9281-4367-b5db-1addd3c79128">
+      <if_timer_finished name="${ship}_Scramble_Nav"/>
+      <if_variable name="${ship}_Scramble_Nav" comparator="GREATER" value="0.0"/>
+      <set_variable name="Bump" randomFloatLow="0.0" randomFloatHigh="0.5"/>
+      <addto_object_property value="Bump" property="angle" name="${ship}"/>
+      <set_variable name="Bump" randomFloatLow="0.0" randomFloatHigh="0.5"/>
+      <set_variable name="Bump" value="0-Bump"/>
+      <addto_object_property value="Bump" property="angle" name="${ship}"/>
+      <set_timer name="${ship}_Scramble_Nav" seconds="5"/>
+    </event>
+    <event name="${ship} Cyber Defense" id_arme="e5f72baf-394e-4399-85a1-a70393947767">
+      <if_comms_button text="${ship} Choose Cyber Defense Program"/>
+      <clear_comms_button text="${ship} Choose Cyber Defense Program"/>
+      <set_comms_button text="${ship} Rotate Shield Frequencies Program" sideValue="${sideValue}"/>
+      <set_comms_button text="${ship} Safe Torpedoes Program" sideValue="${sideValue}"/>
+      <set_comms_button text="${ship} Reset Coolant Protocols Program" sideValue="${sideValue}"/>
+      <set_comms_button text="${ship} Reboot Thruster Algorithms Program" sideValue="${sideValue}"/>
+    </event>
+    <event name="${ship} Rotate Shield Frequencies No Effect" id_arme="ad190f16-d5f5-42ac-80fb-a25d0651bd81">
+      <if_variable name="${ship}_Shield_Drain" comparator="LESS_EQUAL" value="0.0"/>
+      <if_comms_button text="${ship} Rotate Shield Frequencies Program"/>
+      <clear_comms_button text="${ship} Rotate Shield Frequencies Program"/>
+      <clear_comms_button text="${ship} Safe Torpedoes Program"/>
+      <clear_comms_button text="${ship} Reset Coolant Protocols Program"/>
+      <clear_comms_button text="${ship} Reboot Thruster Algorithms Program"/>
+      <incoming_comms_text from="CyberSecurity System Alert" sideValue="${sideValue}" type="ALERT">Shield Frequencies Rotated. No Virus Found.</incoming_comms_text>
+      <set_variable name="${ship}_Check_Health" value="1.0"/>
+    </event>
+    <event name="${ship} Rotate Shield Frequencies" id_arme="41da0fe7-c547-469e-b979-e86e4f04cfff">
+      <if_variable name="${ship}_Shield_Drain" comparator="GREATER" value="0.0"/>
+      <if_comms_button text="${ship} Rotate Shield Frequencies Program"/>
+      <clear_comms_button text="${ship} Rotate Shield Frequencies Program"/>
+      <clear_comms_button text="${ship} Safe Torpedoes Program"/>
+      <clear_comms_button text="${ship} Reset Coolant Protocols Program"/>
+      <clear_comms_button text="${ship} Reboot Thruster Algorithms Program"/>
+      <incoming_comms_text from="CyberSecurity System Alert" sideValue="${sideValue}" type="ALERT">Shield Frequencies Rotated. Virus Quarantined.</incoming_comms_text>
+      <set_variable name="${ship}_Check_Health" value="1.0"/>
+      <set_variable name="${ship}_Shield_Drain" value="${ship}_Shield_Drain-1"/>
+      <set_variable name="${ship}_Infection" value="${ship}_Infection-1"/>
+    </event>
+    <event name="${ship} Safe Torpedoes No Effect" id_arme="57fc94db-b9ed-4e46-af35-372dcd6a50a5">
+      <if_variable name="${ship}_Overload_Torpedo" comparator="LESS_EQUAL" value="0.0"/>
+      <if_comms_button text="${ship} Safe Torpedoes Program"/>
+      <clear_comms_button text="${ship} Rotate Shield Frequencies Program"/>
+      <clear_comms_button text="${ship} Safe Torpedoes Program"/>
+      <clear_comms_button text="${ship} Reset Coolant Protocols Program"/>
+      <clear_comms_button text="${ship} Reboot Thruster Algorithms Program"/>
+      <incoming_comms_text from="CyberSecurity System Alert" sideValue="${sideValue}" type="ALERT">Torpedoes Safed. No Virus Found.</incoming_comms_text>
+      <set_variable name="${ship}_Check_Health" value="1.0"/>
+    </event>
+    <event name="${ship} Safe Torpedoes" id_arme="d1b52949-b69c-446e-ad72-1c6861e79eb7">
+      <if_variable name="${ship}_Overload_Torpedo" comparator="GREATER" value="0.0"/>
+      <if_comms_button text="${ship} Safe Torpedoes Program"/>
+      <clear_comms_button text="${ship} Rotate Shield Frequencies Program"/>
+      <clear_comms_button text="${ship} Safe Torpedoes Program"/>
+      <clear_comms_button text="${ship} Reset Coolant Protocols Program"/>
+      <clear_comms_button text="${ship} Reboot Thruster Algorithms Program"/>
+      <incoming_comms_text from="CyberSecurity System Alert" sideValue="${sideValue}" type="ALERT">Torpedoes Safed. Virus Quarantined.</incoming_comms_text>
+      <set_variable name="${ship}_Check_Health" value="1.0"/>
+      <set_variable name="${ship}_Overload_Torpedo" value="${ship}_Overload_Torpedo-1"/>
+      <set_variable name="${ship}_Infection" value="${ship}_Infection-1"/>
+    </event>
+    <event name="${ship} Reset Coolant No Effect" id_arme="a0e2acc0-2560-488c-8765-ae05c11d9b3f">
+      <if_variable name="${ship}_Overheat" comparator="LESS_EQUAL" value="0.0"/>
+      <if_comms_button text="${ship} Reset Coolant Protocols Program"/>
+      <clear_comms_button text="${ship} Rotate Shield Frequencies Program"/>
+      <clear_comms_button text="${ship} Safe Torpedoes Program"/>
+      <clear_comms_button text="${ship} Reset Coolant Protocols Program"/>
+      <clear_comms_button text="${ship} Reboot Thruster Algorithms Program"/>
+      <incoming_comms_text from="CyberSecurity System Alert" sideValue="${sideValue}" type="ALERT">Coolant Relays Reset. No Virus Found</incoming_comms_text>
+      <set_variable name="${ship}_Check_Health" value="1.0"/>
+    </event>
+    <event name="${ship} Reset Coolant" id_arme="ea885796-169f-4913-9567-21a662df737e">
+      <if_variable name="${ship}_Overheat" comparator="GREATER" value="0.0"/>
+      <if_comms_button text="${ship} Reset Coolant Protocols Program"/>
+      <clear_comms_button text="${ship} Rotate Shield Frequencies Program"/>
+      <clear_comms_button text="${ship} Safe Torpedoes Program"/>
+      <clear_comms_button text="${ship} Reset Coolant Protocols Program"/>
+      <clear_comms_button text="${ship} Reboot Thruster Algorithms Program"/>
+      <incoming_comms_text from="CyberSecurity System Alert" sideValue="${sideValue}" type="ALERT">Coolant Relays Reset. Virus Quarantined.</incoming_comms_text>
+      <set_variable name="${ship}_Check_Health" value="1.0"/>
+      <set_variable name="${ship}_Overheat" value="${ship}_Overheat-1"/>
+      <set_variable name="${ship}_Infection" value="${ship}_Infection-1"/>
+    </event>
+    <event name="${ship} Reset Scramble Navigation No Effect" id_arme="56a1004c-f494-4992-ab43-d2b774aef30e">
+      <if_variable name="${ship}_Scramble_Nav" comparator="LESS_EQUAL" value="0.0"/>
+      <if_comms_button text="${ship} Reboot Thruster Algorithms Program"/>
+      <clear_comms_button text="${ship} Rotate Shield Frequencies Program"/>
+      <clear_comms_button text="${ship} Safe Torpedoes Program"/>
+      <clear_comms_button text="${ship} Reset Coolant Protocols Program"/>
+      <clear_comms_button text="${ship} Reboot Thruster Algorithms Program"/>
+      <incoming_comms_text from="CyberSecurity System Alert" sideValue="${sideValue}" type="ALERT">Thruster Solenoids Cycled and Reset. No Virus Found.</incoming_comms_text>
+      <set_variable name="${ship}_Check_Health" value="1.0"/>
+    </event>
+    <event name="${ship} Reset Scramble Navigation" id_arme="0772e7c1-e8f7-403c-a3d8-465445287810">
+      <if_variable name="${ship}_Scramble_Nav" comparator="GREATER" value="0.0"/>
+      <if_comms_button text="${ship} Reboot Thruster Algorithms Program"/>
+      <clear_comms_button text="${ship} Rotate Shield Frequencies Program"/>
+      <clear_comms_button text="${ship} Safe Torpedoes Program"/>
+      <clear_comms_button text="${ship} Reset Coolant Protocols Program"/>
+      <clear_comms_button text="${ship} Reboot Thruster Algorithms Program"/>
+      <incoming_comms_text from="CyberSecurity System Alert" sideValue="${sideValue}" type="ALERT">Thruster Solenoids Cycled and Reset. Virus Quarantined.</incoming_comms_text>
+      <set_variable name="${ship}_Check_Health" value="1.0"/>
+      <set_variable name="${ship}_Scramble_Nav" value="${ship}_Scramble_Nav-1"/>
+      <set_variable name="${ship}_Infection" value="${ship}_Infection-1"/>
+    </event>
+    <event name="${ship} Check Health" id_arme="f23af29c-d95d-4326-8e16-6c634c06e2f2">
+      <if_variable name="${ship}_Infection" comparator="GREATER" value="0.0"/>
+      <if_variable name="${ship}_Check_Health" comparator="EQUALS" value="1.0"/>
+      <incoming_comms_text from="CyberSecurity System Alert" sideValue="${sideValue}" type="ALERT">Activate Defense Program! |${ship}_Infection| Virus Infections Detected. </incoming_comms_text>
+      <set_variable name="${ship}_Check_Health" value="0.0"/>
+      <set_comms_button text="${ship} Choose Cyber Defense Program" sideValue="${sideValue}"/>
+    </event>
+  </repeat>
+</mission_data>
