@@ -4,95 +4,87 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-    {
-        "type": "node",
-        "request": "launch",
-        "name": "Mocha Tests",
-        "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
-        "args": [
-            "-u",
-            "bdd",
-            "--timeout",
-            "999999",
-            "--colors",
-            "${workspaceFolder}/test"
-        ],
-        "internalConsoleOptions": "openOnSessionStart",
-        "skipFiles": [
-            "<node_internals>/**"
-        ]
-    },
-    {
-        "type": "node",
-        "request": "launch",
-        "name": "Single Fragment Test",
-        "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
-        "args": [
-            "-u",
-            "bdd",
-            "--timeout",
-            "999999",
-            "--colors",
-            "${workspaceFolder}/test/imports-xml.spec.js"
-        ],
-        "env": {
-            "all-fragment": "import-logdata-fragment.xml"
-        },
-        "internalConsoleOptions": "openOnSessionStart",
-        "skipFiles": [
-            "<node_internals>/**"
-        ]
-    },
-    {
-        "type": "node",
-        "request": "launch",
-        "name": "Just Schema Test",
-        "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
-        "args": [
-            "-u",
-            "bdd",
-            "--timeout",
-            "999999",
-            "--colors",
-            "${workspaceFolder}/test/mission-schema.spec.js"
-        ],
-        "env": {
-            "fragment": "imports-nested-fragment"
-        },
-        "internalConsoleOptions": "openOnSessionStart",
-        "skipFiles": [
-            "<node_internals>/**"
-        ]
-    },
-    {
-        "type": "node",
-        "request": "launch",
-        "name": "Single Module Test",
-        "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
-        "args": [
-            "-u",
-            "bdd",
-            "--timeout",
-            "999999",
-            "--colors",
-            "${workspaceFolder}/test/expand-modular.spec.js"
-        ],
-        "env": {
-            "xxxfragment": "imports-nested-fragment"
-        },
-        "internalConsoleOptions": "openOnSessionStart",
-        "skipFiles": [
-            "<node_internals>/**"
-        ]
-    },
         {
             "type": "node",
             "request": "launch",
-            "name": "Launch Program",
+            "name": "Mocha Tests",
+            "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+            "args": [
+                "-u",
+                "bdd",
+                "--timeout",
+                "999999",
+                "--colors",
+                "${workspaceFolder}/test"
+            ],
+            "internalConsoleOptions": "openOnSessionStart",
             "skipFiles": [
                 "<node_internals>/**"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Single Fragment Test",
+            "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+            "args": [
+                "-u",
+                "bdd",
+                "--timeout",
+                "999999",
+                "--colors",
+                "${workspaceFolder}/test/imports-xml.spec.js"
             ],
-            "program": "${workspaceFolder}\\test-fast.js"
+            "env": {
+                "aa-fragment": "repeat-outer-nested-fragment.xml",
+                "modular": "TheArena-eggs-template.xml"
+            },
+            "internalConsoleOptions": "openOnSessionStart",
+            "skipFiles": [
+                "<node_internals>/**"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Just Schema Test",
+            "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+            "args": [
+                "-u",
+                "bdd",
+                "--timeout",
+                "999999",
+                "--colors",
+                "${workspaceFolder}/test/mission-schema.spec.js"
+            ],
+            "env": {
+                "fragment": "imports-nested-fragment"
+            },
+            "internalConsoleOptions": "openOnSessionStart",
+            "skipFiles": [
+                "<node_internals>/**"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Single Module Test",
+            "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+            "args": [
+                "-u",
+                "bdd",
+                "--timeout",
+                "999999",
+                "--colors",
+                "${workspaceFolder}/test/expand-modular.spec.js"
+            ],
+            "env": {
+                "xxxfragment": "imports-nested-fragment"
+            },
+            "internalConsoleOptions": "openOnSessionStart",
+            "skipFiles": [
+                "<node_internals>/**"
+            ]
         }
     ]
 }

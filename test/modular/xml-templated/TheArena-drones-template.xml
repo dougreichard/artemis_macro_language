@@ -1,4 +1,8 @@
 <mission_data version="1.0">
+<imports>
+    <import name="TheArena-ranges.xml"/>
+  </imports>
+
   <start>
     <set_variable name="Drone_Speed" value="6.0"/>
 

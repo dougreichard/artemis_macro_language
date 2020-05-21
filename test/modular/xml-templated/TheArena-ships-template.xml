@@ -1,4 +1,8 @@
 <mission_data version="1.0">
+<imports>
+    <import name="TheArena-ranges.xml"/>
+  </imports>
+
   <start>
     <set_variable name="Respawn_Player_Time" value="60.0"/>
     <repeat range="AllShips">
@@ -29,7 +33,7 @@
       <if_variable name="${ship}" comparator="EQUALS" value="2.0"/>
       <if_timer_finished name="${ship}"/>
       <if_variable name="${ship}_here" comparator="EQUALS" value="1.0"/>
-      <create type="player" player_slot="${index}" x="${x}" y="10.0" z="${z}" name="${ship}" sideValue="${sideValue}" raceKeys="Pirate" hullKeys="Strongbow" warp="no"/>
+      <create type="player" player_slot="${_index}" x="${x}" y="10.0" z="${z}" name="${ship}" sideValue="${sideValue}" raceKeys="Pirate" hullKeys="Strongbow" warp="no"/>
       <set_relative_position name2="${ship}" distance="30100" angle="${angle}" name1="_"/>
       <set_variable name="${ship}" value="1.0"/>
       <set_object_property property="pirateRepWithStations" value="1.0" name="${ship}"/>

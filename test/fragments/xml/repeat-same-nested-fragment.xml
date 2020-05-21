@@ -1,0 +1,40 @@
+<mission_data version="1.0">
+  <values>
+    <range name="AllShips">
+      <value ship="Artemis" sideValue="10" />
+      <value ship="Intrepid" sideValue="11" />
+      <value ship="Aegis" sideValue="4" />
+      <value ship="Horatio" sideValue="5" />
+      <value ship="Excalibur" sideValue="6" />
+      <value ship="Hera" sideValue="7" />
+      <value ship="Ceres" sideValue="8" />
+      <value ship="Diana" sideValue="9" />
+    </range>
+    <range name="AllShips2">
+      <value ship="Artemis" sideValue="10" />
+      <value ship="Intrepid" sideValue="11" />
+      <value ship="Aegis" sideValue="4" />
+      <value ship="Horatio" sideValue="5" />
+      <value ship="Excalibur" sideValue="6" />
+      <value ship="Hera" sideValue="7" />
+      <value ship="Ceres" sideValue="8" />
+      <value ship="Diana" sideValue="9" />
+    </range>
+    
+  </values>
+
+
+  <start>
+    <repeat range="AllShips">
+      <set_variable name="${ship}_Cargo" value="0.0"/>
+    </repeat>
+  </start>
+
+  <repeat range="AllShips" as="Ship">
+    <repeat range="AllShips2" as="Target" angle="90" _skip="${Ship.ship == Target.ship}">
+      <event name="${Ship.ship} to ${Target.ship}">
+        <set_relative_position name2="${Ship.ship}" distance="39000" angle="${angle}" name1="${Target.ship}"/>
+      </event>
+    </repeat>
+  </repeat>
+</mission_data>

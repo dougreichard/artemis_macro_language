@@ -1,54 +1,56 @@
 <mission_data version="1.0">
-  <template name="CaptureObject">
-    <params>
-      <param name="ship" description="" />
-      <param name="object" description="" />
-      <param name="target" />
-      <param name="objectText" description="" />
-      <param name="captureDistance" description="" default="100" />
-      <param name="dropDistance" description="" default="1000" />
-      <param name="cargoHold" />
-      <param name="scoreVariable" />
-      <param name="scoringEnabledVariable" />
-    </params>
+  <templates>
+    <template name="CaptureObject">
+      <params>
+        <param name="ship" description="" />
+        <param name="object" description="" />
+        <param name="target" />
+        <param name="objectText" description="" />
+        <param name="captureDistance" description="" default="100" />
+        <param name="dropDistance" description="" default="1000" />
+        <param name="cargoHold" />
+        <param name="scoreVariable" />
+        <param name="scoringEnabledVariable" />
+      </params>
 
-    <event name="${ship} Capture ${object}">
-      <if_distance name1="${ship}" name2="${object}" comparator="LESS_EQUAL" value="${distance}"/>
-      <if_variable name="${object}" comparator="EQUALS" value="2.0"/>
-      <if_variable name="${cargoHold}" comparator="EQUALS" value="0.0"/>
-      <set_variable name="${cargoHold}" value="1.0"/>
-      <set_variable name="${object}" value="${sideValue}"/>
-      <incoming_comms_text from="Tractor Control" sideValue="${sideValue}">${ship} has control of ${object}</incoming_comms_text>
-    </event>
-    <event name="${ship} Drop ${object}">
-      <if_distance name1="${ship}" name2="${object}" comparator="GREATER_EQUAL" value="${dropDistance}"/>
-      <if_variable name="${object}" comparator="EQUALS" value="${sideValue}"/>
-      <set_variable name="${object}" value="2.0"/>
-      <set_variable name="${cargoHold}" value="0.0"/>
-      <incoming_comms_text from="Tractor Control" sideValue="${sideValue}">${ship} lost control of ${object}. </incoming_comms_text>
-    </event>
-    <event name="${ship} Dead Drop ${object}">
-      <if_not_exists name="${ship}"/>
-      <if_variable name="${object}" comparator="EQUALS" value="${sideValue}"/>
-      <set_variable name="${object}" value="2.0"/>
-      <set_variable name="${cargoHold}" value="0.0"/>
-      <incoming_comms_text from="Tractor Control" sideValue="${sideValue}">${ship} lost control of ${object}. </incoming_comms_text>
-    </event>
-    <event name="${ship} Claim ${object}">
-      <if_variable name="${object}" comparator="EQUALS" value="${sideValue}"/>
-      <if_docked player_name="${ship}" name="${target}"/>
-      <if_variable name="${scoringEnabledVariable}" comparator="EQUALS" value="1.0"/>
-      <set_variable name="${scoreVariable}" value="${scoreVariable}+1"/>
-      <destroy name="${object}"/>
-      <set_timer name="${object}_Timer" seconds="10"/>
-      <set_variable name="egg1" value="1.0"/>
-      <set_variable name="${cargoHold}" value="0.0"/>
-      <incoming_comms_text from="${target}" sideValue="${sideValue}">${objectText} Secured. ${ship} has captured |${scoreVariable}| ${objectText}.</incoming_comms_text>
-    </event>
-    <event name="${ship} Tow ${object}">
-      <if_variable name="${object}" comparator="EQUALS" value="${sideValue}"/>
-      <if_exists name="${ship}"/>
-      <set_relative_position name2="${object}" distance="100" angle="180" name1="${ship}"/>
-    </event>
-  </template>
+      <event name="${ship} Capture ${object}">
+        <if_distance name1="${ship}" name2="${object}" comparator="LESS_EQUAL" value="${captureDistance}"/>
+        <if_variable name="${object}" comparator="EQUALS" value="2.0"/>
+        <if_variable name="${cargoHold}" comparator="EQUALS" value="0.0"/>
+        <set_variable name="${cargoHold}" value="1.0"/>
+        <set_variable name="${object}" value="${sideValue}"/>
+        <incoming_comms_text from="Tractor Control" sideValue="${sideValue}">${ship} has control of ${object}</incoming_comms_text>
+      </event>
+      <event name="${ship} Drop ${object}">
+        <if_distance name1="${ship}" name2="${object}" comparator="GREATER_EQUAL" value="${dropDistance}"/>
+        <if_variable name="${object}" comparator="EQUALS" value="${sideValue}"/>
+        <set_variable name="${object}" value="2.0"/>
+        <set_variable name="${cargoHold}" value="0.0"/>
+        <incoming_comms_text from="Tractor Control" sideValue="${sideValue}">${ship} lost control of ${object}. </incoming_comms_text>
+      </event>
+      <event name="${ship} Dead Drop ${object}">
+        <if_not_exists name="${ship}"/>
+        <if_variable name="${object}" comparator="EQUALS" value="${sideValue}"/>
+        <set_variable name="${object}" value="2.0"/>
+        <set_variable name="${cargoHold}" value="0.0"/>
+        <incoming_comms_text from="Tractor Control" sideValue="${sideValue}">${ship} lost control of ${object}. </incoming_comms_text>
+      </event>
+      <event name="${ship} Claim ${object}">
+        <if_variable name="${object}" comparator="EQUALS" value="${sideValue}"/>
+        <if_docked player_name="${ship}" name="${target}"/>
+        <if_variable name="${scoringEnabledVariable}" comparator="EQUALS" value="1.0"/>
+        <set_variable name="${scoreVariable}" value="${scoreVariable}+1"/>
+        <destroy name="${object}"/>
+        <set_timer name="${object}_Timer" seconds="10"/>
+        <set_variable name="egg1" value="1.0"/>
+        <set_variable name="${cargoHold}" value="0.0"/>
+        <incoming_comms_text from="${target}" sideValue="${sideValue}">${objectText} Secured. ${ship} has captured |${scoreVariable}| ${objectText}.</incoming_comms_text>
+      </event>
+      <event name="${ship} Tow ${object}">
+        <if_variable name="${object}" comparator="EQUALS" value="${sideValue}"/>
+        <if_exists name="${ship}"/>
+        <set_relative_position name2="${object}" distance="100" angle="180" name1="${ship}"/>
+      </event>
+    </template>
+  </templates>
 </mission_data>

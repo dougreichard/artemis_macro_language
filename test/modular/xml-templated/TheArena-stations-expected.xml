@@ -1,0 +1,242 @@
+<mission_data version="1.0">
+    <start>
+        <set_variable name="Station_Prime" value="1.0"/>
+        <set_variable name="Artemis_Station" value="1.0"/>
+        <create type="station" x="50000.0" y="0.0" z="95000.0" name="Artemis Station" raceKeys="Arvonian" hullKeys="Command Base" sideValue="10"/>
+        <set_object_property property="pirateRepWithStations" value="1.0" name="Artemis"/>
+        <set_relative_position name2="Artemis Station" distance="30000" angle="180" name1="_"/>
+        <set_variable name="Intrepid_Station" value="1.0"/>
+        <create type="station" x="95000.0" y="0.0" z="5000.0" name="Intrepid Station" raceKeys="Arvonian" hullKeys="Command Base" sideValue="11"/>
+        <set_object_property property="pirateRepWithStations" value="1.0" name="Intrepid"/>
+        <set_relative_position name2="Intrepid Station" distance="30000" angle="0" name1="_"/>
+        <set_variable name="Aegis_Station" value="1.0"/>
+        <create type="station" x="95000.0" y="0.0" z="95000.0" name="Aegis Station" raceKeys="Arvonian" hullKeys="Command Base" sideValue="4"/>
+        <set_object_property property="pirateRepWithStations" value="1.0" name="Aegis"/>
+        <set_relative_position name2="Aegis Station" distance="30000" angle="90" name1="_"/>
+        <set_variable name="Horatio_Station" value="1.0"/>
+        <create type="station" x="5000.0" y="0.0" z="5000.0" name="Horatio Station" raceKeys="Arvonian" hullKeys="Command Base" sideValue="5"/>
+        <set_object_property property="pirateRepWithStations" value="1.0" name="Horatio"/>
+        <set_relative_position name2="Horatio Station" distance="30000" angle="270" name1="_"/>
+        <set_variable name="Excalibur_Station" value="1.0"/>
+        <create type="station" x="5000.0" y="0.0" z="95000.0" name="Excalibur Station" raceKeys="Arvonian" hullKeys="Command Base" sideValue="6"/>
+        <set_object_property property="pirateRepWithStations" value="1.0" name="Excalibur"/>
+        <set_relative_position name2="Excalibur Station" distance="30000" angle="45" name1="_"/>
+        <set_variable name="Hera_Station" value="1.0"/>
+        <create type="station" x="50000.0" y="0.0" z="5000.0" name="Hera Station" raceKeys="Arvonian" hullKeys="Command Base" sideValue="7"/>
+        <set_object_property property="pirateRepWithStations" value="1.0" name="Hera"/>
+        <set_relative_position name2="Hera Station" distance="30000" angle="135" name1="_"/>
+        <set_variable name="Ceres_Station" value="1.0"/>
+        <create type="station" x="5000.0" y="0.0" z="50000.0" name="Ceres Station" raceKeys="Arvonian" hullKeys="Command Base" sideValue="8"/>
+        <set_object_property property="pirateRepWithStations" value="1.0" name="Ceres"/>
+        <set_relative_position name2="Ceres Station" distance="30000" angle="225" name1="_"/>
+        <set_variable name="Diana_Station" value="1.0"/>
+        <create type="station" x="95000.0" y="0.0" z="50000.0" name="Diana Station" raceKeys="Arvonian" hullKeys="Command Base" sideValue="9"/>
+        <set_object_property property="pirateRepWithStations" value="1.0" name="Diana"/>
+        <set_relative_position name2="Diana Station" distance="30000" angle="315" name1="_"/>
+        <create type="genericMesh" x="50000.0" y="-50.0" z="50000.0" name="." meshFileName="dat\asteroid7.dxs" textureFileName="dat\Asteroid_7_AO.png"/>
+        <set_object_property property="pushRadius" value="0.0" name="."/>
+        <set_variable name="Respawn_Station_Time" value="90.0"/>
+        <set_timer name="Station_Prime" seconds="5"/>
+    </start>
+    <event name="Station Prime">
+        <if_variable name="Station_Prime" comparator="EQUALS" value="1.0"/>
+        <if_timer_finished name="Station_Prime"/>
+        <set_object_property property="missileStoresHoming" value="5" name="Artemis Station"/>
+        <set_object_property property="missileStoresNuke" value="1" name="Artemis Station"/>
+        <set_object_property property="missileStoresEMP" value="1" name="Artemis Station"/>
+        <set_object_property property="missileStoresPShock" value="2" name="Artemis Station"/>
+        <set_object_property property="missileStoresMine" value="2" name="Artemis Station"/>
+        <set_object_property property="missileStoresHoming" value="5" name="Intrepid Station"/>
+        <set_object_property property="missileStoresNuke" value="1" name="Intrepid Station"/>
+        <set_object_property property="missileStoresEMP" value="1" name="Intrepid Station"/>
+        <set_object_property property="missileStoresPShock" value="2" name="Intrepid Station"/>
+        <set_object_property property="missileStoresMine" value="2" name="Intrepid Station"/>
+        <set_object_property property="missileStoresHoming" value="5" name="Aegis Station"/>
+        <set_object_property property="missileStoresNuke" value="1" name="Aegis Station"/>
+        <set_object_property property="missileStoresEMP" value="1" name="Aegis Station"/>
+        <set_object_property property="missileStoresPShock" value="2" name="Aegis Station"/>
+        <set_object_property property="missileStoresMine" value="2" name="Aegis Station"/>
+        <set_object_property property="missileStoresHoming" value="5" name="Horatio Station"/>
+        <set_object_property property="missileStoresNuke" value="1" name="Horatio Station"/>
+        <set_object_property property="missileStoresEMP" value="1" name="Horatio Station"/>
+        <set_object_property property="missileStoresPShock" value="2" name="Horatio Station"/>
+        <set_object_property property="missileStoresMine" value="2" name="Horatio Station"/>
+        <set_object_property property="missileStoresHoming" value="5" name="Excalibur Station"/>
+        <set_object_property property="missileStoresNuke" value="1" name="Excalibur Station"/>
+        <set_object_property property="missileStoresEMP" value="1" name="Excalibur Station"/>
+        <set_object_property property="missileStoresPShock" value="2" name="Excalibur Station"/>
+        <set_object_property property="missileStoresMine" value="2" name="Excalibur Station"/>
+        <set_object_property property="missileStoresHoming" value="5" name="Hera Station"/>
+        <set_object_property property="missileStoresNuke" value="1" name="Hera Station"/>
+        <set_object_property property="missileStoresEMP" value="1" name="Hera Station"/>
+        <set_object_property property="missileStoresPShock" value="2" name="Hera Station"/>
+        <set_object_property property="missileStoresMine" value="2" name="Hera Station"/>
+        <set_object_property property="missileStoresHoming" value="5" name="Ceres Station"/>
+        <set_object_property property="missileStoresNuke" value="1" name="Ceres Station"/>
+        <set_object_property property="missileStoresEMP" value="1" name="Ceres Station"/>
+        <set_object_property property="missileStoresPShock" value="2" name="Ceres Station"/>
+        <set_object_property property="missileStoresMine" value="2" name="Ceres Station"/>
+        <set_object_property property="missileStoresHoming" value="5" name="Diana Station"/>
+        <set_object_property property="missileStoresNuke" value="1" name="Diana Station"/>
+        <set_object_property property="missileStoresEMP" value="1" name="Diana Station"/>
+        <set_object_property property="missileStoresPShock" value="2" name="Diana Station"/>
+        <set_object_property property="missileStoresMine" value="2" name="Diana Station"/>
+        <set_variable name="Station_Prime" value="0.0"/>
+        <set_object_property property="angleDelta" value="0.2" name="_"/>
+        <set_object_property property="angleDelta" value="0.2" name="."/>
+        <set_object_property property="pushRadius" value="0.0" name="."/>
+        <set_object_property property="pushRadius" value="0.0" name="_"/>
+    </event>
+    <event name="Artemis Station Destroyed">
+        <if_not_exists name="Artemis Station"/>
+        <if_variable name="Artemis_Station" comparator="EQUALS" value="1.0"/>
+        <set_timer name="Artemis_Station" seconds="Respawn_Station_Time"/>
+        <set_variable name="Artemis_Station" value="2.0"/>
+    </event>
+    <event name="Artemis Station Respawn">
+        <if_variable name="Artemis_Station" comparator="EQUALS" value="2.0"/>
+        <if_timer_finished name="Artemis_Station"/>
+        <if_variable name="Artemis_here" comparator="EQUALS" value="1.0"/>
+        <create type="station" x="50000.0" y="0.0" z="95000.0" name="Artemis Station" raceKeys="Arvonian" hullKeys="Command Base" sideValue="10"/>
+        <set_relative_position name2="Artemis Station" distance="30000" angle="180" name1="_"/>
+        <set_variable name="Artemis_Station" value="1.0"/>
+        <set_object_property property="missileStoresPShock" value="0" name="Artemis Station"/>
+        <set_object_property property="missileStoresMine" value="0" name="Artemis Station"/>
+        <set_object_property property="missileStoresEMP" value="0" name="Artemis Station"/>
+        <set_object_property property="missileStoresNuke" value="0" name="Artemis Station"/>
+        <set_object_property property="missileStoresHoming" value="0" name="Artemis Station"/>
+    </event>
+    <event name="Intrepid Station Destroyed">
+        <if_not_exists name="Intrepid Station"/>
+        <if_variable name="Intrepid_Station" comparator="EQUALS" value="1.0"/>
+        <set_timer name="Intrepid_Station" seconds="Respawn_Station_Time"/>
+        <set_variable name="Intrepid_Station" value="2.0"/>
+    </event>
+    <event name="Intrepid Station Respawn">
+        <if_variable name="Intrepid_Station" comparator="EQUALS" value="2.0"/>
+        <if_timer_finished name="Intrepid_Station"/>
+        <if_variable name="Intrepid_here" comparator="EQUALS" value="1.0"/>
+        <create type="station" x="95000.0" y="0.0" z="5000.0" name="Intrepid Station" raceKeys="Arvonian" hullKeys="Command Base" sideValue="11"/>
+        <set_relative_position name2="Intrepid Station" distance="30000" angle="0" name1="_"/>
+        <set_variable name="Intrepid_Station" value="1.0"/>
+        <set_object_property property="missileStoresPShock" value="0" name="Intrepid Station"/>
+        <set_object_property property="missileStoresMine" value="0" name="Intrepid Station"/>
+        <set_object_property property="missileStoresEMP" value="0" name="Intrepid Station"/>
+        <set_object_property property="missileStoresNuke" value="0" name="Intrepid Station"/>
+        <set_object_property property="missileStoresHoming" value="0" name="Intrepid Station"/>
+    </event>
+    <event name="Aegis Station Destroyed">
+        <if_not_exists name="Aegis Station"/>
+        <if_variable name="Aegis_Station" comparator="EQUALS" value="1.0"/>
+        <set_timer name="Aegis_Station" seconds="Respawn_Station_Time"/>
+        <set_variable name="Aegis_Station" value="2.0"/>
+    </event>
+    <event name="Aegis Station Respawn">
+        <if_variable name="Aegis_Station" comparator="EQUALS" value="2.0"/>
+        <if_timer_finished name="Aegis_Station"/>
+        <if_variable name="Aegis_here" comparator="EQUALS" value="1.0"/>
+        <create type="station" x="95000.0" y="0.0" z="95000.0" name="Aegis Station" raceKeys="Arvonian" hullKeys="Command Base" sideValue="4"/>
+        <set_relative_position name2="Aegis Station" distance="30000" angle="90" name1="_"/>
+        <set_variable name="Aegis_Station" value="1.0"/>
+        <set_object_property property="missileStoresPShock" value="0" name="Aegis Station"/>
+        <set_object_property property="missileStoresMine" value="0" name="Aegis Station"/>
+        <set_object_property property="missileStoresEMP" value="0" name="Aegis Station"/>
+        <set_object_property property="missileStoresNuke" value="0" name="Aegis Station"/>
+        <set_object_property property="missileStoresHoming" value="0" name="Aegis Station"/>
+    </event>
+    <event name="Horatio Station Destroyed">
+        <if_not_exists name="Horatio Station"/>
+        <if_variable name="Horatio_Station" comparator="EQUALS" value="1.0"/>
+        <set_timer name="Horatio_Station" seconds="Respawn_Station_Time"/>
+        <set_variable name="Horatio_Station" value="2.0"/>
+    </event>
+    <event name="Horatio Station Respawn">
+        <if_variable name="Horatio_Station" comparator="EQUALS" value="2.0"/>
+        <if_timer_finished name="Horatio_Station"/>
+        <if_variable name="Horatio_here" comparator="EQUALS" value="1.0"/>
+        <create type="station" x="5000.0" y="0.0" z="5000.0" name="Horatio Station" raceKeys="Arvonian" hullKeys="Command Base" sideValue="5"/>
+        <set_relative_position name2="Horatio Station" distance="30000" angle="270" name1="_"/>
+        <set_variable name="Horatio_Station" value="1.0"/>
+        <set_object_property property="missileStoresPShock" value="0" name="Horatio Station"/>
+        <set_object_property property="missileStoresMine" value="0" name="Horatio Station"/>
+        <set_object_property property="missileStoresEMP" value="0" name="Horatio Station"/>
+        <set_object_property property="missileStoresNuke" value="0" name="Horatio Station"/>
+        <set_object_property property="missileStoresHoming" value="0" name="Horatio Station"/>
+    </event>
+    <event name="Excalibur Station Destroyed">
+        <if_not_exists name="Excalibur Station"/>
+        <if_variable name="Excalibur_Station" comparator="EQUALS" value="1.0"/>
+        <set_timer name="Excalibur_Station" seconds="Respawn_Station_Time"/>
+        <set_variable name="Excalibur_Station" value="2.0"/>
+    </event>
+    <event name="Excalibur Station Respawn">
+        <if_variable name="Excalibur_Station" comparator="EQUALS" value="2.0"/>
+        <if_timer_finished name="Excalibur_Station"/>
+        <if_variable name="Excalibur_here" comparator="EQUALS" value="1.0"/>
+        <create type="station" x="5000.0" y="0.0" z="95000.0" name="Excalibur Station" raceKeys="Arvonian" hullKeys="Command Base" sideValue="6"/>
+        <set_relative_position name2="Excalibur Station" distance="30000" angle="45" name1="_"/>
+        <set_variable name="Excalibur_Station" value="1.0"/>
+        <set_object_property property="missileStoresPShock" value="0" name="Excalibur Station"/>
+        <set_object_property property="missileStoresMine" value="0" name="Excalibur Station"/>
+        <set_object_property property="missileStoresEMP" value="0" name="Excalibur Station"/>
+        <set_object_property property="missileStoresNuke" value="0" name="Excalibur Station"/>
+        <set_object_property property="missileStoresHoming" value="0" name="Excalibur Station"/>
+    </event>
+    <event name="Hera Station Destroyed">
+        <if_not_exists name="Hera Station"/>
+        <if_variable name="Hera_Station" comparator="EQUALS" value="1.0"/>
+        <set_timer name="Hera_Station" seconds="Respawn_Station_Time"/>
+        <set_variable name="Hera_Station" value="2.0"/>
+    </event>
+    <event name="Hera Station Respawn">
+        <if_variable name="Hera_Station" comparator="EQUALS" value="2.0"/>
+        <if_timer_finished name="Hera_Station"/>
+        <if_variable name="Hera_here" comparator="EQUALS" value="1.0"/>
+        <create type="station" x="50000.0" y="0.0" z="5000.0" name="Hera Station" raceKeys="Arvonian" hullKeys="Command Base" sideValue="7"/>
+        <set_relative_position name2="Hera Station" distance="30000" angle="135" name1="_"/>
+        <set_variable name="Hera_Station" value="1.0"/>
+        <set_object_property property="missileStoresPShock" value="0" name="Hera Station"/>
+        <set_object_property property="missileStoresMine" value="0" name="Hera Station"/>
+        <set_object_property property="missileStoresEMP" value="0" name="Hera Station"/>
+        <set_object_property property="missileStoresNuke" value="0" name="Hera Station"/>
+        <set_object_property property="missileStoresHoming" value="0" name="Hera Station"/>
+    </event>
+    <event name="Ceres Station Destroyed">
+        <if_not_exists name="Ceres Station"/>
+        <if_variable name="Ceres_Station" comparator="EQUALS" value="1.0"/>
+        <set_timer name="Ceres_Station" seconds="Respawn_Station_Time"/>
+        <set_variable name="Ceres_Station" value="2.0"/>
+    </event>
+    <event name="Ceres Station Respawn">
+        <if_variable name="Ceres_Station" comparator="EQUALS" value="2.0"/>
+        <if_timer_finished name="Ceres_Station"/>
+        <if_variable name="Ceres_here" comparator="EQUALS" value="1.0"/>
+        <create type="station" x="5000.0" y="0.0" z="50000.0" name="Ceres Station" raceKeys="Arvonian" hullKeys="Command Base" sideValue="8"/>
+        <set_relative_position name2="Ceres Station" distance="30000" angle="225" name1="_"/>
+        <set_variable name="Ceres_Station" value="1.0"/>
+        <set_object_property property="missileStoresPShock" value="0" name="Ceres Station"/>
+        <set_object_property property="missileStoresMine" value="0" name="Ceres Station"/>
+        <set_object_property property="missileStoresEMP" value="0" name="Ceres Station"/>
+        <set_object_property property="missileStoresNuke" value="0" name="Ceres Station"/>
+        <set_object_property property="missileStoresHoming" value="0" name="Ceres Station"/>
+    </event>
+    <event name="Diana Station Destroyed">
+        <if_not_exists name="Diana Station"/>
+        <if_variable name="Diana_Station" comparator="EQUALS" value="1.0"/>
+        <set_timer name="Diana_Station" seconds="Respawn_Station_Time"/>
+        <set_variable name="Diana_Station" value="2.0"/>
+    </event>
+    <event name="Diana Station Respawn">
+        <if_variable name="Diana_Station" comparator="EQUALS" value="2.0"/>
+        <if_timer_finished name="Diana_Station"/>
+        <if_variable name="Diana_here" comparator="EQUALS" value="1.0"/>
+        <create type="station" x="95000.0" y="0.0" z="50000.0" name="Diana Station" raceKeys="Arvonian" hullKeys="Command Base" sideValue="9"/>
+        <set_relative_position name2="Diana Station" distance="30000" angle="315" name1="_"/>
+        <set_variable name="Diana_Station" value="1.0"/>
+        <set_object_property property="missileStoresPShock" value="0" name="Diana Station"/>
+        <set_object_property property="missileStoresMine" value="0" name="Diana Station"/>
+        <set_object_property property="missileStoresEMP" value="0" name="Diana Station"/>
+        <set_object_property property="missileStoresNuke" value="0" name="Diana Station"/>
+        <set_object_property property="missileStoresHoming" value="0" name="Diana Station"/>
+    </event>
+</mission_data>

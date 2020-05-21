@@ -1,0 +1,213 @@
+<mission_data version="1.0">
+    <start>
+        <set_variable name="Drone_Speed" value="6.0"/>
+        <set_variable name="Artemis_Sensor_Drone_Built" value="1.0"/>
+        <set_timer name="Artemis_Sensor_Drone_Built" seconds="5"/>
+        <set_variable name="Intrepid_Sensor_Drone_Built" value="1.0"/>
+        <set_timer name="Intrepid_Sensor_Drone_Built" seconds="5"/>
+        <set_variable name="Aegis_Sensor_Drone_Built" value="1.0"/>
+        <set_timer name="Aegis_Sensor_Drone_Built" seconds="5"/>
+        <set_variable name="Horatio_Sensor_Drone_Built" value="1.0"/>
+        <set_timer name="Horatio_Sensor_Drone_Built" seconds="5"/>
+        <set_variable name="Excalibur_Sensor_Drone_Built" value="1.0"/>
+        <set_timer name="Excalibur_Sensor_Drone_Built" seconds="5"/>
+        <set_variable name="Hera_Sensor_Drone_Built" value="1.0"/>
+        <set_timer name="Hera_Sensor_Drone_Built" seconds="5"/>
+        <set_variable name="Ceres_Sensor_Drone_Built" value="1.0"/>
+        <set_timer name="Ceres_Sensor_Drone_Built" seconds="5"/>
+        <set_variable name="Diana_Sensor_Drone_Built" value="1.0"/>
+        <set_timer name="Diana_Sensor_Drone_Built" seconds="5"/>
+    </start>
+    <event name="Sensor Drone Artemis Create Comms button">
+        <if_variable name="Artemis_Sensor_Drone_Built" comparator="EQUALS" value="1.0"/>
+        <set_comms_button text="Launch Artemis Sensor Drone" sideValue="10"/>
+        <set_timer name="Artemis_Sensor_Drone_Built" seconds="60"/>
+        <set_variable name="Artemis_Sensor_Drone_Built" value="2.0"/>
+        <set_object_property property="pirateRepWithStations" value="1.0" name="Artemis"/>
+    </event>
+    <event name="Sensor Drone Artemis Create Comms button timer refresh">
+        <if_variable name="Artemis_Sensor_Drone_Built" comparator="EQUALS" value="2.0"/>
+        <if_timer_finished name="Artemis_Sensor_Drone_Built"/>
+        <clear_comms_button text="Launch Artemis Sensor Drone"/>
+        <set_variable name="Artemis_Sensor_Drone_Built" value="1.0"/>
+    </event>
+    <event name="Artemis Sensor Drone launched" id_arme="b972f672-b615-4808-a201-8cc7f326ea15">
+        <if_variable name="Artemis_Sensor_Drone_Built" comparator="EQUALS" value="2.0"/>
+        <if_comms_button text="Launch Artemis Sensor Drone"/>
+        <clear_comms_button text="Launch Artemis Sensor Drone"/>
+        <set_timer name="Artemis_Sensor_Drone_Built" seconds="180"/>
+        <create type="neutral" x="50000.0" y="1000.0" z="50000.0" name="Artemis Drone" raceKeys="TSN" hullKeys="TSN LR Shuttle" sideValue="10"/>
+        <set_relative_position name2="Artemis Drone" distance="200" angle="180" name1="Artemis"/>
+        <add_ai type="FOLLOW_COMMS_ORDERS" name="Artemis Drone"/>
+        <set_object_property property="topSpeed" value="Drone_Speed" name="Artemis Drone"/>
+        <set_ship_text name="Artemis Drone" race="Remote" class="Drone" desc="Long Range Drone" scan_desc="A shuttle refit with faster engines and larger fuel reserves. Built for long range reconnaissance"/>
+    </event>
+    <event name="Sensor Drone Intrepid Create Comms button">
+        <if_variable name="Intrepid_Sensor_Drone_Built" comparator="EQUALS" value="1.0"/>
+        <set_comms_button text="Launch Intrepid Sensor Drone" sideValue="11"/>
+        <set_timer name="Intrepid_Sensor_Drone_Built" seconds="60"/>
+        <set_variable name="Intrepid_Sensor_Drone_Built" value="2.0"/>
+        <set_object_property property="pirateRepWithStations" value="1.0" name="Intrepid"/>
+    </event>
+    <event name="Sensor Drone Intrepid Create Comms button timer refresh">
+        <if_variable name="Intrepid_Sensor_Drone_Built" comparator="EQUALS" value="2.0"/>
+        <if_timer_finished name="Intrepid_Sensor_Drone_Built"/>
+        <clear_comms_button text="Launch Intrepid Sensor Drone"/>
+        <set_variable name="Intrepid_Sensor_Drone_Built" value="1.0"/>
+    </event>
+    <event name="Intrepid Sensor Drone launched" id_arme="b972f672-b615-4808-a201-8cc7f326ea15">
+        <if_variable name="Intrepid_Sensor_Drone_Built" comparator="EQUALS" value="2.0"/>
+        <if_comms_button text="Launch Intrepid Sensor Drone"/>
+        <clear_comms_button text="Launch Intrepid Sensor Drone"/>
+        <set_timer name="Intrepid_Sensor_Drone_Built" seconds="180"/>
+        <create type="neutral" x="50000.0" y="1000.0" z="50000.0" name="Intrepid Drone" raceKeys="TSN" hullKeys="TSN LR Shuttle" sideValue="11"/>
+        <set_relative_position name2="Intrepid Drone" distance="200" angle="180" name1="Intrepid"/>
+        <add_ai type="FOLLOW_COMMS_ORDERS" name="Intrepid Drone"/>
+        <set_object_property property="topSpeed" value="Drone_Speed" name="Intrepid Drone"/>
+        <set_ship_text name="Intrepid Drone" race="Remote" class="Drone" desc="Long Range Drone" scan_desc="A shuttle refit with faster engines and larger fuel reserves. Built for long range reconnaissance"/>
+    </event>
+    <event name="Sensor Drone Aegis Create Comms button">
+        <if_variable name="Aegis_Sensor_Drone_Built" comparator="EQUALS" value="1.0"/>
+        <set_comms_button text="Launch Aegis Sensor Drone" sideValue="4"/>
+        <set_timer name="Aegis_Sensor_Drone_Built" seconds="60"/>
+        <set_variable name="Aegis_Sensor_Drone_Built" value="2.0"/>
+        <set_object_property property="pirateRepWithStations" value="1.0" name="Aegis"/>
+    </event>
+    <event name="Sensor Drone Aegis Create Comms button timer refresh">
+        <if_variable name="Aegis_Sensor_Drone_Built" comparator="EQUALS" value="2.0"/>
+        <if_timer_finished name="Aegis_Sensor_Drone_Built"/>
+        <clear_comms_button text="Launch Aegis Sensor Drone"/>
+        <set_variable name="Aegis_Sensor_Drone_Built" value="1.0"/>
+    </event>
+    <event name="Aegis Sensor Drone launched" id_arme="b972f672-b615-4808-a201-8cc7f326ea15">
+        <if_variable name="Aegis_Sensor_Drone_Built" comparator="EQUALS" value="2.0"/>
+        <if_comms_button text="Launch Aegis Sensor Drone"/>
+        <clear_comms_button text="Launch Aegis Sensor Drone"/>
+        <set_timer name="Aegis_Sensor_Drone_Built" seconds="180"/>
+        <create type="neutral" x="50000.0" y="1000.0" z="50000.0" name="Aegis Drone" raceKeys="TSN" hullKeys="TSN LR Shuttle" sideValue="4"/>
+        <set_relative_position name2="Aegis Drone" distance="200" angle="180" name1="Aegis"/>
+        <add_ai type="FOLLOW_COMMS_ORDERS" name="Aegis Drone"/>
+        <set_object_property property="topSpeed" value="Drone_Speed" name="Aegis Drone"/>
+        <set_ship_text name="Aegis Drone" race="Remote" class="Drone" desc="Long Range Drone" scan_desc="A shuttle refit with faster engines and larger fuel reserves. Built for long range reconnaissance"/>
+    </event>
+    <event name="Sensor Drone Horatio Create Comms button">
+        <if_variable name="Horatio_Sensor_Drone_Built" comparator="EQUALS" value="1.0"/>
+        <set_comms_button text="Launch Horatio Sensor Drone" sideValue="5"/>
+        <set_timer name="Horatio_Sensor_Drone_Built" seconds="60"/>
+        <set_variable name="Horatio_Sensor_Drone_Built" value="2.0"/>
+        <set_object_property property="pirateRepWithStations" value="1.0" name="Horatio"/>
+    </event>
+    <event name="Sensor Drone Horatio Create Comms button timer refresh">
+        <if_variable name="Horatio_Sensor_Drone_Built" comparator="EQUALS" value="2.0"/>
+        <if_timer_finished name="Horatio_Sensor_Drone_Built"/>
+        <clear_comms_button text="Launch Horatio Sensor Drone"/>
+        <set_variable name="Horatio_Sensor_Drone_Built" value="1.0"/>
+    </event>
+    <event name="Horatio Sensor Drone launched" id_arme="b972f672-b615-4808-a201-8cc7f326ea15">
+        <if_variable name="Horatio_Sensor_Drone_Built" comparator="EQUALS" value="2.0"/>
+        <if_comms_button text="Launch Horatio Sensor Drone"/>
+        <clear_comms_button text="Launch Horatio Sensor Drone"/>
+        <set_timer name="Horatio_Sensor_Drone_Built" seconds="180"/>
+        <create type="neutral" x="50000.0" y="1000.0" z="50000.0" name="Horatio Drone" raceKeys="TSN" hullKeys="TSN LR Shuttle" sideValue="5"/>
+        <set_relative_position name2="Horatio Drone" distance="200" angle="180" name1="Horatio"/>
+        <add_ai type="FOLLOW_COMMS_ORDERS" name="Horatio Drone"/>
+        <set_object_property property="topSpeed" value="Drone_Speed" name="Horatio Drone"/>
+        <set_ship_text name="Horatio Drone" race="Remote" class="Drone" desc="Long Range Drone" scan_desc="A shuttle refit with faster engines and larger fuel reserves. Built for long range reconnaissance"/>
+    </event>
+    <event name="Sensor Drone Excalibur Create Comms button">
+        <if_variable name="Excalibur_Sensor_Drone_Built" comparator="EQUALS" value="1.0"/>
+        <set_comms_button text="Launch Excalibur Sensor Drone" sideValue="6"/>
+        <set_timer name="Excalibur_Sensor_Drone_Built" seconds="60"/>
+        <set_variable name="Excalibur_Sensor_Drone_Built" value="2.0"/>
+        <set_object_property property="pirateRepWithStations" value="1.0" name="Excalibur"/>
+    </event>
+    <event name="Sensor Drone Excalibur Create Comms button timer refresh">
+        <if_variable name="Excalibur_Sensor_Drone_Built" comparator="EQUALS" value="2.0"/>
+        <if_timer_finished name="Excalibur_Sensor_Drone_Built"/>
+        <clear_comms_button text="Launch Excalibur Sensor Drone"/>
+        <set_variable name="Excalibur_Sensor_Drone_Built" value="1.0"/>
+    </event>
+    <event name="Excalibur Sensor Drone launched" id_arme="b972f672-b615-4808-a201-8cc7f326ea15">
+        <if_variable name="Excalibur_Sensor_Drone_Built" comparator="EQUALS" value="2.0"/>
+        <if_comms_button text="Launch Excalibur Sensor Drone"/>
+        <clear_comms_button text="Launch Excalibur Sensor Drone"/>
+        <set_timer name="Excalibur_Sensor_Drone_Built" seconds="180"/>
+        <create type="neutral" x="50000.0" y="1000.0" z="50000.0" name="Excalibur Drone" raceKeys="TSN" hullKeys="TSN LR Shuttle" sideValue="6"/>
+        <set_relative_position name2="Excalibur Drone" distance="200" angle="180" name1="Excalibur"/>
+        <add_ai type="FOLLOW_COMMS_ORDERS" name="Excalibur Drone"/>
+        <set_object_property property="topSpeed" value="Drone_Speed" name="Excalibur Drone"/>
+        <set_ship_text name="Excalibur Drone" race="Remote" class="Drone" desc="Long Range Drone" scan_desc="A shuttle refit with faster engines and larger fuel reserves. Built for long range reconnaissance"/>
+    </event>
+    <event name="Sensor Drone Hera Create Comms button">
+        <if_variable name="Hera_Sensor_Drone_Built" comparator="EQUALS" value="1.0"/>
+        <set_comms_button text="Launch Hera Sensor Drone" sideValue="7"/>
+        <set_timer name="Hera_Sensor_Drone_Built" seconds="60"/>
+        <set_variable name="Hera_Sensor_Drone_Built" value="2.0"/>
+        <set_object_property property="pirateRepWithStations" value="1.0" name="Hera"/>
+    </event>
+    <event name="Sensor Drone Hera Create Comms button timer refresh">
+        <if_variable name="Hera_Sensor_Drone_Built" comparator="EQUALS" value="2.0"/>
+        <if_timer_finished name="Hera_Sensor_Drone_Built"/>
+        <clear_comms_button text="Launch Hera Sensor Drone"/>
+        <set_variable name="Hera_Sensor_Drone_Built" value="1.0"/>
+    </event>
+    <event name="Hera Sensor Drone launched" id_arme="b972f672-b615-4808-a201-8cc7f326ea15">
+        <if_variable name="Hera_Sensor_Drone_Built" comparator="EQUALS" value="2.0"/>
+        <if_comms_button text="Launch Hera Sensor Drone"/>
+        <clear_comms_button text="Launch Hera Sensor Drone"/>
+        <set_timer name="Hera_Sensor_Drone_Built" seconds="180"/>
+        <create type="neutral" x="50000.0" y="1000.0" z="50000.0" name="Hera Drone" raceKeys="TSN" hullKeys="TSN LR Shuttle" sideValue="7"/>
+        <set_relative_position name2="Hera Drone" distance="200" angle="180" name1="Hera"/>
+        <add_ai type="FOLLOW_COMMS_ORDERS" name="Hera Drone"/>
+        <set_object_property property="topSpeed" value="Drone_Speed" name="Hera Drone"/>
+        <set_ship_text name="Hera Drone" race="Remote" class="Drone" desc="Long Range Drone" scan_desc="A shuttle refit with faster engines and larger fuel reserves. Built for long range reconnaissance"/>
+    </event>
+    <event name="Sensor Drone Ceres Create Comms button">
+        <if_variable name="Ceres_Sensor_Drone_Built" comparator="EQUALS" value="1.0"/>
+        <set_comms_button text="Launch Ceres Sensor Drone" sideValue="8"/>
+        <set_timer name="Ceres_Sensor_Drone_Built" seconds="60"/>
+        <set_variable name="Ceres_Sensor_Drone_Built" value="2.0"/>
+        <set_object_property property="pirateRepWithStations" value="1.0" name="Ceres"/>
+    </event>
+    <event name="Sensor Drone Ceres Create Comms button timer refresh">
+        <if_variable name="Ceres_Sensor_Drone_Built" comparator="EQUALS" value="2.0"/>
+        <if_timer_finished name="Ceres_Sensor_Drone_Built"/>
+        <clear_comms_button text="Launch Ceres Sensor Drone"/>
+        <set_variable name="Ceres_Sensor_Drone_Built" value="1.0"/>
+    </event>
+    <event name="Ceres Sensor Drone launched" id_arme="b972f672-b615-4808-a201-8cc7f326ea15">
+        <if_variable name="Ceres_Sensor_Drone_Built" comparator="EQUALS" value="2.0"/>
+        <if_comms_button text="Launch Ceres Sensor Drone"/>
+        <clear_comms_button text="Launch Ceres Sensor Drone"/>
+        <set_timer name="Ceres_Sensor_Drone_Built" seconds="180"/>
+        <create type="neutral" x="50000.0" y="1000.0" z="50000.0" name="Ceres Drone" raceKeys="TSN" hullKeys="TSN LR Shuttle" sideValue="8"/>
+        <set_relative_position name2="Ceres Drone" distance="200" angle="180" name1="Ceres"/>
+        <add_ai type="FOLLOW_COMMS_ORDERS" name="Ceres Drone"/>
+        <set_object_property property="topSpeed" value="Drone_Speed" name="Ceres Drone"/>
+        <set_ship_text name="Ceres Drone" race="Remote" class="Drone" desc="Long Range Drone" scan_desc="A shuttle refit with faster engines and larger fuel reserves. Built for long range reconnaissance"/>
+    </event>
+    <event name="Sensor Drone Diana Create Comms button">
+        <if_variable name="Diana_Sensor_Drone_Built" comparator="EQUALS" value="1.0"/>
+        <set_comms_button text="Launch Diana Sensor Drone" sideValue="9"/>
+        <set_timer name="Diana_Sensor_Drone_Built" seconds="60"/>
+        <set_variable name="Diana_Sensor_Drone_Built" value="2.0"/>
+        <set_object_property property="pirateRepWithStations" value="1.0" name="Diana"/>
+    </event>
+    <event name="Sensor Drone Diana Create Comms button timer refresh">
+        <if_variable name="Diana_Sensor_Drone_Built" comparator="EQUALS" value="2.0"/>
+        <if_timer_finished name="Diana_Sensor_Drone_Built"/>
+        <clear_comms_button text="Launch Diana Sensor Drone"/>
+        <set_variable name="Diana_Sensor_Drone_Built" value="1.0"/>
+    </event>
+    <event name="Diana Sensor Drone launched" id_arme="b972f672-b615-4808-a201-8cc7f326ea15">
+        <if_variable name="Diana_Sensor_Drone_Built" comparator="EQUALS" value="2.0"/>
+        <if_comms_button text="Launch Diana Sensor Drone"/>
+        <clear_comms_button text="Launch Diana Sensor Drone"/>
+        <set_timer name="Diana_Sensor_Drone_Built" seconds="180"/>
+        <create type="neutral" x="50000.0" y="1000.0" z="50000.0" name="Diana Drone" raceKeys="TSN" hullKeys="TSN LR Shuttle" sideValue="9"/>
+        <set_relative_position name2="Diana Drone" distance="200" angle="180" name1="Diana"/>
+        <add_ai type="FOLLOW_COMMS_ORDERS" name="Diana Drone"/>
+        <set_object_property property="topSpeed" value="Drone_Speed" name="Diana Drone"/>
+        <set_ship_text name="Diana Drone" race="Remote" class="Drone" desc="Long Range Drone" scan_desc="A shuttle refit with faster engines and larger fuel reserves. Built for long range reconnaissance"/>
+    </event>
+</mission_data>

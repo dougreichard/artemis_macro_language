@@ -1,18 +1,19 @@
 <mission_data version="1.0">
 
   <imports>
+    <import name="TheArena-capture-object-template.xml" />
     <import name="TheArena-ranges.xml"/>
   </imports>
 
   <start>
     <repeat range="Eggs">
-        <set_variable name="${egg}" value="1.0"/>
-        <set_timer name="${egg}_Timer" seconds="${seconds}"/>
+      <set_variable name="${egg}" value="1.0"/>
+      <set_timer name="${egg}_Timer" seconds="${seconds}"/>
     </repeat>
     <repeat range="AllShips">
       <set_variable name="${ship}_Cargo" value="0.0"/>
     </repeat>
-    
+
   </start>
 
   <repeat range="Eggs">
@@ -26,19 +27,10 @@
     </event>
   </repeat>
 
-  <repeat range="Eggs" as="egg">
-    <repeat range="Ships" as="ship">
-      <expand template="CaptureObject"
-        ship="${ship.ship}"
-        object="${egg.egg}"
-        target="${ship.ship} Station"
-        objectText="Egg"
-        captureDistance="100"
-        dropDistance="1000"
-        cargoHold="${ship.ship}_Cargo"
-        scoreVariable="${ship.ship}_Score"
-        scoringEnabledVariable="Scoring_Allowed" />
+  <repeat range="Eggs" as="Egg">
+    <repeat range="AllShips" as="Ship">
+      <expand template="CaptureObject" ship="${Ship.ship}" object="${Egg.egg}" target="${Ship.ship} Station" objectText="Egg" captureDistance="100" dropDistance="1000" cargoHold="${Ship.ship}_Cargo" scoreVariable="${Ship.ship}_Score" scoringEnabledVariable="Scoring_Allowed" sideValue="${Ship.sideValue}" />
     </repeat>
   </repeat>
-  
+
 </mission_data>

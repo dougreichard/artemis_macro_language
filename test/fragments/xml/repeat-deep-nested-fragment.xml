@@ -1,0 +1,6 @@
+<mission_data version="1.0">
+  <imports>
+    <import name="repeat-deep-nested-imports.xml" />
+  </imports>
+
+</mission_data>
