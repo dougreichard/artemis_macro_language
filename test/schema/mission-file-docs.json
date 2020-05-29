@@ -1,7 +1,7 @@
 {
   "commands": {
     "create": {
-      "desc": " (the command that creates UNnamed objects in the game)",
+      "description": "the command that creates UNnamed objects in the game",
       "type": {
         "description": "nebulas, asteroids, mines"
       },
@@ -49,7 +49,7 @@
       }
     },
     "destroy": {
-      "desc": " (the command that removes something named from the game)",
+      "description": "the command that removes something named from the game",
       "name": {
         "description": "text"
       },
@@ -61,7 +61,7 @@
       }
     },
     "destroy_near": {
-      "desc": " (the command that removes unnamed objects from the game, if near a point)",
+      "description": "the command that removes unnamed objects from the game, if near a point",
       "type": {
         "description": "nebulas, asteroids, mines, whales, drones, all"
       },
@@ -88,7 +88,7 @@
       }
     },
     "add_ai": {
-      "desc": " (the command that adds an AI decision to a neutral or enemy's brain stack, OR a monster's monster-brain stack)",
+      "description": "the command that adds an AI decision to a neutral or enemy's brain stack, OR a monster's monster-brain stack",
       "name": {
         "description": "text, the name of the object"
       },
@@ -115,7 +115,7 @@
       }
     },
     "clear_ai": {
-      "desc": " (removes all AI decision blocks from a neutral or enemy's brain stack)",
+      "description": "removes all AI decision blocks from a neutral or enemy's brain stack",
       "name": {
         "description": "text, the name of the object"
       },
@@ -124,7 +124,7 @@
       }
     },
     "direct": {
-      "desc": " (the command that tells a non-player ship to go somewhere or fight something)",
+      "description": "the command that tells a non-player ship to go somewhere or fight something",
       "name": {
         "description": "text"
       },
@@ -145,7 +145,7 @@
       }
     },
     "set_variable": {
-      "desc": " (makes or sets a named value)",
+      "description": "makes or sets a named value",
       "name": {
         "description": "text"
       },
@@ -166,7 +166,7 @@
       }
     },
     "set_timer": {
-      "desc": " (makes or sets a named timer)",
+      "description": "makes or sets a named timer",
       "name": {
         "description": "text"
       },
@@ -175,7 +175,7 @@
       }
     },
     "incoming_message": {
-      "desc": " (creates a Comms button to play a media file on the main screen)",
+      "description": "creates a Comms button to play a media file on the main screen",
       "from": {
         "description": "text"
       },
@@ -187,7 +187,7 @@
       }
     },
     "big_message": {
-      "desc": " (creates a chapter title on main screen(s))",
+      "description": "creates a chapter title on main screen(s)",
       "title": {
         "description": "text"
       },
@@ -202,10 +202,10 @@
       }
     },
     "end_mission": {
-      "desc": " (stops the mission)"
+      "description": "stops the mission"
     },
     "incoming_comms_text": {
-      "desc": " (sends a block of text to the Comms station)",
+      "description": "sends a block of text to the Comms station",
       "from": {
         "description": "text"
       },
@@ -217,13 +217,13 @@
       }
     },
     "log": {
-      "desc": " (sends text to the mission's log file)",
+      "description": "sends text to the mission's log file",
       "text": {
         "description": "text"
       }
     },
     "set_object_property": {
-      "desc": " (sets a named space object's named property to a value)",
+      "description": "sets a named space object's named property to a value",
       "name": {
         "description": "text"
       },
@@ -241,7 +241,7 @@
       }
     },
     "get_object_property": {
-      "desc": " (copies a named space object's named property to a variable)",
+      "description": "copies a named space object's named property to a variable",
       "name": {
         "description": "text"
       },
@@ -259,7 +259,7 @@
       }
     },
     "set_fleet_property": {
-      "desc": " (sets a numbered enemy fleet's named property to a value)",
+      "description": "sets a numbered enemy fleet's named property to a value",
       "fleetIndex": {
         "description": "0-99"
       },
@@ -271,7 +271,7 @@
       }
     },
     "addto_object_property": {
-      "desc": " (adds a value to a named space object's named property)",
+      "description": "adds a value to a named space object's named property",
       "name": {
         "description": "text"
       },
@@ -289,7 +289,7 @@
       }
     },
     "copy_object_property": {
-      "desc": " (copies a named property from one named space object to another, name1 to name2)",
+      "description": "copies a named property from one named space object to another, name1 to name2",
       "name1": {
         "description": "text"
       },
@@ -304,7 +304,7 @@
       }
     },
     "set_relative_position": {
-      "desc": " (moves one named space object (name2) to a point near another (name1), relative to name1's heading)",
+      "description": "moves one named space object (name2) to a point near another (name1), relative to name1's heading",
       "name1": {
         "description": "text"
       },
@@ -325,7 +325,7 @@
       }
     },
     "set_to_gm_position": {
-      "desc": " (moves one named space object (name) to the point specified by clicking on the game master console screen)",
+      "description": "moves one named space object (name) to the point specified by clicking on the game master console screen",
       "name": {
         "description": "text, the name of the object"
       },
@@ -343,13 +343,13 @@
       }
     },
     "set_skybox_index": {
-      "desc": " (sets the skybox of the main screen to 0-29)",
+      "description": "sets the skybox of the main screen to 0-29",
       "index": {
         "description": "0-29"
       }
     },
     "warning_popup_message": {
-      "desc": " (sends a very short message to the screens specified)",
+      "description": "sends a very short message to the screens specified",
       "message": {
         "description": "text"
       },
@@ -364,13 +364,13 @@
       }
     },
     "set_difficulty_level": {
-      "desc": " (overrides the difficulty level set on the server control screen)",
+      "description": "overrides the difficulty level set on the server control screen",
       "value": {
         "description": "1-10"
       }
     },
     "set_player_grid_damage": {
-      "desc": " (changes the damage value of a ship system in the 3D grid)",
+      "description": "changes the damage value of a ship system in the 3D grid",
       "name": {
         "description": "text, the name of the ship to modify"
       },
@@ -389,13 +389,13 @@
       }
     },
     "play_sound_now": {
-      "desc": "",
+      "description": "",
       "filename": {
         "description": "text (name of the WAV file in the mission's directory)"
       }
     },
     "set_damcon_members": {
-      "desc": " (changes the count of team members in a specific damcon team)",
+      "description": "changes the count of team members in a specific damcon team",
       "name": {
         "description": "text, the name of the ship to modify"
       },
@@ -410,9 +410,7 @@
       }
     },
     "set_ship_text": {
-      "desc": {
-        "description": "description the science console sees after one scan"
-      },
+      "description": "",
       "name": {
         "description": "text name of existing enemy or neutral OR monster"
       },
@@ -425,6 +423,9 @@
       "class": {
         "description": "text of class"
       },
+      "desc": {
+        "description": "description the science console sees after one scan"
+      },
       "scan_desc": {
         "description": "description the science console sees after two scans"
       },
@@ -433,19 +434,19 @@
       }
     },
     "start_getting_keypresses_from": {
-      "desc": " (sets a client console to key-active; it sends key press messages to the server)",
+      "description": "sets a client console to key-active; it sends key press messages to the server",
       "consoles": {
         "description": "text, a collection of the letters MHWESCO, defining which console(s) we want"
       }
     },
     "end_getting_keypresses_from": {
-      "desc": " (sets a client console to NOT key-active)",
+      "description": "sets a client console to NOT key-active",
       "consoles": {
         "description": "text, a collection of the letters MHWESCO, defining which console(s) we want"
       }
     },
     "set_special": {
-      "desc": " (changes the \"specialCaptainType\" and \"specialShipType\" variables of an AIShip, and rebuilds the scan text for the ship; also adjusts the special abilities of an AIShip)",
+      "description": "changes the \"specialCaptainType\" and \"specialShipType\" variables of an AIShip, and rebuilds the scan text for the ship; also adjusts the special abilities of an AIShip",
       "name": {
         "description": "text name of existing NPC ship"
       },
@@ -463,7 +464,7 @@
       }
     },
     "set_side_value": {
-      "desc": " (changes the sideValue of a game object)",
+      "description": "changes the sideValue of a game object",
       "name": {
         "description": "text name of existing ship or station"
       },
@@ -475,7 +476,7 @@
       }
     },
     "set_gm_button": {
-      "desc": " (adds a button to the current GM console)",
+      "description": "adds a button to the current GM console",
       "text": {
         "description": "name of button.  If this button doens't have a position set, it's a menu button, and can have sub-menus by adding / character to this text, such as \"Create Enemy/Extras/Minefield arc\""
       },
@@ -487,7 +488,7 @@
       }
     },
     "set_comms_button": {
-      "desc": " (adds a button to all relavent comms consoles)",
+      "description": "adds a button to all relavent comms consoles",
       "text": {
         "description": "name of button."
       },
@@ -496,13 +497,13 @@
       }
     },
     "clear_gm_button": {
-      "desc": " (removes a button from the current GM console)",
+      "description": "removes a button from the current GM console",
       "text": {
         "description": "name of existing button. Use the exact text you used to create the button (with set_gm_button)."
       }
     },
     "clear_comms_button": {
-      "desc": " (removes a button from all relavent comms consoles)",
+      "description": "removes a button from all relavent comms consoles",
       "text": {
         "description": "name of existing button. Use the exact text you used to create the button (with set_comms_button)."
       },
@@ -511,7 +512,7 @@
       }
     },
     "set_player_carried_type": {
-      "desc": " (defines a singleseat ship to be carried inside another PLAYER ship)",
+      "description": "defines a singleseat ship to be carried inside another PLAYER ship",
       "name": {
         "description": "text"
       },
@@ -532,7 +533,7 @@
       }
     },
     "set_monster_tag_data": {
-      "desc": " (defines tag text for a monster)",
+      "description": "defines tag text for a monster",
       "name": {
         "description": "text, name of monster"
       },
@@ -550,7 +551,7 @@
       }
     },
     "set_named_object_tag_state": {
-      "desc": " (defines tag info for a named object)",
+      "description": "defines tag info for a named object",
       "name": {
         "description": "text, name of named object you want to set the tag info for"
       },
@@ -570,7 +571,7 @@
   },
   "conditions": {
     "if_inside_box": {
-      "desc": " (tests if named object is inside a rectangle in space)",
+      "description": "tests if named object is inside a rectangle in space",
       "name": {
         "description": "text"
       },
@@ -591,7 +592,7 @@
       }
     },
     "if_outside_box": {
-      "desc": " (tests if named object is outside a rectangle in space)",
+      "description": "tests if named object is outside a rectangle in space",
       "name": {
         "description": "text"
       },
@@ -612,7 +613,7 @@
       }
     },
     "if_inside_sphere": {
-      "desc": " (tests if named object is inside a sphere in space)",
+      "description": "tests if named object is inside a sphere in space",
       "name": {
         "description": "text"
       },
@@ -633,7 +634,7 @@
       }
     },
     "if_outside_sphere": {
-      "desc": " (tests if named object is outside a sphere in space)",
+      "description": "tests if named object is outside a sphere in space",
       "name": {
         "description": "text"
       },
@@ -654,7 +655,7 @@
       }
     },
     "if_distance": {
-      "desc": " (tests the distance between two named objects against a condition)",
+      "description": "tests the distance between two named objects against a condition",
       "name1": {
         "description": "text"
       },
@@ -684,7 +685,7 @@
       }
     },
     "if_variable": {
-      "desc": " (tests a named variable against a condition)",
+      "description": "tests a named variable against a condition",
       "name": {
         "description": "text"
       },
@@ -696,7 +697,7 @@
       }
     },
     "if_damcon_members": {
-      "desc": " (tests the count of team members in a specific damcon team on a specific player ship against a condition)",
+      "description": "tests the count of team members in a specific damcon team on a specific player ship against a condition",
       "name": {
         "description": "text"
       },
@@ -717,7 +718,7 @@
       }
     },
     "if_fleet_count": {
-      "desc": " (tests an indexed fleet's membership count against a condition)",
+      "description": "tests an indexed fleet's membership count against a condition",
       "name": {
         "description": "text"
       },
@@ -738,7 +739,7 @@
       }
     },
     "if_difficulty": {
-      "desc": " (tests the current game's difficulty level against a condition)",
+      "description": "tests the current game's difficulty level against a condition",
       "comparator": {
         "description": "=, !=, <, >, <=, >=, EQUALS, NOT, GREATER, LESS, GREATER_EQUAL, LESS_EQUAL"
       },
@@ -747,7 +748,7 @@
       }
     },
     "if_docked": {
-      "desc": " (tests if a player is docked with a named station)",
+      "description": "tests if a player is docked with a named station",
       "name": {
         "description": "text (name of station the ship is or is not docked with) (optional)"
       },
@@ -765,7 +766,7 @@
       }
     },
     "if_player_is_targeting": {
-      "desc": " (tests if a player ship's weapons officer has a lock on the named object)",
+      "description": "tests if a player ship's weapons officer has a lock on the named object",
       "use_gm_selection": {
         "description": "use this attribute to use the game master's selected player ship (as the ship that does the targeting, not the target) (optional)"
       },
@@ -783,13 +784,13 @@
       }
     },
     "if_timer_finished": {
-      "desc": " (tests if a timer has counted down to zero yet)",
+      "description": "tests if a timer has counted down to zero yet",
       "name": {
         "description": "text"
       }
     },
     "if_exists": {
-      "desc": " (tests if named object exists right now)",
+      "description": "tests if named object exists right now",
       "name": {
         "description": "text"
       },
@@ -798,7 +799,7 @@
       }
     },
     "if_not_exists": {
-      "desc": " (tests if named object does NOT exist right now)",
+      "description": "tests if named object does NOT exist right now",
       "name": {
         "description": "text"
       },
@@ -807,7 +808,7 @@
       }
     },
     "if_object_property": {
-      "desc": " (tests a named space object's named property against a condition)",
+      "description": "tests a named space object's named property against a condition",
       "name": {
         "description": "text"
       },
@@ -828,7 +829,7 @@
       }
     },
     "if_scan_level": {
-      "desc": " (tests a named space object's scan level (side-based) against a condition)",
+      "description": "tests a named space object's scan level (side-based) against a condition",
       "name": {
         "description": "name of object that has a scan, so AIShips, monsters, and pickups"
       },
@@ -849,7 +850,7 @@
       }
     },
     "if_gm_key": {
-      "desc": " (triggers when a key is pressed on a game master console)",
+      "description": "triggers when a key is pressed on a game master console",
       "keyText": {
         "description": "text, single letter (usually upper case)"
       },
@@ -858,7 +859,7 @@
       }
     },
     "if_client_key": {
-      "desc": " (triggers when a key is pressed on a key-activated console)",
+      "description": "triggers when a key is pressed on a key-activated console",
       "keyText": {
         "description": "text, single letter (usually upper case)"
       },
@@ -867,19 +868,19 @@
       }
     },
     "if_gm_button": {
-      "desc": " (triggers when a button from the current GM console is clicked)",
+      "description": "triggers when a button from the current GM console is clicked",
       "text": {
         "description": "name of existing button. Use the exact text you used to create the button (with set_gm_button)."
       }
     },
     "if_comms_button": {
-      "desc": " (triggers when a specal button from a comms console is clicked)",
+      "description": "triggers when a specal button from a comms console is clicked",
       "text": {
         "description": "name of existing button. Use the exact text you used to create the button (with set_comms_button)."
       }
     },
     "if_monster_tag_matches": {
-      "desc": " (tests the tags attached to a monster)",
+      "description": "tests the tags attached to a monster",
       "name": {
         "description": "text"
       },
@@ -888,7 +889,7 @@
       }
     },
     "if_object_tag_matches": {
-      "desc": " (tests the tag source name attached to a named object)",
+      "description": "tests the tag source name attached to a named object",
       "objectName": {
         "description": "text (name of object that has a tag attached to it)"
       },
@@ -897,8 +898,7 @@
       }
     },
     "if_in_nebula": {
-      "desc": " (tests a named space object's current state regarding nebulas)",
-      "exists": true,
+      "description": "tests a named space object's current state regarding nebulas",
       "name": {
         "description": "name of object that has a scan, so AIShips, monsters, and pickups"
       },

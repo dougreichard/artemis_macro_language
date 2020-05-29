@@ -1,0 +1,158 @@
+{
+	"mission_data": {
+		"scope": "xml,miss",
+		"prefix": "mission_data",
+        "body": ["<mission_data version=\"1.0\">","\t$0","</mission_data>"],
+        "description": "The main tag for mission data"
+    },
+    "mission_description": {
+		"scope": "xml,miss",
+		"prefix": "mission_description",
+		"body": "<mission_description>$0</mission_description>",
+        "description": "The description of the mission for the selection screen"
+    },
+    "start": {
+		"scope": "xml,miss",
+		"prefix": "start",
+		"body": "<start>\n\t$0\n</start>",
+        "description": "The event called at the start"
+    },
+    "event": {
+		"scope": "xml,miss",
+		"prefix": "event",
+        "body": ["<event name=\"${1:name}\">","\t$0","</event>"],
+        "description": "An event"
+    },
+    "destroy_near": {
+        "prefix": "destroy_near",
+        "scope": "xml, miss",
+        "body": "<destroy_near type=\"${1|nebulas,asteroids,mines,whales,drones,all|}\" centerX=\"${2:centerX}\" centerY=\"${3:centerY}\" centerZ=\"${4:centerZ}\" radius=\"${5:radius}\" name=\"${6:name}\" nebType=\"${7|1,2,3|}\" use_gm_position=\"${8|true,false|}\" />",
+        "description": "the command that removes unnamed objects from the game, if near a point"
+      },
+      "create_named": {
+        "prefix": "create",
+        "scope": "xml, miss",
+        "body": "<create type=\"${1|station,player,enemy,neutral,anomaly,blackHole,monster,genericMesh,whale|}\" ${2|name,player_slot|} =\"${3:name}\" x=\"${4:x}\" y=\"${5:y}\" z=\"${6:z}\" use_gm_position=\"${7:use_gm_position}\" hullID=\"${8:hullID}\" raceKeys=\"${9:raceKeys}\"  hullKeys=\"${10:hullKeys}\"  />",
+        "description": "the command that creates UNnamed objects in the game"
+      },
+      "create_unnamed": {
+        "prefix": "create",
+        "scope": "xml, miss",
+        "body": "<create type=\"${1|nebulas,asteroids,mines|}\" count=\"${2:count}\" radius=\"${3:radius}\" randomRange=\"${4:randomRange}\" startX=\"${5:startX}\" startY=\"${6:startY}\" startZ=\"${7:startZ}\" use_gm_position=\"${8:use_gm_position}\" endX=\"${9:endX}\" endY=\"${10:endY}\" endZ=\"${11:endZ}\" randomSeed=\"${12:randomSeed}\" startAngle=\"${13:startAngle}\" endAngle=\"${14:endAngle}\" nebType=\"${15:nebType}\" />",
+        "description": "the command that creates UNnamed objects in the game"
+      },
+    "set_variable": {
+		"scope": "xml,miss",
+		"prefix": "set_variable",
+		"body": "<set_variable name=\"${1:name}\" value=\"${2:value}\" />",
+        "description": "Float variable set"
+	},
+	"set_variable-int": {
+		"scope": "xml,miss",
+		"prefix": "set_variable",
+		"body": "<set_variable name=\"${1:name}\" value=\"${2:value}\" integer=\"${3|yes,no|}\" />",
+        "description": "Integer variable set"
+	},
+	"set_variable-rand-int": {
+		"scope": "xml,miss",
+		"prefix": "set_variable",
+		"body": "<set_variable name=\"${1:name}\" randomIntLow=\"${2:value}\" randomIntHigh=\"${3:value}\" />",
+        "description": "Int random variable set"
+	},
+	"set_variable-rand": {
+		"scope": "xml,miss",
+		"prefix": "set_variable",
+		"body": "<set_variable name=\"${1:name}\" randomFloatLow=\"${2:value}\" randomFloatHigh=\"${3:value}\" />",
+        "description": "Float Random variable set"
+	},
+	"imports": {
+		"scope": "xml,miss",
+		"prefix": "imports",
+		"body": ["<imports>","\t$0","</imports>"],
+        "description": "Section for imports for AML"
+	},
+	"import": {
+		"scope": "xml,miss",
+		"prefix": "import",
+		"body": "<import name=\"${1:name}\" />",
+        "description": "import for AML"
+    },
+	"import_json": {
+		"scope": "xml,miss",
+		"prefix": "import",
+		"body": "<import name=\"${1:name}\" as=\"json\" />",
+        "description": "import log data as json for AML"
+    },
+	"import_xml": {
+		"scope": "xml,miss",
+		"prefix": "import",
+		"body": "<import name=\"${1:name}\" as=\"xml\" />",
+        "description": "import log data as xml for AML"
+    },
+	"values": {
+		"scope": "xml,miss",
+		"prefix": "values",
+		"body": ["<values>","\t$0","</values>"],
+        "description": "Section for values for AML"
+	},
+	"value": {
+		"scope": "xml,miss",
+		"prefix": "import",
+		"body": "<import name=\"${1:name}\" />",
+        "description": "Section for imports"
+    },
+    "range": {
+		"scope": "xml,miss",
+		"prefix": "range",
+		"body": ["<range name=\"${1:name}\">","\t$0","</range>"],
+        "description": "Section for values for AML"
+    },
+    "repeat": {
+		"scope": "xml,miss",
+		"prefix": "value",
+		"body": ["<value name=\"${1:name}\" value=\"${2:value}\" />"],
+        "description": "Set a value for use in AML"
+	},
+    "repeat_length": {
+		"scope": "xml,miss",
+		"prefix": "repeat",
+		"body": ["<repeat length=\"${1:length}\">","\t$0","</repeat>"],
+        "description": "Section to be repeated AML"
+	},
+    "struct": {
+		"scope": "xml,miss",
+		"prefix": "struct",
+		"body": ["<struct name=\"${1:name}\">","\t$0","</struct>"],
+        "description": "Section for structured values for AML"
+    },
+    "expand": {
+		"scope": "xml,miss",
+		"prefix": "expand",
+		"body": ["<expand ${1:param}=\"${2:value}\">","\t$0","</expand>"],
+        "description": "Section to be expanded for AML"
+    },
+    "expand_template": {
+		"scope": "xml,miss",
+		"prefix": "expand",
+		"body": "<expand template=\"${1:template}\" ${2:param}=\"${3:value}\" />",
+        "description": "Section for structured values for AML"
+	},
+    "template": {
+		"scope": "xml,miss",
+		"prefix": "template",
+		"body": ["<template name=\"${1:name}\">","\t$0","</template>"],
+        "description": "A template for AML"
+	},"params": {
+		"scope": "xml,miss",
+		"prefix": "params",
+		"body": ["<params>","\t$0","</params>"],
+        "description": "A template for AML"
+	}, "param": {
+		"scope": "xml,miss",
+		"prefix": "param",
+		"body": "<param name=\"${1:name}\" description=\"${2:description}\" default=\"${3:default}\"/>",
+        "description": "A template parameter for AML"
+    }
+	
+    
+}

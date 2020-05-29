@@ -1,0 +1,26 @@
+<mission_data version="1.0">
+    <imports>
+        <import name="name" />
+    </imports>
+    <values>
+        <range name="eggs">
+            <struct name="name">
+                
+            </struct>
+        </range>
+    </values>
+    <start>
+        <set_variable name="test" value="1.0" />
+    </start>
+    <event name="name">
+        <if_docked name="name" use_gm_selection="use_gm_selection" player_name="player_name" player_slot="player_slot" not="not" /> 
+        <set_fleet_property fleetIndex="fleetIndex" property="property" value="value" />
+    </event>
+    <event name="TheAncientOne">
+        <if_variable name="name" comparator="EQUALS" value="3" />
+        <if_timer_finished name="name" />
+        <set_variable name="name" value="value" />
+        <set_object_property player_slot ="1" property="property" value="value" />
+        <if_gm_button text="text" />
+    </event>
+</mission_data>

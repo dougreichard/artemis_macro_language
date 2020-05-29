@@ -1,0 +1,554 @@
+{
+	"create": {
+	  "prefix": "create",
+	  "scope": "xml, miss",
+	  "body": "<create type=\"${1:type}\" count=\"${2:count}\" radius=\"${3:radius}\" randomRange=\"${4:randomRange}\" startX=\"${5:startX}\" startY=\"${6:startY}\" startZ=\"${7:startZ}\" use_gm_position=\"${8:use_gm_position}\" endX=\"${9:endX}\" endY=\"${10:endY}\" endZ=\"${11:endZ}\" randomSeed=\"${12:randomSeed}\" startAngle=\"${13:startAngle}\" endAngle=\"${14:endAngle}\" nebType=\"${15:nebType}\" />",
+	  "description": "the command that creates UNnamed objects in the game"
+	},
+	"destroy": {
+	  "prefix": "destroy",
+	  "scope": "xml, miss",
+	  "body": "<destroy ${1|name,player_slot,use_gm_selection|} =\"${2:name}\" />",
+	  "description": "the command that removes something named from the game"
+	},
+	"destroy_near": {
+	  "prefix": "destroy_near",
+	  "scope": "xml, miss",
+	  "body": "<destroy_near type=\"${1|nebulas,asteroids,mines,whales,drones,all|}\" centerX=\"${2:centerX}\" centerY=\"${3:centerY}\" centerZ=\"${4:centerZ}\" radius=\"${5:radius}\" name=\"${6:name}\" nebType=\"${7|1,2,3|}\" use_gm_position=\"${8|true,false|}\" />",
+	  "description": "the command that removes unnamed objects from the game, if near a point"
+	},
+	"add_ai": {
+	  "prefix": "add_ai",
+	  "scope": "xml, miss",
+	  "body": "<add_ai ${1|name,use_gm_selection |} =\"${2:name}\" targetName=\"${3:targetName}\" type=\"${4:type}\" value1=\"${5:value1}\" value2=\"${6:value2}\" value3=\"${7:value3}\" value4=\"${8:value4}\" />",
+	  "description": "the command that adds an AI decision to a neutral or enemy's brain stack, OR a monster's monster-brain stack"
+	},
+	"clear_ai": {
+	  "prefix": "clear_ai",
+	  "scope": "xml, miss",
+	  "body": "<clear_ai ${1|name,use_gm_selection |} =\"${2:name}\" />",
+	  "description": "removes all AI decision blocks from a neutral or enemy's brain stack"
+	},
+	"direct": {
+	  "prefix": "direct",
+	  "scope": "xml, miss",
+	  "body": "<direct name=\"${1:name}\" targetName=\"${2:targetName}\" pointX=\"${3:pointX}\" pointY=\"${4:pointY}\" pointZ=\"${5:pointZ}\" scriptThrottle=\"${6:scriptThrottle}\" />",
+	  "description": "the command that tells a non-player ship to go somewhere or fight something"
+	},
+	"set_variable": {
+	  "scope": "xml,miss",
+	  "prefix": "set_variable",
+	  "body": "<set_variable name=\"${1:name}\" value=\"${2:value}\" />",
+	  "description": "Float variable set"
+	},
+	"set_timer": {
+	  "prefix": "set_timer",
+	  "scope": "xml, miss",
+	  "body": "<set_timer name=\"${1:name}\" seconds=\"${2:seconds}\" />",
+	  "description": "makes or sets a named timer"
+	},
+	"incoming_message": {
+	  "prefix": "incoming_message",
+	  "scope": "xml, miss",
+	  "body": "<incoming_message from=\"${1:from}\" fileName=\"${2:fileName}\" mediaType=\"${3:mediaType}\" />",
+	  "description": "creates a Comms button to play a media file on the main screen"
+	},
+	"big_message": {
+	  "prefix": "big_message",
+	  "scope": "xml, miss",
+	  "body": "<big_message title=\"${1:title}\" subtitle1=\"${2:subtitle1}\" subtitle2=\"${3:subtitle2}\" side=\"${4:side}\" />",
+	  "description": "creates a chapter title on main screen(s)"
+	},
+	"end_mission": {
+	  "prefix": "end_mission",
+	  "scope": "xml, miss",
+	  "body": "<end_mission />",
+	  "description": "stops the mission"
+	},
+	"incoming_comms_text": {
+	  "prefix": "incoming_comms_text",
+	  "scope": "xml, miss",
+	  "body": "<incoming_comms_text from=\"${1:from}\" type=\"${2:type}\" sideValue=\"${3:sideValue}\" />",
+	  "description": "sends a block of text to the Comms station"
+	},
+	"log": {
+	  "prefix": "log",
+	  "scope": "xml, miss",
+	  "body": "<log text=\"${1:text}\" />",
+	  "description": "sends text to the mission's log file"
+	},
+	"set_object_property": {
+	  "prefix": "set_object_property",
+	  "scope": "xml, miss",
+	  "body": "<set_object_property ${1|name,player_slot,use_gm_selection|} =\"${2:name}\" property=\"${3:property}\" value=\"${4:value}\" />",
+	  "description": "sets a named space object's named property to a value"
+	},
+	"get_object_property": {
+	  "prefix": "get_object_property",
+	  "scope": "xml, miss",
+	  "body": "<get_object_property ${1|name,player_slot,use_gm_selection|} =\"${2:name}\" property=\"${3:property}\" variable=\"${4:variable}\" />",
+	  "description": "copies a named space object's named property to a variable"
+	},
+	"set_fleet_property": {
+	  "prefix": "set_fleet_property",
+	  "scope": "xml, miss",
+	  "body": "<set_fleet_property fleetIndex=\"${1:fleetIndex}\" property=\"${2:property}\" value=\"${3:value}\" />",
+	  "description": "sets a numbered enemy fleet's named property to a value"
+	},
+	"addto_object_property": {
+	  "prefix": "addto_object_property",
+	  "scope": "xml, miss",
+	  "body": "<addto_object_property ${1|name,player_slot,use_gm_selection|} =\"${2:name}\" property=\"${3:property}\" value=\"${4:value}\" />",
+	  "description": "adds a value to a named space object's named property"
+	},
+	"copy_object_property": {
+	  "prefix": "copy_object_property",
+	  "scope": "xml, miss",
+	  "body": "<copy_object_property ${1|name1,player_slot1|} =\"${2:name1}\" name2=\"${3:name2}\" property=\"${4:property}\" />",
+	  "description": "copies a named property from one named space object to another, name1 to name2"
+	},
+	"set_relative_position": {
+	  "prefix": "set_relative_position",
+	  "scope": "xml, miss",
+	  "body": "<set_relative_position ${1|name1,player_slot1|} =\"${2:name1}\" ${3|name2,player_slot2|} =\"${4:name2}\" angle=\"${5:angle}\" distance=\"${6:distance}\" />",
+	  "description": "moves one named space object (name2) to a point near another (name1), relative to name1's heading"
+	},
+	"set_to_gm_position": {
+	  "prefix": "set_to_gm_position",
+	  "scope": "xml, miss",
+	  "body": "<set_to_gm_position ${1|name,player_slot,use_gm_selection|} =\"${2:name}\" angle=\"${3:angle}\" distance=\"${4:distance}\" />",
+	  "description": "moves one named space object (name) to the point specified by clicking on the game master console screen"
+	},
+	"set_skybox_index": {
+	  "prefix": "set_skybox_index",
+	  "scope": "xml, miss",
+	  "body": "<set_skybox_index index=\"${1:index}\" />",
+	  "description": "sets the skybox of the main screen to 0-29"
+	},
+	"warning_popup_message": {
+	  "prefix": "warning_popup_message",
+	  "scope": "xml, miss",
+	  "body": "<warning_popup_message message=\"${1:message}\" consoles=\"${2:consoles}\" ${3|name,player_slot|} =\"${4:name}\" />",
+	  "description": "sends a very short message to the screens specified"
+	},
+	"set_difficulty_level": {
+	  "prefix": "set_difficulty_level",
+	  "scope": "xml, miss",
+	  "body": "<set_difficulty_level value=\"${1:value}\" />",
+	  "description": "overrides the difficulty level set on the server control screen"
+	},
+	"set_player_grid_damage": {
+	  "prefix": "set_player_grid_damage",
+	  "scope": "xml, miss",
+	  "body": "<set_player_grid_damage ${1|name,player_slot|} =\"${2:name}\" systemType=\"${3|systemBeam,systemTorpedo,systemTactical,systemTurning,systemImpulse,systemWarp,systemFrontShield,systemBackShield|}\" value=\"${4:value}\" countFrom=\"${5:countFrom}\" index=\"${6:index}\" />",
+	  "description": "changes the damage value of a ship system in the 3D grid"
+	},
+	"play_sound_now": {
+	  "prefix": "play_sound_now",
+	  "scope": "xml, miss",
+	  "body": "<play_sound_now filename=\"${1:filename}\" />",
+	  "description": ""
+	},
+	"set_damcon_members": {
+	  "prefix": "set_damcon_members",
+	  "scope": "xml, miss",
+	  "body": "<set_damcon_members ${1|name,player_slot|} =\"${2:name}\" team_index=\"${3:team_index}\" value=\"${4:value}\" />",
+	  "description": "changes the count of team members in a specific damcon team"
+	},
+	"set_ship_text": {
+	  "prefix": "set_ship_text",
+	  "scope": "xml, miss",
+	  "body": "<set_ship_text name=\"${1:name}\" newname=\"${2:newname}\" race=\"${3:race}\" class=\"${4:class}\" desc=\"${5:desc}\" scan_desc=\"${6:scan_desc}\" hailtext=\"${7:hailtext}\" />",
+	  "description": ""
+	},
+	"start_getting_keypresses_from": {
+	  "prefix": "start_getting_keypresses_from",
+	  "scope": "xml, miss",
+	  "body": "<start_getting_keypresses_from consoles=\"${1:consoles}\" />",
+	  "description": "sets a client console to key-active; it sends key press messages to the server"
+	},
+	"end_getting_keypresses_from": {
+	  "prefix": "end_getting_keypresses_from",
+	  "scope": "xml, miss",
+	  "body": "<end_getting_keypresses_from consoles=\"${1:consoles}\" />",
+	  "description": "sets a client console to NOT key-active"
+	},
+	"set_special": {
+	  "prefix": "set_special",
+	  "scope": "xml, miss",
+	  "body": "<set_special name=\"${1:name}\" ship=\"${2:ship}\" captain=\"${3:captain}\" ability=\"${4:ability}\" clear=\"${5:clear}\" />",
+	  "description": "changes the \"specialCaptainType\" and \"specialShipType\" variables of an AIShip, and rebuilds the scan text for the ship; also adjusts the special abilities of an AIShip"
+	},
+	"set_side_value": {
+	  "prefix": "set_side_value",
+	  "scope": "xml, miss",
+	  "body": "<set_side_value ${1|name,player_slot|} =\"${2:name}\" value=\"${3:value}\" />",
+	  "description": "changes the sideValue of a game object"
+	},
+	"set_gm_button": {
+	  "prefix": "set_gm_button",
+	  "scope": "xml, miss",
+	  "body": "<set_gm_button text=\"${1:text}\" x=\"${2:x}\" menu_w=\"${3:menu_w}\" />",
+	  "description": "adds a button to the current GM console"
+	},
+	"set_comms_button": {
+	  "prefix": "set_comms_button",
+	  "scope": "xml, miss",
+	  "body": "<set_comms_button text=\"${1:text}\" sideValue=\"${2:sideValue}\" />",
+	  "description": "adds a button to all relavent comms consoles"
+	},
+	"clear_gm_button": {
+	  "prefix": "clear_gm_button",
+	  "scope": "xml, miss",
+	  "body": "<clear_gm_button text=\"${1:text}\" />",
+	  "description": "removes a button from the current GM console"
+	},
+	"clear_comms_button": {
+	  "prefix": "clear_comms_button",
+	  "scope": "xml, miss",
+	  "body": "<clear_comms_button text=\"${1:text}\" sideValue=\"${2:sideValue}\" />",
+	  "description": "removes a button from all relavent comms consoles"
+	},
+	"set_player_carried_type": {
+	  "prefix": "set_player_carried_type",
+	  "scope": "xml, miss",
+	  "body": "<set_player_carried_type ${1|name,player_slot|} =\"${2:name}\" hullID=\"${3:hullID}\" raceKeys=\"${4:raceKeys}\" hullKeys=\"${5:hullKeys}\" bay_slot=\"${6:bay_slot}\" />",
+	  "description": "defines a singleseat ship to be carried inside another PLAYER ship"
+	},
+	"set_monster_tag_data": {
+	  "prefix": "set_monster_tag_data",
+	  "scope": "xml, miss",
+	  "body": "<set_monster_tag_data ${1|name,use_gm_selection |} =\"${2:name}\" tag_slot=\"${3:tag_slot}\" sourcetext=\"${4:sourcetext}\" datetext=\"${5:datetext}\" />",
+	  "description": "defines tag text for a monster"
+	},
+	"set_named_object_tag_state": {
+	  "prefix": "set_named_object_tag_state",
+	  "scope": "xml, miss",
+	  "body": "<set_named_object_tag_state ${1|name,use_gm_selection |} =\"${2:name}\" tagged=\"${3:tagged}\" tagSourceSide=\"${4:tagSourceSide}\" tagSourceName=\"${5:tagSourceName}\" />",
+	  "description": "defines tag info for a named object"
+	},
+	"if_inside_box": {
+	  "prefix": "if_inside_box",
+	  "scope": "xml, miss",
+	  "body": "<if_inside_box ${1|name,player_slot|} =\"${2:name}\" leastX=\"${3:leastX}\" leastZ=\"${4:leastZ}\" mostX=\"${5:mostX}\" mostZ=\"${6:mostZ}\" />",
+	  "description": "tests if named object is inside a rectangle in space"
+	},
+	"if_outside_box": {
+	  "prefix": "if_outside_box",
+	  "scope": "xml, miss",
+	  "body": "<if_outside_box ${1|name,player_slot|} =\"${2:name}\" leastX=\"${3:leastX}\" leastZ=\"${4:leastZ}\" mostX=\"${5:mostX}\" mostZ=\"${6:mostZ}\" />",
+	  "description": "tests if named object is outside a rectangle in space"
+	},
+	"if_inside_sphere": {
+	  "prefix": "if_inside_sphere",
+	  "scope": "xml, miss",
+	  "body": "<if_inside_sphere ${1|name,player_slot|} =\"${2:name}\" centerX=\"${3:centerX}\" centerY=\"${4:centerY}\" centerZ=\"${5:centerZ}\" radius=\"${6:radius}\" />",
+	  "description": "tests if named object is inside a sphere in space"
+	},
+	"if_outside_sphere": {
+	  "prefix": "if_outside_sphere",
+	  "scope": "xml, miss",
+	  "body": "<if_outside_sphere ${1|name,player_slot|} =\"${2:name}\" centerX=\"${3:centerX}\" centerY=\"${4:centerY}\" centerZ=\"${5:centerZ}\" radius=\"${6:radius}\" />",
+	  "description": "tests if named object is outside a sphere in space"
+	},
+	"if_distance": {
+	  "prefix": "if_distance",
+	  "scope": "xml, miss",
+	  "body": "<if_distance ${1|name1,player_slot1|} =\"${2:name1}\" ${3|name2,player_slot2|} =\"${4:name2}\" pointX=\"${5:pointX}\" pointY=\"${6:pointY}\" pointZ=\"${7:pointZ}\" comparator=\"${8|=,!=,<,>,<=,>=,EQUALS,NOT,GREATER,LESS,GREATER_EQUAL,LESS_EQUAL|}\" value=\"${9:value}\" />",
+	  "description": "tests the distance between two named objects against a condition"
+	},
+	"if_variable": {
+	  "prefix": "if_variable",
+	  "scope": "xml, miss",
+	  "body": "<if_variable name=\"${1:name}\" comparator=\"${2|=,!=,<,>,<=,>=,EQUALS,NOT,GREATER,LESS,GREATER_EQUAL,LESS_EQUAL|}\" value=\"${3:value}\" />",
+	  "description": "tests a named variable against a condition"
+	},
+	"if_damcon_members": {
+	  "prefix": "if_damcon_members",
+	  "scope": "xml, miss",
+	  "body": "<if_damcon_members ${1|name,player_slot,use_gm_selection|} =\"${2:name}\" team_index=\"${3:team_index}\" comparator=\"${4|=,!=,<,>,<=,>=,EQUALS,NOT,GREATER,LESS,GREATER_EQUAL,LESS_EQUAL|}\" value=\"${5:value}\" />",
+	  "description": "tests the count of team members in a specific damcon team on a specific player ship against a condition"
+	},
+	"if_fleet_count": {
+	  "prefix": "if_fleet_count",
+	  "scope": "xml, miss",
+	  "body": "<if_fleet_count name=\"${1:name}\" comparator=\"${2|=,!=,<,>,<=,>=,EQUALS,NOT,GREATER,LESS,GREATER_EQUAL,LESS_EQUAL|}\" value=\"${3:value}\" fleetnumber=\"${4:fleetnumber}\" sideValue=\"${5:sideValue}\" countSurrendered=\"${6:countSurrendered}\" />",
+	  "description": "tests an indexed fleet's membership count against a condition"
+	},
+	"if_difficulty": {
+	  "prefix": "if_difficulty",
+	  "scope": "xml, miss",
+	  "body": "<if_difficulty comparator=\"${1|=,!=,<,>,<=,>=,EQUALS,NOT,GREATER,LESS,GREATER_EQUAL,LESS_EQUAL|}\" value=\"${2:value}\" />",
+	  "description": "tests the current game's difficulty level against a condition"
+	},
+	"if_docked": {
+	  "prefix": "if_docked",
+	  "scope": "xml, miss",
+	  "body": "<if_docked name=\"${1:name}\" ${2|player_name,player_slot,use_gm_selection|} =\"${3:player_name}\" not=\"${4:not}\" />",
+	  "description": "tests if a player is docked with a named station"
+	},
+	"if_player_is_targeting": {
+	  "prefix": "if_player_is_targeting",
+	  "scope": "xml, miss",
+	  "body": "<if_player_is_targeting ${1|player_name,player_slot,use_gm_selection|} =\"${2:player_name}\" name=\"${3:name}\" target_slot=\"${4:target_slot}\" />",
+	  "description": "tests if a player ship's weapons officer has a lock on the named object"
+	},
+	"if_timer_finished": {
+	  "prefix": "if_timer_finished",
+	  "scope": "xml, miss",
+	  "body": "<if_timer_finished name=\"${1:name}\" />",
+	  "description": "tests if a timer has counted down to zero yet"
+	},
+	"if_exists": {
+	  "prefix": "if_exists",
+	  "scope": "xml, miss",
+	  "body": "<if_exists ${1|name,player_slot|} =\"${2:name}\" />",
+	  "description": "tests if named object exists right now"
+	},
+	"if_not_exists": {
+	  "prefix": "if_not_exists",
+	  "scope": "xml, miss",
+	  "body": "<if_not_exists ${1|name,player_slot|} =\"${2:name}\" />",
+	  "description": "tests if named object does NOT exist right now"
+	},
+	"if_object_property": {
+	  "prefix": "if_object_property",
+	  "scope": "xml, miss",
+	  "body": "<if_object_property ${1|name,player_slot,use_gm_selection|} =\"${2:name}\" property=\"${3:property}\" comparator=\"${4|=,!=,<,>,<=,>=,EQUALS,NOT,GREATER,LESS,GREATER_EQUAL,LESS_EQUAL|}\" value=\"${5:value}\" />",
+	  "description": "tests a named space object's named property against a condition"
+	},
+	"if_scan_level": {
+	  "prefix": "if_scan_level",
+	  "scope": "xml, miss",
+	  "body": "<if_scan_level ${1|name,player_slot,use_gm_selection|} =\"${2:name}\" comparator=\"${3|=,!=,<,>,<=,>=,EQUALS,NOT,GREATER,LESS,GREATER_EQUAL,LESS_EQUAL|}\" value=\"${4:value}\" side=\"${5:side}\" />",
+	  "description": "tests a named space object's scan level (side-based) against a condition"
+	},
+	"if_gm_key": {
+	  "prefix": "if_gm_key",
+	  "scope": "xml, miss",
+	  "body": "<if_gm_key keyText=\"${1:keyText}\" value=\"${2:value}\" />",
+	  "description": "triggers when a key is pressed on a game master console"
+	},
+	"if_client_key": {
+	  "prefix": "if_client_key",
+	  "scope": "xml, miss",
+	  "body": "<if_client_key keyText=\"${1:keyText}\" value=\"${2:value}\" />",
+	  "description": "triggers when a key is pressed on a key-activated console"
+	},
+	"if_gm_button": {
+	  "prefix": "if_gm_button",
+	  "scope": "xml, miss",
+	  "body": "<if_gm_button text=\"${1:text}\" />",
+	  "description": "triggers when a button from the current GM console is clicked"
+	},
+	"if_comms_button": {
+	  "prefix": "if_comms_button",
+	  "scope": "xml, miss",
+	  "body": "<if_comms_button text=\"${1:text}\" />",
+	  "description": "triggers when a specal button from a comms console is clicked"
+	},
+	"if_monster_tag_matches": {
+	  "prefix": "if_monster_tag_matches",
+	  "scope": "xml, miss",
+	  "body": "<if_monster_tag_matches name=\"${1:name}\" string=\"${2:string}\" />",
+	  "description": "tests the tags attached to a monster"
+	},
+	"if_object_tag_matches": {
+	  "prefix": "if_object_tag_matches",
+	  "scope": "xml, miss",
+	  "body": "<if_object_tag_matches objectName=\"${1:objectName}\" string=\"${2:string}\" />",
+	  "description": "tests the tag source name attached to a named object"
+	},
+	"if_in_nebula": {
+	  "prefix": "if_in_nebula",
+	  "scope": "xml, miss",
+	  "body": "<if_in_nebula ${1|name,player_slot,use_gm_selection|} =\"${2:name}\" compare=\"${3:compare}\" />",
+	  "description": "tests a named space object's current state regarding nebulas"
+	},
+	"mission_data": {
+	  "scope": "xml,miss",
+	  "prefix": "mission_data",
+	  "body": [
+		"<mission_data version=\"1.0\">",
+		"\t$0",
+		"</mission_data>"
+	  ],
+	  "description": "The main tag for mission data"
+	},
+	"mission_description": {
+	  "scope": "xml,miss",
+	  "prefix": "mission_description",
+	  "body": "<mission_description>$0</mission_description>",
+	  "description": "The description of the mission for the selection screen"
+	},
+	"start": {
+	  "scope": "xml,miss",
+	  "prefix": "start",
+	  "body": "<start>\n\t$0\n</start>",
+	  "description": "The event called at the start"
+	},
+	"event": {
+	  "scope": "xml,miss",
+	  "prefix": "event",
+	  "body": [
+		"<event name=\"${1:name}\">",
+		"\t$0",
+		"</event>"
+	  ],
+	  "description": "An event"
+	},
+	"create_named": {
+	  "prefix": "create",
+	  "scope": "xml, miss",
+	  "body": "<create type=\"${1|station,player,enemy,neutral,anomaly,blackHole,monster,genericMesh,whale|}\" ${2|name,player_slot|} =\"${3:name}\" x=\"${4:x}\" y=\"${5:y}\" z=\"${6:z}\" use_gm_position=\"${7:use_gm_position}\" hullID=\"${8:hullID}\" raceKeys=\"${9:raceKeys}\"  hullKeys=\"${10:hullKeys}\"  />",
+	  "description": "the command that creates UNnamed objects in the game"
+	},
+	"create_unnamed": {
+	  "prefix": "create",
+	  "scope": "xml, miss",
+	  "body": "<create type=\"${1|nebulas,asteroids,mines|}\" count=\"${2:count}\" radius=\"${3:radius}\" randomRange=\"${4:randomRange}\" startX=\"${5:startX}\" startY=\"${6:startY}\" startZ=\"${7:startZ}\" use_gm_position=\"${8:use_gm_position}\" endX=\"${9:endX}\" endY=\"${10:endY}\" endZ=\"${11:endZ}\" randomSeed=\"${12:randomSeed}\" startAngle=\"${13:startAngle}\" endAngle=\"${14:endAngle}\" nebType=\"${15:nebType}\" />",
+	  "description": "the command that creates UNnamed objects in the game"
+	},
+	"set_variable-int": {
+	  "scope": "xml,miss",
+	  "prefix": "set_variable",
+	  "body": "<set_variable name=\"${1:name}\" value=\"${2:value}\" integer=\"${3|yes,no|}\" />",
+	  "description": "Integer variable set"
+	},
+	"set_variable-rand-int": {
+	  "scope": "xml,miss",
+	  "prefix": "set_variable",
+	  "body": "<set_variable name=\"${1:name}\" randomIntLow=\"${2:value}\" randomIntHigh=\"${3:value}\" />",
+	  "description": "Int random variable set"
+	},
+	"set_variable-rand": {
+	  "scope": "xml,miss",
+	  "prefix": "set_variable",
+	  "body": "<set_variable name=\"${1:name}\" randomFloatLow=\"${2:value}\" randomFloatHigh=\"${3:value}\" />",
+	  "description": "Float Random variable set"
+	},
+	"imports": {
+	  "scope": "xml,miss",
+	  "prefix": "imports",
+	  "body": [
+		"<imports>",
+		"\t$0",
+		"</imports>"
+	  ],
+	  "description": "Section for imports for AML"
+	},
+	"import": {
+	  "scope": "xml,miss",
+	  "prefix": "import",
+	  "body": "<import name=\"${1:name}\" />",
+	  "description": "import for AML"
+	},
+	"import_json": {
+	  "scope": "xml,miss",
+	  "prefix": "import",
+	  "body": "<import name=\"${1:name}\" as=\"json\" />",
+	  "description": "import log data as json for AML"
+	},
+	"import_xml": {
+	  "scope": "xml,miss",
+	  "prefix": "import",
+	  "body": "<import name=\"${1:name}\" as=\"xml\" />",
+	  "description": "import log data as xml for AML"
+	},
+	"values": {
+	  "scope": "xml,miss",
+	  "prefix": "values",
+	  "body": [
+		"<values>",
+		"\t$0",
+		"</values>"
+	  ],
+	  "description": "Section for values for AML"
+	},
+	"value": {
+	  "scope": "xml,miss",
+	  "prefix": "import",
+	  "body": "<import name=\"${1:name}\" />",
+	  "description": "Section for imports"
+	},
+	"range": {
+	  "scope": "xml,miss",
+	  "prefix": "range",
+	  "body": [
+		"<range name=\"${1:name}\">",
+		"\t$0",
+		"</range>"
+	  ],
+	  "description": "Section for values for AML"
+	},
+	"repeat": {
+	  "scope": "xml,miss",
+	  "prefix": "value",
+	  "body": [
+		"<value name=\"${1:name}\" value=\"${2:value}\" />"
+	  ],
+	  "description": "Set a value for use in AML"
+	},
+	"repeat_length": {
+	  "scope": "xml,miss",
+	  "prefix": "repeat",
+	  "body": [
+		"<repeat length=\"${1:length}\">",
+		"\t$0",
+		"</repeat>"
+	  ],
+	  "description": "Section to be repeated AML"
+	},
+	"struct": {
+	  "scope": "xml,miss",
+	  "prefix": "struct",
+	  "body": [
+		"<struct name=\"${1:name}\">",
+		"\t$0",
+		"</struct>"
+	  ],
+	  "description": "Section for structured values for AML"
+	},
+	"expand": {
+	  "scope": "xml,miss",
+	  "prefix": "expand",
+	  "body": [
+		"<expand ${1:param}=\"${2:value}\">",
+		"\t$0",
+		"</expand>"
+	  ],
+	  "description": "Section to be expanded for AML"
+	},
+	"expand_template": {
+	  "scope": "xml,miss",
+	  "prefix": "expand",
+	  "body": "<expand template=\"${1:template}\" ${2:param}=\"${3:value}\" />",
+	  "description": "Section for structured values for AML"
+	},
+	"template": {
+	  "scope": "xml,miss",
+	  "prefix": "template",
+	  "body": [
+		"<template name=\"${1:name}\">",
+		"\t$0",
+		"</template>"
+	  ],
+	  "description": "A template for AML"
+	},
+	"params": {
+	  "scope": "xml,miss",
+	  "prefix": "params",
+	  "body": [
+		"<params>",
+		"\t$0",
+		"</params>"
+	  ],
+	  "description": "A template for AML"
+	},
+	"param": {
+	  "scope": "xml,miss",
+	  "prefix": "param",
+	  "body": "<param name=\"${1:name}\" description=\"${2:description}\" default=\"${3:default}\"/>",
+	  "description": "A template parameter for AML"
+	}
+  }
