@@ -1,0 +1,5 @@
+<mission_data version="1.0">
+    <start>
+        <set_variable name="testLength" value="3"/>
+    </start>
+</mission_data>

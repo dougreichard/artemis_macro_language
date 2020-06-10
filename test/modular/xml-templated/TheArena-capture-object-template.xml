@@ -42,7 +42,7 @@
         <set_variable name="${scoreVariable}" value="${scoreVariable}+1"/>
         <destroy name="${object}"/>
         <set_timer name="${object}_Timer" seconds="10"/>
-        <set_variable name="egg1" value="1.0"/>
+        <set_variable name="${object}" value="1.0"/>
         <set_variable name="${cargoHold}" value="0.0"/>
         <incoming_comms_text from="${target}" sideValue="${sideValue}">${objectText} Secured. ${ship} has captured |${scoreVariable}| ${objectText}.</incoming_comms_text>
       </event>

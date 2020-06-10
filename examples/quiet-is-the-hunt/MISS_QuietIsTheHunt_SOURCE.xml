@@ -1,0 +1,32 @@
+<mission_data version="1.0">
+  <mission_description>Quiet is the Hunt: A fighter focused set of missions. Episodes play out based on success or failure. For 1-64 players.</mission_description>
+  <imports>
+    <import name="QuietIsTheHunt_MAP01.xml" />
+    <import name="QuietIsTheHunt_nav.xml" />
+    <import name="QuietIsTheHunt_values.xml" />
+  </imports>
+
+  <start>
+
+    <repeat range="Ships">
+      <create type="player" player_slot="${slot}" x="${map.x(3.5)}" y="0" z="${map.z('C.5')+_index*1000}" name="${ship}" raceKeys="TSN" hullKeys="Carrier"/>
+      <repeat range="Pilots">
+        <set_player_carried_type name ="${pilot}" player_slot="${Ships.slot}" hullID="100" raceKeys="TSN" hullKeys="TSN Medium Fighter" bay_slot="${_index+1}" />
+      </repeat>
+    </repeat>
+
+    <set_difficulty_level value="5"/>
+  </start>
+
+
+  <repeat range="Ships">
+    <repeat range="Pilots">
+      <repeat range="NavPoints">
+        <expand template="NavPoint" who="${Pilots.pilot}" what="${navpoint}" distance="2350" stateVar="${Pilots.pilot}_State" state="${_index}" />
+      </repeat>
+    <expand template="HasReturned" who="${pilot}" ship="${Ships.ship}" slot="${Ships.slot}" distance="3000" stateVar="${pilot}_State" state="${utils.length('NavPoints')}" />
+      
+    </repeat>
+  </repeat>
+
+</mission_data>

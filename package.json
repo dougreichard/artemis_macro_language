@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha -u bdd --timeout 999999 --colors ./test/",
     "docs": "jsdoc -c jsdoc-config.json",
-    "pkg": "pkg index.js  --output build\\aml.exe  -t win-x64"
+    "pkg": "pkg index.js  --output build\\aml.exe  -t win-x64",
+    "quiet": "cd .\\examples\\quiet-is-the-hunt && ..\\..\\build\\aml "
   },
   "author": "",
   "license": "ISC",

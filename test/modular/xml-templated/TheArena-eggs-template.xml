@@ -28,8 +28,8 @@
   </repeat>
 
   <repeat range="Eggs" as="Egg">
-    <repeat range="AllShips" as="Ship">
-      <expand template="CaptureObject" ship="${Ship.ship}" object="${Egg.egg}" target="${Ship.ship} Station" objectText="Egg" captureDistance="100" dropDistance="1000" cargoHold="${Ship.ship}_Cargo" scoreVariable="${Ship.ship}_Score" scoringEnabledVariable="Scoring_Allowed" sideValue="${Ship.sideValue}" />
+    <repeat range="AllShips">
+      <expand template="CaptureObject" ship="${ship}" object="${Egg.egg}" target="${ship} Station" objectText="Egg" captureDistance="100" dropDistance="1000" cargoHold="${AllShips.ship}_Cargo" scoreVariable="${AllShips.ship}_Score" scoringEnabledVariable="Scoring_Allowed" sideValue="${sideValue}" />
     </repeat>
   </repeat>
 

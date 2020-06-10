@@ -8,13 +8,23 @@
         <value XP="34" />
       </struct>   
     </struct>
+    <range name="test">
+      <struct name="inner" >
+        <value health="6" />
+        <value XP="34" />
+      </struct>
+    </range>
   </values>
 
   <start>
     <expand>
       <set_variable name="${mystructure.anomaly}" value="${CONST_TIMER_SECONDS*5}"/>
       <set_variable name="${mystructure.anomaly}" value="${CONST_TIMER_SECONDS}"/>
+      <set_variable name="health" value="${mystructure.inner.health}"/>
     </expand>
+    <repeat range="test">
+      <set_variable name="health" value="${health}"/>
+    </repeat>
   </start>
 
   

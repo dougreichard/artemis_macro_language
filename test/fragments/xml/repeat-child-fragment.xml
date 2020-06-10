@@ -1,0 +1,34 @@
+<mission_data version="1.0">
+  <values>
+    <range name="Ships">
+      <struct>
+        <value ship="Artemis" />
+        <range name="Fighters">
+          <value pilot="Alta" hero="true" />
+          <value pilot="Nimbus" hero="true" />
+        </range>
+      </struct>
+      <struct>
+        <value ship="Interpid" />
+        <range name="Fighters">
+          <value pilot="Remy" hero="true" />
+          <value pilot="Jango" hero="true" />
+        </range>
+      </struct>
+
+    </range>
+  </values>
+
+  <start>
+
+    <repeat range="Ships">
+      <set_variable name="${Ships.ship}" value="1.0"/>
+
+      <repeat range="Fighters">
+        <set_variable name="${Fighters.pilot}" value="2.0"/>
+      </repeat>
+    </repeat>
+  </start>
+
+
+</mission_data>

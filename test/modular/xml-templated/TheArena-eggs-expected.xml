@@ -24,7 +24,7 @@
         <if_variable name="Number_of_Players" comparator="GREATER" value="0"/>
         <if_timer_finished name="egg1_Timer"/>
         <set_variable name="egg1" value="2.0"/>
-        <create type="genericMesh" x="50000" y="10" z="5000" name="egg1" meshFileName="datmine.dxs" textureFileName="datasteroidTexture.png"/>
+        <create type="genericMesh" x="50000" y="10" z="5000" name="egg1" meshFileName="dat\mine.dxs" textureFileName="dat\asteroidTexture.png"/>
         <set_object_property property="pushRadius" value="0.0" name="egg1"/>
     </event>
     <event name="Spawn egg2">
@@ -32,7 +32,7 @@
         <if_variable name="Number_of_Players" comparator="GREATER" value="3.0"/>
         <if_timer_finished name="egg2_Timer"/>
         <set_variable name="egg2" value="2.0"/>
-        <create type="genericMesh" x="49000" y="3" z="49000" name="egg2" meshFileName="datmine.dxs" textureFileName="datasteroidTexture.png"/>
+        <create type="genericMesh" x="49000" y="3" z="49000" name="egg2" meshFileName="dat\mine.dxs" textureFileName="dat\asteroidTexture.png"/>
         <set_object_property property="pushRadius" value="0.0" name="egg2"/>
     </event>
     <event name="Spawn egg3">
@@ -40,7 +40,7 @@
         <if_variable name="Number_of_Players" comparator="GREATER" value="4.0"/>
         <if_timer_finished name="egg3_Timer"/>
         <set_variable name="egg3" value="2.0"/>
-        <create type="genericMesh" x="51000" y="3" z="51000" name="egg3" meshFileName="datmine.dxs" textureFileName="datasteroidTexture.png"/>
+        <create type="genericMesh" x="51000" y="3" z="51000" name="egg3" meshFileName="dat\mine.dxs" textureFileName="dat\asteroidTexture.png"/>
         <set_object_property property="pushRadius" value="0.0" name="egg3"/>
     </event>
     <event name="Spawn egg4">
@@ -48,7 +48,7 @@
         <if_variable name="Number_of_Players" comparator="GREATER" value="6.0"/>
         <if_timer_finished name="egg4_Timer"/>
         <set_variable name="egg4" value="2.0"/>
-        <create type="genericMesh" x="49000" y="3" z="5100" name="egg4" meshFileName="datmine.dxs" textureFileName="datasteroidTexture.png"/>
+        <create type="genericMesh" x="49000" y="3" z="5100" name="egg4" meshFileName="dat\mine.dxs" textureFileName="dat\asteroidTexture.png"/>
         <set_object_property property="pushRadius" value="0.0" name="egg4"/>
     </event>
     <event name="Spawn egg5">
@@ -56,7 +56,7 @@
         <if_variable name="Number_of_Players" comparator="GREATER" value="7.0"/>
         <if_timer_finished name="egg5_Timer"/>
         <set_variable name="egg5" value="2.0"/>
-        <create type="genericMesh" x="51000" y="3" z="49000" name="egg5" meshFileName="datmine.dxs" textureFileName="datasteroidTexture.png"/>
+        <create type="genericMesh" x="51000" y="3" z="49000" name="egg5" meshFileName="dat\mine.dxs" textureFileName="dat\asteroidTexture.png"/>
         <set_object_property property="pushRadius" value="0.0" name="egg5"/>
     </event>
     <event name="Artemis Capture egg1">
@@ -392,7 +392,7 @@
         <set_variable name="Artemis_Score" value="Artemis_Score+1"/>
         <destroy name="egg2"/>
         <set_timer name="egg2_Timer" seconds="10"/>
-        <set_variable name="egg1" value="1.0"/>
+        <set_variable name="egg2" value="1.0"/>
         <set_variable name="Artemis_Cargo" value="0.0"/>
         <incoming_comms_text from="Artemis Station" sideValue="10">Egg Secured. Artemis has captured |Artemis_Score| Egg.</incoming_comms_text>
     </event>
@@ -430,7 +430,7 @@
         <set_variable name="Intrepid_Score" value="Intrepid_Score+1"/>
         <destroy name="egg2"/>
         <set_timer name="egg2_Timer" seconds="10"/>
-        <set_variable name="egg1" value="1.0"/>
+        <set_variable name="egg2" value="1.0"/>
         <set_variable name="Intrepid_Cargo" value="0.0"/>
         <incoming_comms_text from="Intrepid Station" sideValue="11">Egg Secured. Intrepid has captured |Intrepid_Score| Egg.</incoming_comms_text>
     </event>
@@ -468,7 +468,7 @@
         <set_variable name="Aegis_Score" value="Aegis_Score+1"/>
         <destroy name="egg2"/>
         <set_timer name="egg2_Timer" seconds="10"/>
-        <set_variable name="egg1" value="1.0"/>
+        <set_variable name="egg2" value="1.0"/>
         <set_variable name="Aegis_Cargo" value="0.0"/>
         <incoming_comms_text from="Aegis Station" sideValue="4">Egg Secured. Aegis has captured |Aegis_Score| Egg.</incoming_comms_text>
     </event>
@@ -506,7 +506,7 @@
         <set_variable name="Horatio_Score" value="Horatio_Score+1"/>
         <destroy name="egg2"/>
         <set_timer name="egg2_Timer" seconds="10"/>
-        <set_variable name="egg1" value="1.0"/>
+        <set_variable name="egg2" value="1.0"/>
         <set_variable name="Horatio_Cargo" value="0.0"/>
         <incoming_comms_text from="Horatio Station" sideValue="5">Egg Secured. Horatio has captured |Horatio_Score| Egg.</incoming_comms_text>
     </event>
@@ -544,7 +544,7 @@
         <set_variable name="Excalibur_Score" value="Excalibur_Score+1"/>
         <destroy name="egg2"/>
         <set_timer name="egg2_Timer" seconds="10"/>
-        <set_variable name="egg1" value="1.0"/>
+        <set_variable name="egg2" value="1.0"/>
         <set_variable name="Excalibur_Cargo" value="0.0"/>
         <incoming_comms_text from="Excalibur Station" sideValue="6">Egg Secured. Excalibur has captured |Excalibur_Score| Egg.</incoming_comms_text>
     </event>
@@ -582,7 +582,7 @@
         <set_variable name="Hera_Score" value="Hera_Score+1"/>
         <destroy name="egg2"/>
         <set_timer name="egg2_Timer" seconds="10"/>
-        <set_variable name="egg1" value="1.0"/>
+        <set_variable name="egg2" value="1.0"/>
         <set_variable name="Hera_Cargo" value="0.0"/>
         <incoming_comms_text from="Hera Station" sideValue="7">Egg Secured. Hera has captured |Hera_Score| Egg.</incoming_comms_text>
     </event>
@@ -620,7 +620,7 @@
         <set_variable name="Ceres_Score" value="Ceres_Score+1"/>
         <destroy name="egg2"/>
         <set_timer name="egg2_Timer" seconds="10"/>
-        <set_variable name="egg1" value="1.0"/>
+        <set_variable name="egg2" value="1.0"/>
         <set_variable name="Ceres_Cargo" value="0.0"/>
         <incoming_comms_text from="Ceres Station" sideValue="8">Egg Secured. Ceres has captured |Ceres_Score| Egg.</incoming_comms_text>
     </event>
@@ -658,7 +658,7 @@
         <set_variable name="Diana_Score" value="Diana_Score+1"/>
         <destroy name="egg2"/>
         <set_timer name="egg2_Timer" seconds="10"/>
-        <set_variable name="egg1" value="1.0"/>
+        <set_variable name="egg2" value="1.0"/>
         <set_variable name="Diana_Cargo" value="0.0"/>
         <incoming_comms_text from="Diana Station" sideValue="9">Egg Secured. Diana has captured |Diana_Score| Egg.</incoming_comms_text>
     </event>
@@ -696,7 +696,7 @@
         <set_variable name="Artemis_Score" value="Artemis_Score+1"/>
         <destroy name="egg3"/>
         <set_timer name="egg3_Timer" seconds="10"/>
-        <set_variable name="egg1" value="1.0"/>
+        <set_variable name="egg3" value="1.0"/>
         <set_variable name="Artemis_Cargo" value="0.0"/>
         <incoming_comms_text from="Artemis Station" sideValue="10">Egg Secured. Artemis has captured |Artemis_Score| Egg.</incoming_comms_text>
     </event>
@@ -734,7 +734,7 @@
         <set_variable name="Intrepid_Score" value="Intrepid_Score+1"/>
         <destroy name="egg3"/>
         <set_timer name="egg3_Timer" seconds="10"/>
-        <set_variable name="egg1" value="1.0"/>
+        <set_variable name="egg3" value="1.0"/>
         <set_variable name="Intrepid_Cargo" value="0.0"/>
         <incoming_comms_text from="Intrepid Station" sideValue="11">Egg Secured. Intrepid has captured |Intrepid_Score| Egg.</incoming_comms_text>
     </event>
@@ -772,7 +772,7 @@
         <set_variable name="Aegis_Score" value="Aegis_Score+1"/>
         <destroy name="egg3"/>
         <set_timer name="egg3_Timer" seconds="10"/>
-        <set_variable name="egg1" value="1.0"/>
+        <set_variable name="egg3" value="1.0"/>
         <set_variable name="Aegis_Cargo" value="0.0"/>
         <incoming_comms_text from="Aegis Station" sideValue="4">Egg Secured. Aegis has captured |Aegis_Score| Egg.</incoming_comms_text>
     </event>
@@ -810,7 +810,7 @@
         <set_variable name="Horatio_Score" value="Horatio_Score+1"/>
         <destroy name="egg3"/>
         <set_timer name="egg3_Timer" seconds="10"/>
-        <set_variable name="egg1" value="1.0"/>
+        <set_variable name="egg3" value="1.0"/>
         <set_variable name="Horatio_Cargo" value="0.0"/>
         <incoming_comms_text from="Horatio Station" sideValue="5">Egg Secured. Horatio has captured |Horatio_Score| Egg.</incoming_comms_text>
     </event>
@@ -848,7 +848,7 @@
         <set_variable name="Excalibur_Score" value="Excalibur_Score+1"/>
         <destroy name="egg3"/>
         <set_timer name="egg3_Timer" seconds="10"/>
-        <set_variable name="egg1" value="1.0"/>
+        <set_variable name="egg3" value="1.0"/>
         <set_variable name="Excalibur_Cargo" value="0.0"/>
         <incoming_comms_text from="Excalibur Station" sideValue="6">Egg Secured. Excalibur has captured |Excalibur_Score| Egg.</incoming_comms_text>
     </event>
@@ -886,7 +886,7 @@
         <set_variable name="Hera_Score" value="Hera_Score+1"/>
         <destroy name="egg3"/>
         <set_timer name="egg3_Timer" seconds="10"/>
-        <set_variable name="egg1" value="1.0"/>
+        <set_variable name="egg3" value="1.0"/>
         <set_variable name="Hera_Cargo" value="0.0"/>
         <incoming_comms_text from="Hera Station" sideValue="7">Egg Secured. Hera has captured |Hera_Score| Egg.</incoming_comms_text>
     </event>
@@ -924,7 +924,7 @@
         <set_variable name="Ceres_Score" value="Ceres_Score+1"/>
         <destroy name="egg3"/>
         <set_timer name="egg3_Timer" seconds="10"/>
-        <set_variable name="egg1" value="1.0"/>
+        <set_variable name="egg3" value="1.0"/>
         <set_variable name="Ceres_Cargo" value="0.0"/>
         <incoming_comms_text from="Ceres Station" sideValue="8">Egg Secured. Ceres has captured |Ceres_Score| Egg.</incoming_comms_text>
     </event>
@@ -962,7 +962,7 @@
         <set_variable name="Diana_Score" value="Diana_Score+1"/>
         <destroy name="egg3"/>
         <set_timer name="egg3_Timer" seconds="10"/>
-        <set_variable name="egg1" value="1.0"/>
+        <set_variable name="egg3" value="1.0"/>
         <set_variable name="Diana_Cargo" value="0.0"/>
         <incoming_comms_text from="Diana Station" sideValue="9">Egg Secured. Diana has captured |Diana_Score| Egg.</incoming_comms_text>
     </event>
@@ -1000,7 +1000,7 @@
         <set_variable name="Artemis_Score" value="Artemis_Score+1"/>
         <destroy name="egg4"/>
         <set_timer name="egg4_Timer" seconds="10"/>
-        <set_variable name="egg1" value="1.0"/>
+        <set_variable name="egg4" value="1.0"/>
         <set_variable name="Artemis_Cargo" value="0.0"/>
         <incoming_comms_text from="Artemis Station" sideValue="10">Egg Secured. Artemis has captured |Artemis_Score| Egg.</incoming_comms_text>
     </event>
@@ -1038,7 +1038,7 @@
         <set_variable name="Intrepid_Score" value="Intrepid_Score+1"/>
         <destroy name="egg4"/>
         <set_timer name="egg4_Timer" seconds="10"/>
-        <set_variable name="egg1" value="1.0"/>
+        <set_variable name="egg4" value="1.0"/>
         <set_variable name="Intrepid_Cargo" value="0.0"/>
         <incoming_comms_text from="Intrepid Station" sideValue="11">Egg Secured. Intrepid has captured |Intrepid_Score| Egg.</incoming_comms_text>
     </event>
@@ -1076,7 +1076,7 @@
         <set_variable name="Aegis_Score" value="Aegis_Score+1"/>
         <destroy name="egg4"/>
         <set_timer name="egg4_Timer" seconds="10"/>
-        <set_variable name="egg1" value="1.0"/>
+        <set_variable name="egg4" value="1.0"/>
         <set_variable name="Aegis_Cargo" value="0.0"/>
         <incoming_comms_text from="Aegis Station" sideValue="4">Egg Secured. Aegis has captured |Aegis_Score| Egg.</incoming_comms_text>
     </event>
@@ -1114,7 +1114,7 @@
         <set_variable name="Horatio_Score" value="Horatio_Score+1"/>
         <destroy name="egg4"/>
         <set_timer name="egg4_Timer" seconds="10"/>
-        <set_variable name="egg1" value="1.0"/>
+        <set_variable name="egg4" value="1.0"/>
         <set_variable name="Horatio_Cargo" value="0.0"/>
         <incoming_comms_text from="Horatio Station" sideValue="5">Egg Secured. Horatio has captured |Horatio_Score| Egg.</incoming_comms_text>
     </event>
@@ -1152,7 +1152,7 @@
         <set_variable name="Excalibur_Score" value="Excalibur_Score+1"/>
         <destroy name="egg4"/>
         <set_timer name="egg4_Timer" seconds="10"/>
-        <set_variable name="egg1" value="1.0"/>
+        <set_variable name="egg4" value="1.0"/>
         <set_variable name="Excalibur_Cargo" value="0.0"/>
         <incoming_comms_text from="Excalibur Station" sideValue="6">Egg Secured. Excalibur has captured |Excalibur_Score| Egg.</incoming_comms_text>
     </event>
@@ -1190,7 +1190,7 @@
         <set_variable name="Hera_Score" value="Hera_Score+1"/>
         <destroy name="egg4"/>
         <set_timer name="egg4_Timer" seconds="10"/>
-        <set_variable name="egg1" value="1.0"/>
+        <set_variable name="egg4" value="1.0"/>
         <set_variable name="Hera_Cargo" value="0.0"/>
         <incoming_comms_text from="Hera Station" sideValue="7">Egg Secured. Hera has captured |Hera_Score| Egg.</incoming_comms_text>
     </event>
@@ -1228,7 +1228,7 @@
         <set_variable name="Ceres_Score" value="Ceres_Score+1"/>
         <destroy name="egg4"/>
         <set_timer name="egg4_Timer" seconds="10"/>
-        <set_variable name="egg1" value="1.0"/>
+        <set_variable name="egg4" value="1.0"/>
         <set_variable name="Ceres_Cargo" value="0.0"/>
         <incoming_comms_text from="Ceres Station" sideValue="8">Egg Secured. Ceres has captured |Ceres_Score| Egg.</incoming_comms_text>
     </event>
@@ -1266,7 +1266,7 @@
         <set_variable name="Diana_Score" value="Diana_Score+1"/>
         <destroy name="egg4"/>
         <set_timer name="egg4_Timer" seconds="10"/>
-        <set_variable name="egg1" value="1.0"/>
+        <set_variable name="egg4" value="1.0"/>
         <set_variable name="Diana_Cargo" value="0.0"/>
         <incoming_comms_text from="Diana Station" sideValue="9">Egg Secured. Diana has captured |Diana_Score| Egg.</incoming_comms_text>
     </event>
@@ -1304,7 +1304,7 @@
         <set_variable name="Artemis_Score" value="Artemis_Score+1"/>
         <destroy name="egg5"/>
         <set_timer name="egg5_Timer" seconds="10"/>
-        <set_variable name="egg1" value="1.0"/>
+        <set_variable name="egg5" value="1.0"/>
         <set_variable name="Artemis_Cargo" value="0.0"/>
         <incoming_comms_text from="Artemis Station" sideValue="10">Egg Secured. Artemis has captured |Artemis_Score| Egg.</incoming_comms_text>
     </event>
@@ -1342,7 +1342,7 @@
         <set_variable name="Intrepid_Score" value="Intrepid_Score+1"/>
         <destroy name="egg5"/>
         <set_timer name="egg5_Timer" seconds="10"/>
-        <set_variable name="egg1" value="1.0"/>
+        <set_variable name="egg5" value="1.0"/>
         <set_variable name="Intrepid_Cargo" value="0.0"/>
         <incoming_comms_text from="Intrepid Station" sideValue="11">Egg Secured. Intrepid has captured |Intrepid_Score| Egg.</incoming_comms_text>
     </event>
@@ -1380,7 +1380,7 @@
         <set_variable name="Aegis_Score" value="Aegis_Score+1"/>
         <destroy name="egg5"/>
         <set_timer name="egg5_Timer" seconds="10"/>
-        <set_variable name="egg1" value="1.0"/>
+        <set_variable name="egg5" value="1.0"/>
         <set_variable name="Aegis_Cargo" value="0.0"/>
         <incoming_comms_text from="Aegis Station" sideValue="4">Egg Secured. Aegis has captured |Aegis_Score| Egg.</incoming_comms_text>
     </event>
@@ -1418,7 +1418,7 @@
         <set_variable name="Horatio_Score" value="Horatio_Score+1"/>
         <destroy name="egg5"/>
         <set_timer name="egg5_Timer" seconds="10"/>
-        <set_variable name="egg1" value="1.0"/>
+        <set_variable name="egg5" value="1.0"/>
         <set_variable name="Horatio_Cargo" value="0.0"/>
         <incoming_comms_text from="Horatio Station" sideValue="5">Egg Secured. Horatio has captured |Horatio_Score| Egg.</incoming_comms_text>
     </event>
@@ -1456,7 +1456,7 @@
         <set_variable name="Excalibur_Score" value="Excalibur_Score+1"/>
         <destroy name="egg5"/>
         <set_timer name="egg5_Timer" seconds="10"/>
-        <set_variable name="egg1" value="1.0"/>
+        <set_variable name="egg5" value="1.0"/>
         <set_variable name="Excalibur_Cargo" value="0.0"/>
         <incoming_comms_text from="Excalibur Station" sideValue="6">Egg Secured. Excalibur has captured |Excalibur_Score| Egg.</incoming_comms_text>
     </event>
@@ -1494,7 +1494,7 @@
         <set_variable name="Hera_Score" value="Hera_Score+1"/>
         <destroy name="egg5"/>
         <set_timer name="egg5_Timer" seconds="10"/>
-        <set_variable name="egg1" value="1.0"/>
+        <set_variable name="egg5" value="1.0"/>
         <set_variable name="Hera_Cargo" value="0.0"/>
         <incoming_comms_text from="Hera Station" sideValue="7">Egg Secured. Hera has captured |Hera_Score| Egg.</incoming_comms_text>
     </event>
@@ -1532,7 +1532,7 @@
         <set_variable name="Ceres_Score" value="Ceres_Score+1"/>
         <destroy name="egg5"/>
         <set_timer name="egg5_Timer" seconds="10"/>
-        <set_variable name="egg1" value="1.0"/>
+        <set_variable name="egg5" value="1.0"/>
         <set_variable name="Ceres_Cargo" value="0.0"/>
         <incoming_comms_text from="Ceres Station" sideValue="8">Egg Secured. Ceres has captured |Ceres_Score| Egg.</incoming_comms_text>
     </event>
@@ -1570,7 +1570,7 @@
         <set_variable name="Diana_Score" value="Diana_Score+1"/>
         <destroy name="egg5"/>
         <set_timer name="egg5_Timer" seconds="10"/>
-        <set_variable name="egg1" value="1.0"/>
+        <set_variable name="egg5" value="1.0"/>
         <set_variable name="Diana_Cargo" value="0.0"/>
         <incoming_comms_text from="Diana Station" sideValue="9">Egg Secured. Diana has captured |Diana_Score| Egg.</incoming_comms_text>
     </event>

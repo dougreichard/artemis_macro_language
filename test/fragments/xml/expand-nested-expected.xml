@@ -1,0 +1,9 @@
+<mission_data version="1.0">
+    <start>
+        <big_message title="Hello, nested"/>
+        <set_variable name="Test" value="0"/>
+    </start>
+    <event name="test-temp">
+        <big_message title="OK"/>
+    </event>
+</mission_data>

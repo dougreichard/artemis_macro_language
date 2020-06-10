@@ -1,0 +1,15 @@
+<mission_data version="1.0">
+    <values>
+        <value OUTER="Hello, nested" />
+        <value TEST="0" />
+        <range name="LengthTest">
+            <value name="test1" />
+            <value name="test2" />
+            <value name="test3" />
+        </range>
+    </values>
+    <start>
+        <set_variable name="testLength" value="${utils.length('LengthTest')}" />
+    </start>
+
+</mission_data>

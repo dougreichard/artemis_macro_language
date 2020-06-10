@@ -1,0 +1,148 @@
+<mission_data version="1.0">
+    <mission_description>Quiet is the Hunt: A fighter focused set of missions. Episodes play out based on success or failure. For 1-64 players.</mission_description>
+    <start>
+        <create type="player" player_slot="0" x="50000" y="0" z="50000" name="Ray Tracer" raceKeys="TSN" hullKeys="Carrier"/>
+        <set_player_carried_type name="Alta" player_slot="0" hullID="100" raceKeys="TSN" hullKeys="TSN Medium Fighter" bay_slot="1"/>
+        <set_player_carried_type name="Nimbus" player_slot="0" hullID="100" raceKeys="TSN" hullKeys="TSN Medium Fighter" bay_slot="2"/>
+        <set_player_carried_type name="RED_01" player_slot="0" hullID="100" raceKeys="TSN" hullKeys="TSN Medium Fighter" bay_slot="3"/>
+        <set_player_carried_type name="RED_02" player_slot="0" hullID="100" raceKeys="TSN" hullKeys="TSN Medium Fighter" bay_slot="4"/>
+        <set_player_carried_type name="RED_03" player_slot="0" hullID="100" raceKeys="TSN" hullKeys="TSN Medium Fighter" bay_slot="5"/>
+        <set_difficulty_level value="5"/>
+        <!--  <create count="60" type="nebulas" startX="50000.0" startY="100.0" startZ="50000.0" radius="25000" randomRange="4000" randomSeed="15"/>
+    <create count="60" type="nebulas" startX="50000.0" startY="-100.0" startZ="50000.0" radius="30000" randomRange="4000" randomSeed="20"/>
+    <create count="60" type="nebulas" startX="50000.0" startY="0.0" startZ="50000.0" radius="40000" randomRange="4000" randomSeed="35"/>
+    <create count="60" type="nebulas" startX="50000.0" startY="0.0" startZ="50000.0" radius="15000" randomRange="4000" randomSeed="40"/>
+    <create count="60" type="nebulas" startX="50000.0" startY="0.0" startZ="50000.0" radius="50000" randomRange="4000" randomSeed="55"/>
+    <create count="75" type="asteroids" startX="50000.0" startY="0.0" startZ="50000.0" radius="26000" randomRange="4000" randomSeed="30"/>
+    <create count="75" type="asteroids" startX="50000.0" startY="0.0" startZ="50000.0" radius="36000" randomRange="4000" randomSeed="25"/>
+    <create count="30" type="asteroids" startX="50000.0" startY="0.0" startZ="50000.0" radius="7000" randomRange="1000" randomSeed="21"/> -->
+        <create type="genericMesh" x="54000" y="0.0" z="45000" name="NAV_01" meshFileName="dat\asteroid8.dxs" textureFileName="dat\Asteroid_8_AO.png" ColorGreen="1"/>
+        <create type="genericMesh" x="44000" y="0.0" z="61000" name="NAV_02" meshFileName="dat\asteroid8.dxs" textureFileName="dat\Asteroid_8_AO.png" ColorGreen="1"/>
+        <big_message title="Quiet is the Hunt" subtitle1="Chapter One: Sea legs" subtitle2="By Doug Reichard"/>
+        <set_variable name="Alta_State" value="0" integer="yes"/>
+        <set_variable name="Nimbus_State" value="0" integer="yes"/>
+        <set_variable name="RED_01_State" value="0" integer="yes"/>
+        <set_variable name="RED_02_State" value="0" integer="yes"/>
+        <set_variable name="RED_03_State" value="0" integer="yes"/>
+    </start>
+    <event name="Alta arrives NAV_01">
+        <if_distance name1="Alta" name2="NAV_01" comparator="<=" value="2350"/>
+        <if_variable name="Alta_State" comparator="=" value="0"/>
+        <warning_popup_message message="Alta Reached NAV_01" consoles="MO" player_slot="0"/>
+        <set_variable name="Alta_State" value="Alta_State+1"/>
+    </event>
+    <event name="Alta arrives NAV_02">
+        <if_distance name1="Alta" name2="NAV_02" comparator="<=" value="2350"/>
+        <if_variable name="Alta_State" comparator="=" value="1"/>
+        <warning_popup_message message="Alta Reached NAV_02" consoles="MO" player_slot="0"/>
+        <set_variable name="Alta_State" value="Alta_State+1"/>
+    </event>
+    <event name="Alta arrives Ray Tracer">
+        <if_distance name1="Alta" player_slot2="0" comparator="<=" value="3000"/>
+        <if_variable name="Alta_State" comparator="=" value="2"/>
+        <warning_popup_message message="Alta Reached Ray Tracer" consoles="MO" player_slot="0"/>
+        <set_variable name="Alta_State" value="3"/>
+    </event>
+    <event name="Alta docked">
+        <if_not_exists name="Alta"/>
+        <if_variable name="Alta_State" comparator="=" value="3"/>
+        <warning_popup_message message="Alta Docked" consoles="MO" player_slot="0"/>
+        <set_variable name="Alta_State" value="4"/>
+    </event>
+    <event name="Nimbus arrives NAV_01">
+        <if_distance name1="Nimbus" name2="NAV_01" comparator="<=" value="2350"/>
+        <if_variable name="Nimbus_State" comparator="=" value="0"/>
+        <warning_popup_message message="Nimbus Reached NAV_01" consoles="MO" player_slot="0"/>
+        <set_variable name="Nimbus_State" value="Nimbus_State+1"/>
+    </event>
+    <event name="Nimbus arrives NAV_02">
+        <if_distance name1="Nimbus" name2="NAV_02" comparator="<=" value="2350"/>
+        <if_variable name="Nimbus_State" comparator="=" value="1"/>
+        <warning_popup_message message="Nimbus Reached NAV_02" consoles="MO" player_slot="0"/>
+        <set_variable name="Nimbus_State" value="Nimbus_State+1"/>
+    </event>
+    <event name="Nimbus arrives Ray Tracer">
+        <if_distance name1="Nimbus" player_slot2="0" comparator="<=" value="3000"/>
+        <if_variable name="Nimbus_State" comparator="=" value="2"/>
+        <warning_popup_message message="Nimbus Reached Ray Tracer" consoles="MO" player_slot="0"/>
+        <set_variable name="Nimbus_State" value="3"/>
+    </event>
+    <event name="Nimbus docked">
+        <if_not_exists name="Nimbus"/>
+        <if_variable name="Nimbus_State" comparator="=" value="3"/>
+        <warning_popup_message message="Nimbus Docked" consoles="MO" player_slot="0"/>
+        <set_variable name="Nimbus_State" value="4"/>
+    </event>
+    <event name="RED_01 arrives NAV_01">
+        <if_distance name1="RED_01" name2="NAV_01" comparator="<=" value="2350"/>
+        <if_variable name="RED_01_State" comparator="=" value="0"/>
+        <warning_popup_message message="RED_01 Reached NAV_01" consoles="MO" player_slot="0"/>
+        <set_variable name="RED_01_State" value="RED_01_State+1"/>
+    </event>
+    <event name="RED_01 arrives NAV_02">
+        <if_distance name1="RED_01" name2="NAV_02" comparator="<=" value="2350"/>
+        <if_variable name="RED_01_State" comparator="=" value="1"/>
+        <warning_popup_message message="RED_01 Reached NAV_02" consoles="MO" player_slot="0"/>
+        <set_variable name="RED_01_State" value="RED_01_State+1"/>
+    </event>
+    <event name="RED_01 arrives Ray Tracer">
+        <if_distance name1="RED_01" player_slot2="0" comparator="<=" value="3000"/>
+        <if_variable name="RED_01_State" comparator="=" value="2"/>
+        <warning_popup_message message="RED_01 Reached Ray Tracer" consoles="MO" player_slot="0"/>
+        <set_variable name="RED_01_State" value="3"/>
+    </event>
+    <event name="RED_01 docked">
+        <if_not_exists name="RED_01"/>
+        <if_variable name="RED_01_State" comparator="=" value="3"/>
+        <warning_popup_message message="RED_01 Docked" consoles="MO" player_slot="0"/>
+        <set_variable name="RED_01_State" value="4"/>
+    </event>
+    <event name="RED_02 arrives NAV_01">
+        <if_distance name1="RED_02" name2="NAV_01" comparator="<=" value="2350"/>
+        <if_variable name="RED_02_State" comparator="=" value="0"/>
+        <warning_popup_message message="RED_02 Reached NAV_01" consoles="MO" player_slot="0"/>
+        <set_variable name="RED_02_State" value="RED_02_State+1"/>
+    </event>
+    <event name="RED_02 arrives NAV_02">
+        <if_distance name1="RED_02" name2="NAV_02" comparator="<=" value="2350"/>
+        <if_variable name="RED_02_State" comparator="=" value="1"/>
+        <warning_popup_message message="RED_02 Reached NAV_02" consoles="MO" player_slot="0"/>
+        <set_variable name="RED_02_State" value="RED_02_State+1"/>
+    </event>
+    <event name="RED_02 arrives Ray Tracer">
+        <if_distance name1="RED_02" player_slot2="0" comparator="<=" value="3000"/>
+        <if_variable name="RED_02_State" comparator="=" value="2"/>
+        <warning_popup_message message="RED_02 Reached Ray Tracer" consoles="MO" player_slot="0"/>
+        <set_variable name="RED_02_State" value="3"/>
+    </event>
+    <event name="RED_02 docked">
+        <if_not_exists name="RED_02"/>
+        <if_variable name="RED_02_State" comparator="=" value="3"/>
+        <warning_popup_message message="RED_02 Docked" consoles="MO" player_slot="0"/>
+        <set_variable name="RED_02_State" value="4"/>
+    </event>
+    <event name="RED_03 arrives NAV_01">
+        <if_distance name1="RED_03" name2="NAV_01" comparator="<=" value="2350"/>
+        <if_variable name="RED_03_State" comparator="=" value="0"/>
+        <warning_popup_message message="RED_03 Reached NAV_01" consoles="MO" player_slot="0"/>
+        <set_variable name="RED_03_State" value="RED_03_State+1"/>
+    </event>
+    <event name="RED_03 arrives NAV_02">
+        <if_distance name1="RED_03" name2="NAV_02" comparator="<=" value="2350"/>
+        <if_variable name="RED_03_State" comparator="=" value="1"/>
+        <warning_popup_message message="RED_03 Reached NAV_02" consoles="MO" player_slot="0"/>
+        <set_variable name="RED_03_State" value="RED_03_State+1"/>
+    </event>
+    <event name="RED_03 arrives Ray Tracer">
+        <if_distance name1="RED_03" player_slot2="0" comparator="<=" value="3000"/>
+        <if_variable name="RED_03_State" comparator="=" value="2"/>
+        <warning_popup_message message="RED_03 Reached Ray Tracer" consoles="MO" player_slot="0"/>
+        <set_variable name="RED_03_State" value="3"/>
+    </event>
+    <event name="RED_03 docked">
+        <if_not_exists name="RED_03"/>
+        <if_variable name="RED_03_State" comparator="=" value="3"/>
+        <warning_popup_message message="RED_03 Docked" consoles="MO" player_slot="0"/>
+        <set_variable name="RED_03_State" value="4"/>
+    </event>
+</mission_data>

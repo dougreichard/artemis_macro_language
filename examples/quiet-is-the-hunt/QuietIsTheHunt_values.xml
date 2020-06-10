@@ -1,0 +1,23 @@
+<mission_data version="1.0">
+  <values>
+    <!-- Set some state constants to track state -->
+    <!-- Using names helps this be more readable -->
+
+    <range name="Ships">
+      <struct>
+        <value ship="Ray Tracer"/>
+        <value slot="0" />
+        <value color="RED" />
+        <value colorCount = "2" />
+        <range name="Pilots">
+          <value pilot="Alta"  hero="true" />
+          <value pilot="Nimbus"  hero="true" />
+          <value pilot="RED_01"  hero="false" />
+          <value pilot="RED_02"  hero="false" />
+          <value pilot="RED_03"  hero="false" />
+        </range>
+      </struct>
+    </range>
+    <value RETURNED="4" DOCKED="99" />
+  </values>
+</mission_data>

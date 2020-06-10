@@ -1,0 +1,24 @@
+<mission_data version="1.0">
+    <templates>
+        <template name="hello">
+            <big_message title="${message}" />
+        </template>
+         <template name="eve">
+            <event name="test-temp">
+                 <big_message title="${msg}" />
+            </event>
+        </template>
+    </templates>
+    <values>
+        <value OUTER="Hello, nested" />
+        <value TEST="0" />
+    </values>
+
+    <expand>
+        <start>
+            <expand template="hello" message="${OUTER}" />
+            <set_variable name="Test" value="${TEST}" />
+        </start>
+        <expand template="eve" msg="OK" />
+    </expand>
+</mission_data>

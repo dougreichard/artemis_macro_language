@@ -78,7 +78,7 @@ const optionDefinitions = [
     alias: 'i',
     type: Boolean,
     group: "artemis",
-    desciption: 'Copy the generate mission to the artemis directory'
+    description: 'Copy the generate mission to the artemis directory'
   },
   {
     name: 'artemis',
@@ -122,13 +122,10 @@ const options = commandLineArgs(optionDefinitions)
 let artemisDir = options._all.artemis
 if (!artemisDir) {
   artemisDir = process.env['ARTEMIS_HOME']
+  options._all.artemis = artemisDir
 }
 
-if (artemisDir) {
-  console.log(`Using Artemis in folder ${artemisDir}`)
-} else {
-  console.log(`use --artemis or SET environment variable ARTEMIS_HOME to run and sync with artemis directory`)
-}
+
 
 
 /**
@@ -215,7 +212,7 @@ async function processMission(file) {
           let missionDir = path.join(artemisDir, "dat", "missions", base)
           let missionFile = path.resolve(missionDir, file)
 
-          console.log('MissDir' + missionDir)
+          console.log('Mission Dir: ' + missionDir)
           await fs.promises.mkdir(missionDir, { recursive: true })
           await fs.promises.writeFile(missionFile, xml, "utf8")
 
@@ -269,6 +266,7 @@ async function main() {
       let values = JSON.parse(json)
       if (values) {
         Object.assign(options._all, values)
+        artemisDir = options._all.artemis
       }
     }
   } catch (e) {
@@ -283,6 +281,11 @@ async function main() {
     processMission(options._all.mission)
   } else if (options._all.run) {
     runArtemis()
+  }
+  if (artemisDir) {
+    console.log(`Artemis Dir: ${artemisDir}`)
+  } else {
+    console.log(`use --artemis or SET environment variable ARTEMIS_HOME to run and sync with artemis directory`)
   }
   //console.log(JSON.stringify(options, null, 2))
 }
