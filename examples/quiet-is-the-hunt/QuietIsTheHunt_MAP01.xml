@@ -2,13 +2,13 @@
   <values>
     <range name="NavPoints">
       <struct>
-        <value x="${map.x(3.3)}" y="0.0" z="${map.z('c.25')}" navpoint="NAV_01" />
+        <value x="${map.x(2.3)}" y="0.0" z="${map.z('B.25')}" navpoint="NAV_01" />
         <range name="Enemies">
           <value hullId="130" raceKeys="Pirate" hullKeys="Pirate" enemyId="${_index}" side="1" />
         </range>
       </struct>
       <struct>
-        <value x="${map.x(3.8)}" y="0.0" z="${map.z('D.05')}" navpoint="NAV_02" />
+        <value x="${map.x(3.9)}" y="0.0" z="${map.z('E.05')}" navpoint="NAV_02" />
         <range name="Enemies">
           <value hullId="130" raceKeys="Pirate" hullKeys="Pirate" enemyId="${_index}" side="1" />
           <value hullId="130" raceKeys="Pirate" hullKeys="Pirate" enemyId="${_index}" side="1" />
@@ -16,8 +16,8 @@
       </struct>
     </range>
     <range name="Nebula">
-      <value count="60" radius="20000" x="${map.x(2.3)}" y="10.0" z="${map.z('B.25')}" range="4000" seed="20" />
-      <value count="60" radius="30000" x="${map.x(2.8)}" y="10.0" z="${map.z('E.05')}" range="4000" seed="25"/>
+      <value count="60" radius="10000" x="${map.x(2.3)}" y="10.0" z="${map.z('B.25')}" range="2500" seed="20" />
+      <value count="60" radius="15000" x="${map.x(3.9)}" y="10.0" z="${map.z('E.05')}" range="3000" seed="25"/>
     </range>
   </values>
   <start>

@@ -21,6 +21,7 @@
         <if_variable name="GameEnded" comparator="=" value="1" />
         <end_mission />
       </event>
+
     </template>
     <template name="NavPoint">
       <start>
@@ -37,7 +38,7 @@
         <set_variable name="${stateVar}" value="${int(navIndex)+1}" />
       </event>
     </template>
-    
+
     <template name="LaunchTracker">
       <start>
         <set_variable name="${stateVar}" value="-1" />
@@ -61,7 +62,7 @@
         <if_exists name ="${who}" />
         <if_timer_finished name="${who}_Regen" />
         <get_object_property name ="${who}" property="shieldStateFront" variable="${who}_shield" />
-        <set_object_property name ="${who}" property="shieldStateFront" value="${who}_shield + 5* ((121/(${who}_shield+1))-1)" />
+        <set_object_property name ="${who}" property="shieldStateFront" value="${who}_shield + 4* ((121/(${who}_shield+1))-1)" />
         <set_timer name="${who}_Regen" seconds="20" />
       </event>
       <event name="${who} arrives ${ship}">
@@ -70,6 +71,19 @@
         <warning_popup_message message="${who} Reached ${ship}" consoles="MO" player_slot ="${slot}" />
         <set_variable name="${stateVar}" value="${int(navCount)+1}" />
       </event>
+      <event name="${who} Fails">
+        <expand _skip="${hero!='true'}">
+          <if_not_exists name ="${who}" />
+          <if_variable name="${who}_State" comparator=">" value="0" />
+          <if_variable name="${who}_State" comparator="<" value="${int(navCount)+1}" />
+          <if_variable name="GameEnded" comparator="=" value="0" />
+          <big_message title="${who} Failed the mission" subtitle1="${who} Failed the mission" subtitle2="Hero fighters must survive the mission"/>
+          <warning_popup_message message="${who} Failed the mission" consoles="O" player_slot ="${slot}" />
+          <set_timer name="EndGameTimer" seconds="5" />
+          <set_variable name="GameEnded" value="1" integer="yes" />
+        </expand>
+      </event>
+
       <event name="${who} docked">
         <if_not_exists name ="${who}" />
         <if_variable name="${stateVar}" comparator="=" value="${int(navCount)+1}" />

@@ -19,12 +19,12 @@
     <create count="75" type="asteroids" startX="50000.0" startY="0.0" startZ="50000.0" radius="26000" randomRange="4000" randomSeed="30"/>
     <create count="75" type="asteroids" startX="50000.0" startY="0.0" startZ="50000.0" radius="36000" randomRange="4000" randomSeed="25"/>
     <create count="30" type="asteroids" startX="50000.0" startY="0.0" startZ="50000.0" radius="7000" randomRange="1000" randomSeed="21"/> -->
-        <create type="genericMesh" x="54000" y="0.0" z="45000" name="NAV_01" meshFileName="dat\asteroid8.dxs" textureFileName="dat\Asteroid_8_AO.png" ColorGreen="1"/>
-        <create count="20" type="nebulas" startX="54000" startY="0.0" startZ="45000" radius="1000" randomRange="2000" randomSeed="20"/>
-        <create type="genericMesh" x="44000" y="0.0" z="61000" name="NAV_02" meshFileName="dat\asteroid8.dxs" textureFileName="dat\Asteroid_8_AO.png" ColorGreen="1"/>
-        <create count="20" type="nebulas" startX="44000" startY="0.0" startZ="61000" radius="1000" randomRange="2000" randomSeed="25"/>
-        <create count="60" type="nebulas" startX="74000" startY="10.0" startZ="25000" radius="20000" randomRange="4000" randomSeed="140"/>
-        <create count="60" type="nebulas" startX="64000" startY="10.0" startZ="81000" radius="30000" randomRange="4000" randomSeed="145"/>
+        <create type="genericMesh" x="74000" y="0.0" z="25000" name="NAV_01" meshFileName="dat\asteroid8.dxs" textureFileName="dat\Asteroid_8_AO.png" ColorGreen="1"/>
+        <create count="20" type="nebulas" startX="74000" startY="0.0" startZ="25000" radius="1000" randomRange="2000" randomSeed="20"/>
+        <create type="genericMesh" x="42000" y="0.0" z="81000" name="NAV_02" meshFileName="dat\asteroid8.dxs" textureFileName="dat\Asteroid_8_AO.png" ColorGreen="1"/>
+        <create count="20" type="nebulas" startX="42000" startY="0.0" startZ="81000" radius="1000" randomRange="2000" randomSeed="25"/>
+        <create count="60" type="nebulas" startX="74000" startY="10.0" startZ="25000" radius="10000" randomRange="2500" randomSeed="140"/>
+        <create count="60" type="nebulas" startX="42000" startY="10.0" startZ="81000" radius="15000" randomRange="3000" randomSeed="145"/>
         <big_message title="Quiet is the Hunt" subtitle1="Chapter One: Sea legs" subtitle2="By Doug Reichard"/>
         <set_variable name="TotalLaunches" value="0" integer="yes"/>
         <set_variable name="PilotCount" value="0" integer="yes"/>
@@ -64,7 +64,7 @@
         <if_distance name1="Alta" name2="NAV_01" comparator="<=" value="2350"/>
         <if_variable name="Alta_State" comparator="=" value="0"/>
         <warning_popup_message message="Alta Reached NAV_01" consoles="MO" player_slot="0"/>
-        <create type="enemy" name="AltaNAV_010" x="54000+200*0" y="0.0" z="45000+200" sideValue="1" hullID="130" raceKeys="Pirate" hullKeys="Pirate"/>
+        <create type="enemy" name="AltaNAV_010" x="74000+200*0" y="0.0" z="25000+200" sideValue="1" hullID="130" raceKeys="Pirate" hullKeys="Pirate"/>
         <set_variable name="Alta_NAV_01_Enemies" value="1" integer="yes"/>
         <set_variable name="Alta_State" value="1"/>
     </event>
@@ -72,8 +72,8 @@
         <if_distance name1="Alta" name2="NAV_02" comparator="<=" value="2350"/>
         <if_variable name="Alta_State" comparator="=" value="1"/>
         <warning_popup_message message="Alta Reached NAV_02" consoles="MO" player_slot="0"/>
-        <create type="enemy" name="AltaNAV_020" x="44000+200*0" y="0.0" z="61000+200" sideValue="1" hullID="130" raceKeys="Pirate" hullKeys="Pirate"/>
-        <create type="enemy" name="AltaNAV_021" x="44000+200*1" y="0.0" z="61000+200" sideValue="1" hullID="130" raceKeys="Pirate" hullKeys="Pirate"/>
+        <create type="enemy" name="AltaNAV_020" x="42000+200*0" y="0.0" z="81000+200" sideValue="1" hullID="130" raceKeys="Pirate" hullKeys="Pirate"/>
+        <create type="enemy" name="AltaNAV_021" x="42000+200*1" y="0.0" z="81000+200" sideValue="1" hullID="130" raceKeys="Pirate" hullKeys="Pirate"/>
         <set_variable name="Alta_NAV_02_Enemies" value="2" integer="yes"/>
         <set_variable name="Alta_State" value="2"/>
     </event>
@@ -94,7 +94,7 @@
         <if_exists name="Alta"/>
         <if_timer_finished name="Alta_Regen"/>
         <get_object_property name="Alta" property="shieldStateFront" variable="Alta_shield"/>
-        <set_object_property name="Alta" property="shieldStateFront" value="Alta_shield + 5* ((121/(Alta_shield+1))-1)"/>
+        <set_object_property name="Alta" property="shieldStateFront" value="Alta_shield + 4* ((121/(Alta_shield+1))-1)"/>
         <set_timer name="Alta_Regen" seconds="20"/>
     </event>
     <event name="Alta arrives Ray Tracer">
@@ -102,6 +102,16 @@
         <if_variable name="Alta_State" comparator="=" value="2"/>
         <warning_popup_message message="Alta Reached Ray Tracer" consoles="MO" player_slot="0"/>
         <set_variable name="Alta_State" value="3"/>
+    </event>
+    <event name="Alta Fails">
+        <if_not_exists name="Alta"/>
+        <if_variable name="Alta_State" comparator=">" value="0"/>
+        <if_variable name="Alta_State" comparator="<" value="3"/>
+        <if_variable name="GameEnded" comparator="=" value="0"/>
+        <big_message title="Alta Failed the mission" subtitle1="Alta Failed the mission" subtitle2="Hero fighters must survive the mission"/>
+        <warning_popup_message message="Alta Failed the mission" consoles="O" player_slot="0"/>
+        <set_timer name="EndGameTimer" seconds="5"/>
+        <set_variable name="GameEnded" value="1" integer="yes"/>
     </event>
     <event name="Alta docked">
         <if_not_exists name="Alta"/>
@@ -115,7 +125,7 @@
         <if_distance name1="Nimbus" name2="NAV_01" comparator="<=" value="2350"/>
         <if_variable name="Nimbus_State" comparator="=" value="0"/>
         <warning_popup_message message="Nimbus Reached NAV_01" consoles="MO" player_slot="0"/>
-        <create type="enemy" name="NimbusNAV_010" x="54000+200*0" y="0.0" z="45000+200" sideValue="1" hullID="130" raceKeys="Pirate" hullKeys="Pirate"/>
+        <create type="enemy" name="NimbusNAV_010" x="74000+200*0" y="0.0" z="25000+200" sideValue="1" hullID="130" raceKeys="Pirate" hullKeys="Pirate"/>
         <set_variable name="Nimbus_NAV_01_Enemies" value="1" integer="yes"/>
         <set_variable name="Nimbus_State" value="1"/>
     </event>
@@ -123,8 +133,8 @@
         <if_distance name1="Nimbus" name2="NAV_02" comparator="<=" value="2350"/>
         <if_variable name="Nimbus_State" comparator="=" value="1"/>
         <warning_popup_message message="Nimbus Reached NAV_02" consoles="MO" player_slot="0"/>
-        <create type="enemy" name="NimbusNAV_020" x="44000+200*0" y="0.0" z="61000+200" sideValue="1" hullID="130" raceKeys="Pirate" hullKeys="Pirate"/>
-        <create type="enemy" name="NimbusNAV_021" x="44000+200*1" y="0.0" z="61000+200" sideValue="1" hullID="130" raceKeys="Pirate" hullKeys="Pirate"/>
+        <create type="enemy" name="NimbusNAV_020" x="42000+200*0" y="0.0" z="81000+200" sideValue="1" hullID="130" raceKeys="Pirate" hullKeys="Pirate"/>
+        <create type="enemy" name="NimbusNAV_021" x="42000+200*1" y="0.0" z="81000+200" sideValue="1" hullID="130" raceKeys="Pirate" hullKeys="Pirate"/>
         <set_variable name="Nimbus_NAV_02_Enemies" value="2" integer="yes"/>
         <set_variable name="Nimbus_State" value="2"/>
     </event>
@@ -145,7 +155,7 @@
         <if_exists name="Nimbus"/>
         <if_timer_finished name="Nimbus_Regen"/>
         <get_object_property name="Nimbus" property="shieldStateFront" variable="Nimbus_shield"/>
-        <set_object_property name="Nimbus" property="shieldStateFront" value="Nimbus_shield + 5* ((121/(Nimbus_shield+1))-1)"/>
+        <set_object_property name="Nimbus" property="shieldStateFront" value="Nimbus_shield + 4* ((121/(Nimbus_shield+1))-1)"/>
         <set_timer name="Nimbus_Regen" seconds="20"/>
     </event>
     <event name="Nimbus arrives Ray Tracer">
@@ -153,6 +163,16 @@
         <if_variable name="Nimbus_State" comparator="=" value="2"/>
         <warning_popup_message message="Nimbus Reached Ray Tracer" consoles="MO" player_slot="0"/>
         <set_variable name="Nimbus_State" value="3"/>
+    </event>
+    <event name="Nimbus Fails">
+        <if_not_exists name="Nimbus"/>
+        <if_variable name="Nimbus_State" comparator=">" value="0"/>
+        <if_variable name="Nimbus_State" comparator="<" value="3"/>
+        <if_variable name="GameEnded" comparator="=" value="0"/>
+        <big_message title="Nimbus Failed the mission" subtitle1="Nimbus Failed the mission" subtitle2="Hero fighters must survive the mission"/>
+        <warning_popup_message message="Nimbus Failed the mission" consoles="O" player_slot="0"/>
+        <set_timer name="EndGameTimer" seconds="5"/>
+        <set_variable name="GameEnded" value="1" integer="yes"/>
     </event>
     <event name="Nimbus docked">
         <if_not_exists name="Nimbus"/>
@@ -166,7 +186,7 @@
         <if_distance name1="RED_01" name2="NAV_01" comparator="<=" value="2350"/>
         <if_variable name="RED_01_State" comparator="=" value="0"/>
         <warning_popup_message message="RED_01 Reached NAV_01" consoles="MO" player_slot="0"/>
-        <create type="enemy" name="RED_01NAV_010" x="54000+200*0" y="0.0" z="45000+200" sideValue="1" hullID="130" raceKeys="Pirate" hullKeys="Pirate"/>
+        <create type="enemy" name="RED_01NAV_010" x="74000+200*0" y="0.0" z="25000+200" sideValue="1" hullID="130" raceKeys="Pirate" hullKeys="Pirate"/>
         <set_variable name="RED_01_NAV_01_Enemies" value="1" integer="yes"/>
         <set_variable name="RED_01_State" value="1"/>
     </event>
@@ -174,8 +194,8 @@
         <if_distance name1="RED_01" name2="NAV_02" comparator="<=" value="2350"/>
         <if_variable name="RED_01_State" comparator="=" value="1"/>
         <warning_popup_message message="RED_01 Reached NAV_02" consoles="MO" player_slot="0"/>
-        <create type="enemy" name="RED_01NAV_020" x="44000+200*0" y="0.0" z="61000+200" sideValue="1" hullID="130" raceKeys="Pirate" hullKeys="Pirate"/>
-        <create type="enemy" name="RED_01NAV_021" x="44000+200*1" y="0.0" z="61000+200" sideValue="1" hullID="130" raceKeys="Pirate" hullKeys="Pirate"/>
+        <create type="enemy" name="RED_01NAV_020" x="42000+200*0" y="0.0" z="81000+200" sideValue="1" hullID="130" raceKeys="Pirate" hullKeys="Pirate"/>
+        <create type="enemy" name="RED_01NAV_021" x="42000+200*1" y="0.0" z="81000+200" sideValue="1" hullID="130" raceKeys="Pirate" hullKeys="Pirate"/>
         <set_variable name="RED_01_NAV_02_Enemies" value="2" integer="yes"/>
         <set_variable name="RED_01_State" value="2"/>
     </event>
@@ -195,7 +215,7 @@
         <if_exists name="RED_01"/>
         <if_timer_finished name="RED_01_Regen"/>
         <get_object_property name="RED_01" property="shieldStateFront" variable="RED_01_shield"/>
-        <set_object_property name="RED_01" property="shieldStateFront" value="RED_01_shield + 5* ((121/(RED_01_shield+1))-1)"/>
+        <set_object_property name="RED_01" property="shieldStateFront" value="RED_01_shield + 4* ((121/(RED_01_shield+1))-1)"/>
         <set_timer name="RED_01_Regen" seconds="20"/>
     </event>
     <event name="RED_01 arrives Ray Tracer">
@@ -204,6 +224,7 @@
         <warning_popup_message message="RED_01 Reached Ray Tracer" consoles="MO" player_slot="0"/>
         <set_variable name="RED_01_State" value="3"/>
     </event>
+    <event name="RED_01 Fails"/>
     <event name="RED_01 docked">
         <if_not_exists name="RED_01"/>
         <if_variable name="RED_01_State" comparator="=" value="3"/>
@@ -215,7 +236,7 @@
         <if_distance name1="RED_02" name2="NAV_01" comparator="<=" value="2350"/>
         <if_variable name="RED_02_State" comparator="=" value="0"/>
         <warning_popup_message message="RED_02 Reached NAV_01" consoles="MO" player_slot="0"/>
-        <create type="enemy" name="RED_02NAV_010" x="54000+200*0" y="0.0" z="45000+200" sideValue="1" hullID="130" raceKeys="Pirate" hullKeys="Pirate"/>
+        <create type="enemy" name="RED_02NAV_010" x="74000+200*0" y="0.0" z="25000+200" sideValue="1" hullID="130" raceKeys="Pirate" hullKeys="Pirate"/>
         <set_variable name="RED_02_NAV_01_Enemies" value="1" integer="yes"/>
         <set_variable name="RED_02_State" value="1"/>
     </event>
@@ -223,8 +244,8 @@
         <if_distance name1="RED_02" name2="NAV_02" comparator="<=" value="2350"/>
         <if_variable name="RED_02_State" comparator="=" value="1"/>
         <warning_popup_message message="RED_02 Reached NAV_02" consoles="MO" player_slot="0"/>
-        <create type="enemy" name="RED_02NAV_020" x="44000+200*0" y="0.0" z="61000+200" sideValue="1" hullID="130" raceKeys="Pirate" hullKeys="Pirate"/>
-        <create type="enemy" name="RED_02NAV_021" x="44000+200*1" y="0.0" z="61000+200" sideValue="1" hullID="130" raceKeys="Pirate" hullKeys="Pirate"/>
+        <create type="enemy" name="RED_02NAV_020" x="42000+200*0" y="0.0" z="81000+200" sideValue="1" hullID="130" raceKeys="Pirate" hullKeys="Pirate"/>
+        <create type="enemy" name="RED_02NAV_021" x="42000+200*1" y="0.0" z="81000+200" sideValue="1" hullID="130" raceKeys="Pirate" hullKeys="Pirate"/>
         <set_variable name="RED_02_NAV_02_Enemies" value="2" integer="yes"/>
         <set_variable name="RED_02_State" value="2"/>
     </event>
@@ -244,7 +265,7 @@
         <if_exists name="RED_02"/>
         <if_timer_finished name="RED_02_Regen"/>
         <get_object_property name="RED_02" property="shieldStateFront" variable="RED_02_shield"/>
-        <set_object_property name="RED_02" property="shieldStateFront" value="RED_02_shield + 5* ((121/(RED_02_shield+1))-1)"/>
+        <set_object_property name="RED_02" property="shieldStateFront" value="RED_02_shield + 4* ((121/(RED_02_shield+1))-1)"/>
         <set_timer name="RED_02_Regen" seconds="20"/>
     </event>
     <event name="RED_02 arrives Ray Tracer">
@@ -253,6 +274,7 @@
         <warning_popup_message message="RED_02 Reached Ray Tracer" consoles="MO" player_slot="0"/>
         <set_variable name="RED_02_State" value="3"/>
     </event>
+    <event name="RED_02 Fails"/>
     <event name="RED_02 docked">
         <if_not_exists name="RED_02"/>
         <if_variable name="RED_02_State" comparator="=" value="3"/>
@@ -264,7 +286,7 @@
         <if_distance name1="RED_03" name2="NAV_01" comparator="<=" value="2350"/>
         <if_variable name="RED_03_State" comparator="=" value="0"/>
         <warning_popup_message message="RED_03 Reached NAV_01" consoles="MO" player_slot="0"/>
-        <create type="enemy" name="RED_03NAV_010" x="54000+200*0" y="0.0" z="45000+200" sideValue="1" hullID="130" raceKeys="Pirate" hullKeys="Pirate"/>
+        <create type="enemy" name="RED_03NAV_010" x="74000+200*0" y="0.0" z="25000+200" sideValue="1" hullID="130" raceKeys="Pirate" hullKeys="Pirate"/>
         <set_variable name="RED_03_NAV_01_Enemies" value="1" integer="yes"/>
         <set_variable name="RED_03_State" value="1"/>
     </event>
@@ -272,8 +294,8 @@
         <if_distance name1="RED_03" name2="NAV_02" comparator="<=" value="2350"/>
         <if_variable name="RED_03_State" comparator="=" value="1"/>
         <warning_popup_message message="RED_03 Reached NAV_02" consoles="MO" player_slot="0"/>
-        <create type="enemy" name="RED_03NAV_020" x="44000+200*0" y="0.0" z="61000+200" sideValue="1" hullID="130" raceKeys="Pirate" hullKeys="Pirate"/>
-        <create type="enemy" name="RED_03NAV_021" x="44000+200*1" y="0.0" z="61000+200" sideValue="1" hullID="130" raceKeys="Pirate" hullKeys="Pirate"/>
+        <create type="enemy" name="RED_03NAV_020" x="42000+200*0" y="0.0" z="81000+200" sideValue="1" hullID="130" raceKeys="Pirate" hullKeys="Pirate"/>
+        <create type="enemy" name="RED_03NAV_021" x="42000+200*1" y="0.0" z="81000+200" sideValue="1" hullID="130" raceKeys="Pirate" hullKeys="Pirate"/>
         <set_variable name="RED_03_NAV_02_Enemies" value="2" integer="yes"/>
         <set_variable name="RED_03_State" value="2"/>
     </event>
@@ -293,7 +315,7 @@
         <if_exists name="RED_03"/>
         <if_timer_finished name="RED_03_Regen"/>
         <get_object_property name="RED_03" property="shieldStateFront" variable="RED_03_shield"/>
-        <set_object_property name="RED_03" property="shieldStateFront" value="RED_03_shield + 5* ((121/(RED_03_shield+1))-1)"/>
+        <set_object_property name="RED_03" property="shieldStateFront" value="RED_03_shield + 4* ((121/(RED_03_shield+1))-1)"/>
         <set_timer name="RED_03_Regen" seconds="20"/>
     </event>
     <event name="RED_03 arrives Ray Tracer">
@@ -302,6 +324,7 @@
         <warning_popup_message message="RED_03 Reached Ray Tracer" consoles="MO" player_slot="0"/>
         <set_variable name="RED_03_State" value="3"/>
     </event>
+    <event name="RED_03 Fails"/>
     <event name="RED_03 docked">
         <if_not_exists name="RED_03"/>
         <if_variable name="RED_03_State" comparator="=" value="3"/>
