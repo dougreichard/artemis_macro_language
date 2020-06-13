@@ -1,0 +1,50 @@
+<mission_data version="1.0">
+    <templates>
+        <template name="hello">
+            <big_message title="${message}" />
+            <repeat range="Test">
+                <set_variable name="${foo}" value="${message}" />
+            </repeat>
+        </template>
+        <template name="helloEvent">
+            <event name="${message}">
+            <big_message title="${message}" />
+            <repeat range="Test">
+                <set_variable name="${foo}" value="${message}" />
+            </repeat>
+            </event>
+        </template>
+        <template name="helloEvent">
+            <event name="${message}">
+            <big_message title="${message}" />
+            <repeat range="Test">
+                <set_variable name="${foo}" value="${message}" />
+            </repeat>
+            </event>
+        </template>
+    </templates>
+    <values>
+        <value OUTER="Hello, nested" />
+        <value TEST="0" />
+        <range name="Test">
+            <value foo="bar" />
+            <value foo="baz" />
+        </range>
+         <range name="Ships">
+            <value foo="Art" />
+            <value foo="Ray Tracer" />
+        </range>
+    </values>
+
+    <expand>
+        <start>
+            <expand template="hello" message="${OUTER}" />
+        </start>
+        <expand template="helloEvent" message="${OUTER}" />
+    </expand>
+    <expand template="helloEvent" message="${OUTER}" />
+    <repeat range="Ships">
+        <expand template="helloEvent" message="${foo}" />
+    </repeat>
+
+</mission_data>

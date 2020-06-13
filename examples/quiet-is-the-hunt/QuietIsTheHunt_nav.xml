@@ -1,28 +1,84 @@
 <mission_data version="1.0">
   <templates>
-    <template name="NavPoint">
-      <event name="${who} arrives ${what}">
-        <if_distance name1 ="${who}" name2 ="${what}" comparator="<=" value="${distance}" />
-        <if_variable name="${stateVar}" comparator="=" value="${state}" />
-        <warning_popup_message message="${who} Reached ${what}" consoles="MO" player_slot ="0" />
-        <set_variable name="${stateVar}" value="${stateVar}+1" />
+    <template name="PilotEnemyTracking">
+      <start>
+        <set_variable name="TotalLaunches" value="0" integer="yes" />
+        <set_variable name="PilotCount" value="0" integer="yes" />
+        <set_variable name="HeroCount" value="0" integer="yes" />
+        <set_variable name="EnemyCount" value="0" integer="yes" />
+        <set_variable name="GameEnded" value="0" integer="yes" />
+      </start>
+      <event name="AllHeroesLanded">
+        <if_variable name="HeroCount" comparator="EQUALS" value="0" />
+        <if_variable name="TotalLaunches" comparator=">" value="0" />
+        <if_variable name="GameEnded" comparator="=" value="0" />
+        <big_message title="All hero pilots have landed" subtitle1="Mission completed" />
+        <set_timer name="EndGameTimer" seconds="5" />
+        <set_variable name="GameEnded" value="1" integer="yes" />
+      </event>
+      <event name="EndGame">
+        <if_timer_finished name="EndGameTimer" />
+        <if_variable name="GameEnded" comparator="=" value="1" />
+        <end_mission />
       </event>
     </template>
-    <template name="HasReturned">
+    <template name="NavPoint">
       <start>
-        <set_variable name="${stateVar}" value="0" integer="yes" />
+        <set_variable name="${who}_${what}_Enemies" value="0" integer="yes" />
       </start>
+      <event name="${who} arrives ${what}">
+        <if_distance name1 ="${who}" name2 ="${what}" comparator="<=" value="${distance}" />
+        <if_variable name="${stateVar}" comparator="=" value="${navIndex}" />
+        <warning_popup_message message="${who} Reached ${what}" consoles="MO" player_slot ="0" />
+        <repeat range="Enemies">
+          <create type="enemy" name="${who}${what}${_index}" x="${x}+200*${_index}" y="${y}" z="${z}+200" sideValue="${side}" hullID="${hullId}" raceKeys="${raceKeys}" hullKeys="${hullKeys}" />
+        </repeat>
+        <set_variable name="${who}_${what}_Enemies" value="${Enemies.length}" integer="yes" />
+        <set_variable name="${stateVar}" value="${int(navIndex)+1}" />
+      </event>
+    </template>
+    
+    <template name="LaunchTracker">
+      <start>
+        <set_variable name="${stateVar}" value="-1" />
+      </start>
+      <event name="${who} Launched ${ship}">
+        <if_exists name ="${who}" />
+        <if_variable name="${stateVar}" comparator="=" value="-1" />
+        <warning_popup_message message="${who} Launched ${ship}" consoles="MO" player_slot ="${slot}" />
+        <set_object_property name ="${who}" property="topSpeed" value="${hero=='true'?1.0:0.6}" />
+        <set_object_property name ="${who}" property="shieldMaxStateFront" value="${hero=='true'?120.0:15}" />
+        <set_object_property name ="${who}" property="shieldStateFront" value="${hero=='true'?120.0:15}" />
+        <set_variable name="${stateVar}" value="0" />
+        <set_variable name="TotalLaunches" value="TotalLaunches+1" integer="yes" />
+        <set_variable name="PilotCount" value="PilotCount+1" />
+        <expand _skip="${hero!='true'}">
+          <set_variable name="HeroCount" value="HeroCount+1" />
+        </expand>
+        <set_timer name="${who}_Regen" seconds="20" />
+      </event>
+      <event name="${who} Regen">
+        <if_exists name ="${who}" />
+        <if_timer_finished name="${who}_Regen" />
+        <get_object_property name ="${who}" property="shieldStateFront" variable="${who}_shield" />
+        <set_object_property name ="${who}" property="shieldStateFront" value="${who}_shield + 5* ((121/(${who}_shield+1))-1)" />
+        <set_timer name="${who}_Regen" seconds="20" />
+      </event>
       <event name="${who} arrives ${ship}">
         <if_distance name1 ="${who}" player_slot2="${slot}" comparator="<=" value="${distance}" />
-        <if_variable name="${stateVar}" comparator="=" value="${state}" />
+        <if_variable name="${stateVar}" comparator="=" value="${navCount}" />
         <warning_popup_message message="${who} Reached ${ship}" consoles="MO" player_slot ="${slot}" />
-        <set_variable name="${stateVar}" value="${int(state)+1}" />
+        <set_variable name="${stateVar}" value="${int(navCount)+1}" />
       </event>
       <event name="${who} docked">
         <if_not_exists name ="${who}" />
-        <if_variable name="${stateVar}" comparator="=" value="${int(state)+1}" />
+        <if_variable name="${stateVar}" comparator="=" value="${int(navCount)+1}" />
         <warning_popup_message message="${who} Docked" consoles="MO" player_slot ="${slot}" />
-        <set_variable name="${stateVar}" value="${int(state)+2}" />
+        <set_variable name="${stateVar}" value="${int(navCount)+2}" />
+        <set_variable name="PilotCount" value="PilotCount-1" />
+        <expand _skip="${hero!='true'}">
+          <set_variable name="HeroCount" value="HeroCount-1" />
+        </expand>
       </event>
     </template>
   </templates>

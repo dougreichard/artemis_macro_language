@@ -7,5 +7,20 @@
 
     <start>
         <expand template="hello" message="Hello, World" />
+        <expand> 
+            <big_message title="No skip" />
+        </expand>
+        <expand _skip="True"> 
+            <big_message title="Should skip" />
+        </expand>
+        <expand _skip="false"> 
+            <big_message title="False skip" />
+        </expand>
+        <expand _skip="${0==1}"> 
+            <big_message title="False macro skip" />
+        </expand>
+        <expand _skip="${1==1}"> 
+            <big_message title="True macro skip" />
+        </expand>
     </start>
 </mission_data>

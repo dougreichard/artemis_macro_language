@@ -1,0 +1,12 @@
+<mission_data version="1.0">
+    <start>
+        <big_message title="Hello, nested"/>
+        <set_variable name="bar" value="Hello, nested"/>
+        <set_variable name="baz" value="Hello, nested"/>
+    </start>
+    <event name="Hello, nested">
+        <big_message title="Hello, nested"/>
+        <set_variable name="bar" value="Hello, nested"/>
+        <set_variable name="baz" value="Hello, nested"/>
+    </event>
+</mission_data>
