@@ -81,7 +81,7 @@
         <if_exists name="Alta"/>
         <if_variable name="Alta_State" comparator="=" value="-1"/>
         <warning_popup_message message="Alta Launched Ray Tracer" consoles="MO" player_slot="0"/>
-        <set_object_property name="Alta" property="topSpeed" value="1"/>
+        <set_object_property name="Alta" property="topSpeed" value="4"/>
         <set_object_property name="Alta" property="shieldMaxStateFront" value="120"/>
         <set_object_property name="Alta" property="shieldStateFront" value="120"/>
         <set_variable name="Alta_State" value="0"/>
@@ -142,7 +142,7 @@
         <if_exists name="Nimbus"/>
         <if_variable name="Nimbus_State" comparator="=" value="-1"/>
         <warning_popup_message message="Nimbus Launched Ray Tracer" consoles="MO" player_slot="0"/>
-        <set_object_property name="Nimbus" property="topSpeed" value="1"/>
+        <set_object_property name="Nimbus" property="topSpeed" value="4"/>
         <set_object_property name="Nimbus" property="shieldMaxStateFront" value="120"/>
         <set_object_property name="Nimbus" property="shieldStateFront" value="120"/>
         <set_variable name="Nimbus_State" value="0"/>
@@ -224,7 +224,6 @@
         <warning_popup_message message="RED_01 Reached Ray Tracer" consoles="MO" player_slot="0"/>
         <set_variable name="RED_01_State" value="3"/>
     </event>
-    <event name="RED_01 Fails"/>
     <event name="RED_01 docked">
         <if_not_exists name="RED_01"/>
         <if_variable name="RED_01_State" comparator="=" value="3"/>
@@ -274,7 +273,6 @@
         <warning_popup_message message="RED_02 Reached Ray Tracer" consoles="MO" player_slot="0"/>
         <set_variable name="RED_02_State" value="3"/>
     </event>
-    <event name="RED_02 Fails"/>
     <event name="RED_02 docked">
         <if_not_exists name="RED_02"/>
         <if_variable name="RED_02_State" comparator="=" value="3"/>
@@ -324,7 +322,6 @@
         <warning_popup_message message="RED_03 Reached Ray Tracer" consoles="MO" player_slot="0"/>
         <set_variable name="RED_03_State" value="3"/>
     </event>
-    <event name="RED_03 Fails"/>
     <event name="RED_03 docked">
         <if_not_exists name="RED_03"/>
         <if_variable name="RED_03_State" comparator="=" value="3"/>

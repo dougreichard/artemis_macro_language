@@ -46,5 +46,6 @@
     <repeat range="Ships">
         <expand template="helloEvent" message="${foo}" />
     </repeat>
+    <event name="Empty"/>
 
 </mission_data>
