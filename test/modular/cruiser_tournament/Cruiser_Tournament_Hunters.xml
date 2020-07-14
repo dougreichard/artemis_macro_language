@@ -1,0 +1,47 @@
+<mission_data>
+    <values>
+        <range name="hunters">
+            <value name="Hunter[1]" timer="70" x="58300" y="57" z="78300" />
+            <value name="Hunter[2]" timer="80" x="59300" y="57" z="23500" />
+            <value name="Hunter[3]" timer="90" x="38200" y="-57" z="43500" />
+            <value name="Hunter[4]" timer="100" x="58200" y="-245" z="43500" />
+        </range>
+    </values>
+    <!-- Hunter Code  -->
+    <start>
+        <!-- Hunters  -->
+        <repeat range="hunters">
+            <create type="enemy" x="${x}" y="${y}" z="${z}" angle="45" name="${name}" raceKeys="Torgoth" hullKeys="Goliath" fleetnumber="-1"/>
+            <set_ship_text name="${name}" race="Torgoth" class="Whale Hunter" desc="Licensed Professional Hunter of Whales"/>
+            <add_ai name ="${name}" type ="CHASE_WHALE" value1="20000"/>
+            <add_ai name ="${name}" type ="CHASE_ANGER" value1="20000"/>
+            <set_special name="${name}" clear="yes" ability="Drones"/>
+
+            <set_timer name="${name}_timer" seconds="70"/>
+        </repeat>
+    </start>
+    <!-- Hunter Beacons  -->
+    <repeat range="hunters">
+        <event name="${name} Beacon Deploy">
+            <if_exists name="${name}"/>
+            <if_timer_finished name="${name}_timer"/>
+            <destroy name="B${_index}"/>
+            <create type="Anomaly" name="B${_index}" pickupType="8" beaconMonsterType="1" beaconEffect="0" x="3511.0" y="-321.0" z="6063.0"/>
+            <set_relative_position name2="B${_index}" name1="${name}" angle="0" distance="1000"/>
+            <set_timer name="${name}_timer" seconds="70"/>
+        </event>
+    </repeat>
+    <!-- PRIME Hunter 1 -->
+    <event name="Prime Hunters">
+        <if_variable name="HunterPrime" comparator="EQUALS" value="0"/>
+        <set_variable name="HunterPrime" value="1" integer="yes"/>
+        <repeat range="hunters">
+            <set_object_property name="${name}" property="shieldMaxStateFront" value="20"/>
+            <set_object_property name="${name}" property="shieldMaxStateBack" value="20"/>
+            <set_object_property name="${name}" property="topSpeed" value="${0.35+_index*0.01}"/>
+        </repeat>
+    </event>
+</mission_data>
+
+
+   

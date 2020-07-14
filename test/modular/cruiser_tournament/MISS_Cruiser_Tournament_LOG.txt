@@ -1,0 +1,6 @@
+**** log file for mission MISS_Cruiser_Tournament ****
+CRUISER TOURNAMENT has started
+Beginning First Period. 48 minutes remaining.
+DIFFICULTY FACTOR 1
+Enemy Hunter 1 Destroyed
+Score = 40 kt  44 minutes remaining.

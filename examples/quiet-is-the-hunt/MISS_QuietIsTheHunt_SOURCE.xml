@@ -16,6 +16,10 @@
       <create type="player" player_slot="${slot}" x="${map.x(3.5)}" y="0" z="${map.z('C.5')+_index*1000}" name="${ship}" raceKeys="TSN" hullKeys="Carrier"/>
       <set_object_property player_slot ="${slot}" property="topSpeed" value="0" />
       <set_object_property player_slot ="${slot}" property="turnRate" value="0" />
+      <repeat range="Escort">
+        <create type ="neutral" x="${map.x(3.5-0.1*_index)}" y="0" z="${map.z('C.5')}" hullId="${hullId}" raceKeys="${raceKeys}" hullKeys="${hullKeys}" name="${escortName}" angle="180"/>
+      </repeat>
+
     </repeat>
 
     <set_difficulty_level value="5"/>
@@ -28,6 +32,7 @@
       <repeat range="NavPoints">
         <expand template="NavPoint" who="${Pilots.pilot}" what="${navpoint}" distance="2350" stateVar="${Pilots.pilot}_State" navIndex="${_index}"/>
       </repeat>
+      
       <expand template="LaunchTracker" who="${pilot}" hero="${hero}" ship="${Ships.ship}" slot="${Ships.slot}" distance="3000" stateVar="${pilot}_State" navCount="${utils.length('NavPoints')}" />
 
     </repeat>

@@ -1,0 +1,34 @@
+<mission_data>
+    <values>
+        <range name="whales">
+            <value name="Ed" x="40000" y="-500" z="91000" />
+            <value name="Al" x="40000" y="500" z="4000" />
+            <value name="Jo" x="60000" y="-500" z="4000" />
+            <value name="An" x="60000" y="500" z="91000" />
+            <value name="Ki" x="95000" y="-500" z="25000" />
+            <value name="Lu" x="5000" y="500" z="25000" />
+            <value name="Pi" x="5000" y="-500" z="40000" />
+            <value name="Te" x="95000" y="500" z="40000" />
+        </range>
+    </values>
+    <!-- There are whales spread around the sector -->
+    <start>
+        <repeat range="whales">
+            <create type="monster" x="${x}" y="${y}" z="${z}" monsterType="1" name="${name}" podnumber="6"/>
+        </repeat>
+    </start>
+    <!-- Count Whale Bonus -->
+    <repeat range="whales">
+        <event name="Bonus ${name}">
+            <if_variable name="PeriodEnd" comparator="EQUALS" value="1"/>
+            <if_exists name="${name}"/>
+            <set_variable name="Bonus" value="Bonus+1"/>
+        </event>
+    </repeat>
+
+    <event name="Add Whale Bonus">
+        <if_variable name="Bonus" comparator="GREATER" value="1"/>
+        <set_variable name="Tonnage" Value="Tonnage+Bonus"/>
+        <set_variable name="Bonus" value="0"/>
+    </event>
+</mission_data>

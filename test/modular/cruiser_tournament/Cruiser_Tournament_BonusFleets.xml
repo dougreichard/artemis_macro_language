@@ -1,0 +1,350 @@
+<mission_data>
+    <!-- ****************** B O N U S   F L E E T S *******************-->
+    <values>
+        <range name="fleet">
+            <struct>
+                <value var="Bonus_7" number="97" collect="Secret Code Cases" />
+                <!-- Traits of the legendry ship -->
+                <!-- The first ship  -->
+                <range name="triggers">
+                    <value trigger="71"/>
+                </range>
+                <range name="enemies">
+                    <value name="B71" x="5000" y="0" z="41000" angle="200" race="Skaraan" hull="Executor" size="large" weight="70" surrender="35" />
+                    <value name="B72" x="5140" y="-200" z="40800" angle="200" race="Torgoth" hull="Leviathan" size="medium" weight="90" surrender="45"/>
+                    <value name="B73" x="4960" y="-200" z="42200" angle="200" race="Kralien" hull="Dreadnought" size="large" weight="25" surrender="13" />
+                    <value name="B74" x="5540" y="200" z="43300" angle="200" race="Kralien" hull="Battleship" size= "medium" weight="17" surrender="9" />
+                    <value name="B75" x="5440" y="200" z="43500" angle="200" race="Kralien" hull="Cruiser" size="small" weight="9" surrender="5"/>
+                    <value name="B76" x="5340" y="200" z="42300" angle="200" race="Kralien" hull="Cruiser" size="small" weight="9" surrender="5" />
+                </range>
+                <struct name="legend">
+                    <range name="abilities">
+                        <value clear="yes" ability="Teleport"/>
+                        <value ability="Warp"/>
+                        <value ability="Tractor"/>
+                        <value ability="Drones"/>
+                        <value ability="HET"/>
+                        <value ability="AntiMine"/>
+                        <value captain="yes" ability="AntiTorp"/>
+                        <value clear="yes" ability="ShldDrain"/>
+                        <value ability="ShldVamp"/>
+                        <value clear="yes" ability="LowVis"/>
+                        <value clear="yes" ability="Stealth"/>
+                    </range>
+                </struct>
+            </struct>
+            <struct>
+                <value var="Bonus_6" number="96" collect="Carapaction Coils" />
+                <!-- Traits of the legendry ship -->
+                <!-- The first ship  -->
+                <range name="triggers">
+                    <value trigger="61"/>
+                    <value trigger="62"/>
+                </range>
+                <range name="enemies">
+                    <value name="B61" x="75000" y="0" z="41000" angle="200" race="Skaraan" hull="Enforcer" size="medium" weight="50" surrender="25" />
+                    <value name="B62" x="75140" y="-200" z="40800" angle="200" race="Torgoth" hull="Leviathan" size="medium" weight="90" surrender="45"/>
+                    <value name="B63" x="74960" y="-200" z="42200" angle="200" race="Kralien" hull="Dreadnought" size="large" weight="25" surrender="13" />
+                    <value name="B64" x="75540" y="200" z="43100" angle="200" race="Kralien" hull="Battleship" size= "medium" weight="17" surrender="9" />
+                    <value name="B65" x="75440" y="200" z="43700" angle="200" race="Kralien" hull="Cruiser" size="small" weight="9" surrender="5"/>
+                    <value name="B66" x="75340" y="200" z="43300" angle="200" race="Kralien" hull="Cruiser" size="small" weight="9" surrender="5" />
+                </range>
+                <struct name="legend">
+                    <range name="abilities">
+                        <value clear="yes" ability="Cloak"/>
+                        <value clear="yes" ability="Warp"/>
+                        <value clear="yes" ability="Tractor"/>
+                        <value captain="yes" ability="Teleport"/>
+                        <value clear="yes" ability="Drones"/>
+                        <value clear="yes" ability="HET"/>
+                        <value clear="yes" ability="AntiMine"/>
+                        <value clear="yes" ability="AntiTorp"/>
+                        <value clear="yes" ability="ShldDrain"/>
+                        <value clear="yes" ability="ShldVamp"/>
+                        <value clear="yes" ability="LowVis"/>
+                        <value clear="yes" ability="Stealth"/>
+                    </range>
+                </struct>
+            </struct>
+            <struct>
+                <value var="Bonus_5" number="95" collect="Infusion P-Coils" />
+                <range name="triggers">
+                    <value trigger="51"/>
+                    <value trigger="52"/>
+                    <value trigger="53"/>
+                </range>
+                <range name="enemies">
+                    <value name="B51" x="65000" y="0" z="31000" angle="200" race="Skaraan" hull="Enforcer" size="medium" weight="50" surrender="25" />
+                    <value name="B52" x="65140" y="-200" z="30800" angle="200" race="Torgoth" hull="Leviathan" size="medium" weight="90" surrender="45"/>
+                    <value name="B53" x="64960" y="-200" z="32200" angle="200" race="Kralien" hull="Dreadnought" size="large" weight="25" surrender="13" />
+                    <value name="B54" x="65540" y="200" z="31300" angle="200" race="Kralien" hull="Battleship" size= "medium" weight="17" surrender="9" />
+                    <value name="B55" x="65440" y="-200" z="33000" angle="200" race="Kralien" hull="Cruiser" size="small" weight="9" surrender="5"/>
+                    <value name="B56" x="65340" y="200" z="33300" angle="200" race="Kralien" hull="Cruiser" size="small" weight="9" surrender="5" />
+                    <value name="B57" x="65340" y="200" z="30600" angle="200" race="Arvonian" hull="Light Carrier" size="" weight="25" surrender="13" />
+                </range>
+                <!-- Traits of the legendry ship -->
+                <!-- The first ship  -->
+                <struct name="legend">
+                    <range name="abilities">
+                        <value captain="yes" ability="Cloak"/>
+                        <value clear="yes" ability="Warp"/>
+                        <value ability="Tractor"/>
+                        <value clear="yes" ability="Teleport"/>
+                        <value ability="Drones"/>
+                        <value clear="yes" ability="HET"/>
+                        <value clear="yes" ability="AntiMine"/>
+                        <value clear="yes" ability="AntiTorp"/>
+                        <value clear="yes" ability="ShldDrain"/>
+                        <value clear="yes" ability="ShldVamp"/>
+                        <value clear="yes" ability="LowVis"/>
+                        <value clear="yes" ability="Stealth"/>
+                    </range>
+                </struct>
+
+            </struct>
+            <struct>
+                <value var="Bonus_4" number="94" collect="Tauron Focusers" />
+                <range name="triggers">
+                    <value trigger="41"/>
+                    <value trigger="42"/>
+                    <value trigger="43"/>
+                    <value trigger="44"/>
+                </range>
+                <range name="enemies">
+                    <value name="B41" x="65000" y="0" z="31000" angle="200" race="Skaraan" hull="Enforcer" size="medium" weight="50" surrender="25" />
+                    <value name="B42" x="65140" y="-200" z="30800" angle="200" race="Torgoth" hull="Leviathan" size="medium" weight="90" surrender="45"/>
+                    <value name="B43" x="64960" y="-200" z="32200" angle="200" race="Kralien" hull="Dreadnought" size="large" weight="25" surrender="13" />
+                    <value name="B44" x="65440" y="200" z="31300" angle="200" race="Kralien" hull="Battleship" size= "medium" weight="17" surrender="9" />
+                    <value name="B45" x="65540" y="-200" z="33000" angle="200" race="Kralien" hull="Cruiser" size="small" weight="9" surrender="5"/>
+                    <value name="B46" x="65340" y="200" z="33300" angle="200" race="Kralien" hull="Cruiser" size="small" weight="9" surrender="5" />
+                    <value name="B47" x="65340" y="200" z="30600" angle="200" race="Arvonian" hull="Carrier Carrier" size="" weight="45" surrender="23" />
+                </range>
+                <!-- Traits of the legendry ship -->
+                <!-- The first ship  -->
+                <struct name="legend">
+                    <range name="abilities">
+                        <value captain="yes" ability="Cloak"/>
+                        <value clear="yes" ability="Warp"/>
+                        <value ability="Tractor"/>
+                        <value clear="yes" ability="Teleport"/>
+                        <value ability="Drones"/>
+                        <value clear="yes" ability="HET"/>
+                        <value clear="yes" ability="AntiMine"/>
+                        <value clear="yes" ability="AntiTorp"/>
+                        <value clear="yes" ability="ShldDrain"/>
+                        <value clear="yes" ability="ShldVamp"/>
+                        <value clear="yes" ability="LowVis"/>
+                        <value clear="yes" ability="Stealth"/>
+                    </range>
+                </struct>
+            </struct>
+            <struct>
+                <value var="Bonus_3" number="93" collect="Lateral Arrays" />
+                <range name="triggers">
+                    <value trigger="31"/>
+                    <value trigger="32"/>
+                    <value trigger="33"/>
+                    <value trigger="34"/>
+                    <value trigger="35"/>
+                </range>
+                <range name="enemies">
+                    <value name="B31" x="44000" y="0" z="30000" angle="200" race="Skaraan" hull="Executor" size="large" weight="70" surrender="35" />
+                    <value name="B32" x="44140" y="-200" z="29800" angle="200" race="Torgoth" hull="Leviathan" size="medium" weight="90" surrender="45"/>
+                    <value name="B33" x="43960" y="-200" z="31200" angle="200" race="Kralien" hull="Dreadnought" size="large" weight="25" surrender="13" />
+                    <value name="B34" x="44133" y="200" z="30300" angle="200" race="Kralien" hull="Battleship" size= "medium" weight="17" surrender="9" />
+                    <value name="B35" x="44444" y="200" z="32300" angle="200" race="Kralien" hull="Cruiser" size="small" weight="9" surrender="5"/>
+                    <value name="B36" x="43540" y="200" z="32430" angle="200" race="Kralien" hull="Cruiser" size="small" weight="9" surrender="5" />
+                    <value name="B37" x="44240" y="-200" z="29600" angle="200" race="Arvonian" hull="Carrier Carrier" size="" weight="45" surrender="23" />
+                </range>
+                <!-- Traits of the legendry ship -->
+                <!-- The first ship  -->
+                <struct name="legend">
+                    <range name="abilities">
+                        <value clear="yes" ability="Cloak"/>
+                        <value captain="yes" ability="Warp"/>
+                        <value ability="Tractor"/>
+                        <value clear="yes" ability="Teleport"/>
+                        <value ability="Drones"/>
+                        <value clear="yes" ability="HET"/>
+                        <value clear="yes" ability="AntiMine"/>
+                        <value ability="AntiTorp"/>
+                        <value clear="yes" ability="ShldDrain"/>
+                        <value clear="yes" ability="ShldVamp"/>
+                        <value clear="yes" ability="LowVis"/>
+                        <value clear="yes" ability="Stealth"/>
+                    </range>
+                </struct>
+
+            </struct>
+            <struct>
+                <value var="Bonus_2" number="92" collect="Cetrocite Crystals" />
+                <range name="triggers">
+                    <value trigger="21"/>
+                    <value trigger="22"/>
+                    <value trigger="23"/>
+                    <value trigger="24"/>
+                    <value trigger="25"/>
+                    <value trigger="26"/>
+                </range>
+                <range name="enemies">
+                    <value name="B21" x="75000" y="0" z="31000" angle="200" race="Skaraan" hull="Executor" size="large" weight="70" surrender="35" />
+                    <value name="B22" x="75140" y="-200" z="30800" angle="200" race="Torgoth" hull="Behemoth" size="large" weight="150" surrender="75"/>
+                    <value name="B23" x="74960" y="-200" z="32200" angle="200" race="Kralien" hull="Dreadnought" size="large" weight="25" surrender="13" />
+                    <value name="B24" x="75240" y="200" z="31300" angle="200" race="Kralien" hull="Battleship" size= "medium" weight="17" surrender="9" />
+                    <value name="B25" x="75540" y="200" z="33333" angle="200" race="Kralien" hull="Cruiser" size="small" weight="9" surrender="5"/>
+                    <value name="B26" x="75040" y="-200" z="33300" angle="200" race="Kralien" hull="Cruiser" size="small" weight="9" surrender="5" />
+                    <value name="B27" x="75240" y="200" z="30600" angle="200" race="Arvonian" hull="Carrier Carrier" size="" weight="45" surrender="23" />
+                </range>
+                <!-- Traits of the legendry ship -->
+                <!-- The first ship  -->
+                <struct name="legend">
+                    <range name="abilities">
+                        <value clear="yes" ability="Cloak"/>
+                        <value captain="yes" ability="Warp"/>
+                        <value ability="Tractor"/>
+                        <value clear="yes" ability="Teleport"/>
+                        <value ability="Drones"/>
+                        <value clear="yes" ability="HET"/>
+                        <value clear="yes" ability="AntiMine"/>
+                        <value ability="AntiTorp"/>
+                        <value clear="yes" ability="ShldDrain"/>
+                        <value clear="yes" ability="ShldVamp"/>
+                        <value clear="yes" ability="LowVis"/>
+                        <value clear="yes" ability="Stealth"/>
+                    </range>
+                </struct>
+            </struct>
+            <struct>
+                <value var="Bonus_1" number="91" collect="Cetrocite Crystals" />
+                <range name="triggers">
+                    <value trigger="11"/>
+                    <value trigger="12"/>
+                    <value trigger="13"/>
+                    <value trigger="14"/>
+                    <value trigger="15"/>
+                    <value trigger="16"/>
+                    <value trigger="17"/>
+                </range>
+                <range name="enemies">
+                    <value name="B11" x="66000" y="0" z="31000" angle="200" race="Skaraan" hull="Executor" size="large" weight="70" surrender="35" />
+                    <value name="B12" x="66140" y="-200" z="30800" angle="200" race="Torgoth" hull="Behemoth" size="large" weight="150" surrender="75"/>
+                    <value name="B13" x="66960" y="-200" z="32200" angle="200" race="Kralien" hull="Dreadnought" size="large" weight="25" surrender="13" />
+                    <value name="B14" x="66540" y="200" z="31300" angle="200" race="Kralien" hull="Battleship" size= "medium" weight="17" surrender="9" />
+                    <value name="B15" x="66640" y="200" z="33300" angle="200" race="Kralien" hull="Cruiser" size="small" weight="9" surrender="5"/>
+                    <value name="B16" x="66740" y="-200" z="33400" angle="200" race="Kralien" hull="Cruiser" size="small" weight="9" surrender="5" />
+                    <value name="B17" x="66040" y="200" z="30700" angle="200" race="Arvonian" hull="Carrier" size="Carrier" weight="45" surrender="23" />
+                    <value name="B18" x="66540" y="-200" z="30250" angle="200" race="Kralien" hull="Battleship" size="medium" weight="17" surrender="9" />
+                </range>
+                <!-- Traits of the legendry ship -->
+                <!-- The first ship  -->
+                <struct name="legend">
+                    <range name="abilities">
+                        <value clear="yes" ability="Cloak"/>
+                        <value captain="yes" ability="Warp"/>
+                        <value ability="Tractor"/>
+                        <value clear="yes" ability="Teleport"/>
+                        <value ability="Drones"/>
+                        <value clear="yes" ability="HET"/>
+                        <value clear="yes" ability="AntiMine"/>
+                        <value ability="AntiTorp"/>
+                        <value clear="yes" ability="ShldDrain"/>
+                        <value clear="yes" ability="ShldVamp"/>
+                        <value clear="yes" ability="LowVis"/>
+                        <value clear="yes" ability="Stealth"/>
+                    </range>
+                </struct>
+            </struct>
+            <struct>
+                <value var="Bonus_0" number="90" collect="High Density Power Cells" />
+                <range name="triggers">
+                    <value trigger="31"/>
+                    <value trigger="32"/>
+                    <value trigger="33"/>
+                    <value trigger="34"/>
+                    <value trigger="35"/>
+                </range>
+                <range name="enemies">
+                    <value name="B01" x="26000" y="0" z="32000" angle="200" race="Skaraan" hull="Executor" size="large" weight="70" surrender="35" />
+                    <value name="B02" x="26140" y="-200" z="31800" angle="200" race="Torgoth" hull="Behemoth" size="large" weight="150" surrender="75"/>
+                    <value name="B03" x="26960" y="-200" z="33200" angle="200" race="Kralien" hull="Dreadnought" size="large" weight="25" surrender="13" />
+                    <value name="B04" x="26540" y="200" z="32300" angle="200" race="Kralien" hull="Battleship" size= "medium" weight="17" surrender="9" />
+                    <value name="B05" x="26640" y="200" z="34300" angle="200" race="Kralien" hull="Cruiser" size="small" weight="9" surrender="5"/>
+                    <value name="B06" x="26740" y="-200" z="34400" angle="200" race="Kralien" hull="Cruiser" size="small" weight="9" surrender="5" />
+                    <value name="B07" x="26040" y="200" z="31700" angle="200" race="Arvonian" hull="Carrier" size="Carrier" weight="45" surrender="23" />
+                    <value name="B08" x="26540" y="-200" z="31250" angle="200" race="Kralien" hull="Battleship" size="medium" weight="17" surrender="9" />
+                </range>
+                <!-- Traits of the legendry ship -->
+                <!-- The first ship  -->
+                <struct name="legend">
+                    <range name="abilities">
+                        <value ability="Cloak"/>
+                        <value captain="yes" ability="Warp"/>
+                        <value ability="Tractor"/>
+                        <value ability="Teleport"/>
+                        <value ability="Drones"/>
+                        <value clear="yes" ability="HET"/>
+                        <value ability="AntiMine"/>
+                        <value ability="AntiTorp"/>
+                        <value ability="ShldDrain"/>
+                        <value ability="ShldVamp"/>
+                        <value clear="yes" ability="LowVis"/>
+                        <value clear="yes" ability="Stealth"/>
+                    </range>
+                </struct>
+            </struct>
+        </range>
+    </values>
+
+    <repeat range="fleet">
+        <event name="Spawn Bonus ${var}">
+            <if_variable name="Bonus_7" comparator="EQUALS" value="0"/>
+            <repeat range="triggers">
+                <if_not_exists name="${trigger}"/>
+            </repeat>
+
+            <incoming_comms_text from="Enemy Fleet">
+      Congratulations, Artemis. You collected all of the ${collect}. We are sending a bonus fleet for you to fight.
+            </incoming_comms_text>
+            <repeat range="enemies">
+                <create type="enemy" x="${x}" y="${y}" z="${z}" angle="200" name="${name}" raceKeys="${race} enemy" hullKeys="${hull} ${size}" fleetnumber="${fleet.number}"/>
+            </repeat>
+            <!--1 This was tricky because of mix of XML and macro -->
+            <!--1 This may not seem 'better' at first -->
+
+            <repeat range="legend.abilities">
+                <expand skip="${!captain}">
+                    <set_special name="${enemies[0].name}" ship="-1" captain="5" ability="${apility}"/>
+                </expand>
+                <expand skip="${!clear}">
+                    <set_special name="${enemies[0].name}" ability="${ability}"/>
+                </expand>
+                <expand skip="${captain||clear}">
+                    <set_special name="${enemies[0].name}" ability="${ability}"/>
+                </expand>
+            </repeat>
+            <set_variable name="${fleet.var}" value="1"/>
+        </event>
+        <repeat range="enemies">
+            <event name="${name} Surrendered">
+                <if_variable name="${fleet.var}" comparator="EQUALS" value="1"/>
+                <if_variable name="${name}_surrendered" comparator="EQUALS" value="0"/>
+                <if_object_property property="hasSurrendered" name="${name}" comparator="EQUALS" value="1"/>
+                <big_message title="${race} ${hull} ${name} Surrendered" subtitle1="${weight} kilotons" subtitle2="+${surrender} kt surrender bonus"/>
+                <log text="${race} ${hull} ${name} Surrendered"/>
+                <set_variable name="${name}_surrendered" value="1"/>
+                <set_variable name="report_score" value="1"/>
+                <set_variable name="Tonnage" value="Tonnage+${weight}+${surrender}"/>
+            </event>
+            <event name="${name} Destroyed">
+                <if_variable name="${fleet.var}" comparator="EQUALS" value="1"/>
+                <if_variable name="${name}_dead" comparator="EQUALS" value="0"/>
+                <if_not_exists name="${name}"/>
+                <big_message title="${race} ${hull} ${name} Destroyed" subtitle1="${weight} kilotons" subtitle2=""/>
+                <log text="${race} ${hull} ${name} Destroyed"/>
+                <set_variable name="${name}_dead" value="1"/>
+                <set_variable name="report_score" value="1"/>
+                <set_variable name="Tonnage" value="Tonnage+${weight}"/>
+            </event>
+        </repeat>
+    </repeat>
+</mission_data>

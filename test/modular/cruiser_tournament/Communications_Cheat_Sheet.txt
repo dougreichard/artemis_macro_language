@@ -1,0 +1,23 @@
+                       CRUISER TOURNAMENT COMMUNICATIONS CHEAT SHEET
+
+BASE	PRODUCES	WILL ACCEPT		PREFERRS
+DS1	Xiridium	Salistra or Augite	Platinum
+DS2	Salistra	Augite or Platinum	Xiridium
+DS3	Augite		Platinum or Xiridium	Salistra
+DS4	Platinum	Xiridium or Salistra	Augite
+
+A base will not accept a cargo that it produces.
+If given any acceptable cargo the base will build an EMP.
+If given its preferred cargo the base will build both an EMP and a Nuke.
+Only the freighters Alpha Betty and Delta Queen can carry cargo.
+
+Enemy ships that surrender award the players their full tonnage plus a 50% tonnage bonus. They cannot be scored again even if destroyed.
+
+Once they are repaired, the destroyers Phoenix and Moscow can be used to attack enemies or defend friendly bases and freighters.
+Because they are under control of the Communications Officer, kills by Phoenix and Moscow count toward the crew's total tonnage.
+
+NEVER USE "PROCEED TO YOUR DESTINATION" with any friendly ship. This tells the friendly ship their services are no longer needed and they should exit the map. For game purposes, saying "PROCEED TO YOUR DESTINATION" is the same as saying "SELF DESTRUCT."
+"PROCEED TO YOUR DESTINATION" IS ALWAYS BAD AND WILL ALWAYS HURT YOUR SCORE EVEN WHEN YOU ARE NOT PLAYING THIS MISSION.
+NEVER USE "PROCEED TO YOUR DESTINATION" IN ANY GAME OF ARTEMIS!!!!!!!!
+
+Note: I hope this changes in some future version of the game.

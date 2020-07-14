@@ -1,0 +1,30 @@
+<mission_data>
+    <values>
+        <range name="difficulty">
+            <value level="1" crew_type="a trainee" />
+            <value level="2" crew_type="a cadette" />
+            <value level="3" crew_type="a cadette" />
+            <value level="4" crew_type="a cadette" />
+            <value level="5" crew_type="an experienced" />
+            <value level="6" crew_type="an experienced" />
+            <value level="7" crew_type="a verteran" />
+            <value level="8" crew_type="a verteran" />
+            <value level="9" crew_type="an elite" />
+            <value level="10" crew_type="an elite" />
+            <value level="11" crew_type="an insane" />
+        </range>
+    </values>
+    <repeat range="difficulty">
+        <event name="Difficulty ${level}">
+            <if_variable name="credits1" comparator="EQUALS" value="1"/>
+            <if_difficulty comparator="EQUALS" value="${level}"/>
+            <big_message title="Written for TSN Light Cruiser" subtitle1="with ${crew_type} crew" subtitle2="difficulty factor ${level}"/>
+            <set_variable name="credits1" value="2"/>
+            <log text="DIFFICULTY FACTOR ${level}"/>
+        </event>
+    </repeat>
+    <event name="Difficulty Done">
+        <if_variable name="Difficult_Factor" comparator="EQUALS" value="0"/>
+        <set_variable name="Difficult_Factor" value="1"/>
+    </event>
+</mission_data>

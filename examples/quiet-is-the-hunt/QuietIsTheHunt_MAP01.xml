@@ -15,13 +15,17 @@
         </range>
       </struct>
     </range>
+    <range name="Escort">
+      <value escortName="ES1" hullId="1503" raceKeys="Terran friendly" hullKeys="Bulk Cargo" escortId="${_index}" side="0" />
+      <value escortName="ES2" hullId="1503" raceKeys="Terran friendly" hullKeys="Bulk Cargo" escortId="${_index}" side="0" />
+    </range>
     <range name="Nebula">
       <value count="60" radius="10000" x="${map.x(2.3)}" y="10.0" z="${map.z('B.25')}" range="2500" seed="20" />
       <value count="60" radius="15000" x="${map.x(3.9)}" y="10.0" z="${map.z('E.05')}" range="3000" seed="25"/>
     </range>
   </values>
   <start>
-    
+
     <!--  <create count="60" type="nebulas" startX="50000.0" startY="100.0" startZ="50000.0" radius="25000" randomRange="4000" randomSeed="15"/>
     <create count="60" type="nebulas" startX="50000.0" startY="-100.0" startZ="50000.0" radius="30000" randomRange="4000" randomSeed="20"/>
     <create count="60" type="nebulas" startX="50000.0" startY="0.0" startZ="50000.0" radius="40000" randomRange="4000" randomSeed="35"/>
@@ -36,8 +40,9 @@
       <create count="20" type="nebulas" startX="${x}" startY="${y}" startZ="${z}" radius="1000" randomRange="2000" randomSeed="${20+_index*5}"/>
     </repeat>
     <repeat range="Nebula">
-       <create count="${count}" type="nebulas" startX="${x}" startY="${y}" startZ="${z}" radius="${radius}" randomRange="${range}" randomSeed="${140+_index*5}"/>
+      <create count="${count}" type="nebulas" startX="${x}" startY="${y}" startZ="${z}" radius="${radius}" randomRange="${range}" randomSeed="${140+_index*5}"/>
     </repeat>
+    
 
     <big_message title="Quiet is the Hunt" subtitle1="Chapter One: Sea legs" subtitle2="By Doug Reichard" />
   </start>

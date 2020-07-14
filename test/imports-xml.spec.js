@@ -8,13 +8,13 @@ const { MissionParser } = require('../lib/mission-parser.js')
 let DEBUG = true
 
 
-async function expectReadCheck(xml, filename) {
+async function expectReadCheck(xml, basedir, name) {
     if (DEBUG) {
-        let debug = filename.replace("-expected", "-debug")
+        let debug = path.resolve(basedir, "debug", name)
         await fs.writeFile( debug, xml, "utf8")
-
     }
-    let content = await fs.readFile(filename, "utf8")
+    let expected = path.resolve(basedir, "expected", name)
+    let content = await fs.readFile(expected, "utf8")
     return content === xml
 
 }
@@ -39,23 +39,20 @@ function loopTest(basedir, suffix) {
     let files = readdirSync(basedir, { withFileTypes: true })
     for (let file of files) {
         if (file.name.endsWith(suffix)) {
-            let full = path.resolve(basedir, file.name)
-            testFileFragment(full, suffix)
+            testFileFragment(basedir, file.name)
         }
     }
 }
 
 
-async function testFileFragment(name, suffix) {
-    let testName = path.basename(name)
-    it(testName, async () => {
-        let expected = name.replace(suffix, "-expected.xml")
-        
-        let mission = await MissionFile.fromFile(name)
+async function testFileFragment(basedir, name) {
+    let full = path.resolve(basedir, name)
+    it(name, async () => {
+        let mission = await MissionFile.fromFile(full)
         await mission.processFile()
         mission.dumpAllErrors()
         let xml = mission.toXML()
-        let isSame = await expectReadCheck(xml, expected)
+        let isSame = await expectReadCheck(xml, basedir, name)
         expect(isSame).to.be.true
     })
 }
@@ -121,7 +118,7 @@ describe('Mission File', () => {
             expect(mission.data.mystructure.inner.health).to.equal("5")
 
             let xml = mission.toXML()
-            await expectReadCheck(xml, path.resolve('test', 'fragments', 'xml','values-simple-expected.xml'))
+            await expectReadCheck(xml, path.resolve('test', 'fragments', 'xml'), 'values-simple-fragment.xml')
         })
 
         it("Test The Arena non-template merge", async () => {

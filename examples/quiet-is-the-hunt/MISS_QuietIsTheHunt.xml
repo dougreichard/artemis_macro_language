@@ -10,6 +10,8 @@
         <create type="player" player_slot="0" x="50000" y="0" z="50000" name="Ray Tracer" raceKeys="TSN" hullKeys="Carrier"/>
         <set_object_property player_slot="0" property="topSpeed" value="0"/>
         <set_object_property player_slot="0" property="turnRate" value="0"/>
+        <create type="neutral" x="50000" y="0" z="50000" hullId="1503" raceKeys="Terran friendly" hullKeys="Bulk Cargo" name="ES1" angle="180"/>
+        <create type="neutral" x="52000" y="0" z="50000" hullId="1503" raceKeys="Terran friendly" hullKeys="Bulk Cargo" name="ES2" angle="180"/>
         <set_difficulty_level value="5"/>
         <!--  <create count="60" type="nebulas" startX="50000.0" startY="100.0" startZ="50000.0" radius="25000" randomRange="4000" randomSeed="15"/>
     <create count="60" type="nebulas" startX="50000.0" startY="-100.0" startZ="50000.0" radius="30000" randomRange="4000" randomSeed="20"/>
@@ -81,7 +83,7 @@
         <if_exists name="Alta"/>
         <if_variable name="Alta_State" comparator="=" value="-1"/>
         <warning_popup_message message="Alta Launched Ray Tracer" consoles="MO" player_slot="0"/>
-        <set_object_property name="Alta" property="topSpeed" value="4"/>
+        <set_object_property name="Alta" property="topSpeed" value="1"/>
         <set_object_property name="Alta" property="shieldMaxStateFront" value="120"/>
         <set_object_property name="Alta" property="shieldStateFront" value="120"/>
         <set_variable name="Alta_State" value="0"/>
@@ -142,7 +144,7 @@
         <if_exists name="Nimbus"/>
         <if_variable name="Nimbus_State" comparator="=" value="-1"/>
         <warning_popup_message message="Nimbus Launched Ray Tracer" consoles="MO" player_slot="0"/>
-        <set_object_property name="Nimbus" property="topSpeed" value="4"/>
+        <set_object_property name="Nimbus" property="topSpeed" value="1"/>
         <set_object_property name="Nimbus" property="shieldMaxStateFront" value="120"/>
         <set_object_property name="Nimbus" property="shieldStateFront" value="120"/>
         <set_variable name="Nimbus_State" value="0"/>
