@@ -483,9 +483,9 @@
   },
   "repeat": {
     "scope": "xml,miss",
-    "prefix": "value",
+    "prefix": "repeat",
     "body": [
-      "<value name=\"${1:name}\" value=\"${2:value}\" />"
+      "<repeat _range=\"${1:name}\"  >\t${0}</repeat>"
     ],
     "description": "Set a value for use in AML"
   },
@@ -522,7 +522,7 @@
   "expand_template": {
     "scope": "xml,miss",
     "prefix": "expand",
-    "body": "<expand template=\"${1:template}\" ${2:param}=\"${3:value}\" />",
+    "body": "<expand _template=\"${1:template}\" ${2:param}=\"${3:value}\" />",
     "description": "Section for structured values for AML"
   },
   "template": {

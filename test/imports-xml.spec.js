@@ -67,8 +67,9 @@ describe('Mission File', () => {
             let file = path.resolve(__dirname, 'modular', 'xml-templated', process.env.modular)
             testFileFragment(file, "-template.xml")
         } else {
-            loopTest(path.resolve(__dirname, 'fragments', 'xml'), "-fragment.xml")
-            loopTest(path.resolve(__dirname, 'modular', 'xml-templated'),"-template.xml")
+           loopTest(path.resolve(__dirname, 'fragments', 'xml'), "-fragment.xml")
+           loopTest(path.resolve(__dirname, 'modular', 'xml-templated'),"-template.xml")
+           loopTest(path.resolve(__dirname, 'modular', 'cruiser_tournament'),".xml")
         }
         it("Test Tree Navigation", async () => {
             let mission = await MissionFile.fromFile(path.resolve('test', 'fragments', 'xml', 'import-simple-fragment.xml'))

@@ -1,44 +1,82 @@
 <mission_data>
-    <values>
-        <range name="stations">
-            <value name="DS1" nuke="0" homing="7" EMP="0" mine="1" Pshock="2" type="Science" x="69500" z="69000" bonus="Vigoranium Nodules"/>
-            <value name="DS2" nuke="1" homing="10" EMP="0" mine="1" Pshock="2" type="Civilian" x="44000" z="71000" bonus="High Density Power Cells" />
-            <value name="DS3" nuke="0" homing="27" EMP="0" mine="1" Pshock="2" type="Science" x="76000" z="95000" bonus="Carapaction Coils" />
-            <value name="DS4" nuke="0" homing="27" EMP="0" mine="1" Pshock="2" type="Civilian" x="33600" z="92500" bonus="Tauron Focusers" />
-        </range>
-    </values>
-    <start>
-        <repeat range="stations">
-            <clear_player_station_carried name="${name}"/>
-            <set_player_station_carried name="${name}" singleSeatName="Pilgrim" raceKeys="TSN player" hullKeys="singleseat shuttle"/>
-
-            <create type="station" x="${x}" y="0.0" z="${z}" angle="0" name="${name}" raceKeys="Terran friendly" hullKeys="${type} Base"/>
-            <set_object_property property="missileStoresNuke" value="${nuke}" name="${name}"/>
-            <set_object_property property="missileStoresHoming" value="${homing}" name="${name}"/>
-            <set_object_property property="missileStoresEMP" value="${EMP}" name="${name}"/>
-            <set_object_property property="missileStoresMine" value="${mine}" name="${name}"/>
-            <set_object_property property="missileStoresPshock" value="${Pshock}" name="${name}"/>
-        </repeat>
-    </start>
-    <!-- Hints from Bases -->
-    <repeat range="stations">
-        <event name="${name} Hint">
-            <if_variable name="${name}_hint" comparator="EQUALS" value="0"/>
-            <if_docked name="${name}"/>
-            <incoming_comms_text from="${name}" type="STATION">
-    Bonus available! If you collect all ${bonus} Nodules a bonus enemy fleet will attack. You can score extra tonnage by destroying it.
-            </incoming_comms_text>
-            <set_variable name="${name}_hint" value="1"/>
-        </event>
-        <event name="${name} Destroyed">
-            <if_variable name="${name}_dead" comparator="EQUALS" value="0"/>
-            <if_not_exists name="${name}"/>
-            <big_message title="Friendly Base ${name} Destroyed" subtitle1="Penalty -90 kilotons" subtitle2=""/>
-            <log text="Friendly Base ${name} Destroyed"/>
-            <set_variable name="${name}_dead" value="1"/>
-            <set_variable name="Tonnage" value="Tonnage-90"/>
-            <set_variable name="report_score" value="1"/>
-            <set_timer name="report_timer" seconds="8"/>
-        </event>
+  <values>
+    <range name="stations">
+      <struct>
+        <value name="DS1" type="Science" x="69500" z="69000" bonus="Vigoranium"/>
+        <value nuke="0" homing="7" EMP="0" mine="1" Pshock="2" type="Science"/>
+        <value minutes="47" produce="Xiridium" need="Platinum" want1="Salistra" want2="Augite" />
+      </struct>
+      <struct>
+        <value name="DS2" nuke="1" homing="10" EMP="0" mine="1" Pshock="2" type="Civilian" x="44000" z="71000" bonus="High Density Power Cells" />
+        <value nuke="1" homing="10" EMP="0" mine="1" Pshock="2" />
+        <value minutes="46" produce="Salistra" need="Xiridium" want1="Platinum" want2="Augite" />
+      </struct>
+      <struct>
+        <value name="DS3" nuke="0" homing="27" EMP="0" mine="1" Pshock="2" type="Science" x="76000" z="95000" bonus="Carapaction Coils" />
+        <value nuke="0" homing="27" EMP="0" mine="1" Pshock="2"/>
+        <value minutes="45" produce="Augite" need="Salistra" want1="Xiridium" want2="Platinum" />
+      </struct>
+      <struct>
+        <value name="DS4" type="Civilian" x="33600" z="92500" bonus="Tauron Focusers" />
+        <value nuke="0" homing="27" EMP="0" mine="1" Pshock="2"/>
+        <value minutes="44" produce="Platinum" need="Augite" want1="Xiridium" want2="Salistra" />
+      </struct>
+    </range>
+  </values>
+  <start>
+    <repeat _range="stations">
+      <clear_player_station_carried name="${name}"/>
+      <set_player_station_carried name="${name}" singleSeatName="Pilgrim" raceKeys="TSN player" hullKeys="singleseat shuttle"/>
+      <create type="station" x="${x}" y="0.0" z="${z}" angle="0" name="${name}" raceKeys="Terran friendly" hullKeys="${type} Base"/>
+      <set_object_property property="missileStoresNuke" value="${nuke}" name="${name}"/>
+      <set_object_property property="missileStoresHoming" value="${homing}" name="${name}"/>
+      <set_object_property property="missileStoresEMP" value="${EMP}" name="${name}"/>
+      <set_object_property property="missileStoresMine" value="${mine}" name="${name}"/>
+      <set_object_property property="missileStoresPshock" value="${Pshock}" name="${name}"/>
     </repeat>
+    <set_comms_button text="Request Cargo Report" sideValue="2" player_slot="0"/>
+  </start>
+  <!-- Hints from Bases -->
+  <repeat _range="stations">
+    <event name="${name} Hint">
+      <if_variable name="${name}_hint" comparator="EQUALS" value="0"/>
+      <if_docked name="${name}"/>
+      <incoming_comms_text from="${name}" type="STATION">
+  Bonus available! If you collect all ${bonus} Nodules a bonus enemy fleet will attack. You can score extra tonnage by destroying it.
+      </incoming_comms_text>
+      <set_variable name="${name}_hint" value="1"/>
+    </event>
+    <event name="${name} Destroyed">
+      <if_variable name="${name}_dead" comparator="EQUALS" value="0"/>
+      <if_not_exists name="${name}"/>
+      <big_message title="Friendly Base ${name} Destroyed" subtitle1="Penalty -90 kilotons" subtitle2=""/>
+      <log text="Friendly Base ${name} Destroyed"/>
+      <set_variable name="${name}_dead" value="1"/>
+      <set_variable name="Tonnage" value="Tonnage-90"/>
+      <set_variable name="report_score" value="1"/>
+      <set_timer name="report_timer" seconds="8"/>
+    </event>
+
+    <event name="Instructions from ${name}">
+      <if_variable name="Minutes" comparator="EQUALS" value="${minutes}"/>
+      <if_variable name="Message" comparator="EQUALS" value="${_index}"/>
+      <incoming_comms_text from="${name}" type="STATION">
+    Our base can produces ${produce}. We need ${need} to make Nukes. If you send us ${want1} or ${want2} we can make EMP torpedoes.
+      </incoming_comms_text>
+      <set_variable name="Message" value="${_index+1}"/>
+    </event>
+    
+  </repeat>
+
+  <event name="Instructions from Scorekeeper">
+    <if_comms_button text="Request Cargo Report"/>
+    <repeat _range="stations">
+      <incoming_comms_text from="Scorekeeper" type="ALERT">
+      ${name} makes ${produce} and prefers ${need}
+      </incoming_comms_text>
+    </repeat>
+    <incoming_comms_text from="Scorekeeper" type="ALERT">
+      Any base will accept any cargo it doesn't produce.
+    </incoming_comms_text>
+  </event>
 </mission_data>

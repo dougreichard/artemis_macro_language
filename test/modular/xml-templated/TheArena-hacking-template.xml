@@ -6,8 +6,8 @@
 
   <!-- Nested Looop -->
 
-  <repeat range="AllShips" as="hacker">
-    <repeat range="AllShips" as="target" _skip="${target.ship == hacker.ship}">
+  <repeat _range="AllShips" _as="hacker">
+    <repeat _range="AllShips" _as="target" _skip="${target.ship == hacker.ship}">
       <event name="${hacker.ship} Tagged ${target.ship}">
         <if_object_tag_matches objectName="${target.ship}" string="${hacker.ship}"/>
         <set_comms_button text="${hacker.ship} Choose Hacking Program vs ${target.ship}?" sideValue="${hacker.sideValue}"/>

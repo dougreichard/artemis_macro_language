@@ -1,0 +1,91 @@
+<mission_data>
+  <imports>
+    <import name="Cruiser_Tournament_templates.xml" />
+  </imports>
+  <values>
+    <range name="destroyers">
+      <value x="9660.0" z="93234.0" name="Phoenix" when="Phoenix When" extra="Phoenix Extra" msg="Our propulsion and steering are broken"/>
+      <value x="99440.0" z="93234.0" name="Moscow" when="Moscow When" fixArtemis="yes" msg="We've had a massive systems failure"/>
+    </range>
+  </values>
+  <start>
+    <repeat _range="destroyers">
+      <create type="neutral" x="${x}" y="0.0" z="${z}" angle="213.7" name="${name}" raceKeys="Terran friendly" hullKeys="medium Destroyer"/>
+      <set_special name="${name}" ship="1.0" captain="1.0"/>
+      <set_variable name="${name}" value="0" integer="yes"/>
+    </repeat>
+  </start>
+  <repeat _range="destroyers">
+    <expand _template="tonnage_destroy" race="Terran" hull="Destroyer" weight="-30" />
+    <expand _template="broke" />
+    <expand _template="fix" />
+  </repeat>
+  <!-- THESE ARE NOT DIFFERENT ENOUGH -->
+  <!-- This is an experiment to build up pieces -->
+  <!-- Via nested / indirect templates  -->
+  <!-- Could make adding more easier?  -->
+  <templates>
+    <template name="broke">
+      <params>
+        <param name="name" description="description" />
+        <param name="when" description="Extra condition needed"/>
+        <param name="msg" description="Damage Message"/>
+        <param name="extra" description="description" default=""/>
+      </params>
+      <event name="${name} Broke">
+        <expand _template="${when}" />
+        <if_variable name="${name}" comparator="EQUALS" value="0"/>
+        <set_object_property property="topSpeed" value="0.0" name="${name}"/>
+        <set_object_property property="turnRate" value="0.0" name="${name}"/>
+        <set_object_property name="${name}" property="systemDamageImpulse" value="1"/>
+        <set_ship_text name="${name}" class="Fast Destroyer" hailtext="Engine malfunction! We can't move until you bring us Damage Control Teams."/>
+        <incoming_comms_text from="Starship ${name}">
+    ${msg}, Artemis. To rescue us you must rendezvous with us and send over a full set of Damage Control teams.
+        </incoming_comms_text>
+        <set_variable name="${name}" value="1"/>
+        <expand _template="${extra}" _skip="${extra==''}" />
+      </event>
+    </template>
+    <template name="Phoenix When">
+      <if_timer_finished name="credits_timer1"/>
+    </template>
+    <template name="Moscow When">
+      <if_variable name="Minutes" comparator="EQUALS" value="47"/>
+    </template>
+    <template name="Phoenix Extra">
+      <clear_comms_button text="Request Score Report"/>
+      <clear_comms_button text="Request Cargo Report"/>
+      <set_comms_button text="Request Score Report" sideValue="2" player_slot="0"/>
+      <set_comms_button text="Request Cargo Report" sideValue="2" player_slot="0"/>
+    </template>
+    <template name="fix">
+      <params>
+        <param name="name" description="description" />
+        <param name="fixArtemis" description="description" default=""/>
+      </params>
+      <event name="${name} Fixed">
+        <if_distance name1="Artemis" name2="${name}" comparator="LESS" value ="500"/>
+        <if_variable name="${name}" comparator="EQUALS" value="1"/>
+        <if_damcon_members team_index="0" comparator="GREATER" value="1"/>
+        <if_damcon_members team_index="1" comparator="GREATER" value="1"/>
+        <if_damcon_members team_index="2" comparator="GREATER" value="1"/>
+        <set_damcon_members team_index="0" value="0"/>
+        <set_damcon_members team_index="1" value="0"/>
+        <set_damcon_members team_index="2" value="0"/>
+        <set_variable name="${name}" value="2"/>
+        <set_object_property property="topSpeed" value="1.3" name="${name}"/>
+        <set_object_property property="turnRate" value="1/100" name="${name}"/>
+        <set_object_property name="${name}" property="systemDamageImpulse" value="0"/>
+        <expand _skip="${fixArtemis==''}">
+          <set_object_property name="Artemis" property="systemDamageImpulse" value="0"/>
+        </expand>
+        <incoming_comms_text from="Starship ${name}">
+  Thanks, for repairing our ship Artemis. We are ready for your orders. You should dock at a base to get new Damage Control Teams.
+        </incoming_comms_text>
+        <set_ship_text name="${name}" hailtext="We are ready to obey your orders, Artemis!"/>
+        <warning_popup_message message="All Damage Control Teams transferred to ${name}." consoles="E"/>
+        <add_ai type="FOLLOW_COMMS_ORDERS" name="${name}"/>
+      </event>
+    </template>
+  </templates>
+</mission_data>

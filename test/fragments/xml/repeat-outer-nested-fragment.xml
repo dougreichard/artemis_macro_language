@@ -4,15 +4,15 @@
   </imports>
 
     <start>
-        <repeat range="AllShips">
+        <repeat _range="AllShips">
             <set_variable name="${ship}_Score" value="0.0"/>
         </repeat>
     </start>
-    <repeat range="AllShips" as="main">
+    <repeat _range="AllShips" _as="main">
         <event name="${main.ship} Wins">
             <if_timer_finished name="Game_Timer"/>
             <if_variable name="Scoring_Allowed" comparator="EQUALS" value="2.0"/>
-            <repeat range="AllShips" as="check" _skip="${main.ship == check.ship}">
+            <repeat _range="AllShips" _as="check" _skip="${main.ship == check.ship}">
                 <if_variable name="${main.ship}_Score" comparator="GREATER" value="${check.ship}_Score"/>
             </repeat>
             <set_variable name="Scoring_Allowed" value="3.0"/>

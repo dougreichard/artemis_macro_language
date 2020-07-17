@@ -31,11 +31,11 @@
         <if_distance name1 ="${who}" name2 ="${what}" comparator="<=" value="${distance}" />
         <if_variable name="${stateVar}" comparator="=" value="${navIndex}" />
         <warning_popup_message message="${who} Reached ${what}" consoles="MO" player_slot ="0" />
-        <repeat range="Enemies">
+        <repeat _range="Enemies">
           <create type="enemy" name="${who}${what}${_index}" x="${x}+200*${_index}" y="${y}" z="${z}+200" sideValue="${side}" hullID="${hullId}" raceKeys="${raceKeys}" hullKeys="${hullKeys}" />
         </repeat>
         <set_variable name="${who}_${what}_Enemies" value="${Enemies.length}" integer="yes" />
-        <set_variable name="${stateVar}" value="${int(navIndex)+1}" />
+        <set_variable name="${stateVar}" value="${_.int(navIndex)+1}" />
       </event>
     </template>
 
@@ -69,13 +69,13 @@
         <if_distance name1 ="${who}" player_slot2="${slot}" comparator="<=" value="${distance}" />
         <if_variable name="${stateVar}" comparator="=" value="${navCount}" />
         <warning_popup_message message="${who} Reached ${ship}" consoles="MO" player_slot ="${slot}" />
-        <set_variable name="${stateVar}" value="${int(navCount)+1}" />
+        <set_variable name="${stateVar}" value="${_.int(navCount)+1}" />
       </event>
       <event name="${who} Fails">
         <expand _skip="${hero!='true'}">
           <if_not_exists name ="${who}" />
           <if_variable name="${who}_State" comparator=">" value="0" />
-          <if_variable name="${who}_State" comparator="<" value="${int(navCount)+1}" />
+          <if_variable name="${who}_State" comparator="<" value="${_.int(navCount)+1}" />
           <if_variable name="GameEnded" comparator="=" value="0" />
           <big_message title="${who} Failed the mission" subtitle1="${who} Failed the mission" subtitle2="Hero fighters must survive the mission"/>
           <warning_popup_message message="${who} Failed the mission" consoles="O" player_slot ="${slot}" />
@@ -86,9 +86,9 @@
 
       <event name="${who} docked">
         <if_not_exists name ="${who}" />
-        <if_variable name="${stateVar}" comparator="=" value="${int(navCount)+1}" />
+        <if_variable name="${stateVar}" comparator="=" value="${_.int(navCount)+1}" />
         <warning_popup_message message="${who} Docked" consoles="MO" player_slot ="${slot}" />
-        <set_variable name="${stateVar}" value="${int(navCount)+2}" />
+        <set_variable name="${stateVar}" value="${_.int(navCount)+2}" />
         <set_variable name="PilotCount" value="PilotCount-1" />
         <expand _skip="${hero!='true'}">
           <set_variable name="HeroCount" value="HeroCount-1" />

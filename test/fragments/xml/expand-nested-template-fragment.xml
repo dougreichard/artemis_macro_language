@@ -1,0 +1,63 @@
+<mission_data>
+  <templates>
+    <template name="tonnage_destroy">
+      <params>
+        <param name="name" description="The name of the ship"/>
+        <param name="weight" description="The weight in tonnage of the ship"/>
+        <param name="race" description="The race text for the ship"/>
+        <param name="hull" description="The hull text for the ship" default=""/>
+      </params>
+      <event name="${name} Destroyed">
+        <if_variable name="${name}_surrendered" comparator="EQUALS" value="0"/>
+        <if_variable name="${name}_dead" comparator="EQUALS" value="0"/>
+        <if_not_exists name="${name}"/>
+        <set_variable name="${name}_dead" value="1"/>
+        <set_variable name="report_score" value="1"/>
+        <set_timer name="report_timer" seconds="8"/>
+        <set_variable name="Tonnage" value="Tonnage+${weight}"/>
+        <big_message title="${race} ${hull} ${name} destroyed" subtitle1="${weight} kilotons" subtitle2=""/>
+        <set_variable name="report_score" value="1"/>
+        <set_timer name="report_timer" seconds="8"/>
+        <log text="${race} ${hull} ${name} destroyed"/>
+      </event>
+    </template>
+    <template name="tonnage_surrender">
+      <params>
+        <param name="name" description="The name of the ship"/>
+        <param name="weight" description="The weight in tonnage of the ship"/>
+        <param name="surrender" description="The surrender bonus of the ship"/>
+        <param name="race" description="The race text for the ship"/>
+        <param name="hull" description="The hull text for the ship"  default=""/>
+        <param name="fleet" description="The fleet ID (For bonus fleets)" default=""/>
+      </params>
+      <event name="${name} Surrendered">
+        <if_variable name="${name}_surrendered" comparator="EQUALS" value="0"/>
+        <if_object_property property="hasSurrendered" name="${name}" comparator="EQUALS" value="1"/>
+        <set_variable name="${name}_surrendered" value="1"/>
+        <set_object_property property="topSpeed" value="0.2" name="${name}"/>
+        <set_variable name="Tonnage" value="Tonnage+${weight}+${surrender}"/>
+        <big_message title="${race} ${hull} surrendered" subtitle1="${weight} kilotons" subtitle2="+${surrender} kt surrender bonus"/>
+        <set_variable name="report_score" value="1"/>
+        <set_timer name="report_timer" seconds="8"/>
+        <log text="${race} ${hull} ${name} Surrendered"/>
+      </event>
+    </template>
+    <template name="tonnage">
+      <expand _template="tonnage_surrender" />
+      <expand _template="tonnage_destroy" />
+    </template>
+  </templates>
+
+    <values>
+        <range name="hunters">
+            <value name="Hunter[1]" timer="70" x="58300" y="57" z="78300" weight="40" surrender="20" />
+            <value name="Hunter[2]" timer="80" x="59300" y="57" z="23500" weight="40" surrender="20" />
+            <value name="Hunter[3]" timer="90" x="38200" y="-57" z="43500" weight="40" surrender="20" />
+            <value name="Hunter[4]" timer="100" x="58200" y="-245" z="43500" weight="40" surrender="20" />
+        </range>
+    </values>
+    <repeat _range="hunters">
+        <!--Override text to match original  -->
+        <expand _template="tonnage" race="Enemy" hull="" />
+    </repeat>
+</mission_data>

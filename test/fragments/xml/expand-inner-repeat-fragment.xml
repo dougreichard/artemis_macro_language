@@ -2,14 +2,14 @@
     <templates>
         <template name="hello">
             <big_message title="${message}" />
-            <repeat range="Test">
+            <repeat _range="Test">
                 <set_variable name="${foo}" value="${message}" />
             </repeat>
         </template>
         <template name="helloEvent">
             <event name="${message}">
             <big_message title="${message}" />
-            <repeat range="Test">
+            <repeat _range="Test">
                 <set_variable name="${foo}" value="${message}" />
             </repeat>
             </event>
@@ -17,7 +17,7 @@
         <template name="helloEvent">
             <event name="${message}">
             <big_message title="${message}" />
-            <repeat range="Test">
+            <repeat _range="Test">
                 <set_variable name="${foo}" value="${message}" />
             </repeat>
             </event>
@@ -38,14 +38,13 @@
 
     <expand>
         <start>
-            <expand template="hello" message="${OUTER}" />
+            <expand _template="hello" message="${OUTER}" />
         </start>
-        <expand template="helloEvent" message="${OUTER}" />
+        <expand _template="helloEvent" message="${OUTER}" />
     </expand>
-    <expand template="helloEvent" message="${OUTER}" />
-    <repeat range="Ships">
-        <expand template="helloEvent" message="${foo}" />
+    <expand _template="helloEvent" message="${OUTER}" />
+    <repeat _range="Ships">
+        <expand _template="helloEvent" message="${foo}" />
     </repeat>
     <event name="Empty"/>
-
 </mission_data>

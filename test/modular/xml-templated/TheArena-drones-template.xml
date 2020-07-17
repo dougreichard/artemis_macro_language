@@ -6,13 +6,13 @@
   <start>
     <set_variable name="Drone_Speed" value="6.0"/>
 
-    <repeat range="AllShips">
+    <repeat _range="AllShips">
       <set_variable name="${ship}_Sensor_Drone_Built" value="1.0"/>
       <set_timer name="${ship}_Sensor_Drone_Built" seconds="5"/>
     </repeat>
 
   </start>
-  <repeat range="AllShips">
+  <repeat _range="AllShips">
     <event name="Sensor Drone ${ship} Create Comms button">
       <if_variable name="${ship}_Sensor_Drone_Built" comparator="EQUALS" value="1.0"/>
       <set_comms_button text="Launch ${ship} Sensor Drone" sideValue="${sideValue}"/>

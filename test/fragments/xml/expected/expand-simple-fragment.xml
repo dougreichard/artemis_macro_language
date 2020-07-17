@@ -1,8 +1,8 @@
 <mission_data version="1.0">
-    <start>
-        <big_message title="Hello, World"/>
-        <big_message title="No skip"/>
-        <big_message title="False skip"/>
-        <big_message title="False macro skip"/>
-    </start>
+  <start>
+    <big_message title="Hello, World"/>
+    <big_message title="No skip"/>
+    <big_message title="False skip"/>
+    <big_message title="False macro skip"/>
+  </start>
 </mission_data>

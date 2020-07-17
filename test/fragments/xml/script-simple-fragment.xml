@@ -9,7 +9,7 @@
         <import name="script-simple-fragment.js" />
     </imports>
     <start>
-        <expand template="test"/>
+        <expand _template="test"/>
         <expand>
             <big-message title="inline ${plugins.MyPlugin.message}"/>
         </expand>

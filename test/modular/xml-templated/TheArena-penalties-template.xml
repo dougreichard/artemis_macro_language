@@ -3,7 +3,7 @@
     <import name="TheArena-ranges.xml" />
   </imports>
 
-  <repeat range="AllShips">
+  <repeat _range="AllShips">
     <event name="${ship} Shield Drain" id_arme="89afa4dc-2ee9-4dfc-bcd0-bc44b04dc187">
       <if_timer_finished name="${ship}_Shield_Drain"/>
       <if_variable name="${ship}_Shield_Drain" comparator="GREATER" value="0.0"/>

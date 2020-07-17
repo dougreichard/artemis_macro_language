@@ -1,180 +1,180 @@
 <mission_data version="1.0">
-    <start>
-        <set_variable name="Artemis_Cargo" value="0.0"/>
-        <set_variable name="Intrepid_Cargo" value="0.0"/>
-        <set_variable name="Aegis_Cargo" value="0.0"/>
-        <set_variable name="Horatio_Cargo" value="0.0"/>
-        <set_variable name="Excalibur_Cargo" value="0.0"/>
-        <set_variable name="Hera_Cargo" value="0.0"/>
-        <set_variable name="Ceres_Cargo" value="0.0"/>
-        <set_variable name="Diana_Cargo" value="0.0"/>
-    </start>
-    <event name="Artemis to Intrepid">
-        <set_relative_position name2="Artemis" distance="39000" angle="90" name1="Intrepid"/>
-    </event>
-    <event name="Artemis to Aegis">
-        <set_relative_position name2="Artemis" distance="39000" angle="90" name1="Aegis"/>
-    </event>
-    <event name="Artemis to Horatio">
-        <set_relative_position name2="Artemis" distance="39000" angle="90" name1="Horatio"/>
-    </event>
-    <event name="Artemis to Excalibur">
-        <set_relative_position name2="Artemis" distance="39000" angle="90" name1="Excalibur"/>
-    </event>
-    <event name="Artemis to Hera">
-        <set_relative_position name2="Artemis" distance="39000" angle="90" name1="Hera"/>
-    </event>
-    <event name="Artemis to Ceres">
-        <set_relative_position name2="Artemis" distance="39000" angle="90" name1="Ceres"/>
-    </event>
-    <event name="Artemis to Diana">
-        <set_relative_position name2="Artemis" distance="39000" angle="90" name1="Diana"/>
-    </event>
-    <event name="Intrepid to Artemis">
-        <set_relative_position name2="Intrepid" distance="39000" angle="90" name1="Artemis"/>
-    </event>
-    <event name="Intrepid to Aegis">
-        <set_relative_position name2="Intrepid" distance="39000" angle="90" name1="Aegis"/>
-    </event>
-    <event name="Intrepid to Horatio">
-        <set_relative_position name2="Intrepid" distance="39000" angle="90" name1="Horatio"/>
-    </event>
-    <event name="Intrepid to Excalibur">
-        <set_relative_position name2="Intrepid" distance="39000" angle="90" name1="Excalibur"/>
-    </event>
-    <event name="Intrepid to Hera">
-        <set_relative_position name2="Intrepid" distance="39000" angle="90" name1="Hera"/>
-    </event>
-    <event name="Intrepid to Ceres">
-        <set_relative_position name2="Intrepid" distance="39000" angle="90" name1="Ceres"/>
-    </event>
-    <event name="Intrepid to Diana">
-        <set_relative_position name2="Intrepid" distance="39000" angle="90" name1="Diana"/>
-    </event>
-    <event name="Aegis to Artemis">
-        <set_relative_position name2="Aegis" distance="39000" angle="90" name1="Artemis"/>
-    </event>
-    <event name="Aegis to Intrepid">
-        <set_relative_position name2="Aegis" distance="39000" angle="90" name1="Intrepid"/>
-    </event>
-    <event name="Aegis to Horatio">
-        <set_relative_position name2="Aegis" distance="39000" angle="90" name1="Horatio"/>
-    </event>
-    <event name="Aegis to Excalibur">
-        <set_relative_position name2="Aegis" distance="39000" angle="90" name1="Excalibur"/>
-    </event>
-    <event name="Aegis to Hera">
-        <set_relative_position name2="Aegis" distance="39000" angle="90" name1="Hera"/>
-    </event>
-    <event name="Aegis to Ceres">
-        <set_relative_position name2="Aegis" distance="39000" angle="90" name1="Ceres"/>
-    </event>
-    <event name="Aegis to Diana">
-        <set_relative_position name2="Aegis" distance="39000" angle="90" name1="Diana"/>
-    </event>
-    <event name="Horatio to Artemis">
-        <set_relative_position name2="Horatio" distance="39000" angle="90" name1="Artemis"/>
-    </event>
-    <event name="Horatio to Intrepid">
-        <set_relative_position name2="Horatio" distance="39000" angle="90" name1="Intrepid"/>
-    </event>
-    <event name="Horatio to Aegis">
-        <set_relative_position name2="Horatio" distance="39000" angle="90" name1="Aegis"/>
-    </event>
-    <event name="Horatio to Excalibur">
-        <set_relative_position name2="Horatio" distance="39000" angle="90" name1="Excalibur"/>
-    </event>
-    <event name="Horatio to Hera">
-        <set_relative_position name2="Horatio" distance="39000" angle="90" name1="Hera"/>
-    </event>
-    <event name="Horatio to Ceres">
-        <set_relative_position name2="Horatio" distance="39000" angle="90" name1="Ceres"/>
-    </event>
-    <event name="Horatio to Diana">
-        <set_relative_position name2="Horatio" distance="39000" angle="90" name1="Diana"/>
-    </event>
-    <event name="Excalibur to Artemis">
-        <set_relative_position name2="Excalibur" distance="39000" angle="90" name1="Artemis"/>
-    </event>
-    <event name="Excalibur to Intrepid">
-        <set_relative_position name2="Excalibur" distance="39000" angle="90" name1="Intrepid"/>
-    </event>
-    <event name="Excalibur to Aegis">
-        <set_relative_position name2="Excalibur" distance="39000" angle="90" name1="Aegis"/>
-    </event>
-    <event name="Excalibur to Horatio">
-        <set_relative_position name2="Excalibur" distance="39000" angle="90" name1="Horatio"/>
-    </event>
-    <event name="Excalibur to Hera">
-        <set_relative_position name2="Excalibur" distance="39000" angle="90" name1="Hera"/>
-    </event>
-    <event name="Excalibur to Ceres">
-        <set_relative_position name2="Excalibur" distance="39000" angle="90" name1="Ceres"/>
-    </event>
-    <event name="Excalibur to Diana">
-        <set_relative_position name2="Excalibur" distance="39000" angle="90" name1="Diana"/>
-    </event>
-    <event name="Hera to Artemis">
-        <set_relative_position name2="Hera" distance="39000" angle="90" name1="Artemis"/>
-    </event>
-    <event name="Hera to Intrepid">
-        <set_relative_position name2="Hera" distance="39000" angle="90" name1="Intrepid"/>
-    </event>
-    <event name="Hera to Aegis">
-        <set_relative_position name2="Hera" distance="39000" angle="90" name1="Aegis"/>
-    </event>
-    <event name="Hera to Horatio">
-        <set_relative_position name2="Hera" distance="39000" angle="90" name1="Horatio"/>
-    </event>
-    <event name="Hera to Excalibur">
-        <set_relative_position name2="Hera" distance="39000" angle="90" name1="Excalibur"/>
-    </event>
-    <event name="Hera to Ceres">
-        <set_relative_position name2="Hera" distance="39000" angle="90" name1="Ceres"/>
-    </event>
-    <event name="Hera to Diana">
-        <set_relative_position name2="Hera" distance="39000" angle="90" name1="Diana"/>
-    </event>
-    <event name="Ceres to Artemis">
-        <set_relative_position name2="Ceres" distance="39000" angle="90" name1="Artemis"/>
-    </event>
-    <event name="Ceres to Intrepid">
-        <set_relative_position name2="Ceres" distance="39000" angle="90" name1="Intrepid"/>
-    </event>
-    <event name="Ceres to Aegis">
-        <set_relative_position name2="Ceres" distance="39000" angle="90" name1="Aegis"/>
-    </event>
-    <event name="Ceres to Horatio">
-        <set_relative_position name2="Ceres" distance="39000" angle="90" name1="Horatio"/>
-    </event>
-    <event name="Ceres to Excalibur">
-        <set_relative_position name2="Ceres" distance="39000" angle="90" name1="Excalibur"/>
-    </event>
-    <event name="Ceres to Hera">
-        <set_relative_position name2="Ceres" distance="39000" angle="90" name1="Hera"/>
-    </event>
-    <event name="Ceres to Diana">
-        <set_relative_position name2="Ceres" distance="39000" angle="90" name1="Diana"/>
-    </event>
-    <event name="Diana to Artemis">
-        <set_relative_position name2="Diana" distance="39000" angle="90" name1="Artemis"/>
-    </event>
-    <event name="Diana to Intrepid">
-        <set_relative_position name2="Diana" distance="39000" angle="90" name1="Intrepid"/>
-    </event>
-    <event name="Diana to Aegis">
-        <set_relative_position name2="Diana" distance="39000" angle="90" name1="Aegis"/>
-    </event>
-    <event name="Diana to Horatio">
-        <set_relative_position name2="Diana" distance="39000" angle="90" name1="Horatio"/>
-    </event>
-    <event name="Diana to Excalibur">
-        <set_relative_position name2="Diana" distance="39000" angle="90" name1="Excalibur"/>
-    </event>
-    <event name="Diana to Hera">
-        <set_relative_position name2="Diana" distance="39000" angle="90" name1="Hera"/>
-    </event>
-    <event name="Diana to Ceres">
-        <set_relative_position name2="Diana" distance="39000" angle="90" name1="Ceres"/>
-    </event>
+  <start>
+    <set_variable name="Artemis_Cargo" value="0.0"/>
+    <set_variable name="Intrepid_Cargo" value="0.0"/>
+    <set_variable name="Aegis_Cargo" value="0.0"/>
+    <set_variable name="Horatio_Cargo" value="0.0"/>
+    <set_variable name="Excalibur_Cargo" value="0.0"/>
+    <set_variable name="Hera_Cargo" value="0.0"/>
+    <set_variable name="Ceres_Cargo" value="0.0"/>
+    <set_variable name="Diana_Cargo" value="0.0"/>
+  </start>
+  <event name="Artemis to Intrepid">
+    <set_relative_position name2="Artemis" distance="39000" angle="90" name1="Intrepid"/>
+  </event>
+  <event name="Artemis to Aegis">
+    <set_relative_position name2="Artemis" distance="39000" angle="90" name1="Aegis"/>
+  </event>
+  <event name="Artemis to Horatio">
+    <set_relative_position name2="Artemis" distance="39000" angle="90" name1="Horatio"/>
+  </event>
+  <event name="Artemis to Excalibur">
+    <set_relative_position name2="Artemis" distance="39000" angle="90" name1="Excalibur"/>
+  </event>
+  <event name="Artemis to Hera">
+    <set_relative_position name2="Artemis" distance="39000" angle="90" name1="Hera"/>
+  </event>
+  <event name="Artemis to Ceres">
+    <set_relative_position name2="Artemis" distance="39000" angle="90" name1="Ceres"/>
+  </event>
+  <event name="Artemis to Diana">
+    <set_relative_position name2="Artemis" distance="39000" angle="90" name1="Diana"/>
+  </event>
+  <event name="Intrepid to Artemis">
+    <set_relative_position name2="Intrepid" distance="39000" angle="90" name1="Artemis"/>
+  </event>
+  <event name="Intrepid to Aegis">
+    <set_relative_position name2="Intrepid" distance="39000" angle="90" name1="Aegis"/>
+  </event>
+  <event name="Intrepid to Horatio">
+    <set_relative_position name2="Intrepid" distance="39000" angle="90" name1="Horatio"/>
+  </event>
+  <event name="Intrepid to Excalibur">
+    <set_relative_position name2="Intrepid" distance="39000" angle="90" name1="Excalibur"/>
+  </event>
+  <event name="Intrepid to Hera">
+    <set_relative_position name2="Intrepid" distance="39000" angle="90" name1="Hera"/>
+  </event>
+  <event name="Intrepid to Ceres">
+    <set_relative_position name2="Intrepid" distance="39000" angle="90" name1="Ceres"/>
+  </event>
+  <event name="Intrepid to Diana">
+    <set_relative_position name2="Intrepid" distance="39000" angle="90" name1="Diana"/>
+  </event>
+  <event name="Aegis to Artemis">
+    <set_relative_position name2="Aegis" distance="39000" angle="90" name1="Artemis"/>
+  </event>
+  <event name="Aegis to Intrepid">
+    <set_relative_position name2="Aegis" distance="39000" angle="90" name1="Intrepid"/>
+  </event>
+  <event name="Aegis to Horatio">
+    <set_relative_position name2="Aegis" distance="39000" angle="90" name1="Horatio"/>
+  </event>
+  <event name="Aegis to Excalibur">
+    <set_relative_position name2="Aegis" distance="39000" angle="90" name1="Excalibur"/>
+  </event>
+  <event name="Aegis to Hera">
+    <set_relative_position name2="Aegis" distance="39000" angle="90" name1="Hera"/>
+  </event>
+  <event name="Aegis to Ceres">
+    <set_relative_position name2="Aegis" distance="39000" angle="90" name1="Ceres"/>
+  </event>
+  <event name="Aegis to Diana">
+    <set_relative_position name2="Aegis" distance="39000" angle="90" name1="Diana"/>
+  </event>
+  <event name="Horatio to Artemis">
+    <set_relative_position name2="Horatio" distance="39000" angle="90" name1="Artemis"/>
+  </event>
+  <event name="Horatio to Intrepid">
+    <set_relative_position name2="Horatio" distance="39000" angle="90" name1="Intrepid"/>
+  </event>
+  <event name="Horatio to Aegis">
+    <set_relative_position name2="Horatio" distance="39000" angle="90" name1="Aegis"/>
+  </event>
+  <event name="Horatio to Excalibur">
+    <set_relative_position name2="Horatio" distance="39000" angle="90" name1="Excalibur"/>
+  </event>
+  <event name="Horatio to Hera">
+    <set_relative_position name2="Horatio" distance="39000" angle="90" name1="Hera"/>
+  </event>
+  <event name="Horatio to Ceres">
+    <set_relative_position name2="Horatio" distance="39000" angle="90" name1="Ceres"/>
+  </event>
+  <event name="Horatio to Diana">
+    <set_relative_position name2="Horatio" distance="39000" angle="90" name1="Diana"/>
+  </event>
+  <event name="Excalibur to Artemis">
+    <set_relative_position name2="Excalibur" distance="39000" angle="90" name1="Artemis"/>
+  </event>
+  <event name="Excalibur to Intrepid">
+    <set_relative_position name2="Excalibur" distance="39000" angle="90" name1="Intrepid"/>
+  </event>
+  <event name="Excalibur to Aegis">
+    <set_relative_position name2="Excalibur" distance="39000" angle="90" name1="Aegis"/>
+  </event>
+  <event name="Excalibur to Horatio">
+    <set_relative_position name2="Excalibur" distance="39000" angle="90" name1="Horatio"/>
+  </event>
+  <event name="Excalibur to Hera">
+    <set_relative_position name2="Excalibur" distance="39000" angle="90" name1="Hera"/>
+  </event>
+  <event name="Excalibur to Ceres">
+    <set_relative_position name2="Excalibur" distance="39000" angle="90" name1="Ceres"/>
+  </event>
+  <event name="Excalibur to Diana">
+    <set_relative_position name2="Excalibur" distance="39000" angle="90" name1="Diana"/>
+  </event>
+  <event name="Hera to Artemis">
+    <set_relative_position name2="Hera" distance="39000" angle="90" name1="Artemis"/>
+  </event>
+  <event name="Hera to Intrepid">
+    <set_relative_position name2="Hera" distance="39000" angle="90" name1="Intrepid"/>
+  </event>
+  <event name="Hera to Aegis">
+    <set_relative_position name2="Hera" distance="39000" angle="90" name1="Aegis"/>
+  </event>
+  <event name="Hera to Horatio">
+    <set_relative_position name2="Hera" distance="39000" angle="90" name1="Horatio"/>
+  </event>
+  <event name="Hera to Excalibur">
+    <set_relative_position name2="Hera" distance="39000" angle="90" name1="Excalibur"/>
+  </event>
+  <event name="Hera to Ceres">
+    <set_relative_position name2="Hera" distance="39000" angle="90" name1="Ceres"/>
+  </event>
+  <event name="Hera to Diana">
+    <set_relative_position name2="Hera" distance="39000" angle="90" name1="Diana"/>
+  </event>
+  <event name="Ceres to Artemis">
+    <set_relative_position name2="Ceres" distance="39000" angle="90" name1="Artemis"/>
+  </event>
+  <event name="Ceres to Intrepid">
+    <set_relative_position name2="Ceres" distance="39000" angle="90" name1="Intrepid"/>
+  </event>
+  <event name="Ceres to Aegis">
+    <set_relative_position name2="Ceres" distance="39000" angle="90" name1="Aegis"/>
+  </event>
+  <event name="Ceres to Horatio">
+    <set_relative_position name2="Ceres" distance="39000" angle="90" name1="Horatio"/>
+  </event>
+  <event name="Ceres to Excalibur">
+    <set_relative_position name2="Ceres" distance="39000" angle="90" name1="Excalibur"/>
+  </event>
+  <event name="Ceres to Hera">
+    <set_relative_position name2="Ceres" distance="39000" angle="90" name1="Hera"/>
+  </event>
+  <event name="Ceres to Diana">
+    <set_relative_position name2="Ceres" distance="39000" angle="90" name1="Diana"/>
+  </event>
+  <event name="Diana to Artemis">
+    <set_relative_position name2="Diana" distance="39000" angle="90" name1="Artemis"/>
+  </event>
+  <event name="Diana to Intrepid">
+    <set_relative_position name2="Diana" distance="39000" angle="90" name1="Intrepid"/>
+  </event>
+  <event name="Diana to Aegis">
+    <set_relative_position name2="Diana" distance="39000" angle="90" name1="Aegis"/>
+  </event>
+  <event name="Diana to Horatio">
+    <set_relative_position name2="Diana" distance="39000" angle="90" name1="Horatio"/>
+  </event>
+  <event name="Diana to Excalibur">
+    <set_relative_position name2="Diana" distance="39000" angle="90" name1="Excalibur"/>
+  </event>
+  <event name="Diana to Hera">
+    <set_relative_position name2="Diana" distance="39000" angle="90" name1="Hera"/>
+  </event>
+  <event name="Diana to Ceres">
+    <set_relative_position name2="Diana" distance="39000" angle="90" name1="Ceres"/>
+  </event>
 </mission_data>

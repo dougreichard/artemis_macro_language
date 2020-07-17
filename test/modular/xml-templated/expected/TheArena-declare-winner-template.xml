@@ -1,140 +1,140 @@
 <mission_data version="1.0">
-    <start>
-        <set_variable name="Artemis_Score" value="0.0"/>
-        <set_variable name="Intrepid_Score" value="0.0"/>
-        <set_variable name="Aegis_Score" value="0.0"/>
-        <set_variable name="Horatio_Score" value="0.0"/>
-        <set_variable name="Excalibur_Score" value="0.0"/>
-        <set_variable name="Hera_Score" value="0.0"/>
-        <set_variable name="Ceres_Score" value="0.0"/>
-        <set_variable name="Diana_Score" value="0.0"/>
-    </start>
-    <event name="Artemis Wins">
-        <if_timer_finished name="Game_Timer"/>
-        <if_variable name="Scoring_Allowed" comparator="EQUALS" value="2.0"/>
-        <if_variable name="Artemis_Score" comparator="GREATER" value="Intrepid_Score"/>
-        <if_variable name="Artemis_Score" comparator="GREATER" value="Aegis_Score"/>
-        <if_variable name="Artemis_Score" comparator="GREATER" value="Horatio_Score"/>
-        <if_variable name="Artemis_Score" comparator="GREATER" value="Excalibur_Score"/>
-        <if_variable name="Artemis_Score" comparator="GREATER" value="Hera_Score"/>
-        <if_variable name="Artemis_Score" comparator="GREATER" value="Ceres_Score"/>
-        <if_variable name="Artemis_Score" comparator="GREATER" value="Diana_Score"/>
-        <set_variable name="Scoring_Allowed" value="3.0"/>
-        <set_timer name="Game_Timer" seconds="30"/>
-        <big_message title="Artemis Wins!" subtitle1="Artemis:|Artemis_Score| Intrepid:|Intrepid_Score| Aegis:|Aegis_Score| Horatio:|Horatio_Score|" subtitle2="Excalibur:|Excalibur_Score| Hera:|Hera_Score| Ceres: |Ceres_Score| Diana:|Diana_Score|"/>
-        <set_variable name="Tie_Game" value="0.0"/>
-    </event>
-    <event name="Intrepid Wins">
-        <if_timer_finished name="Game_Timer"/>
-        <if_variable name="Scoring_Allowed" comparator="EQUALS" value="2.0"/>
-        <if_variable name="Intrepid_Score" comparator="GREATER" value="Artemis_Score"/>
-        <if_variable name="Intrepid_Score" comparator="GREATER" value="Aegis_Score"/>
-        <if_variable name="Intrepid_Score" comparator="GREATER" value="Horatio_Score"/>
-        <if_variable name="Intrepid_Score" comparator="GREATER" value="Excalibur_Score"/>
-        <if_variable name="Intrepid_Score" comparator="GREATER" value="Hera_Score"/>
-        <if_variable name="Intrepid_Score" comparator="GREATER" value="Ceres_Score"/>
-        <if_variable name="Intrepid_Score" comparator="GREATER" value="Diana_Score"/>
-        <set_variable name="Scoring_Allowed" value="3.0"/>
-        <set_timer name="Game_Timer" seconds="30"/>
-        <big_message title="Intrepid Wins!" subtitle1="Artemis:|Artemis_Score| Intrepid:|Intrepid_Score| Aegis:|Aegis_Score| Horatio:|Horatio_Score|" subtitle2="Excalibur:|Excalibur_Score| Hera:|Hera_Score| Ceres: |Ceres_Score| Diana:|Diana_Score|"/>
-        <set_variable name="Tie_Game" value="0.0"/>
-    </event>
-    <event name="Aegis Wins">
-        <if_timer_finished name="Game_Timer"/>
-        <if_variable name="Scoring_Allowed" comparator="EQUALS" value="2.0"/>
-        <if_variable name="Aegis_Score" comparator="GREATER" value="Artemis_Score"/>
-        <if_variable name="Aegis_Score" comparator="GREATER" value="Intrepid_Score"/>
-        <if_variable name="Aegis_Score" comparator="GREATER" value="Horatio_Score"/>
-        <if_variable name="Aegis_Score" comparator="GREATER" value="Excalibur_Score"/>
-        <if_variable name="Aegis_Score" comparator="GREATER" value="Hera_Score"/>
-        <if_variable name="Aegis_Score" comparator="GREATER" value="Ceres_Score"/>
-        <if_variable name="Aegis_Score" comparator="GREATER" value="Diana_Score"/>
-        <set_variable name="Scoring_Allowed" value="3.0"/>
-        <set_timer name="Game_Timer" seconds="30"/>
-        <big_message title="Aegis Wins!" subtitle1="Artemis:|Artemis_Score| Intrepid:|Intrepid_Score| Aegis:|Aegis_Score| Horatio:|Horatio_Score|" subtitle2="Excalibur:|Excalibur_Score| Hera:|Hera_Score| Ceres: |Ceres_Score| Diana:|Diana_Score|"/>
-        <set_variable name="Tie_Game" value="0.0"/>
-    </event>
-    <event name="Horatio Wins">
-        <if_timer_finished name="Game_Timer"/>
-        <if_variable name="Scoring_Allowed" comparator="EQUALS" value="2.0"/>
-        <if_variable name="Horatio_Score" comparator="GREATER" value="Artemis_Score"/>
-        <if_variable name="Horatio_Score" comparator="GREATER" value="Intrepid_Score"/>
-        <if_variable name="Horatio_Score" comparator="GREATER" value="Aegis_Score"/>
-        <if_variable name="Horatio_Score" comparator="GREATER" value="Excalibur_Score"/>
-        <if_variable name="Horatio_Score" comparator="GREATER" value="Hera_Score"/>
-        <if_variable name="Horatio_Score" comparator="GREATER" value="Ceres_Score"/>
-        <if_variable name="Horatio_Score" comparator="GREATER" value="Diana_Score"/>
-        <set_variable name="Scoring_Allowed" value="3.0"/>
-        <set_timer name="Game_Timer" seconds="30"/>
-        <big_message title="Horatio Wins!" subtitle1="Artemis:|Artemis_Score| Intrepid:|Intrepid_Score| Aegis:|Aegis_Score| Horatio:|Horatio_Score|" subtitle2="Excalibur:|Excalibur_Score| Hera:|Hera_Score| Ceres: |Ceres_Score| Diana:|Diana_Score|"/>
-        <set_variable name="Tie_Game" value="0.0"/>
-    </event>
-    <event name="Excalibur Wins">
-        <if_timer_finished name="Game_Timer"/>
-        <if_variable name="Scoring_Allowed" comparator="EQUALS" value="2.0"/>
-        <if_variable name="Excalibur_Score" comparator="GREATER" value="Artemis_Score"/>
-        <if_variable name="Excalibur_Score" comparator="GREATER" value="Intrepid_Score"/>
-        <if_variable name="Excalibur_Score" comparator="GREATER" value="Aegis_Score"/>
-        <if_variable name="Excalibur_Score" comparator="GREATER" value="Horatio_Score"/>
-        <if_variable name="Excalibur_Score" comparator="GREATER" value="Hera_Score"/>
-        <if_variable name="Excalibur_Score" comparator="GREATER" value="Ceres_Score"/>
-        <if_variable name="Excalibur_Score" comparator="GREATER" value="Diana_Score"/>
-        <set_variable name="Scoring_Allowed" value="3.0"/>
-        <set_timer name="Game_Timer" seconds="30"/>
-        <big_message title="Excalibur Wins!" subtitle1="Artemis:|Artemis_Score| Intrepid:|Intrepid_Score| Aegis:|Aegis_Score| Horatio:|Horatio_Score|" subtitle2="Excalibur:|Excalibur_Score| Hera:|Hera_Score| Ceres: |Ceres_Score| Diana:|Diana_Score|"/>
-        <set_variable name="Tie_Game" value="0.0"/>
-    </event>
-    <event name="Hera Wins">
-        <if_timer_finished name="Game_Timer"/>
-        <if_variable name="Scoring_Allowed" comparator="EQUALS" value="2.0"/>
-        <if_variable name="Hera_Score" comparator="GREATER" value="Artemis_Score"/>
-        <if_variable name="Hera_Score" comparator="GREATER" value="Intrepid_Score"/>
-        <if_variable name="Hera_Score" comparator="GREATER" value="Aegis_Score"/>
-        <if_variable name="Hera_Score" comparator="GREATER" value="Horatio_Score"/>
-        <if_variable name="Hera_Score" comparator="GREATER" value="Excalibur_Score"/>
-        <if_variable name="Hera_Score" comparator="GREATER" value="Ceres_Score"/>
-        <if_variable name="Hera_Score" comparator="GREATER" value="Diana_Score"/>
-        <set_variable name="Scoring_Allowed" value="3.0"/>
-        <set_timer name="Game_Timer" seconds="30"/>
-        <big_message title="Hera Wins!" subtitle1="Artemis:|Artemis_Score| Intrepid:|Intrepid_Score| Aegis:|Aegis_Score| Horatio:|Horatio_Score|" subtitle2="Excalibur:|Excalibur_Score| Hera:|Hera_Score| Ceres: |Ceres_Score| Diana:|Diana_Score|"/>
-        <set_variable name="Tie_Game" value="0.0"/>
-    </event>
-    <event name="Ceres Wins">
-        <if_timer_finished name="Game_Timer"/>
-        <if_variable name="Scoring_Allowed" comparator="EQUALS" value="2.0"/>
-        <if_variable name="Ceres_Score" comparator="GREATER" value="Artemis_Score"/>
-        <if_variable name="Ceres_Score" comparator="GREATER" value="Intrepid_Score"/>
-        <if_variable name="Ceres_Score" comparator="GREATER" value="Aegis_Score"/>
-        <if_variable name="Ceres_Score" comparator="GREATER" value="Horatio_Score"/>
-        <if_variable name="Ceres_Score" comparator="GREATER" value="Excalibur_Score"/>
-        <if_variable name="Ceres_Score" comparator="GREATER" value="Hera_Score"/>
-        <if_variable name="Ceres_Score" comparator="GREATER" value="Diana_Score"/>
-        <set_variable name="Scoring_Allowed" value="3.0"/>
-        <set_timer name="Game_Timer" seconds="30"/>
-        <big_message title="Ceres Wins!" subtitle1="Artemis:|Artemis_Score| Intrepid:|Intrepid_Score| Aegis:|Aegis_Score| Horatio:|Horatio_Score|" subtitle2="Excalibur:|Excalibur_Score| Hera:|Hera_Score| Ceres: |Ceres_Score| Diana:|Diana_Score|"/>
-        <set_variable name="Tie_Game" value="0.0"/>
-    </event>
-    <event name="Diana Wins">
-        <if_timer_finished name="Game_Timer"/>
-        <if_variable name="Scoring_Allowed" comparator="EQUALS" value="2.0"/>
-        <if_variable name="Diana_Score" comparator="GREATER" value="Artemis_Score"/>
-        <if_variable name="Diana_Score" comparator="GREATER" value="Intrepid_Score"/>
-        <if_variable name="Diana_Score" comparator="GREATER" value="Aegis_Score"/>
-        <if_variable name="Diana_Score" comparator="GREATER" value="Horatio_Score"/>
-        <if_variable name="Diana_Score" comparator="GREATER" value="Excalibur_Score"/>
-        <if_variable name="Diana_Score" comparator="GREATER" value="Hera_Score"/>
-        <if_variable name="Diana_Score" comparator="GREATER" value="Ceres_Score"/>
-        <set_variable name="Scoring_Allowed" value="3.0"/>
-        <set_timer name="Game_Timer" seconds="30"/>
-        <big_message title="Diana Wins!" subtitle1="Artemis:|Artemis_Score| Intrepid:|Intrepid_Score| Aegis:|Aegis_Score| Horatio:|Horatio_Score|" subtitle2="Excalibur:|Excalibur_Score| Hera:|Hera_Score| Ceres: |Ceres_Score| Diana:|Diana_Score|"/>
-        <set_variable name="Tie_Game" value="0.0"/>
-    </event>
-    <event name="Tie Game" id_arme="30cc86c1-5f27-4700-a5a4-c5f10be1f367">
-        <if_timer_finished name="Tie_Game"/>
-        <if_variable name="Tie_Game" comparator="EQUALS" value="1.0"/>
-        <set_variable name="Scoring_Allowed" value="3.0"/>
-        <set_timer name="Game_Timer" seconds="30"/>
-        <big_message title="Tie Game!" subtitle1="Artemis:|Artemis_Score| Intrepid:|Intrepid_Score| Aegis:|Aegis_Score| Horatio:|Horatio_Score|" subtitle2="Excalibur:|Excalibur_Score| Hera:|Hera_Score| Ceres: |Ceres_Score| Diana:|Diana_Score|"/>
-        <set_variable name="Tie_Game" value="0.0"/>
-    </event>
+  <start>
+    <set_variable name="Artemis_Score" value="0.0"/>
+    <set_variable name="Intrepid_Score" value="0.0"/>
+    <set_variable name="Aegis_Score" value="0.0"/>
+    <set_variable name="Horatio_Score" value="0.0"/>
+    <set_variable name="Excalibur_Score" value="0.0"/>
+    <set_variable name="Hera_Score" value="0.0"/>
+    <set_variable name="Ceres_Score" value="0.0"/>
+    <set_variable name="Diana_Score" value="0.0"/>
+  </start>
+  <event name="Artemis Wins">
+    <if_timer_finished name="Game_Timer"/>
+    <if_variable name="Scoring_Allowed" comparator="EQUALS" value="2.0"/>
+    <if_variable name="Artemis_Score" comparator="GREATER" value="Intrepid_Score"/>
+    <if_variable name="Artemis_Score" comparator="GREATER" value="Aegis_Score"/>
+    <if_variable name="Artemis_Score" comparator="GREATER" value="Horatio_Score"/>
+    <if_variable name="Artemis_Score" comparator="GREATER" value="Excalibur_Score"/>
+    <if_variable name="Artemis_Score" comparator="GREATER" value="Hera_Score"/>
+    <if_variable name="Artemis_Score" comparator="GREATER" value="Ceres_Score"/>
+    <if_variable name="Artemis_Score" comparator="GREATER" value="Diana_Score"/>
+    <set_variable name="Scoring_Allowed" value="3.0"/>
+    <set_timer name="Game_Timer" seconds="30"/>
+    <big_message title="Artemis Wins!" subtitle1="Artemis:|Artemis_Score| Intrepid:|Intrepid_Score| Aegis:|Aegis_Score| Horatio:|Horatio_Score|" subtitle2="Excalibur:|Excalibur_Score| Hera:|Hera_Score| Ceres: |Ceres_Score| Diana:|Diana_Score|"/>
+    <set_variable name="Tie_Game" value="0.0"/>
+  </event>
+  <event name="Intrepid Wins">
+    <if_timer_finished name="Game_Timer"/>
+    <if_variable name="Scoring_Allowed" comparator="EQUALS" value="2.0"/>
+    <if_variable name="Intrepid_Score" comparator="GREATER" value="Artemis_Score"/>
+    <if_variable name="Intrepid_Score" comparator="GREATER" value="Aegis_Score"/>
+    <if_variable name="Intrepid_Score" comparator="GREATER" value="Horatio_Score"/>
+    <if_variable name="Intrepid_Score" comparator="GREATER" value="Excalibur_Score"/>
+    <if_variable name="Intrepid_Score" comparator="GREATER" value="Hera_Score"/>
+    <if_variable name="Intrepid_Score" comparator="GREATER" value="Ceres_Score"/>
+    <if_variable name="Intrepid_Score" comparator="GREATER" value="Diana_Score"/>
+    <set_variable name="Scoring_Allowed" value="3.0"/>
+    <set_timer name="Game_Timer" seconds="30"/>
+    <big_message title="Intrepid Wins!" subtitle1="Artemis:|Artemis_Score| Intrepid:|Intrepid_Score| Aegis:|Aegis_Score| Horatio:|Horatio_Score|" subtitle2="Excalibur:|Excalibur_Score| Hera:|Hera_Score| Ceres: |Ceres_Score| Diana:|Diana_Score|"/>
+    <set_variable name="Tie_Game" value="0.0"/>
+  </event>
+  <event name="Aegis Wins">
+    <if_timer_finished name="Game_Timer"/>
+    <if_variable name="Scoring_Allowed" comparator="EQUALS" value="2.0"/>
+    <if_variable name="Aegis_Score" comparator="GREATER" value="Artemis_Score"/>
+    <if_variable name="Aegis_Score" comparator="GREATER" value="Intrepid_Score"/>
+    <if_variable name="Aegis_Score" comparator="GREATER" value="Horatio_Score"/>
+    <if_variable name="Aegis_Score" comparator="GREATER" value="Excalibur_Score"/>
+    <if_variable name="Aegis_Score" comparator="GREATER" value="Hera_Score"/>
+    <if_variable name="Aegis_Score" comparator="GREATER" value="Ceres_Score"/>
+    <if_variable name="Aegis_Score" comparator="GREATER" value="Diana_Score"/>
+    <set_variable name="Scoring_Allowed" value="3.0"/>
+    <set_timer name="Game_Timer" seconds="30"/>
+    <big_message title="Aegis Wins!" subtitle1="Artemis:|Artemis_Score| Intrepid:|Intrepid_Score| Aegis:|Aegis_Score| Horatio:|Horatio_Score|" subtitle2="Excalibur:|Excalibur_Score| Hera:|Hera_Score| Ceres: |Ceres_Score| Diana:|Diana_Score|"/>
+    <set_variable name="Tie_Game" value="0.0"/>
+  </event>
+  <event name="Horatio Wins">
+    <if_timer_finished name="Game_Timer"/>
+    <if_variable name="Scoring_Allowed" comparator="EQUALS" value="2.0"/>
+    <if_variable name="Horatio_Score" comparator="GREATER" value="Artemis_Score"/>
+    <if_variable name="Horatio_Score" comparator="GREATER" value="Intrepid_Score"/>
+    <if_variable name="Horatio_Score" comparator="GREATER" value="Aegis_Score"/>
+    <if_variable name="Horatio_Score" comparator="GREATER" value="Excalibur_Score"/>
+    <if_variable name="Horatio_Score" comparator="GREATER" value="Hera_Score"/>
+    <if_variable name="Horatio_Score" comparator="GREATER" value="Ceres_Score"/>
+    <if_variable name="Horatio_Score" comparator="GREATER" value="Diana_Score"/>
+    <set_variable name="Scoring_Allowed" value="3.0"/>
+    <set_timer name="Game_Timer" seconds="30"/>
+    <big_message title="Horatio Wins!" subtitle1="Artemis:|Artemis_Score| Intrepid:|Intrepid_Score| Aegis:|Aegis_Score| Horatio:|Horatio_Score|" subtitle2="Excalibur:|Excalibur_Score| Hera:|Hera_Score| Ceres: |Ceres_Score| Diana:|Diana_Score|"/>
+    <set_variable name="Tie_Game" value="0.0"/>
+  </event>
+  <event name="Excalibur Wins">
+    <if_timer_finished name="Game_Timer"/>
+    <if_variable name="Scoring_Allowed" comparator="EQUALS" value="2.0"/>
+    <if_variable name="Excalibur_Score" comparator="GREATER" value="Artemis_Score"/>
+    <if_variable name="Excalibur_Score" comparator="GREATER" value="Intrepid_Score"/>
+    <if_variable name="Excalibur_Score" comparator="GREATER" value="Aegis_Score"/>
+    <if_variable name="Excalibur_Score" comparator="GREATER" value="Horatio_Score"/>
+    <if_variable name="Excalibur_Score" comparator="GREATER" value="Hera_Score"/>
+    <if_variable name="Excalibur_Score" comparator="GREATER" value="Ceres_Score"/>
+    <if_variable name="Excalibur_Score" comparator="GREATER" value="Diana_Score"/>
+    <set_variable name="Scoring_Allowed" value="3.0"/>
+    <set_timer name="Game_Timer" seconds="30"/>
+    <big_message title="Excalibur Wins!" subtitle1="Artemis:|Artemis_Score| Intrepid:|Intrepid_Score| Aegis:|Aegis_Score| Horatio:|Horatio_Score|" subtitle2="Excalibur:|Excalibur_Score| Hera:|Hera_Score| Ceres: |Ceres_Score| Diana:|Diana_Score|"/>
+    <set_variable name="Tie_Game" value="0.0"/>
+  </event>
+  <event name="Hera Wins">
+    <if_timer_finished name="Game_Timer"/>
+    <if_variable name="Scoring_Allowed" comparator="EQUALS" value="2.0"/>
+    <if_variable name="Hera_Score" comparator="GREATER" value="Artemis_Score"/>
+    <if_variable name="Hera_Score" comparator="GREATER" value="Intrepid_Score"/>
+    <if_variable name="Hera_Score" comparator="GREATER" value="Aegis_Score"/>
+    <if_variable name="Hera_Score" comparator="GREATER" value="Horatio_Score"/>
+    <if_variable name="Hera_Score" comparator="GREATER" value="Excalibur_Score"/>
+    <if_variable name="Hera_Score" comparator="GREATER" value="Ceres_Score"/>
+    <if_variable name="Hera_Score" comparator="GREATER" value="Diana_Score"/>
+    <set_variable name="Scoring_Allowed" value="3.0"/>
+    <set_timer name="Game_Timer" seconds="30"/>
+    <big_message title="Hera Wins!" subtitle1="Artemis:|Artemis_Score| Intrepid:|Intrepid_Score| Aegis:|Aegis_Score| Horatio:|Horatio_Score|" subtitle2="Excalibur:|Excalibur_Score| Hera:|Hera_Score| Ceres: |Ceres_Score| Diana:|Diana_Score|"/>
+    <set_variable name="Tie_Game" value="0.0"/>
+  </event>
+  <event name="Ceres Wins">
+    <if_timer_finished name="Game_Timer"/>
+    <if_variable name="Scoring_Allowed" comparator="EQUALS" value="2.0"/>
+    <if_variable name="Ceres_Score" comparator="GREATER" value="Artemis_Score"/>
+    <if_variable name="Ceres_Score" comparator="GREATER" value="Intrepid_Score"/>
+    <if_variable name="Ceres_Score" comparator="GREATER" value="Aegis_Score"/>
+    <if_variable name="Ceres_Score" comparator="GREATER" value="Horatio_Score"/>
+    <if_variable name="Ceres_Score" comparator="GREATER" value="Excalibur_Score"/>
+    <if_variable name="Ceres_Score" comparator="GREATER" value="Hera_Score"/>
+    <if_variable name="Ceres_Score" comparator="GREATER" value="Diana_Score"/>
+    <set_variable name="Scoring_Allowed" value="3.0"/>
+    <set_timer name="Game_Timer" seconds="30"/>
+    <big_message title="Ceres Wins!" subtitle1="Artemis:|Artemis_Score| Intrepid:|Intrepid_Score| Aegis:|Aegis_Score| Horatio:|Horatio_Score|" subtitle2="Excalibur:|Excalibur_Score| Hera:|Hera_Score| Ceres: |Ceres_Score| Diana:|Diana_Score|"/>
+    <set_variable name="Tie_Game" value="0.0"/>
+  </event>
+  <event name="Diana Wins">
+    <if_timer_finished name="Game_Timer"/>
+    <if_variable name="Scoring_Allowed" comparator="EQUALS" value="2.0"/>
+    <if_variable name="Diana_Score" comparator="GREATER" value="Artemis_Score"/>
+    <if_variable name="Diana_Score" comparator="GREATER" value="Intrepid_Score"/>
+    <if_variable name="Diana_Score" comparator="GREATER" value="Aegis_Score"/>
+    <if_variable name="Diana_Score" comparator="GREATER" value="Horatio_Score"/>
+    <if_variable name="Diana_Score" comparator="GREATER" value="Excalibur_Score"/>
+    <if_variable name="Diana_Score" comparator="GREATER" value="Hera_Score"/>
+    <if_variable name="Diana_Score" comparator="GREATER" value="Ceres_Score"/>
+    <set_variable name="Scoring_Allowed" value="3.0"/>
+    <set_timer name="Game_Timer" seconds="30"/>
+    <big_message title="Diana Wins!" subtitle1="Artemis:|Artemis_Score| Intrepid:|Intrepid_Score| Aegis:|Aegis_Score| Horatio:|Horatio_Score|" subtitle2="Excalibur:|Excalibur_Score| Hera:|Hera_Score| Ceres: |Ceres_Score| Diana:|Diana_Score|"/>
+    <set_variable name="Tie_Game" value="0.0"/>
+  </event>
+  <event name="Tie Game" id_arme="30cc86c1-5f27-4700-a5a4-c5f10be1f367">
+    <if_timer_finished name="Tie_Game"/>
+    <if_variable name="Tie_Game" comparator="EQUALS" value="1.0"/>
+    <set_variable name="Scoring_Allowed" value="3.0"/>
+    <set_timer name="Game_Timer" seconds="30"/>
+    <big_message title="Tie Game!" subtitle1="Artemis:|Artemis_Score| Intrepid:|Intrepid_Score| Aegis:|Aegis_Score| Horatio:|Horatio_Score|" subtitle2="Excalibur:|Excalibur_Score| Hera:|Hera_Score| Ceres: |Ceres_Score| Diana:|Diana_Score|"/>
+    <set_variable name="Tie_Game" value="0.0"/>
+  </event>
 </mission_data>

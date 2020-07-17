@@ -47,9 +47,9 @@ You can supply the parameters for the template
 
 
 ``` xml
-<repeat range="Eggs" as="egg">
-    <repeat range="Ships" as="ship">
-      <expand template="CaptureObject"
+<repeat _range="Eggs" _as="egg">
+    <repeat _range="Ships" _as="ship">
+      <expand _template="CaptureObject"
         ship="${ship.ship}"
         object="${egg.egg}"
         target="${ship.ship} Station"

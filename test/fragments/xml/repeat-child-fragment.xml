@@ -21,10 +21,10 @@
 
   <start>
 
-    <repeat range="Ships">
+    <repeat _range="Ships">
       <set_variable name="${Ships.ship}" value="1.0"/>
 
-      <repeat range="Fighters">
+      <repeat _range="Fighters">
         <set_variable name="${Fighters.pilot}" value="2.0"/>
       </repeat>
     </repeat>

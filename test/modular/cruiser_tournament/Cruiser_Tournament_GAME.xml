@@ -1,0 +1,78 @@
+<mission_data version="1.0">
+  <start>
+    <log text="CRUISER TOURNAMENT has started"/>
+    <log text="Beginning First Period. 48 minutes remaining."/>
+    <set_timer name="credits_timer1" seconds="10"/>
+    <set_timer name="Eight_Minute_timer" seconds="480"/>
+    <set_timer name="One_Minute_timer" seconds="60"/>
+    <set_variable name="Tonnage" value="0" integer="yes"/>
+    <set_variable name="Period_Counter" value="0" integer="yes"/>
+    <set_variable name="Minutes" value="48" integer="yes"/>
+    <set_variable name="Difficult_Factor" value="0" integer="yes"/>
+    <set_variable name="Bonus" value="0" integer="yes"/>
+    <set_comms_button text="Request Score Report" sideValue="2" player_slot="0"/>
+  </start>
+  <!-- *******************************************************-->
+  <!-- Winning and losing the mission -->
+  <event name="Time is up">
+    <if_timer_finished name="endint_timer"/>
+    <if_variable name="terminate" comparator="EQUALS" value="0"/>
+    <if_variable name="Period_Counter" comparator="EQUALS" value="6"/>
+    <big_message title="FINAL SCORE |tonnage| kilotons" subtitle1="Your detailed battle record" subtitle2="is in the mission log file."/>
+    <set_variable name="terminate" value="1"/>
+    <set_timer name="endint_timer" seconds="8"/>
+  </event>
+
+  <event name="Defeat">
+    <if_not_exists name="Artemis"/>
+    <if_variable name="terminate" comparator="NOT" value="1"/>
+    <set_skybox_index index="17"/>
+    <create type="player" player_slot="0" x="9555" y="0" z="85951" angle="295" name="Artemis" accent_color="99" raceKeys="TSN player" hullKeys="Scout" warp="yes"/>
+    <big_message title="YOUR SHIP WAS DESTROYED" subtitle1="You scored |tonnage| kt of enemy ships." subtitle2="Your battle record is in the log file."/>
+    <set_timer name="endint_timer" seconds="15"/>
+    <set_variable name="terminate" value="1"/>
+  </event>
+  <event name="Game Over">
+    <if_variable name="terminate" comparator="EQUALS" value="1"/>
+    <if_variable name="gameOver" comparator="NOT" value="1"/>
+    <if_timer_finished name="endint_timer"/>
+    <end_mission/>
+    <set_variable name="gameOver" value="1"/>
+  </event>
+  <!-- Flash credits and boost some friendlies and enemies -->
+  <event name="Credits 1">
+    <if_timer_finished name="credits_timer1"/>
+    <if_variable name="credits1" comparator="EQUALS" value="0"/>
+    <big_message title="Written for TSN Light Cruiser" subtitle1="with an cadette crew" subtitle2="difficulty chosen by you"/>
+    <set_variable name="credits1" value="1"/>
+    <set_object_property property="topSpeed" value="1.2" name="Phoenix"/>
+    <set_object_property property="turnRate" value="1/100" name="Phoenix"/>
+  </event>
+ 
+  <event name="Report Score">
+    <if_timer_finished name="report_timer"/>
+    <if_variable name="report_score" comparator="EQUALS" value="1"/>
+    <!-- set_ship_text name="Scorekeeper" hailtext="Current score = |Tonnage| kilotons with |Minutes| minutes remaining."/-->
+    <big_message title="Current score = |Tonnage| kilotons" subtitle1="Time = |Minutes| minutes remaining" subtitle2=""/>
+    <set_variable name="report_score" value="0"/>
+    <log text="Score = |Tonnage| kt  |Minutes| minutes remaining."/>
+  </event>
+
+  <event name="Score Message">
+    <if_comms_button text="Request Score Report"/>
+    <incoming_comms_text from="Scorekeeper">
+      Current score = |Tonnage| kilotons with |Minutes| minutes remaining
+    </incoming_comms_text>
+  </event>
+  <event name="Count Minutes">
+    <if_timer_finished name="One_Minute_timer"/>
+    <set_variable name="Minutes" value="Minutes-1"/>
+    <set_timer name="One_Minute_timer" seconds="60"/>
+    <clear_comms_button text="Request Score Report"/>
+    <clear_comms_button text="Request Cargo Report"/>
+    <set_comms_button text="Request Score Report" sideValue="2" player_slot="0"/>
+    <set_comms_button text="Request Cargo Report" sideValue="2" player_slot="0"/>
+
+    <!-- set_ship_text name="Scorekeeper" hailtext="Current score = |Tonnage| kilotons with |Minutes| minutes remaining."/-->
+  </event>
+</mission_data> 

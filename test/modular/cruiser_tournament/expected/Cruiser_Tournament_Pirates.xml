@@ -1,0 +1,57 @@
+<mission_data>
+  <start>
+    <create type="enemy" x="10.0" y="10.0" z="10" name="Lusty Wrench" raceKeys="Pirate" hullKeys="Strongbow" fleetnumber="1"/>
+    <create type="enemy" x="99990./0" y="-10.0" z="10" name="Nimbus" raceKeys="Pirate" hullKeys="Strongbow" fleetnumber="2"/>
+  </start>
+  
+  
+  <event name="Lusty Wrench Surrendered">
+    <if_variable name="Lusty Wrench_surrendered" comparator="EQUALS" value="0"/>
+    <if_object_property property="hasSurrendered" name="Lusty Wrench" comparator="EQUALS" value="1"/>
+    <set_variable name="Lusty Wrench_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="Lusty Wrench"/>
+    <set_variable name="Tonnage" value="Tonnage+20+10"/>
+    <big_message title="Pirate  surrendered" subtitle1="20 kilotons" subtitle2="+10 kt surrender bonus"/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Pirate  Lusty Wrench Surrendered"/>
+  </event>
+  <event name="Lusty Wrench Destroyed">
+    <if_variable name="Lusty Wrench_surrendered" comparator="EQUALS" value="0"/>
+    <if_variable name="Lusty Wrench_dead" comparator="EQUALS" value="0"/>
+    <if_not_exists name="Lusty Wrench"/>
+    <set_variable name="Lusty Wrench_dead" value="1"/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <set_variable name="Tonnage" value="Tonnage+20"/>
+    <big_message title="Pirate  Lusty Wrench destroyed" subtitle1="20 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Pirate  Lusty Wrench destroyed"/>
+  </event>
+  
+  <event name="Nimbus Surrendered">
+    <if_variable name="Nimbus_surrendered" comparator="EQUALS" value="0"/>
+    <if_object_property property="hasSurrendered" name="Nimbus" comparator="EQUALS" value="1"/>
+    <set_variable name="Nimbus_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="Nimbus"/>
+    <set_variable name="Tonnage" value="Tonnage+40+20"/>
+    <big_message title="Pirate  surrendered" subtitle1="40 kilotons" subtitle2="+20 kt surrender bonus"/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Pirate  Nimbus Surrendered"/>
+  </event>
+  <event name="Nimbus Destroyed">
+    <if_variable name="Nimbus_surrendered" comparator="EQUALS" value="0"/>
+    <if_variable name="Nimbus_dead" comparator="EQUALS" value="0"/>
+    <if_not_exists name="Nimbus"/>
+    <set_variable name="Nimbus_dead" value="1"/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <set_variable name="Tonnage" value="Tonnage+40"/>
+    <big_message title="Pirate  Nimbus destroyed" subtitle1="40 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Pirate  Nimbus destroyed"/>
+  </event>
+</mission_data>

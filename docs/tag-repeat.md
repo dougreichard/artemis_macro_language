@@ -3,7 +3,7 @@ The repeat tag will repeat the content within it using a range for values
 
 ``` xml
  <start>
-    <repeat length="5" >
+    <repeat _length="5" >
         <set_variable name="egg${_index}" value="1.0"/>
         <set_timer name="egg${_index}}_Timer" seconds="${25+_index*5}"/>
     </repeat>
@@ -62,9 +62,9 @@ The following expands The Capture Object For each egg, then for each ship.
 If Eggs has 5 eggs, and Ships has 8 ships, this is expanded 40 times pair each egg with each ship.
 
 ``` xml
-<repeat range="Eggs" as="egg">
-    <repeat range="Ships" as="ship">
-      <expand template="CaptureObject"
+<repeat _range="Eggs" _as="egg">
+    <repeat _range="Ships" _as="ship">
+      <expand _template="CaptureObject"
         ship="${ship.ship}"
         object="${egg.egg}"
         target="${ship.ship} Station"

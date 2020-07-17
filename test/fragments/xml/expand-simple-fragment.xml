@@ -6,7 +6,7 @@
     </templates>
 
     <start>
-        <expand template="hello" message="Hello, World" />
+        <expand _template="hello" message="Hello, World" />
         <expand> 
             <big_message title="No skip" />
         </expand>

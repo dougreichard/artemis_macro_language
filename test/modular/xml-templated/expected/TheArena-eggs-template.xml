@@ -1,1582 +1,1582 @@
 <mission_data version="1.0">
-    <start>
-        <set_variable name="egg1" value="1.0"/>
-        <set_timer name="egg1_Timer" seconds="25"/>
-        <set_variable name="egg2" value="1.0"/>
-        <set_timer name="egg2_Timer" seconds="30"/>
-        <set_variable name="egg3" value="1.0"/>
-        <set_timer name="egg3_Timer" seconds="35"/>
-        <set_variable name="egg4" value="1.0"/>
-        <set_timer name="egg4_Timer" seconds="35"/>
-        <set_variable name="egg5" value="1.0"/>
-        <set_timer name="egg5_Timer" seconds="35"/>
-        <set_variable name="Artemis_Cargo" value="0.0"/>
-        <set_variable name="Intrepid_Cargo" value="0.0"/>
-        <set_variable name="Aegis_Cargo" value="0.0"/>
-        <set_variable name="Horatio_Cargo" value="0.0"/>
-        <set_variable name="Excalibur_Cargo" value="0.0"/>
-        <set_variable name="Hera_Cargo" value="0.0"/>
-        <set_variable name="Ceres_Cargo" value="0.0"/>
-        <set_variable name="Diana_Cargo" value="0.0"/>
-    </start>
-    <event name="Spawn egg1">
-        <if_variable name="egg1" comparator="EQUALS" value="1.0"/>
-        <if_variable name="Number_of_Players" comparator="GREATER" value="0"/>
-        <if_timer_finished name="egg1_Timer"/>
-        <set_variable name="egg1" value="2.0"/>
-        <create type="genericMesh" x="50000" y="10" z="5000" name="egg1" meshFileName="dat\mine.dxs" textureFileName="dat\asteroidTexture.png"/>
-        <set_object_property property="pushRadius" value="0.0" name="egg1"/>
-    </event>
-    <event name="Spawn egg2">
-        <if_variable name="egg2" comparator="EQUALS" value="1.0"/>
-        <if_variable name="Number_of_Players" comparator="GREATER" value="3.0"/>
-        <if_timer_finished name="egg2_Timer"/>
-        <set_variable name="egg2" value="2.0"/>
-        <create type="genericMesh" x="49000" y="3" z="49000" name="egg2" meshFileName="dat\mine.dxs" textureFileName="dat\asteroidTexture.png"/>
-        <set_object_property property="pushRadius" value="0.0" name="egg2"/>
-    </event>
-    <event name="Spawn egg3">
-        <if_variable name="egg3" comparator="EQUALS" value="1.0"/>
-        <if_variable name="Number_of_Players" comparator="GREATER" value="4.0"/>
-        <if_timer_finished name="egg3_Timer"/>
-        <set_variable name="egg3" value="2.0"/>
-        <create type="genericMesh" x="51000" y="3" z="51000" name="egg3" meshFileName="dat\mine.dxs" textureFileName="dat\asteroidTexture.png"/>
-        <set_object_property property="pushRadius" value="0.0" name="egg3"/>
-    </event>
-    <event name="Spawn egg4">
-        <if_variable name="egg4" comparator="EQUALS" value="1.0"/>
-        <if_variable name="Number_of_Players" comparator="GREATER" value="6.0"/>
-        <if_timer_finished name="egg4_Timer"/>
-        <set_variable name="egg4" value="2.0"/>
-        <create type="genericMesh" x="49000" y="3" z="5100" name="egg4" meshFileName="dat\mine.dxs" textureFileName="dat\asteroidTexture.png"/>
-        <set_object_property property="pushRadius" value="0.0" name="egg4"/>
-    </event>
-    <event name="Spawn egg5">
-        <if_variable name="egg5" comparator="EQUALS" value="1.0"/>
-        <if_variable name="Number_of_Players" comparator="GREATER" value="7.0"/>
-        <if_timer_finished name="egg5_Timer"/>
-        <set_variable name="egg5" value="2.0"/>
-        <create type="genericMesh" x="51000" y="3" z="49000" name="egg5" meshFileName="dat\mine.dxs" textureFileName="dat\asteroidTexture.png"/>
-        <set_object_property property="pushRadius" value="0.0" name="egg5"/>
-    </event>
-    <event name="Artemis Capture egg1">
-        <if_distance name1="Artemis" name2="egg1" comparator="LESS_EQUAL" value="100"/>
-        <if_variable name="egg1" comparator="EQUALS" value="2.0"/>
-        <if_variable name="Artemis_Cargo" comparator="EQUALS" value="0.0"/>
-        <set_variable name="Artemis_Cargo" value="1.0"/>
-        <set_variable name="egg1" value="10"/>
-        <incoming_comms_text from="Tractor Control" sideValue="10">Artemis has control of egg1</incoming_comms_text>
-    </event>
-    <event name="Artemis Drop egg1">
-        <if_distance name1="Artemis" name2="egg1" comparator="GREATER_EQUAL" value="1000"/>
-        <if_variable name="egg1" comparator="EQUALS" value="10"/>
-        <set_variable name="egg1" value="2.0"/>
-        <set_variable name="Artemis_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="10">Artemis lost control of egg1. </incoming_comms_text>
-    </event>
-    <event name="Artemis Dead Drop egg1">
-        <if_not_exists name="Artemis"/>
-        <if_variable name="egg1" comparator="EQUALS" value="10"/>
-        <set_variable name="egg1" value="2.0"/>
-        <set_variable name="Artemis_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="10">Artemis lost control of egg1. </incoming_comms_text>
-    </event>
-    <event name="Artemis Claim egg1">
-        <if_variable name="egg1" comparator="EQUALS" value="10"/>
-        <if_docked player_name="Artemis" name="Artemis Station"/>
-        <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
-        <set_variable name="Artemis_Score" value="Artemis_Score+1"/>
-        <destroy name="egg1"/>
-        <set_timer name="egg1_Timer" seconds="10"/>
-        <set_variable name="egg1" value="1.0"/>
-        <set_variable name="Artemis_Cargo" value="0.0"/>
-        <incoming_comms_text from="Artemis Station" sideValue="10">Egg Secured. Artemis has captured |Artemis_Score| Egg.</incoming_comms_text>
-    </event>
-    <event name="Artemis Tow egg1">
-        <if_variable name="egg1" comparator="EQUALS" value="10"/>
-        <if_exists name="Artemis"/>
-        <set_relative_position name2="egg1" distance="100" angle="180" name1="Artemis"/>
-    </event>
-    <event name="Intrepid Capture egg1">
-        <if_distance name1="Intrepid" name2="egg1" comparator="LESS_EQUAL" value="100"/>
-        <if_variable name="egg1" comparator="EQUALS" value="2.0"/>
-        <if_variable name="Intrepid_Cargo" comparator="EQUALS" value="0.0"/>
-        <set_variable name="Intrepid_Cargo" value="1.0"/>
-        <set_variable name="egg1" value="11"/>
-        <incoming_comms_text from="Tractor Control" sideValue="11">Intrepid has control of egg1</incoming_comms_text>
-    </event>
-    <event name="Intrepid Drop egg1">
-        <if_distance name1="Intrepid" name2="egg1" comparator="GREATER_EQUAL" value="1000"/>
-        <if_variable name="egg1" comparator="EQUALS" value="11"/>
-        <set_variable name="egg1" value="2.0"/>
-        <set_variable name="Intrepid_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="11">Intrepid lost control of egg1. </incoming_comms_text>
-    </event>
-    <event name="Intrepid Dead Drop egg1">
-        <if_not_exists name="Intrepid"/>
-        <if_variable name="egg1" comparator="EQUALS" value="11"/>
-        <set_variable name="egg1" value="2.0"/>
-        <set_variable name="Intrepid_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="11">Intrepid lost control of egg1. </incoming_comms_text>
-    </event>
-    <event name="Intrepid Claim egg1">
-        <if_variable name="egg1" comparator="EQUALS" value="11"/>
-        <if_docked player_name="Intrepid" name="Intrepid Station"/>
-        <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
-        <set_variable name="Intrepid_Score" value="Intrepid_Score+1"/>
-        <destroy name="egg1"/>
-        <set_timer name="egg1_Timer" seconds="10"/>
-        <set_variable name="egg1" value="1.0"/>
-        <set_variable name="Intrepid_Cargo" value="0.0"/>
-        <incoming_comms_text from="Intrepid Station" sideValue="11">Egg Secured. Intrepid has captured |Intrepid_Score| Egg.</incoming_comms_text>
-    </event>
-    <event name="Intrepid Tow egg1">
-        <if_variable name="egg1" comparator="EQUALS" value="11"/>
-        <if_exists name="Intrepid"/>
-        <set_relative_position name2="egg1" distance="100" angle="180" name1="Intrepid"/>
-    </event>
-    <event name="Aegis Capture egg1">
-        <if_distance name1="Aegis" name2="egg1" comparator="LESS_EQUAL" value="100"/>
-        <if_variable name="egg1" comparator="EQUALS" value="2.0"/>
-        <if_variable name="Aegis_Cargo" comparator="EQUALS" value="0.0"/>
-        <set_variable name="Aegis_Cargo" value="1.0"/>
-        <set_variable name="egg1" value="4"/>
-        <incoming_comms_text from="Tractor Control" sideValue="4">Aegis has control of egg1</incoming_comms_text>
-    </event>
-    <event name="Aegis Drop egg1">
-        <if_distance name1="Aegis" name2="egg1" comparator="GREATER_EQUAL" value="1000"/>
-        <if_variable name="egg1" comparator="EQUALS" value="4"/>
-        <set_variable name="egg1" value="2.0"/>
-        <set_variable name="Aegis_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="4">Aegis lost control of egg1. </incoming_comms_text>
-    </event>
-    <event name="Aegis Dead Drop egg1">
-        <if_not_exists name="Aegis"/>
-        <if_variable name="egg1" comparator="EQUALS" value="4"/>
-        <set_variable name="egg1" value="2.0"/>
-        <set_variable name="Aegis_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="4">Aegis lost control of egg1. </incoming_comms_text>
-    </event>
-    <event name="Aegis Claim egg1">
-        <if_variable name="egg1" comparator="EQUALS" value="4"/>
-        <if_docked player_name="Aegis" name="Aegis Station"/>
-        <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
-        <set_variable name="Aegis_Score" value="Aegis_Score+1"/>
-        <destroy name="egg1"/>
-        <set_timer name="egg1_Timer" seconds="10"/>
-        <set_variable name="egg1" value="1.0"/>
-        <set_variable name="Aegis_Cargo" value="0.0"/>
-        <incoming_comms_text from="Aegis Station" sideValue="4">Egg Secured. Aegis has captured |Aegis_Score| Egg.</incoming_comms_text>
-    </event>
-    <event name="Aegis Tow egg1">
-        <if_variable name="egg1" comparator="EQUALS" value="4"/>
-        <if_exists name="Aegis"/>
-        <set_relative_position name2="egg1" distance="100" angle="180" name1="Aegis"/>
-    </event>
-    <event name="Horatio Capture egg1">
-        <if_distance name1="Horatio" name2="egg1" comparator="LESS_EQUAL" value="100"/>
-        <if_variable name="egg1" comparator="EQUALS" value="2.0"/>
-        <if_variable name="Horatio_Cargo" comparator="EQUALS" value="0.0"/>
-        <set_variable name="Horatio_Cargo" value="1.0"/>
-        <set_variable name="egg1" value="5"/>
-        <incoming_comms_text from="Tractor Control" sideValue="5">Horatio has control of egg1</incoming_comms_text>
-    </event>
-    <event name="Horatio Drop egg1">
-        <if_distance name1="Horatio" name2="egg1" comparator="GREATER_EQUAL" value="1000"/>
-        <if_variable name="egg1" comparator="EQUALS" value="5"/>
-        <set_variable name="egg1" value="2.0"/>
-        <set_variable name="Horatio_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="5">Horatio lost control of egg1. </incoming_comms_text>
-    </event>
-    <event name="Horatio Dead Drop egg1">
-        <if_not_exists name="Horatio"/>
-        <if_variable name="egg1" comparator="EQUALS" value="5"/>
-        <set_variable name="egg1" value="2.0"/>
-        <set_variable name="Horatio_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="5">Horatio lost control of egg1. </incoming_comms_text>
-    </event>
-    <event name="Horatio Claim egg1">
-        <if_variable name="egg1" comparator="EQUALS" value="5"/>
-        <if_docked player_name="Horatio" name="Horatio Station"/>
-        <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
-        <set_variable name="Horatio_Score" value="Horatio_Score+1"/>
-        <destroy name="egg1"/>
-        <set_timer name="egg1_Timer" seconds="10"/>
-        <set_variable name="egg1" value="1.0"/>
-        <set_variable name="Horatio_Cargo" value="0.0"/>
-        <incoming_comms_text from="Horatio Station" sideValue="5">Egg Secured. Horatio has captured |Horatio_Score| Egg.</incoming_comms_text>
-    </event>
-    <event name="Horatio Tow egg1">
-        <if_variable name="egg1" comparator="EQUALS" value="5"/>
-        <if_exists name="Horatio"/>
-        <set_relative_position name2="egg1" distance="100" angle="180" name1="Horatio"/>
-    </event>
-    <event name="Excalibur Capture egg1">
-        <if_distance name1="Excalibur" name2="egg1" comparator="LESS_EQUAL" value="100"/>
-        <if_variable name="egg1" comparator="EQUALS" value="2.0"/>
-        <if_variable name="Excalibur_Cargo" comparator="EQUALS" value="0.0"/>
-        <set_variable name="Excalibur_Cargo" value="1.0"/>
-        <set_variable name="egg1" value="6"/>
-        <incoming_comms_text from="Tractor Control" sideValue="6">Excalibur has control of egg1</incoming_comms_text>
-    </event>
-    <event name="Excalibur Drop egg1">
-        <if_distance name1="Excalibur" name2="egg1" comparator="GREATER_EQUAL" value="1000"/>
-        <if_variable name="egg1" comparator="EQUALS" value="6"/>
-        <set_variable name="egg1" value="2.0"/>
-        <set_variable name="Excalibur_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="6">Excalibur lost control of egg1. </incoming_comms_text>
-    </event>
-    <event name="Excalibur Dead Drop egg1">
-        <if_not_exists name="Excalibur"/>
-        <if_variable name="egg1" comparator="EQUALS" value="6"/>
-        <set_variable name="egg1" value="2.0"/>
-        <set_variable name="Excalibur_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="6">Excalibur lost control of egg1. </incoming_comms_text>
-    </event>
-    <event name="Excalibur Claim egg1">
-        <if_variable name="egg1" comparator="EQUALS" value="6"/>
-        <if_docked player_name="Excalibur" name="Excalibur Station"/>
-        <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
-        <set_variable name="Excalibur_Score" value="Excalibur_Score+1"/>
-        <destroy name="egg1"/>
-        <set_timer name="egg1_Timer" seconds="10"/>
-        <set_variable name="egg1" value="1.0"/>
-        <set_variable name="Excalibur_Cargo" value="0.0"/>
-        <incoming_comms_text from="Excalibur Station" sideValue="6">Egg Secured. Excalibur has captured |Excalibur_Score| Egg.</incoming_comms_text>
-    </event>
-    <event name="Excalibur Tow egg1">
-        <if_variable name="egg1" comparator="EQUALS" value="6"/>
-        <if_exists name="Excalibur"/>
-        <set_relative_position name2="egg1" distance="100" angle="180" name1="Excalibur"/>
-    </event>
-    <event name="Hera Capture egg1">
-        <if_distance name1="Hera" name2="egg1" comparator="LESS_EQUAL" value="100"/>
-        <if_variable name="egg1" comparator="EQUALS" value="2.0"/>
-        <if_variable name="Hera_Cargo" comparator="EQUALS" value="0.0"/>
-        <set_variable name="Hera_Cargo" value="1.0"/>
-        <set_variable name="egg1" value="7"/>
-        <incoming_comms_text from="Tractor Control" sideValue="7">Hera has control of egg1</incoming_comms_text>
-    </event>
-    <event name="Hera Drop egg1">
-        <if_distance name1="Hera" name2="egg1" comparator="GREATER_EQUAL" value="1000"/>
-        <if_variable name="egg1" comparator="EQUALS" value="7"/>
-        <set_variable name="egg1" value="2.0"/>
-        <set_variable name="Hera_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="7">Hera lost control of egg1. </incoming_comms_text>
-    </event>
-    <event name="Hera Dead Drop egg1">
-        <if_not_exists name="Hera"/>
-        <if_variable name="egg1" comparator="EQUALS" value="7"/>
-        <set_variable name="egg1" value="2.0"/>
-        <set_variable name="Hera_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="7">Hera lost control of egg1. </incoming_comms_text>
-    </event>
-    <event name="Hera Claim egg1">
-        <if_variable name="egg1" comparator="EQUALS" value="7"/>
-        <if_docked player_name="Hera" name="Hera Station"/>
-        <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
-        <set_variable name="Hera_Score" value="Hera_Score+1"/>
-        <destroy name="egg1"/>
-        <set_timer name="egg1_Timer" seconds="10"/>
-        <set_variable name="egg1" value="1.0"/>
-        <set_variable name="Hera_Cargo" value="0.0"/>
-        <incoming_comms_text from="Hera Station" sideValue="7">Egg Secured. Hera has captured |Hera_Score| Egg.</incoming_comms_text>
-    </event>
-    <event name="Hera Tow egg1">
-        <if_variable name="egg1" comparator="EQUALS" value="7"/>
-        <if_exists name="Hera"/>
-        <set_relative_position name2="egg1" distance="100" angle="180" name1="Hera"/>
-    </event>
-    <event name="Ceres Capture egg1">
-        <if_distance name1="Ceres" name2="egg1" comparator="LESS_EQUAL" value="100"/>
-        <if_variable name="egg1" comparator="EQUALS" value="2.0"/>
-        <if_variable name="Ceres_Cargo" comparator="EQUALS" value="0.0"/>
-        <set_variable name="Ceres_Cargo" value="1.0"/>
-        <set_variable name="egg1" value="8"/>
-        <incoming_comms_text from="Tractor Control" sideValue="8">Ceres has control of egg1</incoming_comms_text>
-    </event>
-    <event name="Ceres Drop egg1">
-        <if_distance name1="Ceres" name2="egg1" comparator="GREATER_EQUAL" value="1000"/>
-        <if_variable name="egg1" comparator="EQUALS" value="8"/>
-        <set_variable name="egg1" value="2.0"/>
-        <set_variable name="Ceres_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="8">Ceres lost control of egg1. </incoming_comms_text>
-    </event>
-    <event name="Ceres Dead Drop egg1">
-        <if_not_exists name="Ceres"/>
-        <if_variable name="egg1" comparator="EQUALS" value="8"/>
-        <set_variable name="egg1" value="2.0"/>
-        <set_variable name="Ceres_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="8">Ceres lost control of egg1. </incoming_comms_text>
-    </event>
-    <event name="Ceres Claim egg1">
-        <if_variable name="egg1" comparator="EQUALS" value="8"/>
-        <if_docked player_name="Ceres" name="Ceres Station"/>
-        <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
-        <set_variable name="Ceres_Score" value="Ceres_Score+1"/>
-        <destroy name="egg1"/>
-        <set_timer name="egg1_Timer" seconds="10"/>
-        <set_variable name="egg1" value="1.0"/>
-        <set_variable name="Ceres_Cargo" value="0.0"/>
-        <incoming_comms_text from="Ceres Station" sideValue="8">Egg Secured. Ceres has captured |Ceres_Score| Egg.</incoming_comms_text>
-    </event>
-    <event name="Ceres Tow egg1">
-        <if_variable name="egg1" comparator="EQUALS" value="8"/>
-        <if_exists name="Ceres"/>
-        <set_relative_position name2="egg1" distance="100" angle="180" name1="Ceres"/>
-    </event>
-    <event name="Diana Capture egg1">
-        <if_distance name1="Diana" name2="egg1" comparator="LESS_EQUAL" value="100"/>
-        <if_variable name="egg1" comparator="EQUALS" value="2.0"/>
-        <if_variable name="Diana_Cargo" comparator="EQUALS" value="0.0"/>
-        <set_variable name="Diana_Cargo" value="1.0"/>
-        <set_variable name="egg1" value="9"/>
-        <incoming_comms_text from="Tractor Control" sideValue="9">Diana has control of egg1</incoming_comms_text>
-    </event>
-    <event name="Diana Drop egg1">
-        <if_distance name1="Diana" name2="egg1" comparator="GREATER_EQUAL" value="1000"/>
-        <if_variable name="egg1" comparator="EQUALS" value="9"/>
-        <set_variable name="egg1" value="2.0"/>
-        <set_variable name="Diana_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="9">Diana lost control of egg1. </incoming_comms_text>
-    </event>
-    <event name="Diana Dead Drop egg1">
-        <if_not_exists name="Diana"/>
-        <if_variable name="egg1" comparator="EQUALS" value="9"/>
-        <set_variable name="egg1" value="2.0"/>
-        <set_variable name="Diana_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="9">Diana lost control of egg1. </incoming_comms_text>
-    </event>
-    <event name="Diana Claim egg1">
-        <if_variable name="egg1" comparator="EQUALS" value="9"/>
-        <if_docked player_name="Diana" name="Diana Station"/>
-        <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
-        <set_variable name="Diana_Score" value="Diana_Score+1"/>
-        <destroy name="egg1"/>
-        <set_timer name="egg1_Timer" seconds="10"/>
-        <set_variable name="egg1" value="1.0"/>
-        <set_variable name="Diana_Cargo" value="0.0"/>
-        <incoming_comms_text from="Diana Station" sideValue="9">Egg Secured. Diana has captured |Diana_Score| Egg.</incoming_comms_text>
-    </event>
-    <event name="Diana Tow egg1">
-        <if_variable name="egg1" comparator="EQUALS" value="9"/>
-        <if_exists name="Diana"/>
-        <set_relative_position name2="egg1" distance="100" angle="180" name1="Diana"/>
-    </event>
-    <event name="Artemis Capture egg2">
-        <if_distance name1="Artemis" name2="egg2" comparator="LESS_EQUAL" value="100"/>
-        <if_variable name="egg2" comparator="EQUALS" value="2.0"/>
-        <if_variable name="Artemis_Cargo" comparator="EQUALS" value="0.0"/>
-        <set_variable name="Artemis_Cargo" value="1.0"/>
-        <set_variable name="egg2" value="10"/>
-        <incoming_comms_text from="Tractor Control" sideValue="10">Artemis has control of egg2</incoming_comms_text>
-    </event>
-    <event name="Artemis Drop egg2">
-        <if_distance name1="Artemis" name2="egg2" comparator="GREATER_EQUAL" value="1000"/>
-        <if_variable name="egg2" comparator="EQUALS" value="10"/>
-        <set_variable name="egg2" value="2.0"/>
-        <set_variable name="Artemis_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="10">Artemis lost control of egg2. </incoming_comms_text>
-    </event>
-    <event name="Artemis Dead Drop egg2">
-        <if_not_exists name="Artemis"/>
-        <if_variable name="egg2" comparator="EQUALS" value="10"/>
-        <set_variable name="egg2" value="2.0"/>
-        <set_variable name="Artemis_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="10">Artemis lost control of egg2. </incoming_comms_text>
-    </event>
-    <event name="Artemis Claim egg2">
-        <if_variable name="egg2" comparator="EQUALS" value="10"/>
-        <if_docked player_name="Artemis" name="Artemis Station"/>
-        <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
-        <set_variable name="Artemis_Score" value="Artemis_Score+1"/>
-        <destroy name="egg2"/>
-        <set_timer name="egg2_Timer" seconds="10"/>
-        <set_variable name="egg2" value="1.0"/>
-        <set_variable name="Artemis_Cargo" value="0.0"/>
-        <incoming_comms_text from="Artemis Station" sideValue="10">Egg Secured. Artemis has captured |Artemis_Score| Egg.</incoming_comms_text>
-    </event>
-    <event name="Artemis Tow egg2">
-        <if_variable name="egg2" comparator="EQUALS" value="10"/>
-        <if_exists name="Artemis"/>
-        <set_relative_position name2="egg2" distance="100" angle="180" name1="Artemis"/>
-    </event>
-    <event name="Intrepid Capture egg2">
-        <if_distance name1="Intrepid" name2="egg2" comparator="LESS_EQUAL" value="100"/>
-        <if_variable name="egg2" comparator="EQUALS" value="2.0"/>
-        <if_variable name="Intrepid_Cargo" comparator="EQUALS" value="0.0"/>
-        <set_variable name="Intrepid_Cargo" value="1.0"/>
-        <set_variable name="egg2" value="11"/>
-        <incoming_comms_text from="Tractor Control" sideValue="11">Intrepid has control of egg2</incoming_comms_text>
-    </event>
-    <event name="Intrepid Drop egg2">
-        <if_distance name1="Intrepid" name2="egg2" comparator="GREATER_EQUAL" value="1000"/>
-        <if_variable name="egg2" comparator="EQUALS" value="11"/>
-        <set_variable name="egg2" value="2.0"/>
-        <set_variable name="Intrepid_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="11">Intrepid lost control of egg2. </incoming_comms_text>
-    </event>
-    <event name="Intrepid Dead Drop egg2">
-        <if_not_exists name="Intrepid"/>
-        <if_variable name="egg2" comparator="EQUALS" value="11"/>
-        <set_variable name="egg2" value="2.0"/>
-        <set_variable name="Intrepid_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="11">Intrepid lost control of egg2. </incoming_comms_text>
-    </event>
-    <event name="Intrepid Claim egg2">
-        <if_variable name="egg2" comparator="EQUALS" value="11"/>
-        <if_docked player_name="Intrepid" name="Intrepid Station"/>
-        <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
-        <set_variable name="Intrepid_Score" value="Intrepid_Score+1"/>
-        <destroy name="egg2"/>
-        <set_timer name="egg2_Timer" seconds="10"/>
-        <set_variable name="egg2" value="1.0"/>
-        <set_variable name="Intrepid_Cargo" value="0.0"/>
-        <incoming_comms_text from="Intrepid Station" sideValue="11">Egg Secured. Intrepid has captured |Intrepid_Score| Egg.</incoming_comms_text>
-    </event>
-    <event name="Intrepid Tow egg2">
-        <if_variable name="egg2" comparator="EQUALS" value="11"/>
-        <if_exists name="Intrepid"/>
-        <set_relative_position name2="egg2" distance="100" angle="180" name1="Intrepid"/>
-    </event>
-    <event name="Aegis Capture egg2">
-        <if_distance name1="Aegis" name2="egg2" comparator="LESS_EQUAL" value="100"/>
-        <if_variable name="egg2" comparator="EQUALS" value="2.0"/>
-        <if_variable name="Aegis_Cargo" comparator="EQUALS" value="0.0"/>
-        <set_variable name="Aegis_Cargo" value="1.0"/>
-        <set_variable name="egg2" value="4"/>
-        <incoming_comms_text from="Tractor Control" sideValue="4">Aegis has control of egg2</incoming_comms_text>
-    </event>
-    <event name="Aegis Drop egg2">
-        <if_distance name1="Aegis" name2="egg2" comparator="GREATER_EQUAL" value="1000"/>
-        <if_variable name="egg2" comparator="EQUALS" value="4"/>
-        <set_variable name="egg2" value="2.0"/>
-        <set_variable name="Aegis_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="4">Aegis lost control of egg2. </incoming_comms_text>
-    </event>
-    <event name="Aegis Dead Drop egg2">
-        <if_not_exists name="Aegis"/>
-        <if_variable name="egg2" comparator="EQUALS" value="4"/>
-        <set_variable name="egg2" value="2.0"/>
-        <set_variable name="Aegis_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="4">Aegis lost control of egg2. </incoming_comms_text>
-    </event>
-    <event name="Aegis Claim egg2">
-        <if_variable name="egg2" comparator="EQUALS" value="4"/>
-        <if_docked player_name="Aegis" name="Aegis Station"/>
-        <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
-        <set_variable name="Aegis_Score" value="Aegis_Score+1"/>
-        <destroy name="egg2"/>
-        <set_timer name="egg2_Timer" seconds="10"/>
-        <set_variable name="egg2" value="1.0"/>
-        <set_variable name="Aegis_Cargo" value="0.0"/>
-        <incoming_comms_text from="Aegis Station" sideValue="4">Egg Secured. Aegis has captured |Aegis_Score| Egg.</incoming_comms_text>
-    </event>
-    <event name="Aegis Tow egg2">
-        <if_variable name="egg2" comparator="EQUALS" value="4"/>
-        <if_exists name="Aegis"/>
-        <set_relative_position name2="egg2" distance="100" angle="180" name1="Aegis"/>
-    </event>
-    <event name="Horatio Capture egg2">
-        <if_distance name1="Horatio" name2="egg2" comparator="LESS_EQUAL" value="100"/>
-        <if_variable name="egg2" comparator="EQUALS" value="2.0"/>
-        <if_variable name="Horatio_Cargo" comparator="EQUALS" value="0.0"/>
-        <set_variable name="Horatio_Cargo" value="1.0"/>
-        <set_variable name="egg2" value="5"/>
-        <incoming_comms_text from="Tractor Control" sideValue="5">Horatio has control of egg2</incoming_comms_text>
-    </event>
-    <event name="Horatio Drop egg2">
-        <if_distance name1="Horatio" name2="egg2" comparator="GREATER_EQUAL" value="1000"/>
-        <if_variable name="egg2" comparator="EQUALS" value="5"/>
-        <set_variable name="egg2" value="2.0"/>
-        <set_variable name="Horatio_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="5">Horatio lost control of egg2. </incoming_comms_text>
-    </event>
-    <event name="Horatio Dead Drop egg2">
-        <if_not_exists name="Horatio"/>
-        <if_variable name="egg2" comparator="EQUALS" value="5"/>
-        <set_variable name="egg2" value="2.0"/>
-        <set_variable name="Horatio_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="5">Horatio lost control of egg2. </incoming_comms_text>
-    </event>
-    <event name="Horatio Claim egg2">
-        <if_variable name="egg2" comparator="EQUALS" value="5"/>
-        <if_docked player_name="Horatio" name="Horatio Station"/>
-        <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
-        <set_variable name="Horatio_Score" value="Horatio_Score+1"/>
-        <destroy name="egg2"/>
-        <set_timer name="egg2_Timer" seconds="10"/>
-        <set_variable name="egg2" value="1.0"/>
-        <set_variable name="Horatio_Cargo" value="0.0"/>
-        <incoming_comms_text from="Horatio Station" sideValue="5">Egg Secured. Horatio has captured |Horatio_Score| Egg.</incoming_comms_text>
-    </event>
-    <event name="Horatio Tow egg2">
-        <if_variable name="egg2" comparator="EQUALS" value="5"/>
-        <if_exists name="Horatio"/>
-        <set_relative_position name2="egg2" distance="100" angle="180" name1="Horatio"/>
-    </event>
-    <event name="Excalibur Capture egg2">
-        <if_distance name1="Excalibur" name2="egg2" comparator="LESS_EQUAL" value="100"/>
-        <if_variable name="egg2" comparator="EQUALS" value="2.0"/>
-        <if_variable name="Excalibur_Cargo" comparator="EQUALS" value="0.0"/>
-        <set_variable name="Excalibur_Cargo" value="1.0"/>
-        <set_variable name="egg2" value="6"/>
-        <incoming_comms_text from="Tractor Control" sideValue="6">Excalibur has control of egg2</incoming_comms_text>
-    </event>
-    <event name="Excalibur Drop egg2">
-        <if_distance name1="Excalibur" name2="egg2" comparator="GREATER_EQUAL" value="1000"/>
-        <if_variable name="egg2" comparator="EQUALS" value="6"/>
-        <set_variable name="egg2" value="2.0"/>
-        <set_variable name="Excalibur_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="6">Excalibur lost control of egg2. </incoming_comms_text>
-    </event>
-    <event name="Excalibur Dead Drop egg2">
-        <if_not_exists name="Excalibur"/>
-        <if_variable name="egg2" comparator="EQUALS" value="6"/>
-        <set_variable name="egg2" value="2.0"/>
-        <set_variable name="Excalibur_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="6">Excalibur lost control of egg2. </incoming_comms_text>
-    </event>
-    <event name="Excalibur Claim egg2">
-        <if_variable name="egg2" comparator="EQUALS" value="6"/>
-        <if_docked player_name="Excalibur" name="Excalibur Station"/>
-        <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
-        <set_variable name="Excalibur_Score" value="Excalibur_Score+1"/>
-        <destroy name="egg2"/>
-        <set_timer name="egg2_Timer" seconds="10"/>
-        <set_variable name="egg2" value="1.0"/>
-        <set_variable name="Excalibur_Cargo" value="0.0"/>
-        <incoming_comms_text from="Excalibur Station" sideValue="6">Egg Secured. Excalibur has captured |Excalibur_Score| Egg.</incoming_comms_text>
-    </event>
-    <event name="Excalibur Tow egg2">
-        <if_variable name="egg2" comparator="EQUALS" value="6"/>
-        <if_exists name="Excalibur"/>
-        <set_relative_position name2="egg2" distance="100" angle="180" name1="Excalibur"/>
-    </event>
-    <event name="Hera Capture egg2">
-        <if_distance name1="Hera" name2="egg2" comparator="LESS_EQUAL" value="100"/>
-        <if_variable name="egg2" comparator="EQUALS" value="2.0"/>
-        <if_variable name="Hera_Cargo" comparator="EQUALS" value="0.0"/>
-        <set_variable name="Hera_Cargo" value="1.0"/>
-        <set_variable name="egg2" value="7"/>
-        <incoming_comms_text from="Tractor Control" sideValue="7">Hera has control of egg2</incoming_comms_text>
-    </event>
-    <event name="Hera Drop egg2">
-        <if_distance name1="Hera" name2="egg2" comparator="GREATER_EQUAL" value="1000"/>
-        <if_variable name="egg2" comparator="EQUALS" value="7"/>
-        <set_variable name="egg2" value="2.0"/>
-        <set_variable name="Hera_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="7">Hera lost control of egg2. </incoming_comms_text>
-    </event>
-    <event name="Hera Dead Drop egg2">
-        <if_not_exists name="Hera"/>
-        <if_variable name="egg2" comparator="EQUALS" value="7"/>
-        <set_variable name="egg2" value="2.0"/>
-        <set_variable name="Hera_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="7">Hera lost control of egg2. </incoming_comms_text>
-    </event>
-    <event name="Hera Claim egg2">
-        <if_variable name="egg2" comparator="EQUALS" value="7"/>
-        <if_docked player_name="Hera" name="Hera Station"/>
-        <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
-        <set_variable name="Hera_Score" value="Hera_Score+1"/>
-        <destroy name="egg2"/>
-        <set_timer name="egg2_Timer" seconds="10"/>
-        <set_variable name="egg2" value="1.0"/>
-        <set_variable name="Hera_Cargo" value="0.0"/>
-        <incoming_comms_text from="Hera Station" sideValue="7">Egg Secured. Hera has captured |Hera_Score| Egg.</incoming_comms_text>
-    </event>
-    <event name="Hera Tow egg2">
-        <if_variable name="egg2" comparator="EQUALS" value="7"/>
-        <if_exists name="Hera"/>
-        <set_relative_position name2="egg2" distance="100" angle="180" name1="Hera"/>
-    </event>
-    <event name="Ceres Capture egg2">
-        <if_distance name1="Ceres" name2="egg2" comparator="LESS_EQUAL" value="100"/>
-        <if_variable name="egg2" comparator="EQUALS" value="2.0"/>
-        <if_variable name="Ceres_Cargo" comparator="EQUALS" value="0.0"/>
-        <set_variable name="Ceres_Cargo" value="1.0"/>
-        <set_variable name="egg2" value="8"/>
-        <incoming_comms_text from="Tractor Control" sideValue="8">Ceres has control of egg2</incoming_comms_text>
-    </event>
-    <event name="Ceres Drop egg2">
-        <if_distance name1="Ceres" name2="egg2" comparator="GREATER_EQUAL" value="1000"/>
-        <if_variable name="egg2" comparator="EQUALS" value="8"/>
-        <set_variable name="egg2" value="2.0"/>
-        <set_variable name="Ceres_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="8">Ceres lost control of egg2. </incoming_comms_text>
-    </event>
-    <event name="Ceres Dead Drop egg2">
-        <if_not_exists name="Ceres"/>
-        <if_variable name="egg2" comparator="EQUALS" value="8"/>
-        <set_variable name="egg2" value="2.0"/>
-        <set_variable name="Ceres_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="8">Ceres lost control of egg2. </incoming_comms_text>
-    </event>
-    <event name="Ceres Claim egg2">
-        <if_variable name="egg2" comparator="EQUALS" value="8"/>
-        <if_docked player_name="Ceres" name="Ceres Station"/>
-        <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
-        <set_variable name="Ceres_Score" value="Ceres_Score+1"/>
-        <destroy name="egg2"/>
-        <set_timer name="egg2_Timer" seconds="10"/>
-        <set_variable name="egg2" value="1.0"/>
-        <set_variable name="Ceres_Cargo" value="0.0"/>
-        <incoming_comms_text from="Ceres Station" sideValue="8">Egg Secured. Ceres has captured |Ceres_Score| Egg.</incoming_comms_text>
-    </event>
-    <event name="Ceres Tow egg2">
-        <if_variable name="egg2" comparator="EQUALS" value="8"/>
-        <if_exists name="Ceres"/>
-        <set_relative_position name2="egg2" distance="100" angle="180" name1="Ceres"/>
-    </event>
-    <event name="Diana Capture egg2">
-        <if_distance name1="Diana" name2="egg2" comparator="LESS_EQUAL" value="100"/>
-        <if_variable name="egg2" comparator="EQUALS" value="2.0"/>
-        <if_variable name="Diana_Cargo" comparator="EQUALS" value="0.0"/>
-        <set_variable name="Diana_Cargo" value="1.0"/>
-        <set_variable name="egg2" value="9"/>
-        <incoming_comms_text from="Tractor Control" sideValue="9">Diana has control of egg2</incoming_comms_text>
-    </event>
-    <event name="Diana Drop egg2">
-        <if_distance name1="Diana" name2="egg2" comparator="GREATER_EQUAL" value="1000"/>
-        <if_variable name="egg2" comparator="EQUALS" value="9"/>
-        <set_variable name="egg2" value="2.0"/>
-        <set_variable name="Diana_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="9">Diana lost control of egg2. </incoming_comms_text>
-    </event>
-    <event name="Diana Dead Drop egg2">
-        <if_not_exists name="Diana"/>
-        <if_variable name="egg2" comparator="EQUALS" value="9"/>
-        <set_variable name="egg2" value="2.0"/>
-        <set_variable name="Diana_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="9">Diana lost control of egg2. </incoming_comms_text>
-    </event>
-    <event name="Diana Claim egg2">
-        <if_variable name="egg2" comparator="EQUALS" value="9"/>
-        <if_docked player_name="Diana" name="Diana Station"/>
-        <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
-        <set_variable name="Diana_Score" value="Diana_Score+1"/>
-        <destroy name="egg2"/>
-        <set_timer name="egg2_Timer" seconds="10"/>
-        <set_variable name="egg2" value="1.0"/>
-        <set_variable name="Diana_Cargo" value="0.0"/>
-        <incoming_comms_text from="Diana Station" sideValue="9">Egg Secured. Diana has captured |Diana_Score| Egg.</incoming_comms_text>
-    </event>
-    <event name="Diana Tow egg2">
-        <if_variable name="egg2" comparator="EQUALS" value="9"/>
-        <if_exists name="Diana"/>
-        <set_relative_position name2="egg2" distance="100" angle="180" name1="Diana"/>
-    </event>
-    <event name="Artemis Capture egg3">
-        <if_distance name1="Artemis" name2="egg3" comparator="LESS_EQUAL" value="100"/>
-        <if_variable name="egg3" comparator="EQUALS" value="2.0"/>
-        <if_variable name="Artemis_Cargo" comparator="EQUALS" value="0.0"/>
-        <set_variable name="Artemis_Cargo" value="1.0"/>
-        <set_variable name="egg3" value="10"/>
-        <incoming_comms_text from="Tractor Control" sideValue="10">Artemis has control of egg3</incoming_comms_text>
-    </event>
-    <event name="Artemis Drop egg3">
-        <if_distance name1="Artemis" name2="egg3" comparator="GREATER_EQUAL" value="1000"/>
-        <if_variable name="egg3" comparator="EQUALS" value="10"/>
-        <set_variable name="egg3" value="2.0"/>
-        <set_variable name="Artemis_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="10">Artemis lost control of egg3. </incoming_comms_text>
-    </event>
-    <event name="Artemis Dead Drop egg3">
-        <if_not_exists name="Artemis"/>
-        <if_variable name="egg3" comparator="EQUALS" value="10"/>
-        <set_variable name="egg3" value="2.0"/>
-        <set_variable name="Artemis_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="10">Artemis lost control of egg3. </incoming_comms_text>
-    </event>
-    <event name="Artemis Claim egg3">
-        <if_variable name="egg3" comparator="EQUALS" value="10"/>
-        <if_docked player_name="Artemis" name="Artemis Station"/>
-        <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
-        <set_variable name="Artemis_Score" value="Artemis_Score+1"/>
-        <destroy name="egg3"/>
-        <set_timer name="egg3_Timer" seconds="10"/>
-        <set_variable name="egg3" value="1.0"/>
-        <set_variable name="Artemis_Cargo" value="0.0"/>
-        <incoming_comms_text from="Artemis Station" sideValue="10">Egg Secured. Artemis has captured |Artemis_Score| Egg.</incoming_comms_text>
-    </event>
-    <event name="Artemis Tow egg3">
-        <if_variable name="egg3" comparator="EQUALS" value="10"/>
-        <if_exists name="Artemis"/>
-        <set_relative_position name2="egg3" distance="100" angle="180" name1="Artemis"/>
-    </event>
-    <event name="Intrepid Capture egg3">
-        <if_distance name1="Intrepid" name2="egg3" comparator="LESS_EQUAL" value="100"/>
-        <if_variable name="egg3" comparator="EQUALS" value="2.0"/>
-        <if_variable name="Intrepid_Cargo" comparator="EQUALS" value="0.0"/>
-        <set_variable name="Intrepid_Cargo" value="1.0"/>
-        <set_variable name="egg3" value="11"/>
-        <incoming_comms_text from="Tractor Control" sideValue="11">Intrepid has control of egg3</incoming_comms_text>
-    </event>
-    <event name="Intrepid Drop egg3">
-        <if_distance name1="Intrepid" name2="egg3" comparator="GREATER_EQUAL" value="1000"/>
-        <if_variable name="egg3" comparator="EQUALS" value="11"/>
-        <set_variable name="egg3" value="2.0"/>
-        <set_variable name="Intrepid_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="11">Intrepid lost control of egg3. </incoming_comms_text>
-    </event>
-    <event name="Intrepid Dead Drop egg3">
-        <if_not_exists name="Intrepid"/>
-        <if_variable name="egg3" comparator="EQUALS" value="11"/>
-        <set_variable name="egg3" value="2.0"/>
-        <set_variable name="Intrepid_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="11">Intrepid lost control of egg3. </incoming_comms_text>
-    </event>
-    <event name="Intrepid Claim egg3">
-        <if_variable name="egg3" comparator="EQUALS" value="11"/>
-        <if_docked player_name="Intrepid" name="Intrepid Station"/>
-        <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
-        <set_variable name="Intrepid_Score" value="Intrepid_Score+1"/>
-        <destroy name="egg3"/>
-        <set_timer name="egg3_Timer" seconds="10"/>
-        <set_variable name="egg3" value="1.0"/>
-        <set_variable name="Intrepid_Cargo" value="0.0"/>
-        <incoming_comms_text from="Intrepid Station" sideValue="11">Egg Secured. Intrepid has captured |Intrepid_Score| Egg.</incoming_comms_text>
-    </event>
-    <event name="Intrepid Tow egg3">
-        <if_variable name="egg3" comparator="EQUALS" value="11"/>
-        <if_exists name="Intrepid"/>
-        <set_relative_position name2="egg3" distance="100" angle="180" name1="Intrepid"/>
-    </event>
-    <event name="Aegis Capture egg3">
-        <if_distance name1="Aegis" name2="egg3" comparator="LESS_EQUAL" value="100"/>
-        <if_variable name="egg3" comparator="EQUALS" value="2.0"/>
-        <if_variable name="Aegis_Cargo" comparator="EQUALS" value="0.0"/>
-        <set_variable name="Aegis_Cargo" value="1.0"/>
-        <set_variable name="egg3" value="4"/>
-        <incoming_comms_text from="Tractor Control" sideValue="4">Aegis has control of egg3</incoming_comms_text>
-    </event>
-    <event name="Aegis Drop egg3">
-        <if_distance name1="Aegis" name2="egg3" comparator="GREATER_EQUAL" value="1000"/>
-        <if_variable name="egg3" comparator="EQUALS" value="4"/>
-        <set_variable name="egg3" value="2.0"/>
-        <set_variable name="Aegis_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="4">Aegis lost control of egg3. </incoming_comms_text>
-    </event>
-    <event name="Aegis Dead Drop egg3">
-        <if_not_exists name="Aegis"/>
-        <if_variable name="egg3" comparator="EQUALS" value="4"/>
-        <set_variable name="egg3" value="2.0"/>
-        <set_variable name="Aegis_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="4">Aegis lost control of egg3. </incoming_comms_text>
-    </event>
-    <event name="Aegis Claim egg3">
-        <if_variable name="egg3" comparator="EQUALS" value="4"/>
-        <if_docked player_name="Aegis" name="Aegis Station"/>
-        <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
-        <set_variable name="Aegis_Score" value="Aegis_Score+1"/>
-        <destroy name="egg3"/>
-        <set_timer name="egg3_Timer" seconds="10"/>
-        <set_variable name="egg3" value="1.0"/>
-        <set_variable name="Aegis_Cargo" value="0.0"/>
-        <incoming_comms_text from="Aegis Station" sideValue="4">Egg Secured. Aegis has captured |Aegis_Score| Egg.</incoming_comms_text>
-    </event>
-    <event name="Aegis Tow egg3">
-        <if_variable name="egg3" comparator="EQUALS" value="4"/>
-        <if_exists name="Aegis"/>
-        <set_relative_position name2="egg3" distance="100" angle="180" name1="Aegis"/>
-    </event>
-    <event name="Horatio Capture egg3">
-        <if_distance name1="Horatio" name2="egg3" comparator="LESS_EQUAL" value="100"/>
-        <if_variable name="egg3" comparator="EQUALS" value="2.0"/>
-        <if_variable name="Horatio_Cargo" comparator="EQUALS" value="0.0"/>
-        <set_variable name="Horatio_Cargo" value="1.0"/>
-        <set_variable name="egg3" value="5"/>
-        <incoming_comms_text from="Tractor Control" sideValue="5">Horatio has control of egg3</incoming_comms_text>
-    </event>
-    <event name="Horatio Drop egg3">
-        <if_distance name1="Horatio" name2="egg3" comparator="GREATER_EQUAL" value="1000"/>
-        <if_variable name="egg3" comparator="EQUALS" value="5"/>
-        <set_variable name="egg3" value="2.0"/>
-        <set_variable name="Horatio_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="5">Horatio lost control of egg3. </incoming_comms_text>
-    </event>
-    <event name="Horatio Dead Drop egg3">
-        <if_not_exists name="Horatio"/>
-        <if_variable name="egg3" comparator="EQUALS" value="5"/>
-        <set_variable name="egg3" value="2.0"/>
-        <set_variable name="Horatio_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="5">Horatio lost control of egg3. </incoming_comms_text>
-    </event>
-    <event name="Horatio Claim egg3">
-        <if_variable name="egg3" comparator="EQUALS" value="5"/>
-        <if_docked player_name="Horatio" name="Horatio Station"/>
-        <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
-        <set_variable name="Horatio_Score" value="Horatio_Score+1"/>
-        <destroy name="egg3"/>
-        <set_timer name="egg3_Timer" seconds="10"/>
-        <set_variable name="egg3" value="1.0"/>
-        <set_variable name="Horatio_Cargo" value="0.0"/>
-        <incoming_comms_text from="Horatio Station" sideValue="5">Egg Secured. Horatio has captured |Horatio_Score| Egg.</incoming_comms_text>
-    </event>
-    <event name="Horatio Tow egg3">
-        <if_variable name="egg3" comparator="EQUALS" value="5"/>
-        <if_exists name="Horatio"/>
-        <set_relative_position name2="egg3" distance="100" angle="180" name1="Horatio"/>
-    </event>
-    <event name="Excalibur Capture egg3">
-        <if_distance name1="Excalibur" name2="egg3" comparator="LESS_EQUAL" value="100"/>
-        <if_variable name="egg3" comparator="EQUALS" value="2.0"/>
-        <if_variable name="Excalibur_Cargo" comparator="EQUALS" value="0.0"/>
-        <set_variable name="Excalibur_Cargo" value="1.0"/>
-        <set_variable name="egg3" value="6"/>
-        <incoming_comms_text from="Tractor Control" sideValue="6">Excalibur has control of egg3</incoming_comms_text>
-    </event>
-    <event name="Excalibur Drop egg3">
-        <if_distance name1="Excalibur" name2="egg3" comparator="GREATER_EQUAL" value="1000"/>
-        <if_variable name="egg3" comparator="EQUALS" value="6"/>
-        <set_variable name="egg3" value="2.0"/>
-        <set_variable name="Excalibur_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="6">Excalibur lost control of egg3. </incoming_comms_text>
-    </event>
-    <event name="Excalibur Dead Drop egg3">
-        <if_not_exists name="Excalibur"/>
-        <if_variable name="egg3" comparator="EQUALS" value="6"/>
-        <set_variable name="egg3" value="2.0"/>
-        <set_variable name="Excalibur_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="6">Excalibur lost control of egg3. </incoming_comms_text>
-    </event>
-    <event name="Excalibur Claim egg3">
-        <if_variable name="egg3" comparator="EQUALS" value="6"/>
-        <if_docked player_name="Excalibur" name="Excalibur Station"/>
-        <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
-        <set_variable name="Excalibur_Score" value="Excalibur_Score+1"/>
-        <destroy name="egg3"/>
-        <set_timer name="egg3_Timer" seconds="10"/>
-        <set_variable name="egg3" value="1.0"/>
-        <set_variable name="Excalibur_Cargo" value="0.0"/>
-        <incoming_comms_text from="Excalibur Station" sideValue="6">Egg Secured. Excalibur has captured |Excalibur_Score| Egg.</incoming_comms_text>
-    </event>
-    <event name="Excalibur Tow egg3">
-        <if_variable name="egg3" comparator="EQUALS" value="6"/>
-        <if_exists name="Excalibur"/>
-        <set_relative_position name2="egg3" distance="100" angle="180" name1="Excalibur"/>
-    </event>
-    <event name="Hera Capture egg3">
-        <if_distance name1="Hera" name2="egg3" comparator="LESS_EQUAL" value="100"/>
-        <if_variable name="egg3" comparator="EQUALS" value="2.0"/>
-        <if_variable name="Hera_Cargo" comparator="EQUALS" value="0.0"/>
-        <set_variable name="Hera_Cargo" value="1.0"/>
-        <set_variable name="egg3" value="7"/>
-        <incoming_comms_text from="Tractor Control" sideValue="7">Hera has control of egg3</incoming_comms_text>
-    </event>
-    <event name="Hera Drop egg3">
-        <if_distance name1="Hera" name2="egg3" comparator="GREATER_EQUAL" value="1000"/>
-        <if_variable name="egg3" comparator="EQUALS" value="7"/>
-        <set_variable name="egg3" value="2.0"/>
-        <set_variable name="Hera_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="7">Hera lost control of egg3. </incoming_comms_text>
-    </event>
-    <event name="Hera Dead Drop egg3">
-        <if_not_exists name="Hera"/>
-        <if_variable name="egg3" comparator="EQUALS" value="7"/>
-        <set_variable name="egg3" value="2.0"/>
-        <set_variable name="Hera_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="7">Hera lost control of egg3. </incoming_comms_text>
-    </event>
-    <event name="Hera Claim egg3">
-        <if_variable name="egg3" comparator="EQUALS" value="7"/>
-        <if_docked player_name="Hera" name="Hera Station"/>
-        <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
-        <set_variable name="Hera_Score" value="Hera_Score+1"/>
-        <destroy name="egg3"/>
-        <set_timer name="egg3_Timer" seconds="10"/>
-        <set_variable name="egg3" value="1.0"/>
-        <set_variable name="Hera_Cargo" value="0.0"/>
-        <incoming_comms_text from="Hera Station" sideValue="7">Egg Secured. Hera has captured |Hera_Score| Egg.</incoming_comms_text>
-    </event>
-    <event name="Hera Tow egg3">
-        <if_variable name="egg3" comparator="EQUALS" value="7"/>
-        <if_exists name="Hera"/>
-        <set_relative_position name2="egg3" distance="100" angle="180" name1="Hera"/>
-    </event>
-    <event name="Ceres Capture egg3">
-        <if_distance name1="Ceres" name2="egg3" comparator="LESS_EQUAL" value="100"/>
-        <if_variable name="egg3" comparator="EQUALS" value="2.0"/>
-        <if_variable name="Ceres_Cargo" comparator="EQUALS" value="0.0"/>
-        <set_variable name="Ceres_Cargo" value="1.0"/>
-        <set_variable name="egg3" value="8"/>
-        <incoming_comms_text from="Tractor Control" sideValue="8">Ceres has control of egg3</incoming_comms_text>
-    </event>
-    <event name="Ceres Drop egg3">
-        <if_distance name1="Ceres" name2="egg3" comparator="GREATER_EQUAL" value="1000"/>
-        <if_variable name="egg3" comparator="EQUALS" value="8"/>
-        <set_variable name="egg3" value="2.0"/>
-        <set_variable name="Ceres_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="8">Ceres lost control of egg3. </incoming_comms_text>
-    </event>
-    <event name="Ceres Dead Drop egg3">
-        <if_not_exists name="Ceres"/>
-        <if_variable name="egg3" comparator="EQUALS" value="8"/>
-        <set_variable name="egg3" value="2.0"/>
-        <set_variable name="Ceres_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="8">Ceres lost control of egg3. </incoming_comms_text>
-    </event>
-    <event name="Ceres Claim egg3">
-        <if_variable name="egg3" comparator="EQUALS" value="8"/>
-        <if_docked player_name="Ceres" name="Ceres Station"/>
-        <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
-        <set_variable name="Ceres_Score" value="Ceres_Score+1"/>
-        <destroy name="egg3"/>
-        <set_timer name="egg3_Timer" seconds="10"/>
-        <set_variable name="egg3" value="1.0"/>
-        <set_variable name="Ceres_Cargo" value="0.0"/>
-        <incoming_comms_text from="Ceres Station" sideValue="8">Egg Secured. Ceres has captured |Ceres_Score| Egg.</incoming_comms_text>
-    </event>
-    <event name="Ceres Tow egg3">
-        <if_variable name="egg3" comparator="EQUALS" value="8"/>
-        <if_exists name="Ceres"/>
-        <set_relative_position name2="egg3" distance="100" angle="180" name1="Ceres"/>
-    </event>
-    <event name="Diana Capture egg3">
-        <if_distance name1="Diana" name2="egg3" comparator="LESS_EQUAL" value="100"/>
-        <if_variable name="egg3" comparator="EQUALS" value="2.0"/>
-        <if_variable name="Diana_Cargo" comparator="EQUALS" value="0.0"/>
-        <set_variable name="Diana_Cargo" value="1.0"/>
-        <set_variable name="egg3" value="9"/>
-        <incoming_comms_text from="Tractor Control" sideValue="9">Diana has control of egg3</incoming_comms_text>
-    </event>
-    <event name="Diana Drop egg3">
-        <if_distance name1="Diana" name2="egg3" comparator="GREATER_EQUAL" value="1000"/>
-        <if_variable name="egg3" comparator="EQUALS" value="9"/>
-        <set_variable name="egg3" value="2.0"/>
-        <set_variable name="Diana_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="9">Diana lost control of egg3. </incoming_comms_text>
-    </event>
-    <event name="Diana Dead Drop egg3">
-        <if_not_exists name="Diana"/>
-        <if_variable name="egg3" comparator="EQUALS" value="9"/>
-        <set_variable name="egg3" value="2.0"/>
-        <set_variable name="Diana_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="9">Diana lost control of egg3. </incoming_comms_text>
-    </event>
-    <event name="Diana Claim egg3">
-        <if_variable name="egg3" comparator="EQUALS" value="9"/>
-        <if_docked player_name="Diana" name="Diana Station"/>
-        <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
-        <set_variable name="Diana_Score" value="Diana_Score+1"/>
-        <destroy name="egg3"/>
-        <set_timer name="egg3_Timer" seconds="10"/>
-        <set_variable name="egg3" value="1.0"/>
-        <set_variable name="Diana_Cargo" value="0.0"/>
-        <incoming_comms_text from="Diana Station" sideValue="9">Egg Secured. Diana has captured |Diana_Score| Egg.</incoming_comms_text>
-    </event>
-    <event name="Diana Tow egg3">
-        <if_variable name="egg3" comparator="EQUALS" value="9"/>
-        <if_exists name="Diana"/>
-        <set_relative_position name2="egg3" distance="100" angle="180" name1="Diana"/>
-    </event>
-    <event name="Artemis Capture egg4">
-        <if_distance name1="Artemis" name2="egg4" comparator="LESS_EQUAL" value="100"/>
-        <if_variable name="egg4" comparator="EQUALS" value="2.0"/>
-        <if_variable name="Artemis_Cargo" comparator="EQUALS" value="0.0"/>
-        <set_variable name="Artemis_Cargo" value="1.0"/>
-        <set_variable name="egg4" value="10"/>
-        <incoming_comms_text from="Tractor Control" sideValue="10">Artemis has control of egg4</incoming_comms_text>
-    </event>
-    <event name="Artemis Drop egg4">
-        <if_distance name1="Artemis" name2="egg4" comparator="GREATER_EQUAL" value="1000"/>
-        <if_variable name="egg4" comparator="EQUALS" value="10"/>
-        <set_variable name="egg4" value="2.0"/>
-        <set_variable name="Artemis_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="10">Artemis lost control of egg4. </incoming_comms_text>
-    </event>
-    <event name="Artemis Dead Drop egg4">
-        <if_not_exists name="Artemis"/>
-        <if_variable name="egg4" comparator="EQUALS" value="10"/>
-        <set_variable name="egg4" value="2.0"/>
-        <set_variable name="Artemis_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="10">Artemis lost control of egg4. </incoming_comms_text>
-    </event>
-    <event name="Artemis Claim egg4">
-        <if_variable name="egg4" comparator="EQUALS" value="10"/>
-        <if_docked player_name="Artemis" name="Artemis Station"/>
-        <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
-        <set_variable name="Artemis_Score" value="Artemis_Score+1"/>
-        <destroy name="egg4"/>
-        <set_timer name="egg4_Timer" seconds="10"/>
-        <set_variable name="egg4" value="1.0"/>
-        <set_variable name="Artemis_Cargo" value="0.0"/>
-        <incoming_comms_text from="Artemis Station" sideValue="10">Egg Secured. Artemis has captured |Artemis_Score| Egg.</incoming_comms_text>
-    </event>
-    <event name="Artemis Tow egg4">
-        <if_variable name="egg4" comparator="EQUALS" value="10"/>
-        <if_exists name="Artemis"/>
-        <set_relative_position name2="egg4" distance="100" angle="180" name1="Artemis"/>
-    </event>
-    <event name="Intrepid Capture egg4">
-        <if_distance name1="Intrepid" name2="egg4" comparator="LESS_EQUAL" value="100"/>
-        <if_variable name="egg4" comparator="EQUALS" value="2.0"/>
-        <if_variable name="Intrepid_Cargo" comparator="EQUALS" value="0.0"/>
-        <set_variable name="Intrepid_Cargo" value="1.0"/>
-        <set_variable name="egg4" value="11"/>
-        <incoming_comms_text from="Tractor Control" sideValue="11">Intrepid has control of egg4</incoming_comms_text>
-    </event>
-    <event name="Intrepid Drop egg4">
-        <if_distance name1="Intrepid" name2="egg4" comparator="GREATER_EQUAL" value="1000"/>
-        <if_variable name="egg4" comparator="EQUALS" value="11"/>
-        <set_variable name="egg4" value="2.0"/>
-        <set_variable name="Intrepid_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="11">Intrepid lost control of egg4. </incoming_comms_text>
-    </event>
-    <event name="Intrepid Dead Drop egg4">
-        <if_not_exists name="Intrepid"/>
-        <if_variable name="egg4" comparator="EQUALS" value="11"/>
-        <set_variable name="egg4" value="2.0"/>
-        <set_variable name="Intrepid_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="11">Intrepid lost control of egg4. </incoming_comms_text>
-    </event>
-    <event name="Intrepid Claim egg4">
-        <if_variable name="egg4" comparator="EQUALS" value="11"/>
-        <if_docked player_name="Intrepid" name="Intrepid Station"/>
-        <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
-        <set_variable name="Intrepid_Score" value="Intrepid_Score+1"/>
-        <destroy name="egg4"/>
-        <set_timer name="egg4_Timer" seconds="10"/>
-        <set_variable name="egg4" value="1.0"/>
-        <set_variable name="Intrepid_Cargo" value="0.0"/>
-        <incoming_comms_text from="Intrepid Station" sideValue="11">Egg Secured. Intrepid has captured |Intrepid_Score| Egg.</incoming_comms_text>
-    </event>
-    <event name="Intrepid Tow egg4">
-        <if_variable name="egg4" comparator="EQUALS" value="11"/>
-        <if_exists name="Intrepid"/>
-        <set_relative_position name2="egg4" distance="100" angle="180" name1="Intrepid"/>
-    </event>
-    <event name="Aegis Capture egg4">
-        <if_distance name1="Aegis" name2="egg4" comparator="LESS_EQUAL" value="100"/>
-        <if_variable name="egg4" comparator="EQUALS" value="2.0"/>
-        <if_variable name="Aegis_Cargo" comparator="EQUALS" value="0.0"/>
-        <set_variable name="Aegis_Cargo" value="1.0"/>
-        <set_variable name="egg4" value="4"/>
-        <incoming_comms_text from="Tractor Control" sideValue="4">Aegis has control of egg4</incoming_comms_text>
-    </event>
-    <event name="Aegis Drop egg4">
-        <if_distance name1="Aegis" name2="egg4" comparator="GREATER_EQUAL" value="1000"/>
-        <if_variable name="egg4" comparator="EQUALS" value="4"/>
-        <set_variable name="egg4" value="2.0"/>
-        <set_variable name="Aegis_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="4">Aegis lost control of egg4. </incoming_comms_text>
-    </event>
-    <event name="Aegis Dead Drop egg4">
-        <if_not_exists name="Aegis"/>
-        <if_variable name="egg4" comparator="EQUALS" value="4"/>
-        <set_variable name="egg4" value="2.0"/>
-        <set_variable name="Aegis_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="4">Aegis lost control of egg4. </incoming_comms_text>
-    </event>
-    <event name="Aegis Claim egg4">
-        <if_variable name="egg4" comparator="EQUALS" value="4"/>
-        <if_docked player_name="Aegis" name="Aegis Station"/>
-        <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
-        <set_variable name="Aegis_Score" value="Aegis_Score+1"/>
-        <destroy name="egg4"/>
-        <set_timer name="egg4_Timer" seconds="10"/>
-        <set_variable name="egg4" value="1.0"/>
-        <set_variable name="Aegis_Cargo" value="0.0"/>
-        <incoming_comms_text from="Aegis Station" sideValue="4">Egg Secured. Aegis has captured |Aegis_Score| Egg.</incoming_comms_text>
-    </event>
-    <event name="Aegis Tow egg4">
-        <if_variable name="egg4" comparator="EQUALS" value="4"/>
-        <if_exists name="Aegis"/>
-        <set_relative_position name2="egg4" distance="100" angle="180" name1="Aegis"/>
-    </event>
-    <event name="Horatio Capture egg4">
-        <if_distance name1="Horatio" name2="egg4" comparator="LESS_EQUAL" value="100"/>
-        <if_variable name="egg4" comparator="EQUALS" value="2.0"/>
-        <if_variable name="Horatio_Cargo" comparator="EQUALS" value="0.0"/>
-        <set_variable name="Horatio_Cargo" value="1.0"/>
-        <set_variable name="egg4" value="5"/>
-        <incoming_comms_text from="Tractor Control" sideValue="5">Horatio has control of egg4</incoming_comms_text>
-    </event>
-    <event name="Horatio Drop egg4">
-        <if_distance name1="Horatio" name2="egg4" comparator="GREATER_EQUAL" value="1000"/>
-        <if_variable name="egg4" comparator="EQUALS" value="5"/>
-        <set_variable name="egg4" value="2.0"/>
-        <set_variable name="Horatio_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="5">Horatio lost control of egg4. </incoming_comms_text>
-    </event>
-    <event name="Horatio Dead Drop egg4">
-        <if_not_exists name="Horatio"/>
-        <if_variable name="egg4" comparator="EQUALS" value="5"/>
-        <set_variable name="egg4" value="2.0"/>
-        <set_variable name="Horatio_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="5">Horatio lost control of egg4. </incoming_comms_text>
-    </event>
-    <event name="Horatio Claim egg4">
-        <if_variable name="egg4" comparator="EQUALS" value="5"/>
-        <if_docked player_name="Horatio" name="Horatio Station"/>
-        <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
-        <set_variable name="Horatio_Score" value="Horatio_Score+1"/>
-        <destroy name="egg4"/>
-        <set_timer name="egg4_Timer" seconds="10"/>
-        <set_variable name="egg4" value="1.0"/>
-        <set_variable name="Horatio_Cargo" value="0.0"/>
-        <incoming_comms_text from="Horatio Station" sideValue="5">Egg Secured. Horatio has captured |Horatio_Score| Egg.</incoming_comms_text>
-    </event>
-    <event name="Horatio Tow egg4">
-        <if_variable name="egg4" comparator="EQUALS" value="5"/>
-        <if_exists name="Horatio"/>
-        <set_relative_position name2="egg4" distance="100" angle="180" name1="Horatio"/>
-    </event>
-    <event name="Excalibur Capture egg4">
-        <if_distance name1="Excalibur" name2="egg4" comparator="LESS_EQUAL" value="100"/>
-        <if_variable name="egg4" comparator="EQUALS" value="2.0"/>
-        <if_variable name="Excalibur_Cargo" comparator="EQUALS" value="0.0"/>
-        <set_variable name="Excalibur_Cargo" value="1.0"/>
-        <set_variable name="egg4" value="6"/>
-        <incoming_comms_text from="Tractor Control" sideValue="6">Excalibur has control of egg4</incoming_comms_text>
-    </event>
-    <event name="Excalibur Drop egg4">
-        <if_distance name1="Excalibur" name2="egg4" comparator="GREATER_EQUAL" value="1000"/>
-        <if_variable name="egg4" comparator="EQUALS" value="6"/>
-        <set_variable name="egg4" value="2.0"/>
-        <set_variable name="Excalibur_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="6">Excalibur lost control of egg4. </incoming_comms_text>
-    </event>
-    <event name="Excalibur Dead Drop egg4">
-        <if_not_exists name="Excalibur"/>
-        <if_variable name="egg4" comparator="EQUALS" value="6"/>
-        <set_variable name="egg4" value="2.0"/>
-        <set_variable name="Excalibur_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="6">Excalibur lost control of egg4. </incoming_comms_text>
-    </event>
-    <event name="Excalibur Claim egg4">
-        <if_variable name="egg4" comparator="EQUALS" value="6"/>
-        <if_docked player_name="Excalibur" name="Excalibur Station"/>
-        <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
-        <set_variable name="Excalibur_Score" value="Excalibur_Score+1"/>
-        <destroy name="egg4"/>
-        <set_timer name="egg4_Timer" seconds="10"/>
-        <set_variable name="egg4" value="1.0"/>
-        <set_variable name="Excalibur_Cargo" value="0.0"/>
-        <incoming_comms_text from="Excalibur Station" sideValue="6">Egg Secured. Excalibur has captured |Excalibur_Score| Egg.</incoming_comms_text>
-    </event>
-    <event name="Excalibur Tow egg4">
-        <if_variable name="egg4" comparator="EQUALS" value="6"/>
-        <if_exists name="Excalibur"/>
-        <set_relative_position name2="egg4" distance="100" angle="180" name1="Excalibur"/>
-    </event>
-    <event name="Hera Capture egg4">
-        <if_distance name1="Hera" name2="egg4" comparator="LESS_EQUAL" value="100"/>
-        <if_variable name="egg4" comparator="EQUALS" value="2.0"/>
-        <if_variable name="Hera_Cargo" comparator="EQUALS" value="0.0"/>
-        <set_variable name="Hera_Cargo" value="1.0"/>
-        <set_variable name="egg4" value="7"/>
-        <incoming_comms_text from="Tractor Control" sideValue="7">Hera has control of egg4</incoming_comms_text>
-    </event>
-    <event name="Hera Drop egg4">
-        <if_distance name1="Hera" name2="egg4" comparator="GREATER_EQUAL" value="1000"/>
-        <if_variable name="egg4" comparator="EQUALS" value="7"/>
-        <set_variable name="egg4" value="2.0"/>
-        <set_variable name="Hera_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="7">Hera lost control of egg4. </incoming_comms_text>
-    </event>
-    <event name="Hera Dead Drop egg4">
-        <if_not_exists name="Hera"/>
-        <if_variable name="egg4" comparator="EQUALS" value="7"/>
-        <set_variable name="egg4" value="2.0"/>
-        <set_variable name="Hera_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="7">Hera lost control of egg4. </incoming_comms_text>
-    </event>
-    <event name="Hera Claim egg4">
-        <if_variable name="egg4" comparator="EQUALS" value="7"/>
-        <if_docked player_name="Hera" name="Hera Station"/>
-        <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
-        <set_variable name="Hera_Score" value="Hera_Score+1"/>
-        <destroy name="egg4"/>
-        <set_timer name="egg4_Timer" seconds="10"/>
-        <set_variable name="egg4" value="1.0"/>
-        <set_variable name="Hera_Cargo" value="0.0"/>
-        <incoming_comms_text from="Hera Station" sideValue="7">Egg Secured. Hera has captured |Hera_Score| Egg.</incoming_comms_text>
-    </event>
-    <event name="Hera Tow egg4">
-        <if_variable name="egg4" comparator="EQUALS" value="7"/>
-        <if_exists name="Hera"/>
-        <set_relative_position name2="egg4" distance="100" angle="180" name1="Hera"/>
-    </event>
-    <event name="Ceres Capture egg4">
-        <if_distance name1="Ceres" name2="egg4" comparator="LESS_EQUAL" value="100"/>
-        <if_variable name="egg4" comparator="EQUALS" value="2.0"/>
-        <if_variable name="Ceres_Cargo" comparator="EQUALS" value="0.0"/>
-        <set_variable name="Ceres_Cargo" value="1.0"/>
-        <set_variable name="egg4" value="8"/>
-        <incoming_comms_text from="Tractor Control" sideValue="8">Ceres has control of egg4</incoming_comms_text>
-    </event>
-    <event name="Ceres Drop egg4">
-        <if_distance name1="Ceres" name2="egg4" comparator="GREATER_EQUAL" value="1000"/>
-        <if_variable name="egg4" comparator="EQUALS" value="8"/>
-        <set_variable name="egg4" value="2.0"/>
-        <set_variable name="Ceres_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="8">Ceres lost control of egg4. </incoming_comms_text>
-    </event>
-    <event name="Ceres Dead Drop egg4">
-        <if_not_exists name="Ceres"/>
-        <if_variable name="egg4" comparator="EQUALS" value="8"/>
-        <set_variable name="egg4" value="2.0"/>
-        <set_variable name="Ceres_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="8">Ceres lost control of egg4. </incoming_comms_text>
-    </event>
-    <event name="Ceres Claim egg4">
-        <if_variable name="egg4" comparator="EQUALS" value="8"/>
-        <if_docked player_name="Ceres" name="Ceres Station"/>
-        <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
-        <set_variable name="Ceres_Score" value="Ceres_Score+1"/>
-        <destroy name="egg4"/>
-        <set_timer name="egg4_Timer" seconds="10"/>
-        <set_variable name="egg4" value="1.0"/>
-        <set_variable name="Ceres_Cargo" value="0.0"/>
-        <incoming_comms_text from="Ceres Station" sideValue="8">Egg Secured. Ceres has captured |Ceres_Score| Egg.</incoming_comms_text>
-    </event>
-    <event name="Ceres Tow egg4">
-        <if_variable name="egg4" comparator="EQUALS" value="8"/>
-        <if_exists name="Ceres"/>
-        <set_relative_position name2="egg4" distance="100" angle="180" name1="Ceres"/>
-    </event>
-    <event name="Diana Capture egg4">
-        <if_distance name1="Diana" name2="egg4" comparator="LESS_EQUAL" value="100"/>
-        <if_variable name="egg4" comparator="EQUALS" value="2.0"/>
-        <if_variable name="Diana_Cargo" comparator="EQUALS" value="0.0"/>
-        <set_variable name="Diana_Cargo" value="1.0"/>
-        <set_variable name="egg4" value="9"/>
-        <incoming_comms_text from="Tractor Control" sideValue="9">Diana has control of egg4</incoming_comms_text>
-    </event>
-    <event name="Diana Drop egg4">
-        <if_distance name1="Diana" name2="egg4" comparator="GREATER_EQUAL" value="1000"/>
-        <if_variable name="egg4" comparator="EQUALS" value="9"/>
-        <set_variable name="egg4" value="2.0"/>
-        <set_variable name="Diana_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="9">Diana lost control of egg4. </incoming_comms_text>
-    </event>
-    <event name="Diana Dead Drop egg4">
-        <if_not_exists name="Diana"/>
-        <if_variable name="egg4" comparator="EQUALS" value="9"/>
-        <set_variable name="egg4" value="2.0"/>
-        <set_variable name="Diana_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="9">Diana lost control of egg4. </incoming_comms_text>
-    </event>
-    <event name="Diana Claim egg4">
-        <if_variable name="egg4" comparator="EQUALS" value="9"/>
-        <if_docked player_name="Diana" name="Diana Station"/>
-        <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
-        <set_variable name="Diana_Score" value="Diana_Score+1"/>
-        <destroy name="egg4"/>
-        <set_timer name="egg4_Timer" seconds="10"/>
-        <set_variable name="egg4" value="1.0"/>
-        <set_variable name="Diana_Cargo" value="0.0"/>
-        <incoming_comms_text from="Diana Station" sideValue="9">Egg Secured. Diana has captured |Diana_Score| Egg.</incoming_comms_text>
-    </event>
-    <event name="Diana Tow egg4">
-        <if_variable name="egg4" comparator="EQUALS" value="9"/>
-        <if_exists name="Diana"/>
-        <set_relative_position name2="egg4" distance="100" angle="180" name1="Diana"/>
-    </event>
-    <event name="Artemis Capture egg5">
-        <if_distance name1="Artemis" name2="egg5" comparator="LESS_EQUAL" value="100"/>
-        <if_variable name="egg5" comparator="EQUALS" value="2.0"/>
-        <if_variable name="Artemis_Cargo" comparator="EQUALS" value="0.0"/>
-        <set_variable name="Artemis_Cargo" value="1.0"/>
-        <set_variable name="egg5" value="10"/>
-        <incoming_comms_text from="Tractor Control" sideValue="10">Artemis has control of egg5</incoming_comms_text>
-    </event>
-    <event name="Artemis Drop egg5">
-        <if_distance name1="Artemis" name2="egg5" comparator="GREATER_EQUAL" value="1000"/>
-        <if_variable name="egg5" comparator="EQUALS" value="10"/>
-        <set_variable name="egg5" value="2.0"/>
-        <set_variable name="Artemis_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="10">Artemis lost control of egg5. </incoming_comms_text>
-    </event>
-    <event name="Artemis Dead Drop egg5">
-        <if_not_exists name="Artemis"/>
-        <if_variable name="egg5" comparator="EQUALS" value="10"/>
-        <set_variable name="egg5" value="2.0"/>
-        <set_variable name="Artemis_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="10">Artemis lost control of egg5. </incoming_comms_text>
-    </event>
-    <event name="Artemis Claim egg5">
-        <if_variable name="egg5" comparator="EQUALS" value="10"/>
-        <if_docked player_name="Artemis" name="Artemis Station"/>
-        <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
-        <set_variable name="Artemis_Score" value="Artemis_Score+1"/>
-        <destroy name="egg5"/>
-        <set_timer name="egg5_Timer" seconds="10"/>
-        <set_variable name="egg5" value="1.0"/>
-        <set_variable name="Artemis_Cargo" value="0.0"/>
-        <incoming_comms_text from="Artemis Station" sideValue="10">Egg Secured. Artemis has captured |Artemis_Score| Egg.</incoming_comms_text>
-    </event>
-    <event name="Artemis Tow egg5">
-        <if_variable name="egg5" comparator="EQUALS" value="10"/>
-        <if_exists name="Artemis"/>
-        <set_relative_position name2="egg5" distance="100" angle="180" name1="Artemis"/>
-    </event>
-    <event name="Intrepid Capture egg5">
-        <if_distance name1="Intrepid" name2="egg5" comparator="LESS_EQUAL" value="100"/>
-        <if_variable name="egg5" comparator="EQUALS" value="2.0"/>
-        <if_variable name="Intrepid_Cargo" comparator="EQUALS" value="0.0"/>
-        <set_variable name="Intrepid_Cargo" value="1.0"/>
-        <set_variable name="egg5" value="11"/>
-        <incoming_comms_text from="Tractor Control" sideValue="11">Intrepid has control of egg5</incoming_comms_text>
-    </event>
-    <event name="Intrepid Drop egg5">
-        <if_distance name1="Intrepid" name2="egg5" comparator="GREATER_EQUAL" value="1000"/>
-        <if_variable name="egg5" comparator="EQUALS" value="11"/>
-        <set_variable name="egg5" value="2.0"/>
-        <set_variable name="Intrepid_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="11">Intrepid lost control of egg5. </incoming_comms_text>
-    </event>
-    <event name="Intrepid Dead Drop egg5">
-        <if_not_exists name="Intrepid"/>
-        <if_variable name="egg5" comparator="EQUALS" value="11"/>
-        <set_variable name="egg5" value="2.0"/>
-        <set_variable name="Intrepid_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="11">Intrepid lost control of egg5. </incoming_comms_text>
-    </event>
-    <event name="Intrepid Claim egg5">
-        <if_variable name="egg5" comparator="EQUALS" value="11"/>
-        <if_docked player_name="Intrepid" name="Intrepid Station"/>
-        <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
-        <set_variable name="Intrepid_Score" value="Intrepid_Score+1"/>
-        <destroy name="egg5"/>
-        <set_timer name="egg5_Timer" seconds="10"/>
-        <set_variable name="egg5" value="1.0"/>
-        <set_variable name="Intrepid_Cargo" value="0.0"/>
-        <incoming_comms_text from="Intrepid Station" sideValue="11">Egg Secured. Intrepid has captured |Intrepid_Score| Egg.</incoming_comms_text>
-    </event>
-    <event name="Intrepid Tow egg5">
-        <if_variable name="egg5" comparator="EQUALS" value="11"/>
-        <if_exists name="Intrepid"/>
-        <set_relative_position name2="egg5" distance="100" angle="180" name1="Intrepid"/>
-    </event>
-    <event name="Aegis Capture egg5">
-        <if_distance name1="Aegis" name2="egg5" comparator="LESS_EQUAL" value="100"/>
-        <if_variable name="egg5" comparator="EQUALS" value="2.0"/>
-        <if_variable name="Aegis_Cargo" comparator="EQUALS" value="0.0"/>
-        <set_variable name="Aegis_Cargo" value="1.0"/>
-        <set_variable name="egg5" value="4"/>
-        <incoming_comms_text from="Tractor Control" sideValue="4">Aegis has control of egg5</incoming_comms_text>
-    </event>
-    <event name="Aegis Drop egg5">
-        <if_distance name1="Aegis" name2="egg5" comparator="GREATER_EQUAL" value="1000"/>
-        <if_variable name="egg5" comparator="EQUALS" value="4"/>
-        <set_variable name="egg5" value="2.0"/>
-        <set_variable name="Aegis_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="4">Aegis lost control of egg5. </incoming_comms_text>
-    </event>
-    <event name="Aegis Dead Drop egg5">
-        <if_not_exists name="Aegis"/>
-        <if_variable name="egg5" comparator="EQUALS" value="4"/>
-        <set_variable name="egg5" value="2.0"/>
-        <set_variable name="Aegis_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="4">Aegis lost control of egg5. </incoming_comms_text>
-    </event>
-    <event name="Aegis Claim egg5">
-        <if_variable name="egg5" comparator="EQUALS" value="4"/>
-        <if_docked player_name="Aegis" name="Aegis Station"/>
-        <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
-        <set_variable name="Aegis_Score" value="Aegis_Score+1"/>
-        <destroy name="egg5"/>
-        <set_timer name="egg5_Timer" seconds="10"/>
-        <set_variable name="egg5" value="1.0"/>
-        <set_variable name="Aegis_Cargo" value="0.0"/>
-        <incoming_comms_text from="Aegis Station" sideValue="4">Egg Secured. Aegis has captured |Aegis_Score| Egg.</incoming_comms_text>
-    </event>
-    <event name="Aegis Tow egg5">
-        <if_variable name="egg5" comparator="EQUALS" value="4"/>
-        <if_exists name="Aegis"/>
-        <set_relative_position name2="egg5" distance="100" angle="180" name1="Aegis"/>
-    </event>
-    <event name="Horatio Capture egg5">
-        <if_distance name1="Horatio" name2="egg5" comparator="LESS_EQUAL" value="100"/>
-        <if_variable name="egg5" comparator="EQUALS" value="2.0"/>
-        <if_variable name="Horatio_Cargo" comparator="EQUALS" value="0.0"/>
-        <set_variable name="Horatio_Cargo" value="1.0"/>
-        <set_variable name="egg5" value="5"/>
-        <incoming_comms_text from="Tractor Control" sideValue="5">Horatio has control of egg5</incoming_comms_text>
-    </event>
-    <event name="Horatio Drop egg5">
-        <if_distance name1="Horatio" name2="egg5" comparator="GREATER_EQUAL" value="1000"/>
-        <if_variable name="egg5" comparator="EQUALS" value="5"/>
-        <set_variable name="egg5" value="2.0"/>
-        <set_variable name="Horatio_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="5">Horatio lost control of egg5. </incoming_comms_text>
-    </event>
-    <event name="Horatio Dead Drop egg5">
-        <if_not_exists name="Horatio"/>
-        <if_variable name="egg5" comparator="EQUALS" value="5"/>
-        <set_variable name="egg5" value="2.0"/>
-        <set_variable name="Horatio_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="5">Horatio lost control of egg5. </incoming_comms_text>
-    </event>
-    <event name="Horatio Claim egg5">
-        <if_variable name="egg5" comparator="EQUALS" value="5"/>
-        <if_docked player_name="Horatio" name="Horatio Station"/>
-        <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
-        <set_variable name="Horatio_Score" value="Horatio_Score+1"/>
-        <destroy name="egg5"/>
-        <set_timer name="egg5_Timer" seconds="10"/>
-        <set_variable name="egg5" value="1.0"/>
-        <set_variable name="Horatio_Cargo" value="0.0"/>
-        <incoming_comms_text from="Horatio Station" sideValue="5">Egg Secured. Horatio has captured |Horatio_Score| Egg.</incoming_comms_text>
-    </event>
-    <event name="Horatio Tow egg5">
-        <if_variable name="egg5" comparator="EQUALS" value="5"/>
-        <if_exists name="Horatio"/>
-        <set_relative_position name2="egg5" distance="100" angle="180" name1="Horatio"/>
-    </event>
-    <event name="Excalibur Capture egg5">
-        <if_distance name1="Excalibur" name2="egg5" comparator="LESS_EQUAL" value="100"/>
-        <if_variable name="egg5" comparator="EQUALS" value="2.0"/>
-        <if_variable name="Excalibur_Cargo" comparator="EQUALS" value="0.0"/>
-        <set_variable name="Excalibur_Cargo" value="1.0"/>
-        <set_variable name="egg5" value="6"/>
-        <incoming_comms_text from="Tractor Control" sideValue="6">Excalibur has control of egg5</incoming_comms_text>
-    </event>
-    <event name="Excalibur Drop egg5">
-        <if_distance name1="Excalibur" name2="egg5" comparator="GREATER_EQUAL" value="1000"/>
-        <if_variable name="egg5" comparator="EQUALS" value="6"/>
-        <set_variable name="egg5" value="2.0"/>
-        <set_variable name="Excalibur_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="6">Excalibur lost control of egg5. </incoming_comms_text>
-    </event>
-    <event name="Excalibur Dead Drop egg5">
-        <if_not_exists name="Excalibur"/>
-        <if_variable name="egg5" comparator="EQUALS" value="6"/>
-        <set_variable name="egg5" value="2.0"/>
-        <set_variable name="Excalibur_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="6">Excalibur lost control of egg5. </incoming_comms_text>
-    </event>
-    <event name="Excalibur Claim egg5">
-        <if_variable name="egg5" comparator="EQUALS" value="6"/>
-        <if_docked player_name="Excalibur" name="Excalibur Station"/>
-        <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
-        <set_variable name="Excalibur_Score" value="Excalibur_Score+1"/>
-        <destroy name="egg5"/>
-        <set_timer name="egg5_Timer" seconds="10"/>
-        <set_variable name="egg5" value="1.0"/>
-        <set_variable name="Excalibur_Cargo" value="0.0"/>
-        <incoming_comms_text from="Excalibur Station" sideValue="6">Egg Secured. Excalibur has captured |Excalibur_Score| Egg.</incoming_comms_text>
-    </event>
-    <event name="Excalibur Tow egg5">
-        <if_variable name="egg5" comparator="EQUALS" value="6"/>
-        <if_exists name="Excalibur"/>
-        <set_relative_position name2="egg5" distance="100" angle="180" name1="Excalibur"/>
-    </event>
-    <event name="Hera Capture egg5">
-        <if_distance name1="Hera" name2="egg5" comparator="LESS_EQUAL" value="100"/>
-        <if_variable name="egg5" comparator="EQUALS" value="2.0"/>
-        <if_variable name="Hera_Cargo" comparator="EQUALS" value="0.0"/>
-        <set_variable name="Hera_Cargo" value="1.0"/>
-        <set_variable name="egg5" value="7"/>
-        <incoming_comms_text from="Tractor Control" sideValue="7">Hera has control of egg5</incoming_comms_text>
-    </event>
-    <event name="Hera Drop egg5">
-        <if_distance name1="Hera" name2="egg5" comparator="GREATER_EQUAL" value="1000"/>
-        <if_variable name="egg5" comparator="EQUALS" value="7"/>
-        <set_variable name="egg5" value="2.0"/>
-        <set_variable name="Hera_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="7">Hera lost control of egg5. </incoming_comms_text>
-    </event>
-    <event name="Hera Dead Drop egg5">
-        <if_not_exists name="Hera"/>
-        <if_variable name="egg5" comparator="EQUALS" value="7"/>
-        <set_variable name="egg5" value="2.0"/>
-        <set_variable name="Hera_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="7">Hera lost control of egg5. </incoming_comms_text>
-    </event>
-    <event name="Hera Claim egg5">
-        <if_variable name="egg5" comparator="EQUALS" value="7"/>
-        <if_docked player_name="Hera" name="Hera Station"/>
-        <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
-        <set_variable name="Hera_Score" value="Hera_Score+1"/>
-        <destroy name="egg5"/>
-        <set_timer name="egg5_Timer" seconds="10"/>
-        <set_variable name="egg5" value="1.0"/>
-        <set_variable name="Hera_Cargo" value="0.0"/>
-        <incoming_comms_text from="Hera Station" sideValue="7">Egg Secured. Hera has captured |Hera_Score| Egg.</incoming_comms_text>
-    </event>
-    <event name="Hera Tow egg5">
-        <if_variable name="egg5" comparator="EQUALS" value="7"/>
-        <if_exists name="Hera"/>
-        <set_relative_position name2="egg5" distance="100" angle="180" name1="Hera"/>
-    </event>
-    <event name="Ceres Capture egg5">
-        <if_distance name1="Ceres" name2="egg5" comparator="LESS_EQUAL" value="100"/>
-        <if_variable name="egg5" comparator="EQUALS" value="2.0"/>
-        <if_variable name="Ceres_Cargo" comparator="EQUALS" value="0.0"/>
-        <set_variable name="Ceres_Cargo" value="1.0"/>
-        <set_variable name="egg5" value="8"/>
-        <incoming_comms_text from="Tractor Control" sideValue="8">Ceres has control of egg5</incoming_comms_text>
-    </event>
-    <event name="Ceres Drop egg5">
-        <if_distance name1="Ceres" name2="egg5" comparator="GREATER_EQUAL" value="1000"/>
-        <if_variable name="egg5" comparator="EQUALS" value="8"/>
-        <set_variable name="egg5" value="2.0"/>
-        <set_variable name="Ceres_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="8">Ceres lost control of egg5. </incoming_comms_text>
-    </event>
-    <event name="Ceres Dead Drop egg5">
-        <if_not_exists name="Ceres"/>
-        <if_variable name="egg5" comparator="EQUALS" value="8"/>
-        <set_variable name="egg5" value="2.0"/>
-        <set_variable name="Ceres_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="8">Ceres lost control of egg5. </incoming_comms_text>
-    </event>
-    <event name="Ceres Claim egg5">
-        <if_variable name="egg5" comparator="EQUALS" value="8"/>
-        <if_docked player_name="Ceres" name="Ceres Station"/>
-        <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
-        <set_variable name="Ceres_Score" value="Ceres_Score+1"/>
-        <destroy name="egg5"/>
-        <set_timer name="egg5_Timer" seconds="10"/>
-        <set_variable name="egg5" value="1.0"/>
-        <set_variable name="Ceres_Cargo" value="0.0"/>
-        <incoming_comms_text from="Ceres Station" sideValue="8">Egg Secured. Ceres has captured |Ceres_Score| Egg.</incoming_comms_text>
-    </event>
-    <event name="Ceres Tow egg5">
-        <if_variable name="egg5" comparator="EQUALS" value="8"/>
-        <if_exists name="Ceres"/>
-        <set_relative_position name2="egg5" distance="100" angle="180" name1="Ceres"/>
-    </event>
-    <event name="Diana Capture egg5">
-        <if_distance name1="Diana" name2="egg5" comparator="LESS_EQUAL" value="100"/>
-        <if_variable name="egg5" comparator="EQUALS" value="2.0"/>
-        <if_variable name="Diana_Cargo" comparator="EQUALS" value="0.0"/>
-        <set_variable name="Diana_Cargo" value="1.0"/>
-        <set_variable name="egg5" value="9"/>
-        <incoming_comms_text from="Tractor Control" sideValue="9">Diana has control of egg5</incoming_comms_text>
-    </event>
-    <event name="Diana Drop egg5">
-        <if_distance name1="Diana" name2="egg5" comparator="GREATER_EQUAL" value="1000"/>
-        <if_variable name="egg5" comparator="EQUALS" value="9"/>
-        <set_variable name="egg5" value="2.0"/>
-        <set_variable name="Diana_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="9">Diana lost control of egg5. </incoming_comms_text>
-    </event>
-    <event name="Diana Dead Drop egg5">
-        <if_not_exists name="Diana"/>
-        <if_variable name="egg5" comparator="EQUALS" value="9"/>
-        <set_variable name="egg5" value="2.0"/>
-        <set_variable name="Diana_Cargo" value="0.0"/>
-        <incoming_comms_text from="Tractor Control" sideValue="9">Diana lost control of egg5. </incoming_comms_text>
-    </event>
-    <event name="Diana Claim egg5">
-        <if_variable name="egg5" comparator="EQUALS" value="9"/>
-        <if_docked player_name="Diana" name="Diana Station"/>
-        <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
-        <set_variable name="Diana_Score" value="Diana_Score+1"/>
-        <destroy name="egg5"/>
-        <set_timer name="egg5_Timer" seconds="10"/>
-        <set_variable name="egg5" value="1.0"/>
-        <set_variable name="Diana_Cargo" value="0.0"/>
-        <incoming_comms_text from="Diana Station" sideValue="9">Egg Secured. Diana has captured |Diana_Score| Egg.</incoming_comms_text>
-    </event>
-    <event name="Diana Tow egg5">
-        <if_variable name="egg5" comparator="EQUALS" value="9"/>
-        <if_exists name="Diana"/>
-        <set_relative_position name2="egg5" distance="100" angle="180" name1="Diana"/>
-    </event>
+  <start>
+    <set_variable name="egg1" value="1.0"/>
+    <set_timer name="egg1_Timer" seconds="25"/>
+    <set_variable name="egg2" value="1.0"/>
+    <set_timer name="egg2_Timer" seconds="30"/>
+    <set_variable name="egg3" value="1.0"/>
+    <set_timer name="egg3_Timer" seconds="35"/>
+    <set_variable name="egg4" value="1.0"/>
+    <set_timer name="egg4_Timer" seconds="35"/>
+    <set_variable name="egg5" value="1.0"/>
+    <set_timer name="egg5_Timer" seconds="35"/>
+    <set_variable name="Artemis_Cargo" value="0.0"/>
+    <set_variable name="Intrepid_Cargo" value="0.0"/>
+    <set_variable name="Aegis_Cargo" value="0.0"/>
+    <set_variable name="Horatio_Cargo" value="0.0"/>
+    <set_variable name="Excalibur_Cargo" value="0.0"/>
+    <set_variable name="Hera_Cargo" value="0.0"/>
+    <set_variable name="Ceres_Cargo" value="0.0"/>
+    <set_variable name="Diana_Cargo" value="0.0"/>
+  </start>
+  <event name="Spawn egg1">
+    <if_variable name="egg1" comparator="EQUALS" value="1.0"/>
+    <if_variable name="Number_of_Players" comparator="GREATER" value="0"/>
+    <if_timer_finished name="egg1_Timer"/>
+    <set_variable name="egg1" value="2.0"/>
+    <create type="genericMesh" x="50000" y="10" z="5000" name="egg1" meshFileName="dat\mine.dxs" textureFileName="dat\asteroidTexture.png"/>
+    <set_object_property property="pushRadius" value="0.0" name="egg1"/>
+  </event>
+  <event name="Spawn egg2">
+    <if_variable name="egg2" comparator="EQUALS" value="1.0"/>
+    <if_variable name="Number_of_Players" comparator="GREATER" value="3.0"/>
+    <if_timer_finished name="egg2_Timer"/>
+    <set_variable name="egg2" value="2.0"/>
+    <create type="genericMesh" x="49000" y="3" z="49000" name="egg2" meshFileName="dat\mine.dxs" textureFileName="dat\asteroidTexture.png"/>
+    <set_object_property property="pushRadius" value="0.0" name="egg2"/>
+  </event>
+  <event name="Spawn egg3">
+    <if_variable name="egg3" comparator="EQUALS" value="1.0"/>
+    <if_variable name="Number_of_Players" comparator="GREATER" value="4.0"/>
+    <if_timer_finished name="egg3_Timer"/>
+    <set_variable name="egg3" value="2.0"/>
+    <create type="genericMesh" x="51000" y="3" z="51000" name="egg3" meshFileName="dat\mine.dxs" textureFileName="dat\asteroidTexture.png"/>
+    <set_object_property property="pushRadius" value="0.0" name="egg3"/>
+  </event>
+  <event name="Spawn egg4">
+    <if_variable name="egg4" comparator="EQUALS" value="1.0"/>
+    <if_variable name="Number_of_Players" comparator="GREATER" value="6.0"/>
+    <if_timer_finished name="egg4_Timer"/>
+    <set_variable name="egg4" value="2.0"/>
+    <create type="genericMesh" x="49000" y="3" z="5100" name="egg4" meshFileName="dat\mine.dxs" textureFileName="dat\asteroidTexture.png"/>
+    <set_object_property property="pushRadius" value="0.0" name="egg4"/>
+  </event>
+  <event name="Spawn egg5">
+    <if_variable name="egg5" comparator="EQUALS" value="1.0"/>
+    <if_variable name="Number_of_Players" comparator="GREATER" value="7.0"/>
+    <if_timer_finished name="egg5_Timer"/>
+    <set_variable name="egg5" value="2.0"/>
+    <create type="genericMesh" x="51000" y="3" z="49000" name="egg5" meshFileName="dat\mine.dxs" textureFileName="dat\asteroidTexture.png"/>
+    <set_object_property property="pushRadius" value="0.0" name="egg5"/>
+  </event>
+  <event name="Artemis Capture egg1">
+    <if_distance name1="Artemis" name2="egg1" comparator="LESS_EQUAL" value="100"/>
+    <if_variable name="egg1" comparator="EQUALS" value="2.0"/>
+    <if_variable name="Artemis_Cargo" comparator="EQUALS" value="0.0"/>
+    <set_variable name="Artemis_Cargo" value="1.0"/>
+    <set_variable name="egg1" value="10"/>
+    <incoming_comms_text from="Tractor Control" sideValue="10">Artemis has control of egg1</incoming_comms_text>
+  </event>
+  <event name="Artemis Drop egg1">
+    <if_distance name1="Artemis" name2="egg1" comparator="GREATER_EQUAL" value="1000"/>
+    <if_variable name="egg1" comparator="EQUALS" value="10"/>
+    <set_variable name="egg1" value="2.0"/>
+    <set_variable name="Artemis_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="10">Artemis lost control of egg1. </incoming_comms_text>
+  </event>
+  <event name="Artemis Dead Drop egg1">
+    <if_not_exists name="Artemis"/>
+    <if_variable name="egg1" comparator="EQUALS" value="10"/>
+    <set_variable name="egg1" value="2.0"/>
+    <set_variable name="Artemis_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="10">Artemis lost control of egg1. </incoming_comms_text>
+  </event>
+  <event name="Artemis Claim egg1">
+    <if_variable name="egg1" comparator="EQUALS" value="10"/>
+    <if_docked player_name="Artemis" name="Artemis Station"/>
+    <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
+    <set_variable name="Artemis_Score" value="Artemis_Score+1"/>
+    <destroy name="egg1"/>
+    <set_timer name="egg1_Timer" seconds="10"/>
+    <set_variable name="egg1" value="1.0"/>
+    <set_variable name="Artemis_Cargo" value="0.0"/>
+    <incoming_comms_text from="Artemis Station" sideValue="10">Egg Secured. Artemis has captured |Artemis_Score| Egg.</incoming_comms_text>
+  </event>
+  <event name="Artemis Tow egg1">
+    <if_variable name="egg1" comparator="EQUALS" value="10"/>
+    <if_exists name="Artemis"/>
+    <set_relative_position name2="egg1" distance="100" angle="180" name1="Artemis"/>
+  </event>
+  <event name="Intrepid Capture egg1">
+    <if_distance name1="Intrepid" name2="egg1" comparator="LESS_EQUAL" value="100"/>
+    <if_variable name="egg1" comparator="EQUALS" value="2.0"/>
+    <if_variable name="Intrepid_Cargo" comparator="EQUALS" value="0.0"/>
+    <set_variable name="Intrepid_Cargo" value="1.0"/>
+    <set_variable name="egg1" value="11"/>
+    <incoming_comms_text from="Tractor Control" sideValue="11">Intrepid has control of egg1</incoming_comms_text>
+  </event>
+  <event name="Intrepid Drop egg1">
+    <if_distance name1="Intrepid" name2="egg1" comparator="GREATER_EQUAL" value="1000"/>
+    <if_variable name="egg1" comparator="EQUALS" value="11"/>
+    <set_variable name="egg1" value="2.0"/>
+    <set_variable name="Intrepid_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="11">Intrepid lost control of egg1. </incoming_comms_text>
+  </event>
+  <event name="Intrepid Dead Drop egg1">
+    <if_not_exists name="Intrepid"/>
+    <if_variable name="egg1" comparator="EQUALS" value="11"/>
+    <set_variable name="egg1" value="2.0"/>
+    <set_variable name="Intrepid_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="11">Intrepid lost control of egg1. </incoming_comms_text>
+  </event>
+  <event name="Intrepid Claim egg1">
+    <if_variable name="egg1" comparator="EQUALS" value="11"/>
+    <if_docked player_name="Intrepid" name="Intrepid Station"/>
+    <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
+    <set_variable name="Intrepid_Score" value="Intrepid_Score+1"/>
+    <destroy name="egg1"/>
+    <set_timer name="egg1_Timer" seconds="10"/>
+    <set_variable name="egg1" value="1.0"/>
+    <set_variable name="Intrepid_Cargo" value="0.0"/>
+    <incoming_comms_text from="Intrepid Station" sideValue="11">Egg Secured. Intrepid has captured |Intrepid_Score| Egg.</incoming_comms_text>
+  </event>
+  <event name="Intrepid Tow egg1">
+    <if_variable name="egg1" comparator="EQUALS" value="11"/>
+    <if_exists name="Intrepid"/>
+    <set_relative_position name2="egg1" distance="100" angle="180" name1="Intrepid"/>
+  </event>
+  <event name="Aegis Capture egg1">
+    <if_distance name1="Aegis" name2="egg1" comparator="LESS_EQUAL" value="100"/>
+    <if_variable name="egg1" comparator="EQUALS" value="2.0"/>
+    <if_variable name="Aegis_Cargo" comparator="EQUALS" value="0.0"/>
+    <set_variable name="Aegis_Cargo" value="1.0"/>
+    <set_variable name="egg1" value="4"/>
+    <incoming_comms_text from="Tractor Control" sideValue="4">Aegis has control of egg1</incoming_comms_text>
+  </event>
+  <event name="Aegis Drop egg1">
+    <if_distance name1="Aegis" name2="egg1" comparator="GREATER_EQUAL" value="1000"/>
+    <if_variable name="egg1" comparator="EQUALS" value="4"/>
+    <set_variable name="egg1" value="2.0"/>
+    <set_variable name="Aegis_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="4">Aegis lost control of egg1. </incoming_comms_text>
+  </event>
+  <event name="Aegis Dead Drop egg1">
+    <if_not_exists name="Aegis"/>
+    <if_variable name="egg1" comparator="EQUALS" value="4"/>
+    <set_variable name="egg1" value="2.0"/>
+    <set_variable name="Aegis_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="4">Aegis lost control of egg1. </incoming_comms_text>
+  </event>
+  <event name="Aegis Claim egg1">
+    <if_variable name="egg1" comparator="EQUALS" value="4"/>
+    <if_docked player_name="Aegis" name="Aegis Station"/>
+    <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
+    <set_variable name="Aegis_Score" value="Aegis_Score+1"/>
+    <destroy name="egg1"/>
+    <set_timer name="egg1_Timer" seconds="10"/>
+    <set_variable name="egg1" value="1.0"/>
+    <set_variable name="Aegis_Cargo" value="0.0"/>
+    <incoming_comms_text from="Aegis Station" sideValue="4">Egg Secured. Aegis has captured |Aegis_Score| Egg.</incoming_comms_text>
+  </event>
+  <event name="Aegis Tow egg1">
+    <if_variable name="egg1" comparator="EQUALS" value="4"/>
+    <if_exists name="Aegis"/>
+    <set_relative_position name2="egg1" distance="100" angle="180" name1="Aegis"/>
+  </event>
+  <event name="Horatio Capture egg1">
+    <if_distance name1="Horatio" name2="egg1" comparator="LESS_EQUAL" value="100"/>
+    <if_variable name="egg1" comparator="EQUALS" value="2.0"/>
+    <if_variable name="Horatio_Cargo" comparator="EQUALS" value="0.0"/>
+    <set_variable name="Horatio_Cargo" value="1.0"/>
+    <set_variable name="egg1" value="5"/>
+    <incoming_comms_text from="Tractor Control" sideValue="5">Horatio has control of egg1</incoming_comms_text>
+  </event>
+  <event name="Horatio Drop egg1">
+    <if_distance name1="Horatio" name2="egg1" comparator="GREATER_EQUAL" value="1000"/>
+    <if_variable name="egg1" comparator="EQUALS" value="5"/>
+    <set_variable name="egg1" value="2.0"/>
+    <set_variable name="Horatio_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="5">Horatio lost control of egg1. </incoming_comms_text>
+  </event>
+  <event name="Horatio Dead Drop egg1">
+    <if_not_exists name="Horatio"/>
+    <if_variable name="egg1" comparator="EQUALS" value="5"/>
+    <set_variable name="egg1" value="2.0"/>
+    <set_variable name="Horatio_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="5">Horatio lost control of egg1. </incoming_comms_text>
+  </event>
+  <event name="Horatio Claim egg1">
+    <if_variable name="egg1" comparator="EQUALS" value="5"/>
+    <if_docked player_name="Horatio" name="Horatio Station"/>
+    <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
+    <set_variable name="Horatio_Score" value="Horatio_Score+1"/>
+    <destroy name="egg1"/>
+    <set_timer name="egg1_Timer" seconds="10"/>
+    <set_variable name="egg1" value="1.0"/>
+    <set_variable name="Horatio_Cargo" value="0.0"/>
+    <incoming_comms_text from="Horatio Station" sideValue="5">Egg Secured. Horatio has captured |Horatio_Score| Egg.</incoming_comms_text>
+  </event>
+  <event name="Horatio Tow egg1">
+    <if_variable name="egg1" comparator="EQUALS" value="5"/>
+    <if_exists name="Horatio"/>
+    <set_relative_position name2="egg1" distance="100" angle="180" name1="Horatio"/>
+  </event>
+  <event name="Excalibur Capture egg1">
+    <if_distance name1="Excalibur" name2="egg1" comparator="LESS_EQUAL" value="100"/>
+    <if_variable name="egg1" comparator="EQUALS" value="2.0"/>
+    <if_variable name="Excalibur_Cargo" comparator="EQUALS" value="0.0"/>
+    <set_variable name="Excalibur_Cargo" value="1.0"/>
+    <set_variable name="egg1" value="6"/>
+    <incoming_comms_text from="Tractor Control" sideValue="6">Excalibur has control of egg1</incoming_comms_text>
+  </event>
+  <event name="Excalibur Drop egg1">
+    <if_distance name1="Excalibur" name2="egg1" comparator="GREATER_EQUAL" value="1000"/>
+    <if_variable name="egg1" comparator="EQUALS" value="6"/>
+    <set_variable name="egg1" value="2.0"/>
+    <set_variable name="Excalibur_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="6">Excalibur lost control of egg1. </incoming_comms_text>
+  </event>
+  <event name="Excalibur Dead Drop egg1">
+    <if_not_exists name="Excalibur"/>
+    <if_variable name="egg1" comparator="EQUALS" value="6"/>
+    <set_variable name="egg1" value="2.0"/>
+    <set_variable name="Excalibur_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="6">Excalibur lost control of egg1. </incoming_comms_text>
+  </event>
+  <event name="Excalibur Claim egg1">
+    <if_variable name="egg1" comparator="EQUALS" value="6"/>
+    <if_docked player_name="Excalibur" name="Excalibur Station"/>
+    <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
+    <set_variable name="Excalibur_Score" value="Excalibur_Score+1"/>
+    <destroy name="egg1"/>
+    <set_timer name="egg1_Timer" seconds="10"/>
+    <set_variable name="egg1" value="1.0"/>
+    <set_variable name="Excalibur_Cargo" value="0.0"/>
+    <incoming_comms_text from="Excalibur Station" sideValue="6">Egg Secured. Excalibur has captured |Excalibur_Score| Egg.</incoming_comms_text>
+  </event>
+  <event name="Excalibur Tow egg1">
+    <if_variable name="egg1" comparator="EQUALS" value="6"/>
+    <if_exists name="Excalibur"/>
+    <set_relative_position name2="egg1" distance="100" angle="180" name1="Excalibur"/>
+  </event>
+  <event name="Hera Capture egg1">
+    <if_distance name1="Hera" name2="egg1" comparator="LESS_EQUAL" value="100"/>
+    <if_variable name="egg1" comparator="EQUALS" value="2.0"/>
+    <if_variable name="Hera_Cargo" comparator="EQUALS" value="0.0"/>
+    <set_variable name="Hera_Cargo" value="1.0"/>
+    <set_variable name="egg1" value="7"/>
+    <incoming_comms_text from="Tractor Control" sideValue="7">Hera has control of egg1</incoming_comms_text>
+  </event>
+  <event name="Hera Drop egg1">
+    <if_distance name1="Hera" name2="egg1" comparator="GREATER_EQUAL" value="1000"/>
+    <if_variable name="egg1" comparator="EQUALS" value="7"/>
+    <set_variable name="egg1" value="2.0"/>
+    <set_variable name="Hera_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="7">Hera lost control of egg1. </incoming_comms_text>
+  </event>
+  <event name="Hera Dead Drop egg1">
+    <if_not_exists name="Hera"/>
+    <if_variable name="egg1" comparator="EQUALS" value="7"/>
+    <set_variable name="egg1" value="2.0"/>
+    <set_variable name="Hera_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="7">Hera lost control of egg1. </incoming_comms_text>
+  </event>
+  <event name="Hera Claim egg1">
+    <if_variable name="egg1" comparator="EQUALS" value="7"/>
+    <if_docked player_name="Hera" name="Hera Station"/>
+    <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
+    <set_variable name="Hera_Score" value="Hera_Score+1"/>
+    <destroy name="egg1"/>
+    <set_timer name="egg1_Timer" seconds="10"/>
+    <set_variable name="egg1" value="1.0"/>
+    <set_variable name="Hera_Cargo" value="0.0"/>
+    <incoming_comms_text from="Hera Station" sideValue="7">Egg Secured. Hera has captured |Hera_Score| Egg.</incoming_comms_text>
+  </event>
+  <event name="Hera Tow egg1">
+    <if_variable name="egg1" comparator="EQUALS" value="7"/>
+    <if_exists name="Hera"/>
+    <set_relative_position name2="egg1" distance="100" angle="180" name1="Hera"/>
+  </event>
+  <event name="Ceres Capture egg1">
+    <if_distance name1="Ceres" name2="egg1" comparator="LESS_EQUAL" value="100"/>
+    <if_variable name="egg1" comparator="EQUALS" value="2.0"/>
+    <if_variable name="Ceres_Cargo" comparator="EQUALS" value="0.0"/>
+    <set_variable name="Ceres_Cargo" value="1.0"/>
+    <set_variable name="egg1" value="8"/>
+    <incoming_comms_text from="Tractor Control" sideValue="8">Ceres has control of egg1</incoming_comms_text>
+  </event>
+  <event name="Ceres Drop egg1">
+    <if_distance name1="Ceres" name2="egg1" comparator="GREATER_EQUAL" value="1000"/>
+    <if_variable name="egg1" comparator="EQUALS" value="8"/>
+    <set_variable name="egg1" value="2.0"/>
+    <set_variable name="Ceres_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="8">Ceres lost control of egg1. </incoming_comms_text>
+  </event>
+  <event name="Ceres Dead Drop egg1">
+    <if_not_exists name="Ceres"/>
+    <if_variable name="egg1" comparator="EQUALS" value="8"/>
+    <set_variable name="egg1" value="2.0"/>
+    <set_variable name="Ceres_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="8">Ceres lost control of egg1. </incoming_comms_text>
+  </event>
+  <event name="Ceres Claim egg1">
+    <if_variable name="egg1" comparator="EQUALS" value="8"/>
+    <if_docked player_name="Ceres" name="Ceres Station"/>
+    <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
+    <set_variable name="Ceres_Score" value="Ceres_Score+1"/>
+    <destroy name="egg1"/>
+    <set_timer name="egg1_Timer" seconds="10"/>
+    <set_variable name="egg1" value="1.0"/>
+    <set_variable name="Ceres_Cargo" value="0.0"/>
+    <incoming_comms_text from="Ceres Station" sideValue="8">Egg Secured. Ceres has captured |Ceres_Score| Egg.</incoming_comms_text>
+  </event>
+  <event name="Ceres Tow egg1">
+    <if_variable name="egg1" comparator="EQUALS" value="8"/>
+    <if_exists name="Ceres"/>
+    <set_relative_position name2="egg1" distance="100" angle="180" name1="Ceres"/>
+  </event>
+  <event name="Diana Capture egg1">
+    <if_distance name1="Diana" name2="egg1" comparator="LESS_EQUAL" value="100"/>
+    <if_variable name="egg1" comparator="EQUALS" value="2.0"/>
+    <if_variable name="Diana_Cargo" comparator="EQUALS" value="0.0"/>
+    <set_variable name="Diana_Cargo" value="1.0"/>
+    <set_variable name="egg1" value="9"/>
+    <incoming_comms_text from="Tractor Control" sideValue="9">Diana has control of egg1</incoming_comms_text>
+  </event>
+  <event name="Diana Drop egg1">
+    <if_distance name1="Diana" name2="egg1" comparator="GREATER_EQUAL" value="1000"/>
+    <if_variable name="egg1" comparator="EQUALS" value="9"/>
+    <set_variable name="egg1" value="2.0"/>
+    <set_variable name="Diana_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="9">Diana lost control of egg1. </incoming_comms_text>
+  </event>
+  <event name="Diana Dead Drop egg1">
+    <if_not_exists name="Diana"/>
+    <if_variable name="egg1" comparator="EQUALS" value="9"/>
+    <set_variable name="egg1" value="2.0"/>
+    <set_variable name="Diana_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="9">Diana lost control of egg1. </incoming_comms_text>
+  </event>
+  <event name="Diana Claim egg1">
+    <if_variable name="egg1" comparator="EQUALS" value="9"/>
+    <if_docked player_name="Diana" name="Diana Station"/>
+    <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
+    <set_variable name="Diana_Score" value="Diana_Score+1"/>
+    <destroy name="egg1"/>
+    <set_timer name="egg1_Timer" seconds="10"/>
+    <set_variable name="egg1" value="1.0"/>
+    <set_variable name="Diana_Cargo" value="0.0"/>
+    <incoming_comms_text from="Diana Station" sideValue="9">Egg Secured. Diana has captured |Diana_Score| Egg.</incoming_comms_text>
+  </event>
+  <event name="Diana Tow egg1">
+    <if_variable name="egg1" comparator="EQUALS" value="9"/>
+    <if_exists name="Diana"/>
+    <set_relative_position name2="egg1" distance="100" angle="180" name1="Diana"/>
+  </event>
+  <event name="Artemis Capture egg2">
+    <if_distance name1="Artemis" name2="egg2" comparator="LESS_EQUAL" value="100"/>
+    <if_variable name="egg2" comparator="EQUALS" value="2.0"/>
+    <if_variable name="Artemis_Cargo" comparator="EQUALS" value="0.0"/>
+    <set_variable name="Artemis_Cargo" value="1.0"/>
+    <set_variable name="egg2" value="10"/>
+    <incoming_comms_text from="Tractor Control" sideValue="10">Artemis has control of egg2</incoming_comms_text>
+  </event>
+  <event name="Artemis Drop egg2">
+    <if_distance name1="Artemis" name2="egg2" comparator="GREATER_EQUAL" value="1000"/>
+    <if_variable name="egg2" comparator="EQUALS" value="10"/>
+    <set_variable name="egg2" value="2.0"/>
+    <set_variable name="Artemis_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="10">Artemis lost control of egg2. </incoming_comms_text>
+  </event>
+  <event name="Artemis Dead Drop egg2">
+    <if_not_exists name="Artemis"/>
+    <if_variable name="egg2" comparator="EQUALS" value="10"/>
+    <set_variable name="egg2" value="2.0"/>
+    <set_variable name="Artemis_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="10">Artemis lost control of egg2. </incoming_comms_text>
+  </event>
+  <event name="Artemis Claim egg2">
+    <if_variable name="egg2" comparator="EQUALS" value="10"/>
+    <if_docked player_name="Artemis" name="Artemis Station"/>
+    <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
+    <set_variable name="Artemis_Score" value="Artemis_Score+1"/>
+    <destroy name="egg2"/>
+    <set_timer name="egg2_Timer" seconds="10"/>
+    <set_variable name="egg2" value="1.0"/>
+    <set_variable name="Artemis_Cargo" value="0.0"/>
+    <incoming_comms_text from="Artemis Station" sideValue="10">Egg Secured. Artemis has captured |Artemis_Score| Egg.</incoming_comms_text>
+  </event>
+  <event name="Artemis Tow egg2">
+    <if_variable name="egg2" comparator="EQUALS" value="10"/>
+    <if_exists name="Artemis"/>
+    <set_relative_position name2="egg2" distance="100" angle="180" name1="Artemis"/>
+  </event>
+  <event name="Intrepid Capture egg2">
+    <if_distance name1="Intrepid" name2="egg2" comparator="LESS_EQUAL" value="100"/>
+    <if_variable name="egg2" comparator="EQUALS" value="2.0"/>
+    <if_variable name="Intrepid_Cargo" comparator="EQUALS" value="0.0"/>
+    <set_variable name="Intrepid_Cargo" value="1.0"/>
+    <set_variable name="egg2" value="11"/>
+    <incoming_comms_text from="Tractor Control" sideValue="11">Intrepid has control of egg2</incoming_comms_text>
+  </event>
+  <event name="Intrepid Drop egg2">
+    <if_distance name1="Intrepid" name2="egg2" comparator="GREATER_EQUAL" value="1000"/>
+    <if_variable name="egg2" comparator="EQUALS" value="11"/>
+    <set_variable name="egg2" value="2.0"/>
+    <set_variable name="Intrepid_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="11">Intrepid lost control of egg2. </incoming_comms_text>
+  </event>
+  <event name="Intrepid Dead Drop egg2">
+    <if_not_exists name="Intrepid"/>
+    <if_variable name="egg2" comparator="EQUALS" value="11"/>
+    <set_variable name="egg2" value="2.0"/>
+    <set_variable name="Intrepid_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="11">Intrepid lost control of egg2. </incoming_comms_text>
+  </event>
+  <event name="Intrepid Claim egg2">
+    <if_variable name="egg2" comparator="EQUALS" value="11"/>
+    <if_docked player_name="Intrepid" name="Intrepid Station"/>
+    <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
+    <set_variable name="Intrepid_Score" value="Intrepid_Score+1"/>
+    <destroy name="egg2"/>
+    <set_timer name="egg2_Timer" seconds="10"/>
+    <set_variable name="egg2" value="1.0"/>
+    <set_variable name="Intrepid_Cargo" value="0.0"/>
+    <incoming_comms_text from="Intrepid Station" sideValue="11">Egg Secured. Intrepid has captured |Intrepid_Score| Egg.</incoming_comms_text>
+  </event>
+  <event name="Intrepid Tow egg2">
+    <if_variable name="egg2" comparator="EQUALS" value="11"/>
+    <if_exists name="Intrepid"/>
+    <set_relative_position name2="egg2" distance="100" angle="180" name1="Intrepid"/>
+  </event>
+  <event name="Aegis Capture egg2">
+    <if_distance name1="Aegis" name2="egg2" comparator="LESS_EQUAL" value="100"/>
+    <if_variable name="egg2" comparator="EQUALS" value="2.0"/>
+    <if_variable name="Aegis_Cargo" comparator="EQUALS" value="0.0"/>
+    <set_variable name="Aegis_Cargo" value="1.0"/>
+    <set_variable name="egg2" value="4"/>
+    <incoming_comms_text from="Tractor Control" sideValue="4">Aegis has control of egg2</incoming_comms_text>
+  </event>
+  <event name="Aegis Drop egg2">
+    <if_distance name1="Aegis" name2="egg2" comparator="GREATER_EQUAL" value="1000"/>
+    <if_variable name="egg2" comparator="EQUALS" value="4"/>
+    <set_variable name="egg2" value="2.0"/>
+    <set_variable name="Aegis_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="4">Aegis lost control of egg2. </incoming_comms_text>
+  </event>
+  <event name="Aegis Dead Drop egg2">
+    <if_not_exists name="Aegis"/>
+    <if_variable name="egg2" comparator="EQUALS" value="4"/>
+    <set_variable name="egg2" value="2.0"/>
+    <set_variable name="Aegis_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="4">Aegis lost control of egg2. </incoming_comms_text>
+  </event>
+  <event name="Aegis Claim egg2">
+    <if_variable name="egg2" comparator="EQUALS" value="4"/>
+    <if_docked player_name="Aegis" name="Aegis Station"/>
+    <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
+    <set_variable name="Aegis_Score" value="Aegis_Score+1"/>
+    <destroy name="egg2"/>
+    <set_timer name="egg2_Timer" seconds="10"/>
+    <set_variable name="egg2" value="1.0"/>
+    <set_variable name="Aegis_Cargo" value="0.0"/>
+    <incoming_comms_text from="Aegis Station" sideValue="4">Egg Secured. Aegis has captured |Aegis_Score| Egg.</incoming_comms_text>
+  </event>
+  <event name="Aegis Tow egg2">
+    <if_variable name="egg2" comparator="EQUALS" value="4"/>
+    <if_exists name="Aegis"/>
+    <set_relative_position name2="egg2" distance="100" angle="180" name1="Aegis"/>
+  </event>
+  <event name="Horatio Capture egg2">
+    <if_distance name1="Horatio" name2="egg2" comparator="LESS_EQUAL" value="100"/>
+    <if_variable name="egg2" comparator="EQUALS" value="2.0"/>
+    <if_variable name="Horatio_Cargo" comparator="EQUALS" value="0.0"/>
+    <set_variable name="Horatio_Cargo" value="1.0"/>
+    <set_variable name="egg2" value="5"/>
+    <incoming_comms_text from="Tractor Control" sideValue="5">Horatio has control of egg2</incoming_comms_text>
+  </event>
+  <event name="Horatio Drop egg2">
+    <if_distance name1="Horatio" name2="egg2" comparator="GREATER_EQUAL" value="1000"/>
+    <if_variable name="egg2" comparator="EQUALS" value="5"/>
+    <set_variable name="egg2" value="2.0"/>
+    <set_variable name="Horatio_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="5">Horatio lost control of egg2. </incoming_comms_text>
+  </event>
+  <event name="Horatio Dead Drop egg2">
+    <if_not_exists name="Horatio"/>
+    <if_variable name="egg2" comparator="EQUALS" value="5"/>
+    <set_variable name="egg2" value="2.0"/>
+    <set_variable name="Horatio_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="5">Horatio lost control of egg2. </incoming_comms_text>
+  </event>
+  <event name="Horatio Claim egg2">
+    <if_variable name="egg2" comparator="EQUALS" value="5"/>
+    <if_docked player_name="Horatio" name="Horatio Station"/>
+    <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
+    <set_variable name="Horatio_Score" value="Horatio_Score+1"/>
+    <destroy name="egg2"/>
+    <set_timer name="egg2_Timer" seconds="10"/>
+    <set_variable name="egg2" value="1.0"/>
+    <set_variable name="Horatio_Cargo" value="0.0"/>
+    <incoming_comms_text from="Horatio Station" sideValue="5">Egg Secured. Horatio has captured |Horatio_Score| Egg.</incoming_comms_text>
+  </event>
+  <event name="Horatio Tow egg2">
+    <if_variable name="egg2" comparator="EQUALS" value="5"/>
+    <if_exists name="Horatio"/>
+    <set_relative_position name2="egg2" distance="100" angle="180" name1="Horatio"/>
+  </event>
+  <event name="Excalibur Capture egg2">
+    <if_distance name1="Excalibur" name2="egg2" comparator="LESS_EQUAL" value="100"/>
+    <if_variable name="egg2" comparator="EQUALS" value="2.0"/>
+    <if_variable name="Excalibur_Cargo" comparator="EQUALS" value="0.0"/>
+    <set_variable name="Excalibur_Cargo" value="1.0"/>
+    <set_variable name="egg2" value="6"/>
+    <incoming_comms_text from="Tractor Control" sideValue="6">Excalibur has control of egg2</incoming_comms_text>
+  </event>
+  <event name="Excalibur Drop egg2">
+    <if_distance name1="Excalibur" name2="egg2" comparator="GREATER_EQUAL" value="1000"/>
+    <if_variable name="egg2" comparator="EQUALS" value="6"/>
+    <set_variable name="egg2" value="2.0"/>
+    <set_variable name="Excalibur_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="6">Excalibur lost control of egg2. </incoming_comms_text>
+  </event>
+  <event name="Excalibur Dead Drop egg2">
+    <if_not_exists name="Excalibur"/>
+    <if_variable name="egg2" comparator="EQUALS" value="6"/>
+    <set_variable name="egg2" value="2.0"/>
+    <set_variable name="Excalibur_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="6">Excalibur lost control of egg2. </incoming_comms_text>
+  </event>
+  <event name="Excalibur Claim egg2">
+    <if_variable name="egg2" comparator="EQUALS" value="6"/>
+    <if_docked player_name="Excalibur" name="Excalibur Station"/>
+    <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
+    <set_variable name="Excalibur_Score" value="Excalibur_Score+1"/>
+    <destroy name="egg2"/>
+    <set_timer name="egg2_Timer" seconds="10"/>
+    <set_variable name="egg2" value="1.0"/>
+    <set_variable name="Excalibur_Cargo" value="0.0"/>
+    <incoming_comms_text from="Excalibur Station" sideValue="6">Egg Secured. Excalibur has captured |Excalibur_Score| Egg.</incoming_comms_text>
+  </event>
+  <event name="Excalibur Tow egg2">
+    <if_variable name="egg2" comparator="EQUALS" value="6"/>
+    <if_exists name="Excalibur"/>
+    <set_relative_position name2="egg2" distance="100" angle="180" name1="Excalibur"/>
+  </event>
+  <event name="Hera Capture egg2">
+    <if_distance name1="Hera" name2="egg2" comparator="LESS_EQUAL" value="100"/>
+    <if_variable name="egg2" comparator="EQUALS" value="2.0"/>
+    <if_variable name="Hera_Cargo" comparator="EQUALS" value="0.0"/>
+    <set_variable name="Hera_Cargo" value="1.0"/>
+    <set_variable name="egg2" value="7"/>
+    <incoming_comms_text from="Tractor Control" sideValue="7">Hera has control of egg2</incoming_comms_text>
+  </event>
+  <event name="Hera Drop egg2">
+    <if_distance name1="Hera" name2="egg2" comparator="GREATER_EQUAL" value="1000"/>
+    <if_variable name="egg2" comparator="EQUALS" value="7"/>
+    <set_variable name="egg2" value="2.0"/>
+    <set_variable name="Hera_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="7">Hera lost control of egg2. </incoming_comms_text>
+  </event>
+  <event name="Hera Dead Drop egg2">
+    <if_not_exists name="Hera"/>
+    <if_variable name="egg2" comparator="EQUALS" value="7"/>
+    <set_variable name="egg2" value="2.0"/>
+    <set_variable name="Hera_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="7">Hera lost control of egg2. </incoming_comms_text>
+  </event>
+  <event name="Hera Claim egg2">
+    <if_variable name="egg2" comparator="EQUALS" value="7"/>
+    <if_docked player_name="Hera" name="Hera Station"/>
+    <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
+    <set_variable name="Hera_Score" value="Hera_Score+1"/>
+    <destroy name="egg2"/>
+    <set_timer name="egg2_Timer" seconds="10"/>
+    <set_variable name="egg2" value="1.0"/>
+    <set_variable name="Hera_Cargo" value="0.0"/>
+    <incoming_comms_text from="Hera Station" sideValue="7">Egg Secured. Hera has captured |Hera_Score| Egg.</incoming_comms_text>
+  </event>
+  <event name="Hera Tow egg2">
+    <if_variable name="egg2" comparator="EQUALS" value="7"/>
+    <if_exists name="Hera"/>
+    <set_relative_position name2="egg2" distance="100" angle="180" name1="Hera"/>
+  </event>
+  <event name="Ceres Capture egg2">
+    <if_distance name1="Ceres" name2="egg2" comparator="LESS_EQUAL" value="100"/>
+    <if_variable name="egg2" comparator="EQUALS" value="2.0"/>
+    <if_variable name="Ceres_Cargo" comparator="EQUALS" value="0.0"/>
+    <set_variable name="Ceres_Cargo" value="1.0"/>
+    <set_variable name="egg2" value="8"/>
+    <incoming_comms_text from="Tractor Control" sideValue="8">Ceres has control of egg2</incoming_comms_text>
+  </event>
+  <event name="Ceres Drop egg2">
+    <if_distance name1="Ceres" name2="egg2" comparator="GREATER_EQUAL" value="1000"/>
+    <if_variable name="egg2" comparator="EQUALS" value="8"/>
+    <set_variable name="egg2" value="2.0"/>
+    <set_variable name="Ceres_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="8">Ceres lost control of egg2. </incoming_comms_text>
+  </event>
+  <event name="Ceres Dead Drop egg2">
+    <if_not_exists name="Ceres"/>
+    <if_variable name="egg2" comparator="EQUALS" value="8"/>
+    <set_variable name="egg2" value="2.0"/>
+    <set_variable name="Ceres_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="8">Ceres lost control of egg2. </incoming_comms_text>
+  </event>
+  <event name="Ceres Claim egg2">
+    <if_variable name="egg2" comparator="EQUALS" value="8"/>
+    <if_docked player_name="Ceres" name="Ceres Station"/>
+    <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
+    <set_variable name="Ceres_Score" value="Ceres_Score+1"/>
+    <destroy name="egg2"/>
+    <set_timer name="egg2_Timer" seconds="10"/>
+    <set_variable name="egg2" value="1.0"/>
+    <set_variable name="Ceres_Cargo" value="0.0"/>
+    <incoming_comms_text from="Ceres Station" sideValue="8">Egg Secured. Ceres has captured |Ceres_Score| Egg.</incoming_comms_text>
+  </event>
+  <event name="Ceres Tow egg2">
+    <if_variable name="egg2" comparator="EQUALS" value="8"/>
+    <if_exists name="Ceres"/>
+    <set_relative_position name2="egg2" distance="100" angle="180" name1="Ceres"/>
+  </event>
+  <event name="Diana Capture egg2">
+    <if_distance name1="Diana" name2="egg2" comparator="LESS_EQUAL" value="100"/>
+    <if_variable name="egg2" comparator="EQUALS" value="2.0"/>
+    <if_variable name="Diana_Cargo" comparator="EQUALS" value="0.0"/>
+    <set_variable name="Diana_Cargo" value="1.0"/>
+    <set_variable name="egg2" value="9"/>
+    <incoming_comms_text from="Tractor Control" sideValue="9">Diana has control of egg2</incoming_comms_text>
+  </event>
+  <event name="Diana Drop egg2">
+    <if_distance name1="Diana" name2="egg2" comparator="GREATER_EQUAL" value="1000"/>
+    <if_variable name="egg2" comparator="EQUALS" value="9"/>
+    <set_variable name="egg2" value="2.0"/>
+    <set_variable name="Diana_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="9">Diana lost control of egg2. </incoming_comms_text>
+  </event>
+  <event name="Diana Dead Drop egg2">
+    <if_not_exists name="Diana"/>
+    <if_variable name="egg2" comparator="EQUALS" value="9"/>
+    <set_variable name="egg2" value="2.0"/>
+    <set_variable name="Diana_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="9">Diana lost control of egg2. </incoming_comms_text>
+  </event>
+  <event name="Diana Claim egg2">
+    <if_variable name="egg2" comparator="EQUALS" value="9"/>
+    <if_docked player_name="Diana" name="Diana Station"/>
+    <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
+    <set_variable name="Diana_Score" value="Diana_Score+1"/>
+    <destroy name="egg2"/>
+    <set_timer name="egg2_Timer" seconds="10"/>
+    <set_variable name="egg2" value="1.0"/>
+    <set_variable name="Diana_Cargo" value="0.0"/>
+    <incoming_comms_text from="Diana Station" sideValue="9">Egg Secured. Diana has captured |Diana_Score| Egg.</incoming_comms_text>
+  </event>
+  <event name="Diana Tow egg2">
+    <if_variable name="egg2" comparator="EQUALS" value="9"/>
+    <if_exists name="Diana"/>
+    <set_relative_position name2="egg2" distance="100" angle="180" name1="Diana"/>
+  </event>
+  <event name="Artemis Capture egg3">
+    <if_distance name1="Artemis" name2="egg3" comparator="LESS_EQUAL" value="100"/>
+    <if_variable name="egg3" comparator="EQUALS" value="2.0"/>
+    <if_variable name="Artemis_Cargo" comparator="EQUALS" value="0.0"/>
+    <set_variable name="Artemis_Cargo" value="1.0"/>
+    <set_variable name="egg3" value="10"/>
+    <incoming_comms_text from="Tractor Control" sideValue="10">Artemis has control of egg3</incoming_comms_text>
+  </event>
+  <event name="Artemis Drop egg3">
+    <if_distance name1="Artemis" name2="egg3" comparator="GREATER_EQUAL" value="1000"/>
+    <if_variable name="egg3" comparator="EQUALS" value="10"/>
+    <set_variable name="egg3" value="2.0"/>
+    <set_variable name="Artemis_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="10">Artemis lost control of egg3. </incoming_comms_text>
+  </event>
+  <event name="Artemis Dead Drop egg3">
+    <if_not_exists name="Artemis"/>
+    <if_variable name="egg3" comparator="EQUALS" value="10"/>
+    <set_variable name="egg3" value="2.0"/>
+    <set_variable name="Artemis_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="10">Artemis lost control of egg3. </incoming_comms_text>
+  </event>
+  <event name="Artemis Claim egg3">
+    <if_variable name="egg3" comparator="EQUALS" value="10"/>
+    <if_docked player_name="Artemis" name="Artemis Station"/>
+    <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
+    <set_variable name="Artemis_Score" value="Artemis_Score+1"/>
+    <destroy name="egg3"/>
+    <set_timer name="egg3_Timer" seconds="10"/>
+    <set_variable name="egg3" value="1.0"/>
+    <set_variable name="Artemis_Cargo" value="0.0"/>
+    <incoming_comms_text from="Artemis Station" sideValue="10">Egg Secured. Artemis has captured |Artemis_Score| Egg.</incoming_comms_text>
+  </event>
+  <event name="Artemis Tow egg3">
+    <if_variable name="egg3" comparator="EQUALS" value="10"/>
+    <if_exists name="Artemis"/>
+    <set_relative_position name2="egg3" distance="100" angle="180" name1="Artemis"/>
+  </event>
+  <event name="Intrepid Capture egg3">
+    <if_distance name1="Intrepid" name2="egg3" comparator="LESS_EQUAL" value="100"/>
+    <if_variable name="egg3" comparator="EQUALS" value="2.0"/>
+    <if_variable name="Intrepid_Cargo" comparator="EQUALS" value="0.0"/>
+    <set_variable name="Intrepid_Cargo" value="1.0"/>
+    <set_variable name="egg3" value="11"/>
+    <incoming_comms_text from="Tractor Control" sideValue="11">Intrepid has control of egg3</incoming_comms_text>
+  </event>
+  <event name="Intrepid Drop egg3">
+    <if_distance name1="Intrepid" name2="egg3" comparator="GREATER_EQUAL" value="1000"/>
+    <if_variable name="egg3" comparator="EQUALS" value="11"/>
+    <set_variable name="egg3" value="2.0"/>
+    <set_variable name="Intrepid_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="11">Intrepid lost control of egg3. </incoming_comms_text>
+  </event>
+  <event name="Intrepid Dead Drop egg3">
+    <if_not_exists name="Intrepid"/>
+    <if_variable name="egg3" comparator="EQUALS" value="11"/>
+    <set_variable name="egg3" value="2.0"/>
+    <set_variable name="Intrepid_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="11">Intrepid lost control of egg3. </incoming_comms_text>
+  </event>
+  <event name="Intrepid Claim egg3">
+    <if_variable name="egg3" comparator="EQUALS" value="11"/>
+    <if_docked player_name="Intrepid" name="Intrepid Station"/>
+    <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
+    <set_variable name="Intrepid_Score" value="Intrepid_Score+1"/>
+    <destroy name="egg3"/>
+    <set_timer name="egg3_Timer" seconds="10"/>
+    <set_variable name="egg3" value="1.0"/>
+    <set_variable name="Intrepid_Cargo" value="0.0"/>
+    <incoming_comms_text from="Intrepid Station" sideValue="11">Egg Secured. Intrepid has captured |Intrepid_Score| Egg.</incoming_comms_text>
+  </event>
+  <event name="Intrepid Tow egg3">
+    <if_variable name="egg3" comparator="EQUALS" value="11"/>
+    <if_exists name="Intrepid"/>
+    <set_relative_position name2="egg3" distance="100" angle="180" name1="Intrepid"/>
+  </event>
+  <event name="Aegis Capture egg3">
+    <if_distance name1="Aegis" name2="egg3" comparator="LESS_EQUAL" value="100"/>
+    <if_variable name="egg3" comparator="EQUALS" value="2.0"/>
+    <if_variable name="Aegis_Cargo" comparator="EQUALS" value="0.0"/>
+    <set_variable name="Aegis_Cargo" value="1.0"/>
+    <set_variable name="egg3" value="4"/>
+    <incoming_comms_text from="Tractor Control" sideValue="4">Aegis has control of egg3</incoming_comms_text>
+  </event>
+  <event name="Aegis Drop egg3">
+    <if_distance name1="Aegis" name2="egg3" comparator="GREATER_EQUAL" value="1000"/>
+    <if_variable name="egg3" comparator="EQUALS" value="4"/>
+    <set_variable name="egg3" value="2.0"/>
+    <set_variable name="Aegis_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="4">Aegis lost control of egg3. </incoming_comms_text>
+  </event>
+  <event name="Aegis Dead Drop egg3">
+    <if_not_exists name="Aegis"/>
+    <if_variable name="egg3" comparator="EQUALS" value="4"/>
+    <set_variable name="egg3" value="2.0"/>
+    <set_variable name="Aegis_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="4">Aegis lost control of egg3. </incoming_comms_text>
+  </event>
+  <event name="Aegis Claim egg3">
+    <if_variable name="egg3" comparator="EQUALS" value="4"/>
+    <if_docked player_name="Aegis" name="Aegis Station"/>
+    <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
+    <set_variable name="Aegis_Score" value="Aegis_Score+1"/>
+    <destroy name="egg3"/>
+    <set_timer name="egg3_Timer" seconds="10"/>
+    <set_variable name="egg3" value="1.0"/>
+    <set_variable name="Aegis_Cargo" value="0.0"/>
+    <incoming_comms_text from="Aegis Station" sideValue="4">Egg Secured. Aegis has captured |Aegis_Score| Egg.</incoming_comms_text>
+  </event>
+  <event name="Aegis Tow egg3">
+    <if_variable name="egg3" comparator="EQUALS" value="4"/>
+    <if_exists name="Aegis"/>
+    <set_relative_position name2="egg3" distance="100" angle="180" name1="Aegis"/>
+  </event>
+  <event name="Horatio Capture egg3">
+    <if_distance name1="Horatio" name2="egg3" comparator="LESS_EQUAL" value="100"/>
+    <if_variable name="egg3" comparator="EQUALS" value="2.0"/>
+    <if_variable name="Horatio_Cargo" comparator="EQUALS" value="0.0"/>
+    <set_variable name="Horatio_Cargo" value="1.0"/>
+    <set_variable name="egg3" value="5"/>
+    <incoming_comms_text from="Tractor Control" sideValue="5">Horatio has control of egg3</incoming_comms_text>
+  </event>
+  <event name="Horatio Drop egg3">
+    <if_distance name1="Horatio" name2="egg3" comparator="GREATER_EQUAL" value="1000"/>
+    <if_variable name="egg3" comparator="EQUALS" value="5"/>
+    <set_variable name="egg3" value="2.0"/>
+    <set_variable name="Horatio_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="5">Horatio lost control of egg3. </incoming_comms_text>
+  </event>
+  <event name="Horatio Dead Drop egg3">
+    <if_not_exists name="Horatio"/>
+    <if_variable name="egg3" comparator="EQUALS" value="5"/>
+    <set_variable name="egg3" value="2.0"/>
+    <set_variable name="Horatio_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="5">Horatio lost control of egg3. </incoming_comms_text>
+  </event>
+  <event name="Horatio Claim egg3">
+    <if_variable name="egg3" comparator="EQUALS" value="5"/>
+    <if_docked player_name="Horatio" name="Horatio Station"/>
+    <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
+    <set_variable name="Horatio_Score" value="Horatio_Score+1"/>
+    <destroy name="egg3"/>
+    <set_timer name="egg3_Timer" seconds="10"/>
+    <set_variable name="egg3" value="1.0"/>
+    <set_variable name="Horatio_Cargo" value="0.0"/>
+    <incoming_comms_text from="Horatio Station" sideValue="5">Egg Secured. Horatio has captured |Horatio_Score| Egg.</incoming_comms_text>
+  </event>
+  <event name="Horatio Tow egg3">
+    <if_variable name="egg3" comparator="EQUALS" value="5"/>
+    <if_exists name="Horatio"/>
+    <set_relative_position name2="egg3" distance="100" angle="180" name1="Horatio"/>
+  </event>
+  <event name="Excalibur Capture egg3">
+    <if_distance name1="Excalibur" name2="egg3" comparator="LESS_EQUAL" value="100"/>
+    <if_variable name="egg3" comparator="EQUALS" value="2.0"/>
+    <if_variable name="Excalibur_Cargo" comparator="EQUALS" value="0.0"/>
+    <set_variable name="Excalibur_Cargo" value="1.0"/>
+    <set_variable name="egg3" value="6"/>
+    <incoming_comms_text from="Tractor Control" sideValue="6">Excalibur has control of egg3</incoming_comms_text>
+  </event>
+  <event name="Excalibur Drop egg3">
+    <if_distance name1="Excalibur" name2="egg3" comparator="GREATER_EQUAL" value="1000"/>
+    <if_variable name="egg3" comparator="EQUALS" value="6"/>
+    <set_variable name="egg3" value="2.0"/>
+    <set_variable name="Excalibur_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="6">Excalibur lost control of egg3. </incoming_comms_text>
+  </event>
+  <event name="Excalibur Dead Drop egg3">
+    <if_not_exists name="Excalibur"/>
+    <if_variable name="egg3" comparator="EQUALS" value="6"/>
+    <set_variable name="egg3" value="2.0"/>
+    <set_variable name="Excalibur_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="6">Excalibur lost control of egg3. </incoming_comms_text>
+  </event>
+  <event name="Excalibur Claim egg3">
+    <if_variable name="egg3" comparator="EQUALS" value="6"/>
+    <if_docked player_name="Excalibur" name="Excalibur Station"/>
+    <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
+    <set_variable name="Excalibur_Score" value="Excalibur_Score+1"/>
+    <destroy name="egg3"/>
+    <set_timer name="egg3_Timer" seconds="10"/>
+    <set_variable name="egg3" value="1.0"/>
+    <set_variable name="Excalibur_Cargo" value="0.0"/>
+    <incoming_comms_text from="Excalibur Station" sideValue="6">Egg Secured. Excalibur has captured |Excalibur_Score| Egg.</incoming_comms_text>
+  </event>
+  <event name="Excalibur Tow egg3">
+    <if_variable name="egg3" comparator="EQUALS" value="6"/>
+    <if_exists name="Excalibur"/>
+    <set_relative_position name2="egg3" distance="100" angle="180" name1="Excalibur"/>
+  </event>
+  <event name="Hera Capture egg3">
+    <if_distance name1="Hera" name2="egg3" comparator="LESS_EQUAL" value="100"/>
+    <if_variable name="egg3" comparator="EQUALS" value="2.0"/>
+    <if_variable name="Hera_Cargo" comparator="EQUALS" value="0.0"/>
+    <set_variable name="Hera_Cargo" value="1.0"/>
+    <set_variable name="egg3" value="7"/>
+    <incoming_comms_text from="Tractor Control" sideValue="7">Hera has control of egg3</incoming_comms_text>
+  </event>
+  <event name="Hera Drop egg3">
+    <if_distance name1="Hera" name2="egg3" comparator="GREATER_EQUAL" value="1000"/>
+    <if_variable name="egg3" comparator="EQUALS" value="7"/>
+    <set_variable name="egg3" value="2.0"/>
+    <set_variable name="Hera_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="7">Hera lost control of egg3. </incoming_comms_text>
+  </event>
+  <event name="Hera Dead Drop egg3">
+    <if_not_exists name="Hera"/>
+    <if_variable name="egg3" comparator="EQUALS" value="7"/>
+    <set_variable name="egg3" value="2.0"/>
+    <set_variable name="Hera_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="7">Hera lost control of egg3. </incoming_comms_text>
+  </event>
+  <event name="Hera Claim egg3">
+    <if_variable name="egg3" comparator="EQUALS" value="7"/>
+    <if_docked player_name="Hera" name="Hera Station"/>
+    <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
+    <set_variable name="Hera_Score" value="Hera_Score+1"/>
+    <destroy name="egg3"/>
+    <set_timer name="egg3_Timer" seconds="10"/>
+    <set_variable name="egg3" value="1.0"/>
+    <set_variable name="Hera_Cargo" value="0.0"/>
+    <incoming_comms_text from="Hera Station" sideValue="7">Egg Secured. Hera has captured |Hera_Score| Egg.</incoming_comms_text>
+  </event>
+  <event name="Hera Tow egg3">
+    <if_variable name="egg3" comparator="EQUALS" value="7"/>
+    <if_exists name="Hera"/>
+    <set_relative_position name2="egg3" distance="100" angle="180" name1="Hera"/>
+  </event>
+  <event name="Ceres Capture egg3">
+    <if_distance name1="Ceres" name2="egg3" comparator="LESS_EQUAL" value="100"/>
+    <if_variable name="egg3" comparator="EQUALS" value="2.0"/>
+    <if_variable name="Ceres_Cargo" comparator="EQUALS" value="0.0"/>
+    <set_variable name="Ceres_Cargo" value="1.0"/>
+    <set_variable name="egg3" value="8"/>
+    <incoming_comms_text from="Tractor Control" sideValue="8">Ceres has control of egg3</incoming_comms_text>
+  </event>
+  <event name="Ceres Drop egg3">
+    <if_distance name1="Ceres" name2="egg3" comparator="GREATER_EQUAL" value="1000"/>
+    <if_variable name="egg3" comparator="EQUALS" value="8"/>
+    <set_variable name="egg3" value="2.0"/>
+    <set_variable name="Ceres_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="8">Ceres lost control of egg3. </incoming_comms_text>
+  </event>
+  <event name="Ceres Dead Drop egg3">
+    <if_not_exists name="Ceres"/>
+    <if_variable name="egg3" comparator="EQUALS" value="8"/>
+    <set_variable name="egg3" value="2.0"/>
+    <set_variable name="Ceres_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="8">Ceres lost control of egg3. </incoming_comms_text>
+  </event>
+  <event name="Ceres Claim egg3">
+    <if_variable name="egg3" comparator="EQUALS" value="8"/>
+    <if_docked player_name="Ceres" name="Ceres Station"/>
+    <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
+    <set_variable name="Ceres_Score" value="Ceres_Score+1"/>
+    <destroy name="egg3"/>
+    <set_timer name="egg3_Timer" seconds="10"/>
+    <set_variable name="egg3" value="1.0"/>
+    <set_variable name="Ceres_Cargo" value="0.0"/>
+    <incoming_comms_text from="Ceres Station" sideValue="8">Egg Secured. Ceres has captured |Ceres_Score| Egg.</incoming_comms_text>
+  </event>
+  <event name="Ceres Tow egg3">
+    <if_variable name="egg3" comparator="EQUALS" value="8"/>
+    <if_exists name="Ceres"/>
+    <set_relative_position name2="egg3" distance="100" angle="180" name1="Ceres"/>
+  </event>
+  <event name="Diana Capture egg3">
+    <if_distance name1="Diana" name2="egg3" comparator="LESS_EQUAL" value="100"/>
+    <if_variable name="egg3" comparator="EQUALS" value="2.0"/>
+    <if_variable name="Diana_Cargo" comparator="EQUALS" value="0.0"/>
+    <set_variable name="Diana_Cargo" value="1.0"/>
+    <set_variable name="egg3" value="9"/>
+    <incoming_comms_text from="Tractor Control" sideValue="9">Diana has control of egg3</incoming_comms_text>
+  </event>
+  <event name="Diana Drop egg3">
+    <if_distance name1="Diana" name2="egg3" comparator="GREATER_EQUAL" value="1000"/>
+    <if_variable name="egg3" comparator="EQUALS" value="9"/>
+    <set_variable name="egg3" value="2.0"/>
+    <set_variable name="Diana_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="9">Diana lost control of egg3. </incoming_comms_text>
+  </event>
+  <event name="Diana Dead Drop egg3">
+    <if_not_exists name="Diana"/>
+    <if_variable name="egg3" comparator="EQUALS" value="9"/>
+    <set_variable name="egg3" value="2.0"/>
+    <set_variable name="Diana_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="9">Diana lost control of egg3. </incoming_comms_text>
+  </event>
+  <event name="Diana Claim egg3">
+    <if_variable name="egg3" comparator="EQUALS" value="9"/>
+    <if_docked player_name="Diana" name="Diana Station"/>
+    <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
+    <set_variable name="Diana_Score" value="Diana_Score+1"/>
+    <destroy name="egg3"/>
+    <set_timer name="egg3_Timer" seconds="10"/>
+    <set_variable name="egg3" value="1.0"/>
+    <set_variable name="Diana_Cargo" value="0.0"/>
+    <incoming_comms_text from="Diana Station" sideValue="9">Egg Secured. Diana has captured |Diana_Score| Egg.</incoming_comms_text>
+  </event>
+  <event name="Diana Tow egg3">
+    <if_variable name="egg3" comparator="EQUALS" value="9"/>
+    <if_exists name="Diana"/>
+    <set_relative_position name2="egg3" distance="100" angle="180" name1="Diana"/>
+  </event>
+  <event name="Artemis Capture egg4">
+    <if_distance name1="Artemis" name2="egg4" comparator="LESS_EQUAL" value="100"/>
+    <if_variable name="egg4" comparator="EQUALS" value="2.0"/>
+    <if_variable name="Artemis_Cargo" comparator="EQUALS" value="0.0"/>
+    <set_variable name="Artemis_Cargo" value="1.0"/>
+    <set_variable name="egg4" value="10"/>
+    <incoming_comms_text from="Tractor Control" sideValue="10">Artemis has control of egg4</incoming_comms_text>
+  </event>
+  <event name="Artemis Drop egg4">
+    <if_distance name1="Artemis" name2="egg4" comparator="GREATER_EQUAL" value="1000"/>
+    <if_variable name="egg4" comparator="EQUALS" value="10"/>
+    <set_variable name="egg4" value="2.0"/>
+    <set_variable name="Artemis_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="10">Artemis lost control of egg4. </incoming_comms_text>
+  </event>
+  <event name="Artemis Dead Drop egg4">
+    <if_not_exists name="Artemis"/>
+    <if_variable name="egg4" comparator="EQUALS" value="10"/>
+    <set_variable name="egg4" value="2.0"/>
+    <set_variable name="Artemis_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="10">Artemis lost control of egg4. </incoming_comms_text>
+  </event>
+  <event name="Artemis Claim egg4">
+    <if_variable name="egg4" comparator="EQUALS" value="10"/>
+    <if_docked player_name="Artemis" name="Artemis Station"/>
+    <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
+    <set_variable name="Artemis_Score" value="Artemis_Score+1"/>
+    <destroy name="egg4"/>
+    <set_timer name="egg4_Timer" seconds="10"/>
+    <set_variable name="egg4" value="1.0"/>
+    <set_variable name="Artemis_Cargo" value="0.0"/>
+    <incoming_comms_text from="Artemis Station" sideValue="10">Egg Secured. Artemis has captured |Artemis_Score| Egg.</incoming_comms_text>
+  </event>
+  <event name="Artemis Tow egg4">
+    <if_variable name="egg4" comparator="EQUALS" value="10"/>
+    <if_exists name="Artemis"/>
+    <set_relative_position name2="egg4" distance="100" angle="180" name1="Artemis"/>
+  </event>
+  <event name="Intrepid Capture egg4">
+    <if_distance name1="Intrepid" name2="egg4" comparator="LESS_EQUAL" value="100"/>
+    <if_variable name="egg4" comparator="EQUALS" value="2.0"/>
+    <if_variable name="Intrepid_Cargo" comparator="EQUALS" value="0.0"/>
+    <set_variable name="Intrepid_Cargo" value="1.0"/>
+    <set_variable name="egg4" value="11"/>
+    <incoming_comms_text from="Tractor Control" sideValue="11">Intrepid has control of egg4</incoming_comms_text>
+  </event>
+  <event name="Intrepid Drop egg4">
+    <if_distance name1="Intrepid" name2="egg4" comparator="GREATER_EQUAL" value="1000"/>
+    <if_variable name="egg4" comparator="EQUALS" value="11"/>
+    <set_variable name="egg4" value="2.0"/>
+    <set_variable name="Intrepid_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="11">Intrepid lost control of egg4. </incoming_comms_text>
+  </event>
+  <event name="Intrepid Dead Drop egg4">
+    <if_not_exists name="Intrepid"/>
+    <if_variable name="egg4" comparator="EQUALS" value="11"/>
+    <set_variable name="egg4" value="2.0"/>
+    <set_variable name="Intrepid_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="11">Intrepid lost control of egg4. </incoming_comms_text>
+  </event>
+  <event name="Intrepid Claim egg4">
+    <if_variable name="egg4" comparator="EQUALS" value="11"/>
+    <if_docked player_name="Intrepid" name="Intrepid Station"/>
+    <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
+    <set_variable name="Intrepid_Score" value="Intrepid_Score+1"/>
+    <destroy name="egg4"/>
+    <set_timer name="egg4_Timer" seconds="10"/>
+    <set_variable name="egg4" value="1.0"/>
+    <set_variable name="Intrepid_Cargo" value="0.0"/>
+    <incoming_comms_text from="Intrepid Station" sideValue="11">Egg Secured. Intrepid has captured |Intrepid_Score| Egg.</incoming_comms_text>
+  </event>
+  <event name="Intrepid Tow egg4">
+    <if_variable name="egg4" comparator="EQUALS" value="11"/>
+    <if_exists name="Intrepid"/>
+    <set_relative_position name2="egg4" distance="100" angle="180" name1="Intrepid"/>
+  </event>
+  <event name="Aegis Capture egg4">
+    <if_distance name1="Aegis" name2="egg4" comparator="LESS_EQUAL" value="100"/>
+    <if_variable name="egg4" comparator="EQUALS" value="2.0"/>
+    <if_variable name="Aegis_Cargo" comparator="EQUALS" value="0.0"/>
+    <set_variable name="Aegis_Cargo" value="1.0"/>
+    <set_variable name="egg4" value="4"/>
+    <incoming_comms_text from="Tractor Control" sideValue="4">Aegis has control of egg4</incoming_comms_text>
+  </event>
+  <event name="Aegis Drop egg4">
+    <if_distance name1="Aegis" name2="egg4" comparator="GREATER_EQUAL" value="1000"/>
+    <if_variable name="egg4" comparator="EQUALS" value="4"/>
+    <set_variable name="egg4" value="2.0"/>
+    <set_variable name="Aegis_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="4">Aegis lost control of egg4. </incoming_comms_text>
+  </event>
+  <event name="Aegis Dead Drop egg4">
+    <if_not_exists name="Aegis"/>
+    <if_variable name="egg4" comparator="EQUALS" value="4"/>
+    <set_variable name="egg4" value="2.0"/>
+    <set_variable name="Aegis_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="4">Aegis lost control of egg4. </incoming_comms_text>
+  </event>
+  <event name="Aegis Claim egg4">
+    <if_variable name="egg4" comparator="EQUALS" value="4"/>
+    <if_docked player_name="Aegis" name="Aegis Station"/>
+    <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
+    <set_variable name="Aegis_Score" value="Aegis_Score+1"/>
+    <destroy name="egg4"/>
+    <set_timer name="egg4_Timer" seconds="10"/>
+    <set_variable name="egg4" value="1.0"/>
+    <set_variable name="Aegis_Cargo" value="0.0"/>
+    <incoming_comms_text from="Aegis Station" sideValue="4">Egg Secured. Aegis has captured |Aegis_Score| Egg.</incoming_comms_text>
+  </event>
+  <event name="Aegis Tow egg4">
+    <if_variable name="egg4" comparator="EQUALS" value="4"/>
+    <if_exists name="Aegis"/>
+    <set_relative_position name2="egg4" distance="100" angle="180" name1="Aegis"/>
+  </event>
+  <event name="Horatio Capture egg4">
+    <if_distance name1="Horatio" name2="egg4" comparator="LESS_EQUAL" value="100"/>
+    <if_variable name="egg4" comparator="EQUALS" value="2.0"/>
+    <if_variable name="Horatio_Cargo" comparator="EQUALS" value="0.0"/>
+    <set_variable name="Horatio_Cargo" value="1.0"/>
+    <set_variable name="egg4" value="5"/>
+    <incoming_comms_text from="Tractor Control" sideValue="5">Horatio has control of egg4</incoming_comms_text>
+  </event>
+  <event name="Horatio Drop egg4">
+    <if_distance name1="Horatio" name2="egg4" comparator="GREATER_EQUAL" value="1000"/>
+    <if_variable name="egg4" comparator="EQUALS" value="5"/>
+    <set_variable name="egg4" value="2.0"/>
+    <set_variable name="Horatio_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="5">Horatio lost control of egg4. </incoming_comms_text>
+  </event>
+  <event name="Horatio Dead Drop egg4">
+    <if_not_exists name="Horatio"/>
+    <if_variable name="egg4" comparator="EQUALS" value="5"/>
+    <set_variable name="egg4" value="2.0"/>
+    <set_variable name="Horatio_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="5">Horatio lost control of egg4. </incoming_comms_text>
+  </event>
+  <event name="Horatio Claim egg4">
+    <if_variable name="egg4" comparator="EQUALS" value="5"/>
+    <if_docked player_name="Horatio" name="Horatio Station"/>
+    <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
+    <set_variable name="Horatio_Score" value="Horatio_Score+1"/>
+    <destroy name="egg4"/>
+    <set_timer name="egg4_Timer" seconds="10"/>
+    <set_variable name="egg4" value="1.0"/>
+    <set_variable name="Horatio_Cargo" value="0.0"/>
+    <incoming_comms_text from="Horatio Station" sideValue="5">Egg Secured. Horatio has captured |Horatio_Score| Egg.</incoming_comms_text>
+  </event>
+  <event name="Horatio Tow egg4">
+    <if_variable name="egg4" comparator="EQUALS" value="5"/>
+    <if_exists name="Horatio"/>
+    <set_relative_position name2="egg4" distance="100" angle="180" name1="Horatio"/>
+  </event>
+  <event name="Excalibur Capture egg4">
+    <if_distance name1="Excalibur" name2="egg4" comparator="LESS_EQUAL" value="100"/>
+    <if_variable name="egg4" comparator="EQUALS" value="2.0"/>
+    <if_variable name="Excalibur_Cargo" comparator="EQUALS" value="0.0"/>
+    <set_variable name="Excalibur_Cargo" value="1.0"/>
+    <set_variable name="egg4" value="6"/>
+    <incoming_comms_text from="Tractor Control" sideValue="6">Excalibur has control of egg4</incoming_comms_text>
+  </event>
+  <event name="Excalibur Drop egg4">
+    <if_distance name1="Excalibur" name2="egg4" comparator="GREATER_EQUAL" value="1000"/>
+    <if_variable name="egg4" comparator="EQUALS" value="6"/>
+    <set_variable name="egg4" value="2.0"/>
+    <set_variable name="Excalibur_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="6">Excalibur lost control of egg4. </incoming_comms_text>
+  </event>
+  <event name="Excalibur Dead Drop egg4">
+    <if_not_exists name="Excalibur"/>
+    <if_variable name="egg4" comparator="EQUALS" value="6"/>
+    <set_variable name="egg4" value="2.0"/>
+    <set_variable name="Excalibur_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="6">Excalibur lost control of egg4. </incoming_comms_text>
+  </event>
+  <event name="Excalibur Claim egg4">
+    <if_variable name="egg4" comparator="EQUALS" value="6"/>
+    <if_docked player_name="Excalibur" name="Excalibur Station"/>
+    <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
+    <set_variable name="Excalibur_Score" value="Excalibur_Score+1"/>
+    <destroy name="egg4"/>
+    <set_timer name="egg4_Timer" seconds="10"/>
+    <set_variable name="egg4" value="1.0"/>
+    <set_variable name="Excalibur_Cargo" value="0.0"/>
+    <incoming_comms_text from="Excalibur Station" sideValue="6">Egg Secured. Excalibur has captured |Excalibur_Score| Egg.</incoming_comms_text>
+  </event>
+  <event name="Excalibur Tow egg4">
+    <if_variable name="egg4" comparator="EQUALS" value="6"/>
+    <if_exists name="Excalibur"/>
+    <set_relative_position name2="egg4" distance="100" angle="180" name1="Excalibur"/>
+  </event>
+  <event name="Hera Capture egg4">
+    <if_distance name1="Hera" name2="egg4" comparator="LESS_EQUAL" value="100"/>
+    <if_variable name="egg4" comparator="EQUALS" value="2.0"/>
+    <if_variable name="Hera_Cargo" comparator="EQUALS" value="0.0"/>
+    <set_variable name="Hera_Cargo" value="1.0"/>
+    <set_variable name="egg4" value="7"/>
+    <incoming_comms_text from="Tractor Control" sideValue="7">Hera has control of egg4</incoming_comms_text>
+  </event>
+  <event name="Hera Drop egg4">
+    <if_distance name1="Hera" name2="egg4" comparator="GREATER_EQUAL" value="1000"/>
+    <if_variable name="egg4" comparator="EQUALS" value="7"/>
+    <set_variable name="egg4" value="2.0"/>
+    <set_variable name="Hera_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="7">Hera lost control of egg4. </incoming_comms_text>
+  </event>
+  <event name="Hera Dead Drop egg4">
+    <if_not_exists name="Hera"/>
+    <if_variable name="egg4" comparator="EQUALS" value="7"/>
+    <set_variable name="egg4" value="2.0"/>
+    <set_variable name="Hera_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="7">Hera lost control of egg4. </incoming_comms_text>
+  </event>
+  <event name="Hera Claim egg4">
+    <if_variable name="egg4" comparator="EQUALS" value="7"/>
+    <if_docked player_name="Hera" name="Hera Station"/>
+    <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
+    <set_variable name="Hera_Score" value="Hera_Score+1"/>
+    <destroy name="egg4"/>
+    <set_timer name="egg4_Timer" seconds="10"/>
+    <set_variable name="egg4" value="1.0"/>
+    <set_variable name="Hera_Cargo" value="0.0"/>
+    <incoming_comms_text from="Hera Station" sideValue="7">Egg Secured. Hera has captured |Hera_Score| Egg.</incoming_comms_text>
+  </event>
+  <event name="Hera Tow egg4">
+    <if_variable name="egg4" comparator="EQUALS" value="7"/>
+    <if_exists name="Hera"/>
+    <set_relative_position name2="egg4" distance="100" angle="180" name1="Hera"/>
+  </event>
+  <event name="Ceres Capture egg4">
+    <if_distance name1="Ceres" name2="egg4" comparator="LESS_EQUAL" value="100"/>
+    <if_variable name="egg4" comparator="EQUALS" value="2.0"/>
+    <if_variable name="Ceres_Cargo" comparator="EQUALS" value="0.0"/>
+    <set_variable name="Ceres_Cargo" value="1.0"/>
+    <set_variable name="egg4" value="8"/>
+    <incoming_comms_text from="Tractor Control" sideValue="8">Ceres has control of egg4</incoming_comms_text>
+  </event>
+  <event name="Ceres Drop egg4">
+    <if_distance name1="Ceres" name2="egg4" comparator="GREATER_EQUAL" value="1000"/>
+    <if_variable name="egg4" comparator="EQUALS" value="8"/>
+    <set_variable name="egg4" value="2.0"/>
+    <set_variable name="Ceres_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="8">Ceres lost control of egg4. </incoming_comms_text>
+  </event>
+  <event name="Ceres Dead Drop egg4">
+    <if_not_exists name="Ceres"/>
+    <if_variable name="egg4" comparator="EQUALS" value="8"/>
+    <set_variable name="egg4" value="2.0"/>
+    <set_variable name="Ceres_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="8">Ceres lost control of egg4. </incoming_comms_text>
+  </event>
+  <event name="Ceres Claim egg4">
+    <if_variable name="egg4" comparator="EQUALS" value="8"/>
+    <if_docked player_name="Ceres" name="Ceres Station"/>
+    <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
+    <set_variable name="Ceres_Score" value="Ceres_Score+1"/>
+    <destroy name="egg4"/>
+    <set_timer name="egg4_Timer" seconds="10"/>
+    <set_variable name="egg4" value="1.0"/>
+    <set_variable name="Ceres_Cargo" value="0.0"/>
+    <incoming_comms_text from="Ceres Station" sideValue="8">Egg Secured. Ceres has captured |Ceres_Score| Egg.</incoming_comms_text>
+  </event>
+  <event name="Ceres Tow egg4">
+    <if_variable name="egg4" comparator="EQUALS" value="8"/>
+    <if_exists name="Ceres"/>
+    <set_relative_position name2="egg4" distance="100" angle="180" name1="Ceres"/>
+  </event>
+  <event name="Diana Capture egg4">
+    <if_distance name1="Diana" name2="egg4" comparator="LESS_EQUAL" value="100"/>
+    <if_variable name="egg4" comparator="EQUALS" value="2.0"/>
+    <if_variable name="Diana_Cargo" comparator="EQUALS" value="0.0"/>
+    <set_variable name="Diana_Cargo" value="1.0"/>
+    <set_variable name="egg4" value="9"/>
+    <incoming_comms_text from="Tractor Control" sideValue="9">Diana has control of egg4</incoming_comms_text>
+  </event>
+  <event name="Diana Drop egg4">
+    <if_distance name1="Diana" name2="egg4" comparator="GREATER_EQUAL" value="1000"/>
+    <if_variable name="egg4" comparator="EQUALS" value="9"/>
+    <set_variable name="egg4" value="2.0"/>
+    <set_variable name="Diana_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="9">Diana lost control of egg4. </incoming_comms_text>
+  </event>
+  <event name="Diana Dead Drop egg4">
+    <if_not_exists name="Diana"/>
+    <if_variable name="egg4" comparator="EQUALS" value="9"/>
+    <set_variable name="egg4" value="2.0"/>
+    <set_variable name="Diana_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="9">Diana lost control of egg4. </incoming_comms_text>
+  </event>
+  <event name="Diana Claim egg4">
+    <if_variable name="egg4" comparator="EQUALS" value="9"/>
+    <if_docked player_name="Diana" name="Diana Station"/>
+    <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
+    <set_variable name="Diana_Score" value="Diana_Score+1"/>
+    <destroy name="egg4"/>
+    <set_timer name="egg4_Timer" seconds="10"/>
+    <set_variable name="egg4" value="1.0"/>
+    <set_variable name="Diana_Cargo" value="0.0"/>
+    <incoming_comms_text from="Diana Station" sideValue="9">Egg Secured. Diana has captured |Diana_Score| Egg.</incoming_comms_text>
+  </event>
+  <event name="Diana Tow egg4">
+    <if_variable name="egg4" comparator="EQUALS" value="9"/>
+    <if_exists name="Diana"/>
+    <set_relative_position name2="egg4" distance="100" angle="180" name1="Diana"/>
+  </event>
+  <event name="Artemis Capture egg5">
+    <if_distance name1="Artemis" name2="egg5" comparator="LESS_EQUAL" value="100"/>
+    <if_variable name="egg5" comparator="EQUALS" value="2.0"/>
+    <if_variable name="Artemis_Cargo" comparator="EQUALS" value="0.0"/>
+    <set_variable name="Artemis_Cargo" value="1.0"/>
+    <set_variable name="egg5" value="10"/>
+    <incoming_comms_text from="Tractor Control" sideValue="10">Artemis has control of egg5</incoming_comms_text>
+  </event>
+  <event name="Artemis Drop egg5">
+    <if_distance name1="Artemis" name2="egg5" comparator="GREATER_EQUAL" value="1000"/>
+    <if_variable name="egg5" comparator="EQUALS" value="10"/>
+    <set_variable name="egg5" value="2.0"/>
+    <set_variable name="Artemis_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="10">Artemis lost control of egg5. </incoming_comms_text>
+  </event>
+  <event name="Artemis Dead Drop egg5">
+    <if_not_exists name="Artemis"/>
+    <if_variable name="egg5" comparator="EQUALS" value="10"/>
+    <set_variable name="egg5" value="2.0"/>
+    <set_variable name="Artemis_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="10">Artemis lost control of egg5. </incoming_comms_text>
+  </event>
+  <event name="Artemis Claim egg5">
+    <if_variable name="egg5" comparator="EQUALS" value="10"/>
+    <if_docked player_name="Artemis" name="Artemis Station"/>
+    <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
+    <set_variable name="Artemis_Score" value="Artemis_Score+1"/>
+    <destroy name="egg5"/>
+    <set_timer name="egg5_Timer" seconds="10"/>
+    <set_variable name="egg5" value="1.0"/>
+    <set_variable name="Artemis_Cargo" value="0.0"/>
+    <incoming_comms_text from="Artemis Station" sideValue="10">Egg Secured. Artemis has captured |Artemis_Score| Egg.</incoming_comms_text>
+  </event>
+  <event name="Artemis Tow egg5">
+    <if_variable name="egg5" comparator="EQUALS" value="10"/>
+    <if_exists name="Artemis"/>
+    <set_relative_position name2="egg5" distance="100" angle="180" name1="Artemis"/>
+  </event>
+  <event name="Intrepid Capture egg5">
+    <if_distance name1="Intrepid" name2="egg5" comparator="LESS_EQUAL" value="100"/>
+    <if_variable name="egg5" comparator="EQUALS" value="2.0"/>
+    <if_variable name="Intrepid_Cargo" comparator="EQUALS" value="0.0"/>
+    <set_variable name="Intrepid_Cargo" value="1.0"/>
+    <set_variable name="egg5" value="11"/>
+    <incoming_comms_text from="Tractor Control" sideValue="11">Intrepid has control of egg5</incoming_comms_text>
+  </event>
+  <event name="Intrepid Drop egg5">
+    <if_distance name1="Intrepid" name2="egg5" comparator="GREATER_EQUAL" value="1000"/>
+    <if_variable name="egg5" comparator="EQUALS" value="11"/>
+    <set_variable name="egg5" value="2.0"/>
+    <set_variable name="Intrepid_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="11">Intrepid lost control of egg5. </incoming_comms_text>
+  </event>
+  <event name="Intrepid Dead Drop egg5">
+    <if_not_exists name="Intrepid"/>
+    <if_variable name="egg5" comparator="EQUALS" value="11"/>
+    <set_variable name="egg5" value="2.0"/>
+    <set_variable name="Intrepid_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="11">Intrepid lost control of egg5. </incoming_comms_text>
+  </event>
+  <event name="Intrepid Claim egg5">
+    <if_variable name="egg5" comparator="EQUALS" value="11"/>
+    <if_docked player_name="Intrepid" name="Intrepid Station"/>
+    <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
+    <set_variable name="Intrepid_Score" value="Intrepid_Score+1"/>
+    <destroy name="egg5"/>
+    <set_timer name="egg5_Timer" seconds="10"/>
+    <set_variable name="egg5" value="1.0"/>
+    <set_variable name="Intrepid_Cargo" value="0.0"/>
+    <incoming_comms_text from="Intrepid Station" sideValue="11">Egg Secured. Intrepid has captured |Intrepid_Score| Egg.</incoming_comms_text>
+  </event>
+  <event name="Intrepid Tow egg5">
+    <if_variable name="egg5" comparator="EQUALS" value="11"/>
+    <if_exists name="Intrepid"/>
+    <set_relative_position name2="egg5" distance="100" angle="180" name1="Intrepid"/>
+  </event>
+  <event name="Aegis Capture egg5">
+    <if_distance name1="Aegis" name2="egg5" comparator="LESS_EQUAL" value="100"/>
+    <if_variable name="egg5" comparator="EQUALS" value="2.0"/>
+    <if_variable name="Aegis_Cargo" comparator="EQUALS" value="0.0"/>
+    <set_variable name="Aegis_Cargo" value="1.0"/>
+    <set_variable name="egg5" value="4"/>
+    <incoming_comms_text from="Tractor Control" sideValue="4">Aegis has control of egg5</incoming_comms_text>
+  </event>
+  <event name="Aegis Drop egg5">
+    <if_distance name1="Aegis" name2="egg5" comparator="GREATER_EQUAL" value="1000"/>
+    <if_variable name="egg5" comparator="EQUALS" value="4"/>
+    <set_variable name="egg5" value="2.0"/>
+    <set_variable name="Aegis_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="4">Aegis lost control of egg5. </incoming_comms_text>
+  </event>
+  <event name="Aegis Dead Drop egg5">
+    <if_not_exists name="Aegis"/>
+    <if_variable name="egg5" comparator="EQUALS" value="4"/>
+    <set_variable name="egg5" value="2.0"/>
+    <set_variable name="Aegis_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="4">Aegis lost control of egg5. </incoming_comms_text>
+  </event>
+  <event name="Aegis Claim egg5">
+    <if_variable name="egg5" comparator="EQUALS" value="4"/>
+    <if_docked player_name="Aegis" name="Aegis Station"/>
+    <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
+    <set_variable name="Aegis_Score" value="Aegis_Score+1"/>
+    <destroy name="egg5"/>
+    <set_timer name="egg5_Timer" seconds="10"/>
+    <set_variable name="egg5" value="1.0"/>
+    <set_variable name="Aegis_Cargo" value="0.0"/>
+    <incoming_comms_text from="Aegis Station" sideValue="4">Egg Secured. Aegis has captured |Aegis_Score| Egg.</incoming_comms_text>
+  </event>
+  <event name="Aegis Tow egg5">
+    <if_variable name="egg5" comparator="EQUALS" value="4"/>
+    <if_exists name="Aegis"/>
+    <set_relative_position name2="egg5" distance="100" angle="180" name1="Aegis"/>
+  </event>
+  <event name="Horatio Capture egg5">
+    <if_distance name1="Horatio" name2="egg5" comparator="LESS_EQUAL" value="100"/>
+    <if_variable name="egg5" comparator="EQUALS" value="2.0"/>
+    <if_variable name="Horatio_Cargo" comparator="EQUALS" value="0.0"/>
+    <set_variable name="Horatio_Cargo" value="1.0"/>
+    <set_variable name="egg5" value="5"/>
+    <incoming_comms_text from="Tractor Control" sideValue="5">Horatio has control of egg5</incoming_comms_text>
+  </event>
+  <event name="Horatio Drop egg5">
+    <if_distance name1="Horatio" name2="egg5" comparator="GREATER_EQUAL" value="1000"/>
+    <if_variable name="egg5" comparator="EQUALS" value="5"/>
+    <set_variable name="egg5" value="2.0"/>
+    <set_variable name="Horatio_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="5">Horatio lost control of egg5. </incoming_comms_text>
+  </event>
+  <event name="Horatio Dead Drop egg5">
+    <if_not_exists name="Horatio"/>
+    <if_variable name="egg5" comparator="EQUALS" value="5"/>
+    <set_variable name="egg5" value="2.0"/>
+    <set_variable name="Horatio_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="5">Horatio lost control of egg5. </incoming_comms_text>
+  </event>
+  <event name="Horatio Claim egg5">
+    <if_variable name="egg5" comparator="EQUALS" value="5"/>
+    <if_docked player_name="Horatio" name="Horatio Station"/>
+    <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
+    <set_variable name="Horatio_Score" value="Horatio_Score+1"/>
+    <destroy name="egg5"/>
+    <set_timer name="egg5_Timer" seconds="10"/>
+    <set_variable name="egg5" value="1.0"/>
+    <set_variable name="Horatio_Cargo" value="0.0"/>
+    <incoming_comms_text from="Horatio Station" sideValue="5">Egg Secured. Horatio has captured |Horatio_Score| Egg.</incoming_comms_text>
+  </event>
+  <event name="Horatio Tow egg5">
+    <if_variable name="egg5" comparator="EQUALS" value="5"/>
+    <if_exists name="Horatio"/>
+    <set_relative_position name2="egg5" distance="100" angle="180" name1="Horatio"/>
+  </event>
+  <event name="Excalibur Capture egg5">
+    <if_distance name1="Excalibur" name2="egg5" comparator="LESS_EQUAL" value="100"/>
+    <if_variable name="egg5" comparator="EQUALS" value="2.0"/>
+    <if_variable name="Excalibur_Cargo" comparator="EQUALS" value="0.0"/>
+    <set_variable name="Excalibur_Cargo" value="1.0"/>
+    <set_variable name="egg5" value="6"/>
+    <incoming_comms_text from="Tractor Control" sideValue="6">Excalibur has control of egg5</incoming_comms_text>
+  </event>
+  <event name="Excalibur Drop egg5">
+    <if_distance name1="Excalibur" name2="egg5" comparator="GREATER_EQUAL" value="1000"/>
+    <if_variable name="egg5" comparator="EQUALS" value="6"/>
+    <set_variable name="egg5" value="2.0"/>
+    <set_variable name="Excalibur_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="6">Excalibur lost control of egg5. </incoming_comms_text>
+  </event>
+  <event name="Excalibur Dead Drop egg5">
+    <if_not_exists name="Excalibur"/>
+    <if_variable name="egg5" comparator="EQUALS" value="6"/>
+    <set_variable name="egg5" value="2.0"/>
+    <set_variable name="Excalibur_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="6">Excalibur lost control of egg5. </incoming_comms_text>
+  </event>
+  <event name="Excalibur Claim egg5">
+    <if_variable name="egg5" comparator="EQUALS" value="6"/>
+    <if_docked player_name="Excalibur" name="Excalibur Station"/>
+    <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
+    <set_variable name="Excalibur_Score" value="Excalibur_Score+1"/>
+    <destroy name="egg5"/>
+    <set_timer name="egg5_Timer" seconds="10"/>
+    <set_variable name="egg5" value="1.0"/>
+    <set_variable name="Excalibur_Cargo" value="0.0"/>
+    <incoming_comms_text from="Excalibur Station" sideValue="6">Egg Secured. Excalibur has captured |Excalibur_Score| Egg.</incoming_comms_text>
+  </event>
+  <event name="Excalibur Tow egg5">
+    <if_variable name="egg5" comparator="EQUALS" value="6"/>
+    <if_exists name="Excalibur"/>
+    <set_relative_position name2="egg5" distance="100" angle="180" name1="Excalibur"/>
+  </event>
+  <event name="Hera Capture egg5">
+    <if_distance name1="Hera" name2="egg5" comparator="LESS_EQUAL" value="100"/>
+    <if_variable name="egg5" comparator="EQUALS" value="2.0"/>
+    <if_variable name="Hera_Cargo" comparator="EQUALS" value="0.0"/>
+    <set_variable name="Hera_Cargo" value="1.0"/>
+    <set_variable name="egg5" value="7"/>
+    <incoming_comms_text from="Tractor Control" sideValue="7">Hera has control of egg5</incoming_comms_text>
+  </event>
+  <event name="Hera Drop egg5">
+    <if_distance name1="Hera" name2="egg5" comparator="GREATER_EQUAL" value="1000"/>
+    <if_variable name="egg5" comparator="EQUALS" value="7"/>
+    <set_variable name="egg5" value="2.0"/>
+    <set_variable name="Hera_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="7">Hera lost control of egg5. </incoming_comms_text>
+  </event>
+  <event name="Hera Dead Drop egg5">
+    <if_not_exists name="Hera"/>
+    <if_variable name="egg5" comparator="EQUALS" value="7"/>
+    <set_variable name="egg5" value="2.0"/>
+    <set_variable name="Hera_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="7">Hera lost control of egg5. </incoming_comms_text>
+  </event>
+  <event name="Hera Claim egg5">
+    <if_variable name="egg5" comparator="EQUALS" value="7"/>
+    <if_docked player_name="Hera" name="Hera Station"/>
+    <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
+    <set_variable name="Hera_Score" value="Hera_Score+1"/>
+    <destroy name="egg5"/>
+    <set_timer name="egg5_Timer" seconds="10"/>
+    <set_variable name="egg5" value="1.0"/>
+    <set_variable name="Hera_Cargo" value="0.0"/>
+    <incoming_comms_text from="Hera Station" sideValue="7">Egg Secured. Hera has captured |Hera_Score| Egg.</incoming_comms_text>
+  </event>
+  <event name="Hera Tow egg5">
+    <if_variable name="egg5" comparator="EQUALS" value="7"/>
+    <if_exists name="Hera"/>
+    <set_relative_position name2="egg5" distance="100" angle="180" name1="Hera"/>
+  </event>
+  <event name="Ceres Capture egg5">
+    <if_distance name1="Ceres" name2="egg5" comparator="LESS_EQUAL" value="100"/>
+    <if_variable name="egg5" comparator="EQUALS" value="2.0"/>
+    <if_variable name="Ceres_Cargo" comparator="EQUALS" value="0.0"/>
+    <set_variable name="Ceres_Cargo" value="1.0"/>
+    <set_variable name="egg5" value="8"/>
+    <incoming_comms_text from="Tractor Control" sideValue="8">Ceres has control of egg5</incoming_comms_text>
+  </event>
+  <event name="Ceres Drop egg5">
+    <if_distance name1="Ceres" name2="egg5" comparator="GREATER_EQUAL" value="1000"/>
+    <if_variable name="egg5" comparator="EQUALS" value="8"/>
+    <set_variable name="egg5" value="2.0"/>
+    <set_variable name="Ceres_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="8">Ceres lost control of egg5. </incoming_comms_text>
+  </event>
+  <event name="Ceres Dead Drop egg5">
+    <if_not_exists name="Ceres"/>
+    <if_variable name="egg5" comparator="EQUALS" value="8"/>
+    <set_variable name="egg5" value="2.0"/>
+    <set_variable name="Ceres_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="8">Ceres lost control of egg5. </incoming_comms_text>
+  </event>
+  <event name="Ceres Claim egg5">
+    <if_variable name="egg5" comparator="EQUALS" value="8"/>
+    <if_docked player_name="Ceres" name="Ceres Station"/>
+    <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
+    <set_variable name="Ceres_Score" value="Ceres_Score+1"/>
+    <destroy name="egg5"/>
+    <set_timer name="egg5_Timer" seconds="10"/>
+    <set_variable name="egg5" value="1.0"/>
+    <set_variable name="Ceres_Cargo" value="0.0"/>
+    <incoming_comms_text from="Ceres Station" sideValue="8">Egg Secured. Ceres has captured |Ceres_Score| Egg.</incoming_comms_text>
+  </event>
+  <event name="Ceres Tow egg5">
+    <if_variable name="egg5" comparator="EQUALS" value="8"/>
+    <if_exists name="Ceres"/>
+    <set_relative_position name2="egg5" distance="100" angle="180" name1="Ceres"/>
+  </event>
+  <event name="Diana Capture egg5">
+    <if_distance name1="Diana" name2="egg5" comparator="LESS_EQUAL" value="100"/>
+    <if_variable name="egg5" comparator="EQUALS" value="2.0"/>
+    <if_variable name="Diana_Cargo" comparator="EQUALS" value="0.0"/>
+    <set_variable name="Diana_Cargo" value="1.0"/>
+    <set_variable name="egg5" value="9"/>
+    <incoming_comms_text from="Tractor Control" sideValue="9">Diana has control of egg5</incoming_comms_text>
+  </event>
+  <event name="Diana Drop egg5">
+    <if_distance name1="Diana" name2="egg5" comparator="GREATER_EQUAL" value="1000"/>
+    <if_variable name="egg5" comparator="EQUALS" value="9"/>
+    <set_variable name="egg5" value="2.0"/>
+    <set_variable name="Diana_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="9">Diana lost control of egg5. </incoming_comms_text>
+  </event>
+  <event name="Diana Dead Drop egg5">
+    <if_not_exists name="Diana"/>
+    <if_variable name="egg5" comparator="EQUALS" value="9"/>
+    <set_variable name="egg5" value="2.0"/>
+    <set_variable name="Diana_Cargo" value="0.0"/>
+    <incoming_comms_text from="Tractor Control" sideValue="9">Diana lost control of egg5. </incoming_comms_text>
+  </event>
+  <event name="Diana Claim egg5">
+    <if_variable name="egg5" comparator="EQUALS" value="9"/>
+    <if_docked player_name="Diana" name="Diana Station"/>
+    <if_variable name="Scoring_Allowed" comparator="EQUALS" value="1.0"/>
+    <set_variable name="Diana_Score" value="Diana_Score+1"/>
+    <destroy name="egg5"/>
+    <set_timer name="egg5_Timer" seconds="10"/>
+    <set_variable name="egg5" value="1.0"/>
+    <set_variable name="Diana_Cargo" value="0.0"/>
+    <incoming_comms_text from="Diana Station" sideValue="9">Egg Secured. Diana has captured |Diana_Score| Egg.</incoming_comms_text>
+  </event>
+  <event name="Diana Tow egg5">
+    <if_variable name="egg5" comparator="EQUALS" value="9"/>
+    <if_exists name="Diana"/>
+    <set_relative_position name2="egg5" distance="100" angle="180" name1="Diana"/>
+  </event>
 </mission_data>

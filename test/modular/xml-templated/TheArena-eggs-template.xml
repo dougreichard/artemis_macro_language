@@ -6,17 +6,17 @@
   </imports>
 
   <start>
-    <repeat range="Eggs">
+    <repeat _range="Eggs">
       <set_variable name="${egg}" value="1.0"/>
       <set_timer name="${egg}_Timer" seconds="${seconds}"/>
     </repeat>
-    <repeat range="AllShips">
+    <repeat _range="AllShips">
       <set_variable name="${ship}_Cargo" value="0.0"/>
     </repeat>
 
   </start>
 
-  <repeat range="Eggs">
+  <repeat _range="Eggs">
     <event name="Spawn ${egg}">
       <if_variable name="${egg}" comparator="EQUALS" value="1.0"/>
       <if_variable name="Number_of_Players" comparator="GREATER" value="${playerCount}"/>
@@ -27,9 +27,9 @@
     </event>
   </repeat>
 
-  <repeat range="Eggs" as="Egg">
-    <repeat range="AllShips">
-      <expand template="CaptureObject" ship="${ship}" object="${Egg.egg}" target="${ship} Station" objectText="Egg" captureDistance="100" dropDistance="1000" cargoHold="${AllShips.ship}_Cargo" scoreVariable="${AllShips.ship}_Score" scoringEnabledVariable="Scoring_Allowed" sideValue="${sideValue}" />
+  <repeat _range="Eggs" _as="Egg">
+    <repeat _range="AllShips">
+      <expand _template="CaptureObject" ship="${ship}" object="${Egg.egg}" target="${ship} Station" objectText="Egg" captureDistance="100" dropDistance="1000" cargoHold="${AllShips.ship}_Cargo" scoreVariable="${AllShips.ship}_Score" scoringEnabledVariable="Scoring_Allowed" sideValue="${sideValue}" />
     </repeat>
   </repeat>
 

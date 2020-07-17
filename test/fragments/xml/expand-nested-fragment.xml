@@ -16,9 +16,9 @@
 
     <expand>
         <start>
-            <expand template="hello" message="${OUTER}" />
+            <expand _template="hello" message="${OUTER}" />
             <set_variable name="Test" value="${TEST}" />
         </start>
-        <expand template="eve" msg="OK" />
+        <expand _template="eve" msg="OK" />
     </expand>
 </mission_data>

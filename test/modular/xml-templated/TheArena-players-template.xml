@@ -3,7 +3,7 @@
         <import name="TheArena-ranges.xml" />
     </imports>
     <start>
-        <repeat range="AllShips">
+        <repeat _range="AllShips">
             <create type="player" player_slot="${_index}" x="${x}" y="${y}" z="${z}" name="${ship}" sideValue="${sideValue}" raceKeys="Pirate" hullKeys="Strongbow" warp="no"/>
         </repeat>
     </start>

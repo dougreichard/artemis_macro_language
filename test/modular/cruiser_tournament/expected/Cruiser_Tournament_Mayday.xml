@@ -1,0 +1,32 @@
+<mission_data version="1.0">
+  
+  <event name="Deploy Mayday">
+    <if_variable name="Mayday" comparator="EQUALS" value="0"/>
+    <if_object_property name="Artemis" property="energy" comparator="LESS" value="50"/>
+    <if_object_property name="Artemis" property="currentRealSpeed" comparator="LESS" value="0.199"/>
+    <set_comms_button text="MAYDAY" sideValue="2" player_slot="0"/>
+    <set_variable name="Mayday" value="1"/>
+  </event>
+  <event name="Rescind Mayday">
+    <if_variable name="Mayday" comparator="EQUALS" value="1"/>
+    <if_object_property name="Artemis" property="energy" comparator="GREATER" value="100"/>
+    <clear_comms_button text="MAYDAY" sideValue="2" player_slot="0"/>
+    <set_variable name="Mayday" value="0"/>
+  </event>
+  <event name="Execute Mayday">
+    <if_variable name="Mayday" comparator="EQUALS" value="1"/>
+    <if_comms_button text="MAYDAY"/>
+    <incoming_comms_text from="Scorekeeper" type="ALERT">
+      MAYDAY sent. Penalty -100 kilotons. Rescue package deployed.
+    </incoming_comms_text>
+    <clear_comms_button text="MAYDAY" sideValue="2" player_slot="0"/>
+    <set_variable name="Mayday" value="0"/>
+    <set_variable name="Tonnage" value="Tonnage-100"/>
+    <create type="Anomaly" name="1E" pickupType="0" x="11" y="11" z="11"/>
+    <create type="Anomaly" name="2E" pickupType="0" x="51" y="51" z="51"/>
+    <create type="Anomaly" name="1D" pickupType="1" x="91" y="91" z="91"/>
+    <set_relative_position name1="1E" name2="Artemis" angle="0" distance="100"/>
+    <set_relative_position name1="2E" name2="Artemis" angle="5" distance="110"/>
+    <set_relative_position name1="1D" name2="Artemis" angle="355" distance="90"/>
+  </event>
+</mission_data>

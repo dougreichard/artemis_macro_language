@@ -2,13 +2,13 @@
   <values>
     <range name="NavPoints">
       <struct>
-        <value x="${map.x(2.3)}" y="0.0" z="${map.z('B.25')}" navpoint="NAV_01" />
+        <value x="${_.map.x(2.3)}" y="0.0" z="${_.map.z('B.25')}" navpoint="NAV_01" />
         <range name="Enemies">
           <value hullId="130" raceKeys="Pirate" hullKeys="Pirate" enemyId="${_index}" side="1" />
         </range>
       </struct>
       <struct>
-        <value x="${map.x(3.9)}" y="0.0" z="${map.z('E.05')}" navpoint="NAV_02" />
+        <value x="${_.map.x(3.9)}" y="0.0" z="${_.map.z('E.05')}" navpoint="NAV_02" />
         <range name="Enemies">
           <value hullId="130" raceKeys="Pirate" hullKeys="Pirate" enemyId="${_index}" side="1" />
           <value hullId="130" raceKeys="Pirate" hullKeys="Pirate" enemyId="${_index}" side="1" />
@@ -20,8 +20,8 @@
       <value escortName="ES2" hullId="1503" raceKeys="Terran friendly" hullKeys="Bulk Cargo" escortId="${_index}" side="0" />
     </range>
     <range name="Nebula">
-      <value count="60" radius="10000" x="${map.x(2.3)}" y="10.0" z="${map.z('B.25')}" range="2500" seed="20" />
-      <value count="60" radius="15000" x="${map.x(3.9)}" y="10.0" z="${map.z('E.05')}" range="3000" seed="25"/>
+      <value count="60" radius="10000" x="${_.map.x(2.3)}" y="10.0" z="${_.map.z('B.25')}" range="2500" seed="20" />
+      <value count="60" radius="15000" x="${_.map.x(3.9)}" y="10.0" z="${_.map.z('E.05')}" range="3000" seed="25"/>
     </range>
   </values>
   <start>
@@ -35,11 +35,11 @@
     <create count="75" type="asteroids" startX="50000.0" startY="0.0" startZ="50000.0" radius="36000" randomRange="4000" randomSeed="25"/>
     <create count="30" type="asteroids" startX="50000.0" startY="0.0" startZ="50000.0" radius="7000" randomRange="1000" randomSeed="21"/> -->
 
-    <repeat range="NavPoints">
+    <repeat _range="NavPoints">
       <create type="genericMesh" x="${x}" y="${y}" z="${z}" name="${navpoint}" meshFileName="dat\asteroid8.dxs" textureFileName="dat\Asteroid_8_AO.png" ColorGreen="1" />
       <create count="20" type="nebulas" startX="${x}" startY="${y}" startZ="${z}" radius="1000" randomRange="2000" randomSeed="${20+_index*5}"/>
     </repeat>
-    <repeat range="Nebula">
+    <repeat _range="Nebula">
       <create count="${count}" type="nebulas" startX="${x}" startY="${y}" startZ="${z}" radius="${radius}" randomRange="${range}" randomSeed="${140+_index*5}"/>
     </repeat>
     

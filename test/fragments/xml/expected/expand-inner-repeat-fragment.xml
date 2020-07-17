@@ -1,27 +1,27 @@
 <mission_data version="1.0">
-    <start>
-        <big_message title="Hello, nested"/>
-        <set_variable name="bar" value="Hello, nested"/>
-        <set_variable name="baz" value="Hello, nested"/>
-    </start>
-    <event name="Hello, nested">
-        <big_message title="Hello, nested"/>
-        <set_variable name="bar" value="Hello, nested"/>
-        <set_variable name="baz" value="Hello, nested"/>
-    </event>
-    <event name="Hello, nested">
-        <big_message title="Hello, nested"/>
-        <set_variable name="bar" value="Hello, nested"/>
-        <set_variable name="baz" value="Hello, nested"/>
-    </event>
-    <event name="Art">
-        <big_message title="Art"/>
-        <set_variable name="bar" value="Art"/>
-        <set_variable name="baz" value="Art"/>
-    </event>
-    <event name="Ray Tracer">
-        <big_message title="Ray Tracer"/>
-        <set_variable name="bar" value="Ray Tracer"/>
-        <set_variable name="baz" value="Ray Tracer"/>
-    </event>
+  <start>
+    <big_message title="Hello, nested"/>
+    <set_variable name="bar" value="Hello, nested"/>
+    <set_variable name="baz" value="Hello, nested"/>
+  </start>
+  <event name="Hello, nested">
+    <big_message title="Hello, nested"/>
+    <set_variable name="bar" value="Hello, nested"/>
+    <set_variable name="baz" value="Hello, nested"/>
+  </event>
+  <event name="Hello, nested">
+    <big_message title="Hello, nested"/>
+    <set_variable name="bar" value="Hello, nested"/>
+    <set_variable name="baz" value="Hello, nested"/>
+  </event>
+  <event name="Art">
+    <big_message title="Art"/>
+    <set_variable name="bar" value="Art"/>
+    <set_variable name="baz" value="Art"/>
+  </event>
+  <event name="Ray Tracer">
+    <big_message title="Ray Tracer"/>
+    <set_variable name="bar" value="Ray Tracer"/>
+    <set_variable name="baz" value="Ray Tracer"/>
+  </event>
 </mission_data>

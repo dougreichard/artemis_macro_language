@@ -1,0 +1,41 @@
+<mission_data version="1.0">
+  <start>
+    <create type="Anomaly" name="01" pickupType="0" x="32511.0" y="0.0" z="65063.0"/>
+    <create type="Anomaly" name="02" pickupType="0" x="30469.0" y="0.0" z="46936.0"/>
+    <create type="Anomaly" name="03" pickupType="0" x="36341.0" y="0.0" z="28936.0"/>
+    <create type="Anomaly" name="04" pickupType="0" x="29064.0" y="0.0" z="21659.0"/>
+    <create type="Anomaly" name="05" pickupType="0" x="50766.0" y="0.0" z="91617.0"/>
+    <create type="Anomaly" name="06" pickupType="0" x="53958.0" y="0.0" z="83702.0"/>
+    <create type="Anomaly" name="07" pickupType="0" x="58681.0" y="0.0" z="77574.0"/>
+    <create type="Anomaly" name="08" pickupType="0" x="56256.0" y="0.0" z="56255.0"/>
+    <create type="Anomaly" name="11" pickupType="1" x="67362.0" y="0.0" z="65574.0"/>
+    <create type="Anomaly" name="12" pickupType="1" x="65192.0" y="0.0" z="57276.0"/>
+    <create type="Anomaly" name="13" pickupType="1" x="62383.0" y="0.0" z="48340.0"/>
+    <create type="Anomaly" name="14" pickupType="1" x="67362.0" y="0.0" z="41829.0"/>
+    <create type="Anomaly" name="15" pickupType="1" x="68894.0" y="0.0" z="29957.0"/>
+    <create type="Anomaly" name="16" pickupType="1" x="70426.0" y="0.0" z="24212.0"/>
+    <create type="Anomaly" name="17" pickupType="1" x="7042.0" y="0.0" z="14212.0"/>
+    <create type="Anomaly" name="21" pickupType="2" x="88426.0" y="0.0" z="88212.0"/>
+    <create type="Anomaly" name="22" pickupType="2" x="10426.0" y="0.0" z="84212.0"/>
+    <create type="Anomaly" name="23" pickupType="2" x="87426.0" y="0.0" z="7212.0"/>
+    <create type="Anomaly" name="24" pickupType="2" x="48326.0" y="0.0" z="42128.0"/>
+    <create type="Anomaly" name="25" pickupType="2" x="50461.0" y="0.0" z="25295.0"/>
+    <create type="Anomaly" name="26" pickupType="2" x="84026.0" y="0.0" z="28126.0"/>
+    <create type="Anomaly" name="31" pickupType="3" x="90465.0" y="0.0" z="84212.0"/>
+    <create type="Anomaly" name="32" pickupType="3" x="86526.0" y="0.0" z="7212.0"/>
+    <create type="Anomaly" name="33" pickupType="3" x="68326.0" y="0.0" z="42128.0"/>
+    <create type="Anomaly" name="34" pickupType="3" x="92431.0" y="0.0" z="52229.0"/>
+    <create type="Anomaly" name="35" pickupType="3" x="9461.0" y="0.0" z="25292.0"/>
+    <create type="Anomaly" name="41" pickupType="4" x="10260.0" y="0.0" z="84212.0"/>
+    <create type="Anomaly" name="42" pickupType="4" x="88967.0" y="0.0" z="7942.0"/>
+    <create type="Anomaly" name="43" pickupType="4" x="78429.0" y="0.0" z="79128.0"/>
+    <create type="Anomaly" name="44" pickupType="4" x="44461.0" y="0.0" z="42829.0"/>
+    <create type="Anomaly" name="51" pickupType="5" x="68265.0" y="0.0" z="80210.0"/>
+    <create type="Anomaly" name="52" pickupType="5" x="10426.0" y="0.0" z="89228.0"/>
+    <create type="Anomaly" name="53" pickupType="5" x="77426.0" y="0.0" z="7212.0"/>
+    <create type="Anomaly" name="61" pickupType="6" x="48271.0" y="0.0" z="33120.0"/>
+    <create type="Anomaly" name="62" pickupType="6" x="80612.0" y="0.0" z="72893.0"/>
+    <create type="Anomaly" name="71" pickupType="7" x="50461.0" y="0.0" z="2954.0"/>
+  </start>
+  
+</mission_data>

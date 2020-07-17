@@ -1,0 +1,312 @@
+<mission_data version="1.0">
+  <start>
+    <create type="neutral" x="50100.0" y="0.0" z="94000.0" angle="0" name="Delta Queen" raceKeys="Terran friendly" hullKeys="Cargo"/>
+    <add_ai type="POINT_THROTTLE" value1="50000" value2="0" value3="0" value4="0" name="Delta Queen"/>
+    <add_ai type="FOLLOW_COMMS_ORDERS" name="Delta Queen"/>
+    <set_ship_text name="Delta Queen" class="Upgraded Cargo Carrier" hailtext="We have a load of undefined. Where should we deliver it?."/>
+    <set_variable name="Delta Queen_Cargo" value="1" integer="yes"/>
+    <create type="neutral" x="49900.0" y="0.0" z="93000.0" angle="0" name="Alpha Betty" raceKeys="Terran friendly" hullKeys="Cargo"/>
+    <add_ai type="POINT_THROTTLE" value1="50000" value2="0" value3="0" value4="0" name="Alpha Betty"/>
+    <add_ai type="FOLLOW_COMMS_ORDERS" name="Alpha Betty"/>
+    <set_ship_text name="Alpha Betty" class="Upgraded Cargo Carrier" hailtext="We have a load of undefined. Where should we deliver it?."/>
+    <set_variable name="Alpha Betty_Cargo" value="2" integer="yes"/>
+  </start>
+  <event name="Delta Queen Destroyed">
+    <if_variable name="Delta Queen_dead" comparator="EQUALS" value="0"/>
+    <if_not_exists name="Delta Queen"/>
+    <big_message title="Friendly Freighter Delta Queen Destroyed" subtitle1="Penalty -50 kilotons" subtitle2=""/>
+    <log text="Friendly Freighter Delta Queen Destroyed"/>
+    <set_variable name="Delta Queen_dead" value="1"/>
+    <set_variable name="Tonnage" value="Tonnage-50"/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+  </event>
+  <event name="Hold Delta Queen">
+    <if_variable name="Delta Queen" comparator="EQUALS" value="0"/>
+    <set_object_property property="topSpeed" value="0.0" name="Delta Queen"/>
+    <set_object_property property="angle" value="0.0" name="Delta Queen"/>
+    <set_variable name="Delta Queen" value="1"/>
+  </event>
+  <event name="Release Delta Queen">
+    <if_variable name="Delta Queen" comparator="EQUALS" value="1"/>
+    
+    <if_object_property property="angle" name="Delta Queen" comparator="LESS" value="3.13"/>
+    <set_object_property property="topSpeed" value="0.5" name="Delta Queen"/>
+    <set_object_property property="turnRate" value="0.01" name="Delta Queen"/>
+    <set_variable name="Delta Queen" value="2"/>
+    <incoming_comms_text from="Delta Queen" type="FRIEND">
+    Bonus available! At the end of every period you will be awarded bonus kilotons for every surviving whale! To win this bonus PROTECT THE WHALES!
+        </incoming_comms_text>
+  </event>
+  <event name="Alpha Betty Destroyed">
+    <if_variable name="Alpha Betty_dead" comparator="EQUALS" value="0"/>
+    <if_not_exists name="Alpha Betty"/>
+    <big_message title="Friendly Freighter Alpha Betty Destroyed" subtitle1="Penalty -50 kilotons" subtitle2=""/>
+    <log text="Friendly Freighter Alpha Betty Destroyed"/>
+    <set_variable name="Alpha Betty_dead" value="1"/>
+    <set_variable name="Tonnage" value="Tonnage-50"/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+  </event>
+  <event name="Hold Alpha Betty">
+    <if_variable name="Alpha Betty" comparator="EQUALS" value="0"/>
+    <set_object_property property="topSpeed" value="0.0" name="Alpha Betty"/>
+    <set_object_property property="angle" value="0.0" name="Alpha Betty"/>
+    <set_variable name="Alpha Betty" value="1"/>
+  </event>
+  <event name="Release Alpha Betty">
+    <if_variable name="Alpha Betty" comparator="EQUALS" value="1"/>
+    
+    <if_object_property property="angle" name="Alpha Betty" comparator="LESS" value="3.13"/>
+    <set_object_property property="topSpeed" value="0.5" name="Alpha Betty"/>
+    <set_object_property property="turnRate" value="0.01" name="Alpha Betty"/>
+    <set_variable name="Alpha Betty" value="2"/>
+  </event>
+  <event name="Delta Queen Salistra DS1">
+    <if_distance name1="Delta Queen" name2="DS1" comparator="LESS" value="1000"/>
+    <if_variable name="Delta Queen_Cargo" comparator="EQUALS" value="2"/>
+    <set_variable name="Delta Queen_Cargo" value="1"/>
+    <incoming_comms_text from="Delta Queen" type="STATION">
+      Delta Queen has delivered a load of Salistra. We are producing an EMP and a Nuke for you. We are loading Delta Queen with Xiridium.
+            </incoming_comms_text>
+    <addto_object_property test="0" name="DS1" property="missileStoresNuke" value="1"/>
+    <addto_object_property name="DS1" property="missileStoresEMP" value="1"/>
+    <set_ship_text name="Delta Queen" hailtext="We are carrying a load of Platinum. Where should we deliver it?."/>
+  </event>
+  <event name="Delta Queen Augite DS1">
+    <if_distance name1="Delta Queen" name2="DS1" comparator="LESS" value="1000"/>
+    <if_variable name="Delta Queen_Cargo" comparator="EQUALS" value="3"/>
+    <set_variable name="Delta Queen_Cargo" value="1"/>
+    <incoming_comms_text from="Delta Queen" type="STATION">
+      Delta Queen has delivered a load of Augite. We are producing an EMP and a Nuke for you. We are loading Delta Queen with Xiridium.
+            </incoming_comms_text>
+    <addto_object_property test="0" name="DS1" property="missileStoresNuke" value="1"/>
+    <addto_object_property name="DS1" property="missileStoresEMP" value="1"/>
+    <set_ship_text name="Delta Queen" hailtext="We are carrying a load of Platinum. Where should we deliver it?."/>
+  </event>
+  <event name="Delta Queen Platinum DS1">
+    <if_distance name1="Delta Queen" name2="DS1" comparator="LESS" value="1000"/>
+    <if_variable name="Delta Queen_Cargo" comparator="EQUALS" value="4"/>
+    <set_variable name="Delta Queen_Cargo" value="1"/>
+    <incoming_comms_text from="Delta Queen" type="STATION">
+      Delta Queen has delivered a load of Platinum. We are producing an EMP and a Nuke for you. We are loading Delta Queen with Xiridium.
+            </incoming_comms_text>
+    <addto_object_property test="0" name="DS1" property="missileStoresNuke" value="1"/>
+    <addto_object_property name="DS1" property="missileStoresEMP" value="1"/>
+    <set_ship_text name="Delta Queen" hailtext="We are carrying a load of Platinum. Where should we deliver it?."/>
+  </event>
+  <event name="Delta Queen Xiridium DS2">
+    <if_distance name1="Delta Queen" name2="DS2" comparator="LESS" value="1000"/>
+    <if_variable name="Delta Queen_Cargo" comparator="EQUALS" value="1"/>
+    <set_variable name="Delta Queen_Cargo" value="2"/>
+    <incoming_comms_text from="Delta Queen" type="STATION">
+      Delta Queen has delivered a load of Xiridium. We are producing an EMP for you. We are loading Delta Queen with Salistra.
+            </incoming_comms_text>
+    <addto_object_property name="DS2" property="missileStoresEMP" value="1"/>
+    <set_ship_text name="Delta Queen" hailtext="We are carrying a load of Platinum. Where should we deliver it?."/>
+  </event>
+  <event name="Delta Queen Augite DS2">
+    <if_distance name1="Delta Queen" name2="DS2" comparator="LESS" value="1000"/>
+    <if_variable name="Delta Queen_Cargo" comparator="EQUALS" value="3"/>
+    <set_variable name="Delta Queen_Cargo" value="2"/>
+    <incoming_comms_text from="Delta Queen" type="STATION">
+      Delta Queen has delivered a load of Augite. We are producing an EMP for you. We are loading Delta Queen with Salistra.
+            </incoming_comms_text>
+    <addto_object_property name="DS2" property="missileStoresEMP" value="1"/>
+    <set_ship_text name="Delta Queen" hailtext="We are carrying a load of Platinum. Where should we deliver it?."/>
+  </event>
+  <event name="Delta Queen Platinum DS2">
+    <if_distance name1="Delta Queen" name2="DS2" comparator="LESS" value="1000"/>
+    <if_variable name="Delta Queen_Cargo" comparator="EQUALS" value="4"/>
+    <set_variable name="Delta Queen_Cargo" value="2"/>
+    <incoming_comms_text from="Delta Queen" type="STATION">
+      Delta Queen has delivered a load of Platinum. We are producing an EMP for you. We are loading Delta Queen with Salistra.
+            </incoming_comms_text>
+    <addto_object_property name="DS2" property="missileStoresEMP" value="1"/>
+    <set_ship_text name="Delta Queen" hailtext="We are carrying a load of Platinum. Where should we deliver it?."/>
+  </event>
+  <event name="Delta Queen Xiridium DS3">
+    <if_distance name1="Delta Queen" name2="DS3" comparator="LESS" value="1000"/>
+    <if_variable name="Delta Queen_Cargo" comparator="EQUALS" value="1"/>
+    <set_variable name="Delta Queen_Cargo" value="3"/>
+    <incoming_comms_text from="Delta Queen" type="STATION">
+      Delta Queen has delivered a load of Xiridium. We are producing an EMP for you. We are loading Delta Queen with Augite.
+            </incoming_comms_text>
+    <addto_object_property name="DS3" property="missileStoresEMP" value="1"/>
+    <set_ship_text name="Delta Queen" hailtext="We are carrying a load of Platinum. Where should we deliver it?."/>
+  </event>
+  <event name="Delta Queen Salistra DS3">
+    <if_distance name1="Delta Queen" name2="DS3" comparator="LESS" value="1000"/>
+    <if_variable name="Delta Queen_Cargo" comparator="EQUALS" value="2"/>
+    <set_variable name="Delta Queen_Cargo" value="3"/>
+    <incoming_comms_text from="Delta Queen" type="STATION">
+      Delta Queen has delivered a load of Salistra. We are producing an EMP for you. We are loading Delta Queen with Augite.
+            </incoming_comms_text>
+    <addto_object_property name="DS3" property="missileStoresEMP" value="1"/>
+    <set_ship_text name="Delta Queen" hailtext="We are carrying a load of Platinum. Where should we deliver it?."/>
+  </event>
+  <event name="Delta Queen Platinum DS3">
+    <if_distance name1="Delta Queen" name2="DS3" comparator="LESS" value="1000"/>
+    <if_variable name="Delta Queen_Cargo" comparator="EQUALS" value="4"/>
+    <set_variable name="Delta Queen_Cargo" value="3"/>
+    <incoming_comms_text from="Delta Queen" type="STATION">
+      Delta Queen has delivered a load of Platinum. We are producing an EMP for you. We are loading Delta Queen with Augite.
+            </incoming_comms_text>
+    <addto_object_property name="DS3" property="missileStoresEMP" value="1"/>
+    <set_ship_text name="Delta Queen" hailtext="We are carrying a load of Platinum. Where should we deliver it?."/>
+  </event>
+  <event name="Delta Queen Xiridium DS4">
+    <if_distance name1="Delta Queen" name2="DS4" comparator="LESS" value="1000"/>
+    <if_variable name="Delta Queen_Cargo" comparator="EQUALS" value="1"/>
+    <set_variable name="Delta Queen_Cargo" value="4"/>
+    <incoming_comms_text from="Delta Queen" type="STATION">
+      Delta Queen has delivered a load of Xiridium. We are producing an EMP for you. We are loading Delta Queen with Platinum.
+            </incoming_comms_text>
+    <addto_object_property name="DS4" property="missileStoresEMP" value="1"/>
+    <set_ship_text name="Delta Queen" hailtext="We are carrying a load of Platinum. Where should we deliver it?."/>
+  </event>
+  <event name="Delta Queen Salistra DS4">
+    <if_distance name1="Delta Queen" name2="DS4" comparator="LESS" value="1000"/>
+    <if_variable name="Delta Queen_Cargo" comparator="EQUALS" value="2"/>
+    <set_variable name="Delta Queen_Cargo" value="4"/>
+    <incoming_comms_text from="Delta Queen" type="STATION">
+      Delta Queen has delivered a load of Salistra. We are producing an EMP for you. We are loading Delta Queen with Platinum.
+            </incoming_comms_text>
+    <addto_object_property name="DS4" property="missileStoresEMP" value="1"/>
+    <set_ship_text name="Delta Queen" hailtext="We are carrying a load of Platinum. Where should we deliver it?."/>
+  </event>
+  <event name="Delta Queen Augite DS4">
+    <if_distance name1="Delta Queen" name2="DS4" comparator="LESS" value="1000"/>
+    <if_variable name="Delta Queen_Cargo" comparator="EQUALS" value="3"/>
+    <set_variable name="Delta Queen_Cargo" value="4"/>
+    <incoming_comms_text from="Delta Queen" type="STATION">
+      Delta Queen has delivered a load of Augite. We are producing an EMP for you. We are loading Delta Queen with Platinum.
+            </incoming_comms_text>
+    <addto_object_property name="DS4" property="missileStoresEMP" value="1"/>
+    <set_ship_text name="Delta Queen" hailtext="We are carrying a load of Platinum. Where should we deliver it?."/>
+  </event>
+  <event name="Alpha Betty Salistra DS1">
+    <if_distance name1="Alpha Betty" name2="DS1" comparator="LESS" value="1000"/>
+    <if_variable name="Alpha Betty_Cargo" comparator="EQUALS" value="2"/>
+    <set_variable name="Alpha Betty_Cargo" value="1"/>
+    <incoming_comms_text from="Alpha Betty" type="STATION">
+      Alpha Betty has delivered a load of Salistra. We are producing an EMP and a Nuke for you. We are loading Alpha Betty with Xiridium.
+            </incoming_comms_text>
+    <addto_object_property test="0" name="DS1" property="missileStoresNuke" value="1"/>
+    <addto_object_property name="DS1" property="missileStoresEMP" value="1"/>
+    <set_ship_text name="Alpha Betty" hailtext="We are carrying a load of Platinum. Where should we deliver it?."/>
+  </event>
+  <event name="Alpha Betty Augite DS1">
+    <if_distance name1="Alpha Betty" name2="DS1" comparator="LESS" value="1000"/>
+    <if_variable name="Alpha Betty_Cargo" comparator="EQUALS" value="3"/>
+    <set_variable name="Alpha Betty_Cargo" value="1"/>
+    <incoming_comms_text from="Alpha Betty" type="STATION">
+      Alpha Betty has delivered a load of Augite. We are producing an EMP and a Nuke for you. We are loading Alpha Betty with Xiridium.
+            </incoming_comms_text>
+    <addto_object_property test="0" name="DS1" property="missileStoresNuke" value="1"/>
+    <addto_object_property name="DS1" property="missileStoresEMP" value="1"/>
+    <set_ship_text name="Alpha Betty" hailtext="We are carrying a load of Platinum. Where should we deliver it?."/>
+  </event>
+  <event name="Alpha Betty Platinum DS1">
+    <if_distance name1="Alpha Betty" name2="DS1" comparator="LESS" value="1000"/>
+    <if_variable name="Alpha Betty_Cargo" comparator="EQUALS" value="4"/>
+    <set_variable name="Alpha Betty_Cargo" value="1"/>
+    <incoming_comms_text from="Alpha Betty" type="STATION">
+      Alpha Betty has delivered a load of Platinum. We are producing an EMP and a Nuke for you. We are loading Alpha Betty with Xiridium.
+            </incoming_comms_text>
+    <addto_object_property test="0" name="DS1" property="missileStoresNuke" value="1"/>
+    <addto_object_property name="DS1" property="missileStoresEMP" value="1"/>
+    <set_ship_text name="Alpha Betty" hailtext="We are carrying a load of Platinum. Where should we deliver it?."/>
+  </event>
+  <event name="Alpha Betty Xiridium DS2">
+    <if_distance name1="Alpha Betty" name2="DS2" comparator="LESS" value="1000"/>
+    <if_variable name="Alpha Betty_Cargo" comparator="EQUALS" value="1"/>
+    <set_variable name="Alpha Betty_Cargo" value="2"/>
+    <incoming_comms_text from="Alpha Betty" type="STATION">
+      Alpha Betty has delivered a load of Xiridium. We are producing an EMP for you. We are loading Alpha Betty with Salistra.
+            </incoming_comms_text>
+    <addto_object_property name="DS2" property="missileStoresEMP" value="1"/>
+    <set_ship_text name="Alpha Betty" hailtext="We are carrying a load of Platinum. Where should we deliver it?."/>
+  </event>
+  <event name="Alpha Betty Augite DS2">
+    <if_distance name1="Alpha Betty" name2="DS2" comparator="LESS" value="1000"/>
+    <if_variable name="Alpha Betty_Cargo" comparator="EQUALS" value="3"/>
+    <set_variable name="Alpha Betty_Cargo" value="2"/>
+    <incoming_comms_text from="Alpha Betty" type="STATION">
+      Alpha Betty has delivered a load of Augite. We are producing an EMP for you. We are loading Alpha Betty with Salistra.
+            </incoming_comms_text>
+    <addto_object_property name="DS2" property="missileStoresEMP" value="1"/>
+    <set_ship_text name="Alpha Betty" hailtext="We are carrying a load of Platinum. Where should we deliver it?."/>
+  </event>
+  <event name="Alpha Betty Platinum DS2">
+    <if_distance name1="Alpha Betty" name2="DS2" comparator="LESS" value="1000"/>
+    <if_variable name="Alpha Betty_Cargo" comparator="EQUALS" value="4"/>
+    <set_variable name="Alpha Betty_Cargo" value="2"/>
+    <incoming_comms_text from="Alpha Betty" type="STATION">
+      Alpha Betty has delivered a load of Platinum. We are producing an EMP for you. We are loading Alpha Betty with Salistra.
+            </incoming_comms_text>
+    <addto_object_property name="DS2" property="missileStoresEMP" value="1"/>
+    <set_ship_text name="Alpha Betty" hailtext="We are carrying a load of Platinum. Where should we deliver it?."/>
+  </event>
+  <event name="Alpha Betty Xiridium DS3">
+    <if_distance name1="Alpha Betty" name2="DS3" comparator="LESS" value="1000"/>
+    <if_variable name="Alpha Betty_Cargo" comparator="EQUALS" value="1"/>
+    <set_variable name="Alpha Betty_Cargo" value="3"/>
+    <incoming_comms_text from="Alpha Betty" type="STATION">
+      Alpha Betty has delivered a load of Xiridium. We are producing an EMP for you. We are loading Alpha Betty with Augite.
+            </incoming_comms_text>
+    <addto_object_property name="DS3" property="missileStoresEMP" value="1"/>
+    <set_ship_text name="Alpha Betty" hailtext="We are carrying a load of Platinum. Where should we deliver it?."/>
+  </event>
+  <event name="Alpha Betty Salistra DS3">
+    <if_distance name1="Alpha Betty" name2="DS3" comparator="LESS" value="1000"/>
+    <if_variable name="Alpha Betty_Cargo" comparator="EQUALS" value="2"/>
+    <set_variable name="Alpha Betty_Cargo" value="3"/>
+    <incoming_comms_text from="Alpha Betty" type="STATION">
+      Alpha Betty has delivered a load of Salistra. We are producing an EMP for you. We are loading Alpha Betty with Augite.
+            </incoming_comms_text>
+    <addto_object_property name="DS3" property="missileStoresEMP" value="1"/>
+    <set_ship_text name="Alpha Betty" hailtext="We are carrying a load of Platinum. Where should we deliver it?."/>
+  </event>
+  <event name="Alpha Betty Platinum DS3">
+    <if_distance name1="Alpha Betty" name2="DS3" comparator="LESS" value="1000"/>
+    <if_variable name="Alpha Betty_Cargo" comparator="EQUALS" value="4"/>
+    <set_variable name="Alpha Betty_Cargo" value="3"/>
+    <incoming_comms_text from="Alpha Betty" type="STATION">
+      Alpha Betty has delivered a load of Platinum. We are producing an EMP for you. We are loading Alpha Betty with Augite.
+            </incoming_comms_text>
+    <addto_object_property name="DS3" property="missileStoresEMP" value="1"/>
+    <set_ship_text name="Alpha Betty" hailtext="We are carrying a load of Platinum. Where should we deliver it?."/>
+  </event>
+  <event name="Alpha Betty Xiridium DS4">
+    <if_distance name1="Alpha Betty" name2="DS4" comparator="LESS" value="1000"/>
+    <if_variable name="Alpha Betty_Cargo" comparator="EQUALS" value="1"/>
+    <set_variable name="Alpha Betty_Cargo" value="4"/>
+    <incoming_comms_text from="Alpha Betty" type="STATION">
+      Alpha Betty has delivered a load of Xiridium. We are producing an EMP for you. We are loading Alpha Betty with Platinum.
+            </incoming_comms_text>
+    <addto_object_property name="DS4" property="missileStoresEMP" value="1"/>
+    <set_ship_text name="Alpha Betty" hailtext="We are carrying a load of Platinum. Where should we deliver it?."/>
+  </event>
+  <event name="Alpha Betty Salistra DS4">
+    <if_distance name1="Alpha Betty" name2="DS4" comparator="LESS" value="1000"/>
+    <if_variable name="Alpha Betty_Cargo" comparator="EQUALS" value="2"/>
+    <set_variable name="Alpha Betty_Cargo" value="4"/>
+    <incoming_comms_text from="Alpha Betty" type="STATION">
+      Alpha Betty has delivered a load of Salistra. We are producing an EMP for you. We are loading Alpha Betty with Platinum.
+            </incoming_comms_text>
+    <addto_object_property name="DS4" property="missileStoresEMP" value="1"/>
+    <set_ship_text name="Alpha Betty" hailtext="We are carrying a load of Platinum. Where should we deliver it?."/>
+  </event>
+  <event name="Alpha Betty Augite DS4">
+    <if_distance name1="Alpha Betty" name2="DS4" comparator="LESS" value="1000"/>
+    <if_variable name="Alpha Betty_Cargo" comparator="EQUALS" value="3"/>
+    <set_variable name="Alpha Betty_Cargo" value="4"/>
+    <incoming_comms_text from="Alpha Betty" type="STATION">
+      Alpha Betty has delivered a load of Augite. We are producing an EMP for you. We are loading Alpha Betty with Platinum.
+            </incoming_comms_text>
+    <addto_object_property name="DS4" property="missileStoresEMP" value="1"/>
+    <set_ship_text name="Alpha Betty" hailtext="We are carrying a load of Platinum. Where should we deliver it?."/>
+  </event>
+  
+</mission_data>

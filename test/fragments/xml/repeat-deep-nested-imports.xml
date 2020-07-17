@@ -4,7 +4,7 @@
   </imports>
 
   <start>
-    <repeat range="AllShips">
+    <repeat _range="AllShips">
       <set_variable name="${ship}_here" value="0"/>
       <set_variable name="${ship}_Checkin_Button" value="1.0"/>
       <set_timer name="${ship}_Checkin_Button" seconds="5"/>
@@ -13,7 +13,7 @@
     <set_timer name="Player_Check" seconds="60"/>
   </start>
 
-  <repeat range="AllShips">
+  <repeat _range="AllShips">
     <event name="${ship} Checkin Button">
       <if_variable name="${ship}_Checkin_Button" comparator="EQUALS" value="1.0"/>
       <if_variable name="${ship}_here" comparator="NOT" value="1.0"/>
@@ -54,7 +54,7 @@
     <if_variable name="Player_Check_Button" comparator="EQUALS" value="1.0"/>
 
     <!-- Clear for all ships-->
-    <repeat range="AllShips">
+    <repeat _range="AllShips">
       <clear_comms_button text="${ship} Press to Join Game"/>
     </repeat>
 

@@ -1,24 +1,23 @@
 <mission_data>
-   <!-- ****************** B O N U S   F L E E T S *******************-->
-  <event name="Spawn Bonus Fleet 7">
+  <event name="Spawn Bonus Bonus_7">
     <if_variable name="Bonus_7" comparator="EQUALS" value="0"/>
     <if_not_exists name="71"/>
-   <incoming_comms_text from="Enemy Fleet">
+    <incoming_comms_text from="Enemy Fleet">
       Congratulations, Artemis. You collected all of the Secret Code Cases. We are sending a bonus fleet for you to fight.
-   </incoming_comms_text>
+            </incoming_comms_text>
     <create type="enemy" x="5000" y="0" z="41000" angle="200" name="B71" raceKeys="Skaraan enemy" hullKeys="Executor large" fleetnumber="97"/>
     <create type="enemy" x="5140" y="-200" z="40800" angle="200" name="B72" raceKeys="Torgoth enemy" hullKeys="Leviathan medium" fleetnumber="97"/>
     <create type="enemy" x="4960" y="-200" z="42200" angle="200" name="B73" raceKeys="Kralien enemy" hullKeys="Dreadnought large" fleetnumber="97"/>
     <create type="enemy" x="5540" y="200" z="43300" angle="200" name="B74" raceKeys="Kralien enemy" hullKeys="Battleship medium" fleetnumber="97"/>
     <create type="enemy" x="5440" y="200" z="43500" angle="200" name="B75" raceKeys="Kralien enemy" hullKeys="Cruiser small" fleetnumber="97"/>
     <create type="enemy" x="5340" y="200" z="42300" angle="200" name="B76" raceKeys="Kralien enemy" hullKeys="Cruiser small" fleetnumber="97"/>
-    <set_special name="B71" ship="-1" captain="5" ability="AntiTorp"/>
     <set_special name="B71" clear="yes" ability="Teleport"/>
     <set_special name="B71" ability="Warp"/>
     <set_special name="B71" ability="Tractor"/>
     <set_special name="B71" ability="Drones"/>
     <set_special name="B71" ability="HET"/>
     <set_special name="B71" ability="AntiMine"/>
+    <set_special name="B71" ship="-1" captain="5" ability="AntiTorp"/>
     <set_special name="B71" clear="yes" ability="ShldDrain"/>
     <set_special name="B71" ability="ShldVamp"/>
     <set_special name="B71" clear="yes" ability="LowVis"/>
@@ -29,144 +28,179 @@
     <if_variable name="Bonus_7" comparator="EQUALS" value="1"/>
     <if_variable name="B71_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B71" comparator="EQUALS" value="1"/>
-    <big_message title="Skaraan Executor B71 Surrendered" subtitle1="70 kilotons" subtitle2="+35 kt surrender bonus"/>
-    <log text="Skaraan Executor B71 Surrendered"/>
     <set_variable name="B71_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B71"/>
+    <set_variable name="Tonnage" value="Tonnage+70+35"/>
+    <big_message title="Skaraan Executor surrendered" subtitle1="70 kilotons" subtitle2="+35 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+105"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Skaraan Executor B71 Surrendered"/>
   </event>
   <event name="B71 Destroyed">
     <if_variable name="Bonus_7" comparator="EQUALS" value="1"/>
+    <if_variable name="B71_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B71_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B71"/>
-    <big_message title="Skaraan Executor B71 Destroyed" subtitle1="70 kilotons" subtitle2=""/>
-    <log text="Skaraan Executor B71 Destroyed"/>
     <set_variable name="B71_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+70"/>
+    <big_message title="Skaraan Executor B71 destroyed" subtitle1="70 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Skaraan Executor B71 destroyed"/>
   </event>
   <event name="B72 Surrendered">
     <if_variable name="Bonus_7" comparator="EQUALS" value="1"/>
     <if_variable name="B72_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B72" comparator="EQUALS" value="1"/>
-    <big_message title="Torgoth Leviathan B72 Surrendered" subtitle1="90 kilotons" subtitle2="+45 kt surrender bonus"/>
-    <log text="Torgoth Leviathan B72 Surrendered"/>
     <set_variable name="B72_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B72"/>
+    <set_variable name="Tonnage" value="Tonnage+90+45"/>
+    <big_message title="Torgoth Leviathan surrendered" subtitle1="90 kilotons" subtitle2="+45 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+135"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Torgoth Leviathan B72 Surrendered"/>
   </event>
   <event name="B72 Destroyed">
     <if_variable name="Bonus_7" comparator="EQUALS" value="1"/>
+    <if_variable name="B72_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B72_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B72"/>
-    <big_message title="Torgoth Leviathan B72 Destroyed" subtitle1="90 kilotons" subtitle2=""/>
-    <log text="Torgoth Leviathan B72 Destroyed"/>
     <set_variable name="B72_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+90"/>
+    <big_message title="Torgoth Leviathan B72 destroyed" subtitle1="90 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Torgoth Leviathan B72 destroyed"/>
   </event>
- <event name="B73 Surrendered">
+  <event name="B73 Surrendered">
     <if_variable name="Bonus_7" comparator="EQUALS" value="1"/>
     <if_variable name="B73_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B73" comparator="EQUALS" value="1"/>
-    <big_message title="Kralien Dreadnought B73 Surrendered" subtitle1="25 kilotons" subtitle2="+13 kt surrender bonus"/>
-    <log text="Kralien Dreadnought B73 Surrendered"/>
     <set_variable name="B73_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B73"/>
+    <set_variable name="Tonnage" value="Tonnage+25+13"/>
+    <big_message title="Kralien Dreadnought surrendered" subtitle1="25 kilotons" subtitle2="+13 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+38"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Dreadnought B73 Surrendered"/>
   </event>
   <event name="B73 Destroyed">
     <if_variable name="Bonus_7" comparator="EQUALS" value="1"/>
+    <if_variable name="B73_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B73_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B73"/>
-    <big_message title="Kralien Dreadnought B73 Destroyed" subtitle1="25 kilotons" subtitle2=""/>
-    <log text="Kralien Dreadnought B73 Destroyed"/>
     <set_variable name="B73_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+25"/>
+    <big_message title="Kralien Dreadnought B73 destroyed" subtitle1="25 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Dreadnought B73 destroyed"/>
   </event>
- <event name="B74 Surrendered">
+  <event name="B74 Surrendered">
     <if_variable name="Bonus_7" comparator="EQUALS" value="1"/>
     <if_variable name="B74_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B74" comparator="EQUALS" value="1"/>
-    <big_message title="Kralien Battleship B74 Surrendered" subtitle1="17 kilotons" subtitle2="+9 kt surrender bonus"/>
-    <log text="Kralien Battleship B74 Surrendered"/>
     <set_variable name="B74_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B74"/>
+    <set_variable name="Tonnage" value="Tonnage+17+9"/>
+    <big_message title="Kralien Battleship surrendered" subtitle1="17 kilotons" subtitle2="+9 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+26"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Battleship B74 Surrendered"/>
   </event>
   <event name="B74 Destroyed">
     <if_variable name="Bonus_7" comparator="EQUALS" value="1"/>
+    <if_variable name="B74_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B74_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B74"/>
-    <big_message title="Kralien Battleship B74 Destroyed" subtitle1="17 kilotons" subtitle2=""/>
-    <log text="Kralien Battleship B74 Destroyed"/>
     <set_variable name="B74_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+17"/>
+    <big_message title="Kralien Battleship B74 destroyed" subtitle1="17 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Battleship B74 destroyed"/>
   </event>
   <event name="B75 Surrendered">
     <if_variable name="Bonus_7" comparator="EQUALS" value="1"/>
     <if_variable name="B75_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B75" comparator="EQUALS" value="1"/>
-    <big_message title="Skaraan Executor B75 Surrendered" subtitle1="9 kilotons" subtitle2="+5 kt surrender bonus"/>
-    <log text="Kralien Cruiser B75 Surrendered"/>
     <set_variable name="B75_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B75"/>
+    <set_variable name="Tonnage" value="Tonnage+9+5"/>
+    <big_message title="Kralien Cruiser surrendered" subtitle1="9 kilotons" subtitle2="+5 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+14"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Cruiser B75 Surrendered"/>
   </event>
   <event name="B75 Destroyed">
     <if_variable name="Bonus_7" comparator="EQUALS" value="1"/>
+    <if_variable name="B75_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B75_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B75"/>
-    <big_message title="Kralien Cruiser B75 Destroyed" subtitle1="9 kilotons" subtitle2=""/>
-    <log text="Kralien Cruiser B75 Destroyed"/>
     <set_variable name="B75_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
+    <big_message title="Kralien Cruiser B75 destroyed" subtitle1="9 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Cruiser B75 destroyed"/>
   </event>
- <event name="B76 Surrendered">
+  <event name="B76 Surrendered">
     <if_variable name="Bonus_7" comparator="EQUALS" value="1"/>
     <if_variable name="B76_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B76" comparator="EQUALS" value="1"/>
-    <big_message title="Kralien Cruiser B76 Surrendered" subtitle1="9 kilotons" subtitle2="+5 kt surrender bonus"/>
-    <log text="Kralien Cruiser B76 Surrendered"/>
     <set_variable name="B76_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B76"/>
+    <set_variable name="Tonnage" value="Tonnage+9+5"/>
+    <big_message title="Kralien Cruiser surrendered" subtitle1="9 kilotons" subtitle2="+5 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+14"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Cruiser B76 Surrendered"/>
   </event>
   <event name="B76 Destroyed">
     <if_variable name="Bonus_7" comparator="EQUALS" value="1"/>
+    <if_variable name="B76_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B76_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B76"/>
-    <big_message title="Kralien Cruiser B76 Destroyed" subtitle1="9 kilotons" subtitle2=""/>
-    <log text="Kralien Cruiser B76 Destroyed"/>
     <set_variable name="B76_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
+    <big_message title="Kralien Cruiser B76 destroyed" subtitle1="9 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Cruiser B76 destroyed"/>
   </event>
-  <!-- ******* Bonus Fleet 6 ***************-->
-  <event name="Spawn Bonus Fleet 6">
+  <event name="Spawn Bonus Bonus_6">
     <if_variable name="Bonus_6" comparator="EQUALS" value="0"/>
     <if_not_exists name="61"/>
     <if_not_exists name="62"/>
-   <incoming_comms_text from="Enemy Fleet">
+    <incoming_comms_text from="Enemy Fleet">
       Congratulations, Artemis. You collected all of the Carapaction Coils. We are sending a bonus fleet for you to fight.
-   </incoming_comms_text>
-
+            </incoming_comms_text>
     <create type="enemy" x="75000" y="0" z="41000" angle="200" name="B61" raceKeys="Skaraan enemy" hullKeys="Enforcer medium" fleetnumber="96"/>
     <create type="enemy" x="75140" y="-200" z="40800" angle="200" name="B62" raceKeys="Torgoth enemy" hullKeys="Leviathan medium" fleetnumber="96"/>
     <create type="enemy" x="74960" y="-200" z="42200" angle="200" name="B63" raceKeys="Kralien enemy" hullKeys="Dreadnought large" fleetnumber="96"/>
     <create type="enemy" x="75540" y="200" z="43100" angle="200" name="B64" raceKeys="Kralien enemy" hullKeys="Battleship medium" fleetnumber="96"/>
-    <create type="enemy" x="75440" y="-200" z="43700" angle="200" name="B65" raceKeys="Kralien enemy" hullKeys="Cruiser small" fleetnumber="96"/>
+    <create type="enemy" x="75440" y="200" z="43700" angle="200" name="B65" raceKeys="Kralien enemy" hullKeys="Cruiser small" fleetnumber="96"/>
     <create type="enemy" x="75340" y="200" z="43300" angle="200" name="B66" raceKeys="Kralien enemy" hullKeys="Cruiser small" fleetnumber="96"/>
-    <set_special name="B61" ship="-1" captain="5" ability="Teleport"/>
     <set_special name="B61" clear="yes" ability="Cloak"/>
     <set_special name="B61" clear="yes" ability="Warp"/>
     <set_special name="B61" clear="yes" ability="Tractor"/>
+    <set_special name="B61" ship="-1" captain="5" ability="Teleport"/>
     <set_special name="B61" clear="yes" ability="Drones"/>
     <set_special name="B61" clear="yes" ability="HET"/>
     <set_special name="B61" clear="yes" ability="AntiMine"/>
+    <set_special name="B61" clear="yes" ability="AntiTorp"/>
     <set_special name="B61" clear="yes" ability="ShldDrain"/>
     <set_special name="B61" clear="yes" ability="ShldVamp"/>
     <set_special name="B61" clear="yes" ability="LowVis"/>
@@ -177,642 +211,795 @@
     <if_variable name="Bonus_6" comparator="EQUALS" value="1"/>
     <if_variable name="B61_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B61" comparator="EQUALS" value="1"/>
-    <big_message title="Skaraan Enforcer B61 Surrendered" subtitle1="50 kilotons" subtitle2="+25 kt surrender bonus"/>
-    <log text="Skaraan Enforcer B61 Surrendered"/>
     <set_variable name="B61_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B61"/>
+    <set_variable name="Tonnage" value="Tonnage+50+25"/>
+    <big_message title="Skaraan Enforcer surrendered" subtitle1="50 kilotons" subtitle2="+25 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+75"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Skaraan Enforcer B61 Surrendered"/>
   </event>
   <event name="B61 Destroyed">
     <if_variable name="Bonus_6" comparator="EQUALS" value="1"/>
+    <if_variable name="B61_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B61_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B61"/>
-    <big_message title="Skaraan Enforcer B61 Destroyed" subtitle1="50 kilotons" subtitle2=""/>
-    <log text="Skaraan Enforcer B61 Destroyed"/>
     <set_variable name="B61_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+50"/>
+    <big_message title="Skaraan Enforcer B61 destroyed" subtitle1="50 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Skaraan Enforcer B61 destroyed"/>
   </event>
   <event name="B62 Surrendered">
     <if_variable name="Bonus_6" comparator="EQUALS" value="1"/>
     <if_variable name="B62_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B62" comparator="EQUALS" value="1"/>
-    <big_message title="Torgoth Leviathan B62 Surrendered" subtitle1="90 kilotons" subtitle2="+45 kt surrender bonus"/>
-    <log text="Torgoth Leviathan B62 Surrendered"/>
     <set_variable name="B62_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B62"/>
+    <set_variable name="Tonnage" value="Tonnage+90+45"/>
+    <big_message title="Torgoth Leviathan surrendered" subtitle1="90 kilotons" subtitle2="+45 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+135"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Torgoth Leviathan B62 Surrendered"/>
   </event>
   <event name="B62 Destroyed">
     <if_variable name="Bonus_6" comparator="EQUALS" value="1"/>
+    <if_variable name="B62_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B62_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B62"/>
-    <big_message title="Torgoth Leviathan B62 Destroyed" subtitle1="90 kilotons" subtitle2=""/>
-    <log text="Torgoth Leviathan B62 Destroyed"/>
     <set_variable name="B62_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+90"/>
+    <big_message title="Torgoth Leviathan B62 destroyed" subtitle1="90 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Torgoth Leviathan B62 destroyed"/>
   </event>
- <event name="B63 Surrendered">
+  <event name="B63 Surrendered">
     <if_variable name="Bonus_6" comparator="EQUALS" value="1"/>
     <if_variable name="B63_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B63" comparator="EQUALS" value="1"/>
-    <big_message title="Skaraan Executor B63 Surrendered" subtitle1="25 kilotons" subtitle2="+13 kt surrender bonus"/>
-    <log text="Kralien Dreadnought B63 Surrendered"/>
     <set_variable name="B63_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B63"/>
+    <set_variable name="Tonnage" value="Tonnage+25+13"/>
+    <big_message title="Kralien Dreadnought surrendered" subtitle1="25 kilotons" subtitle2="+13 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+38"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Dreadnought B63 Surrendered"/>
   </event>
   <event name="B63 Destroyed">
     <if_variable name="Bonus_6" comparator="EQUALS" value="1"/>
+    <if_variable name="B63_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B63_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B63"/>
-    <big_message title="Kralien Dreadnought B63 Destroyed" subtitle1="25 kilotons" subtitle2=""/>
-    <log text="Kralien Dreadnought B63 Destroyed"/>
     <set_variable name="B63_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+25"/>
+    <big_message title="Kralien Dreadnought B63 destroyed" subtitle1="25 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Dreadnought B63 destroyed"/>
   </event>
- <event name="B64 Surrendered">
+  <event name="B64 Surrendered">
     <if_variable name="Bonus_6" comparator="EQUALS" value="1"/>
     <if_variable name="B64_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B64" comparator="EQUALS" value="1"/>
-    <big_message title="Kralien Battleship B64 Surrendered" subtitle1="17 kilotons" subtitle2="+9 kt surrender bonus"/>
-    <log text="Kralien Battleship B64 Surrendered"/>
     <set_variable name="B64_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B64"/>
+    <set_variable name="Tonnage" value="Tonnage+17+9"/>
+    <big_message title="Kralien Battleship surrendered" subtitle1="17 kilotons" subtitle2="+9 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+26"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Battleship B64 Surrendered"/>
   </event>
   <event name="B64 Destroyed">
     <if_variable name="Bonus_6" comparator="EQUALS" value="1"/>
+    <if_variable name="B64_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B64_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B64"/>
-    <big_message title="Kralien Battleship B64 Destroyed" subtitle1="17 kilotons" subtitle2=""/>
-    <log text="Kralien Battleship B64 Destroyed"/>
     <set_variable name="B64_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+17"/>
+    <big_message title="Kralien Battleship B64 destroyed" subtitle1="17 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Battleship B64 destroyed"/>
   </event>
   <event name="B65 Surrendered">
     <if_variable name="Bonus_6" comparator="EQUALS" value="1"/>
     <if_variable name="B65_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B65" comparator="EQUALS" value="1"/>
-    <big_message title="Skaraan Executor B65 Surrendered" subtitle1="9 kilotons" subtitle2="+5 kt surrender bonus"/>
-    <log text="Kralien Cruiser B65 Surrendered"/>
     <set_variable name="B65_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B65"/>
+    <set_variable name="Tonnage" value="Tonnage+9+5"/>
+    <big_message title="Kralien Cruiser surrendered" subtitle1="9 kilotons" subtitle2="+5 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+14"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Cruiser B65 Surrendered"/>
   </event>
   <event name="B65 Destroyed">
     <if_variable name="Bonus_6" comparator="EQUALS" value="1"/>
+    <if_variable name="B65_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B65_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B65"/>
-    <big_message title="Kralien Cruiser B65 Destroyed" subtitle1="9 kilotons" subtitle2=""/>
-    <log text="Kralien Cruiser B65 Destroyed"/>
     <set_variable name="B65_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
+    <big_message title="Kralien Cruiser B65 destroyed" subtitle1="9 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Cruiser B65 destroyed"/>
   </event>
- <event name="B66 Surrendered">
+  <event name="B66 Surrendered">
     <if_variable name="Bonus_6" comparator="EQUALS" value="1"/>
     <if_variable name="B66_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B66" comparator="EQUALS" value="1"/>
-    <big_message title="Kralien Cruiser B66 Surrendered" subtitle1="9 kilotons" subtitle2="+5 kt surrender bonus"/>
-    <log text="Kralien Cruiser B66 Surrendered"/>
     <set_variable name="B66_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B66"/>
+    <set_variable name="Tonnage" value="Tonnage+9+5"/>
+    <big_message title="Kralien Cruiser surrendered" subtitle1="9 kilotons" subtitle2="+5 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+14"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Cruiser B66 Surrendered"/>
   </event>
   <event name="B66 Destroyed">
     <if_variable name="Bonus_6" comparator="EQUALS" value="1"/>
+    <if_variable name="B66_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B66_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B66"/>
-    <big_message title="Kralien Cruiser B66 Destroyed" subtitle1="9 kilotons" subtitle2=""/>
-    <log text="Kralien Cruiser B66 Destroyed"/>
     <set_variable name="B66_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
+    <big_message title="Kralien Cruiser B66 destroyed" subtitle1="9 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Cruiser B66 destroyed"/>
   </event>
-
-<!-- ******* Bonus Fleet 5 ***************-->
-<event name="Spawn Bonus Fleet 5">
+  <event name="Spawn Bonus Bonus_5">
     <if_variable name="Bonus_5" comparator="EQUALS" value="0"/>
     <if_not_exists name="51"/>
     <if_not_exists name="52"/>
     <if_not_exists name="53"/>
-   <incoming_comms_text from="Enemy Fleet">
+    <incoming_comms_text from="Enemy Fleet">
       Congratulations, Artemis. You collected all of the Infusion P-Coils. We are sending a bonus fleet for you to fight.
-   </incoming_comms_text>
-
+            </incoming_comms_text>
     <create type="enemy" x="65000" y="0" z="31000" angle="200" name="B51" raceKeys="Skaraan enemy" hullKeys="Enforcer medium" fleetnumber="95"/>
     <create type="enemy" x="65140" y="-200" z="30800" angle="200" name="B52" raceKeys="Torgoth enemy" hullKeys="Leviathan medium" fleetnumber="95"/>
-    <create type="enemy" x="65540" y="200" z="30600" angle="200" name="B57" raceKeys="Arvonian enemy" hullKeys="Light Carrier" fleetnumber="95"/>
     <create type="enemy" x="64960" y="-200" z="32200" angle="200" name="B53" raceKeys="Kralien enemy" hullKeys="Dreadnought large" fleetnumber="95"/>
     <create type="enemy" x="65540" y="200" z="31300" angle="200" name="B54" raceKeys="Kralien enemy" hullKeys="Battleship medium" fleetnumber="95"/>
     <create type="enemy" x="65440" y="-200" z="33000" angle="200" name="B55" raceKeys="Kralien enemy" hullKeys="Cruiser small" fleetnumber="95"/>
     <create type="enemy" x="65340" y="200" z="33300" angle="200" name="B56" raceKeys="Kralien enemy" hullKeys="Cruiser small" fleetnumber="95"/>
+    <create type="enemy" x="65340" y="200" z="30600" angle="200" name="B57" raceKeys="Arvonian enemy" hullKeys="Light Carrier " fleetnumber="95"/>
     <set_special name="B51" ship="-1" captain="5" ability="Cloak"/>
-    <set_special name="B51" clear="yes" ability="Teleport"/>
     <set_special name="B51" clear="yes" ability="Warp"/>
     <set_special name="B51" ability="Tractor"/>
+    <set_special name="B51" clear="yes" ability="Teleport"/>
     <set_special name="B51" ability="Drones"/>
     <set_special name="B51" clear="yes" ability="HET"/>
     <set_special name="B51" clear="yes" ability="AntiMine"/>
+    <set_special name="B51" clear="yes" ability="AntiTorp"/>
     <set_special name="B51" clear="yes" ability="ShldDrain"/>
     <set_special name="B51" clear="yes" ability="ShldVamp"/>
     <set_special name="B51" clear="yes" ability="LowVis"/>
     <set_special name="B51" clear="yes" ability="Stealth"/>
     <set_variable name="Bonus_5" value="1"/>
-</event>
+  </event>
   <event name="B51 Surrendered">
     <if_variable name="Bonus_5" comparator="EQUALS" value="1"/>
     <if_variable name="B51_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B51" comparator="EQUALS" value="1"/>
-    <big_message title="Skaraan Enforcer B51 Surrendered" subtitle1="50 kilotons" subtitle2="+25 kt surrender bonus"/>
-    <log text="Skaraan Enforcer B51 Surrendered"/>
     <set_variable name="B51_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B51"/>
+    <set_variable name="Tonnage" value="Tonnage+50+25"/>
+    <big_message title="Skaraan Enforcer surrendered" subtitle1="50 kilotons" subtitle2="+25 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+75"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Skaraan Enforcer B51 Surrendered"/>
   </event>
   <event name="B51 Destroyed">
     <if_variable name="Bonus_5" comparator="EQUALS" value="1"/>
+    <if_variable name="B51_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B51_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B51"/>
-    <big_message title="Skaraan Enforcer B51 Destroyed" subtitle1="50 kilotons" subtitle2=""/>
-    <log text="Skaraan Enforcer B51 Destroyed"/>
     <set_variable name="B51_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+50"/>
+    <big_message title="Skaraan Enforcer B51 destroyed" subtitle1="50 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Skaraan Enforcer B51 destroyed"/>
   </event>
   <event name="B52 Surrendered">
     <if_variable name="Bonus_5" comparator="EQUALS" value="1"/>
     <if_variable name="B52_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B52" comparator="EQUALS" value="1"/>
-    <big_message title="Torgoth Leviathan B52 Surrendered" subtitle1="90 kilotons" subtitle2="+45 kt surrender bonus"/>
-    <log text="Torgoth Leviathan B52 Surrendered"/>
     <set_variable name="B52_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B52"/>
+    <set_variable name="Tonnage" value="Tonnage+90+45"/>
+    <big_message title="Torgoth Leviathan surrendered" subtitle1="90 kilotons" subtitle2="+45 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+135"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Torgoth Leviathan B52 Surrendered"/>
   </event>
   <event name="B52 Destroyed">
     <if_variable name="Bonus_5" comparator="EQUALS" value="1"/>
+    <if_variable name="B52_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B52_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B52"/>
-    <big_message title="Torgoth Leviathan B52 Destroyed" subtitle1="90 kilotons" subtitle2=""/>
-    <log text="Torgoth Leviathan B52 Destroyed"/>
     <set_variable name="B52_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+90"/>
+    <big_message title="Torgoth Leviathan B52 destroyed" subtitle1="90 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Torgoth Leviathan B52 destroyed"/>
   </event>
- <event name="B53 Surrendered">
+  <event name="B53 Surrendered">
     <if_variable name="Bonus_5" comparator="EQUALS" value="1"/>
     <if_variable name="B53_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B53" comparator="EQUALS" value="1"/>
-    <big_message title="Skaraan Executor B53 Surrendered" subtitle1="25 kilotons" subtitle2="+13 kt surrender bonus"/>
-    <log text="Kralien Dreadnought B53 Surrendered"/>
     <set_variable name="B53_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B53"/>
+    <set_variable name="Tonnage" value="Tonnage+25+13"/>
+    <big_message title="Kralien Dreadnought surrendered" subtitle1="25 kilotons" subtitle2="+13 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+38"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Dreadnought B53 Surrendered"/>
   </event>
   <event name="B53 Destroyed">
     <if_variable name="Bonus_5" comparator="EQUALS" value="1"/>
+    <if_variable name="B53_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B53_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B53"/>
-    <big_message title="Kralien Dreadnought B53 Destroyed" subtitle1="25 kilotons" subtitle2=""/>
-    <log text="Kralien Dreadnought B53 Destroyed"/>
     <set_variable name="B53_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+25"/>
+    <big_message title="Kralien Dreadnought B53 destroyed" subtitle1="25 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Dreadnought B53 destroyed"/>
   </event>
- <event name="B54 Surrendered">
+  <event name="B54 Surrendered">
     <if_variable name="Bonus_5" comparator="EQUALS" value="1"/>
     <if_variable name="B54_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B54" comparator="EQUALS" value="1"/>
-    <big_message title="Kralien Battleship B54 Surrendered" subtitle1="17 kilotons" subtitle2="+9 kt surrender bonus"/>
-    <log text="Kralien Battleship B54 Surrendered"/>
     <set_variable name="B54_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B54"/>
+    <set_variable name="Tonnage" value="Tonnage+17+9"/>
+    <big_message title="Kralien Battleship surrendered" subtitle1="17 kilotons" subtitle2="+9 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+26"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Battleship B54 Surrendered"/>
   </event>
   <event name="B54 Destroyed">
     <if_variable name="Bonus_5" comparator="EQUALS" value="1"/>
+    <if_variable name="B54_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B54_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B54"/>
-    <big_message title="Kralien Battleship B54 Destroyed" subtitle1="17 kilotons" subtitle2=""/>
-    <log text="Kralien Battleship B54 Destroyed"/>
     <set_variable name="B54_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+17"/>
+    <big_message title="Kralien Battleship B54 destroyed" subtitle1="17 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Battleship B54 destroyed"/>
   </event>
   <event name="B55 Surrendered">
     <if_variable name="Bonus_5" comparator="EQUALS" value="1"/>
     <if_variable name="B55_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B55" comparator="EQUALS" value="1"/>
-    <big_message title="Skaraan Executor B55 Surrendered" subtitle1="9 kilotons" subtitle2="+5 kt surrender bonus"/>
-    <log text="Kralien Cruiser B55 Surrendered"/>
     <set_variable name="B55_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B55"/>
+    <set_variable name="Tonnage" value="Tonnage+9+5"/>
+    <big_message title="Kralien Cruiser surrendered" subtitle1="9 kilotons" subtitle2="+5 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+14"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Cruiser B55 Surrendered"/>
   </event>
   <event name="B55 Destroyed">
     <if_variable name="Bonus_5" comparator="EQUALS" value="1"/>
+    <if_variable name="B55_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B55_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B55"/>
-    <big_message title="Kralien Cruiser B55 Destroyed" subtitle1="9 kilotons" subtitle2=""/>
-    <log text="Kralien Cruiser B55 Destroyed"/>
     <set_variable name="B55_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
+    <big_message title="Kralien Cruiser B55 destroyed" subtitle1="9 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Cruiser B55 destroyed"/>
   </event>
- <event name="B56 Surrendered">
+  <event name="B56 Surrendered">
     <if_variable name="Bonus_5" comparator="EQUALS" value="1"/>
     <if_variable name="B56_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B56" comparator="EQUALS" value="1"/>
-    <big_message title="Kralien Cruiser B56 Surrendered" subtitle1="9 kilotons" subtitle2="+5 kt surrender bonus"/>
-    <log text="Kralien Cruiser B56 Surrendered"/>
     <set_variable name="B56_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B56"/>
+    <set_variable name="Tonnage" value="Tonnage+9+5"/>
+    <big_message title="Kralien Cruiser surrendered" subtitle1="9 kilotons" subtitle2="+5 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+14"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Cruiser B56 Surrendered"/>
   </event>
   <event name="B56 Destroyed">
     <if_variable name="Bonus_5" comparator="EQUALS" value="1"/>
+    <if_variable name="B56_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B56_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B56"/>
-    <big_message title="Kralien Cruiser B56 Destroyed" subtitle1="9 kilotons" subtitle2=""/>
-    <log text="Kralien Cruiser B56 Destroyed"/>
     <set_variable name="B56_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
+    <big_message title="Kralien Cruiser B56 destroyed" subtitle1="9 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Cruiser B56 destroyed"/>
   </event>
- <event name="B57 Surrendered">
+  <event name="B57 Surrendered">
     <if_variable name="Bonus_5" comparator="EQUALS" value="1"/>
     <if_variable name="B57_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B57" comparator="EQUALS" value="1"/>
-    <big_message title="Arvonian Light Carrier B57 Surrendered" subtitle1="25 kilotons" subtitle2="+13 kt surrender bonus"/>
-    <log text="Arvonian Light Carrier B57 Surrendered"/>
     <set_variable name="B57_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B57"/>
+    <set_variable name="Tonnage" value="Tonnage+25+13"/>
+    <big_message title="Arvonian Light Carrier surrendered" subtitle1="25 kilotons" subtitle2="+13 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+38"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Arvonian Light Carrier B57 Surrendered"/>
   </event>
   <event name="B57 Destroyed">
     <if_variable name="Bonus_5" comparator="EQUALS" value="1"/>
+    <if_variable name="B57_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B57_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B57"/>
-    <big_message title="Arvonian Light Carrier B57 Destroyed" subtitle1="25 kilotons" subtitle2="+13 kt surrender bonus"/>
-    <log text="Arvonian Light Carrier B57 Destroyed"/>
     <set_variable name="B57_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+38"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <set_variable name="Tonnage" value="Tonnage+25"/>
+    <big_message title="Arvonian Light Carrier B57 destroyed" subtitle1="25 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Arvonian Light Carrier B57 destroyed"/>
   </event>
-  
-<!-- ******* Bonus Fleet 4 ***************-->
-<event name="Spawn Bonus Fleet 4">
+  <event name="Spawn Bonus Bonus_4">
     <if_variable name="Bonus_4" comparator="EQUALS" value="0"/>
     <if_not_exists name="41"/>
     <if_not_exists name="42"/>
     <if_not_exists name="43"/>
     <if_not_exists name="44"/>
-   <incoming_comms_text from="Enemy Fleet">
+    <incoming_comms_text from="Enemy Fleet">
       Congratulations, Artemis. You collected all of the Tauron Focusers. We are sending a bonus fleet for you to fight.
-   </incoming_comms_text>
-
+            </incoming_comms_text>
     <create type="enemy" x="65000" y="0" z="31000" angle="200" name="B41" raceKeys="Skaraan enemy" hullKeys="Enforcer medium" fleetnumber="94"/>
     <create type="enemy" x="65140" y="-200" z="30800" angle="200" name="B42" raceKeys="Torgoth enemy" hullKeys="Leviathan medium" fleetnumber="94"/>
-    <create type="enemy" x="65240" y="-200" z="30600" angle="200" name="B47" raceKeys="Arvonian enemy" hullKeys="Carrier Carrier" fleetnumber="94"/>
     <create type="enemy" x="64960" y="-200" z="32200" angle="200" name="B43" raceKeys="Kralien enemy" hullKeys="Dreadnought large" fleetnumber="94"/>
     <create type="enemy" x="65440" y="200" z="31300" angle="200" name="B44" raceKeys="Kralien enemy" hullKeys="Battleship medium" fleetnumber="94"/>
-    <create type="enemy" x="65540" y="200" z="33000" angle="200" name="B45" raceKeys="Kralien enemy" hullKeys="Cruiser small" fleetnumber="94"/>
-    <create type="enemy" x="65640" y="200" z="33300" angle="200" name="B46" raceKeys="Kralien enemy" hullKeys="Cruiser small" fleetnumber="94"/>
+    <create type="enemy" x="65540" y="-200" z="33000" angle="200" name="B45" raceKeys="Kralien enemy" hullKeys="Cruiser small" fleetnumber="94"/>
+    <create type="enemy" x="65340" y="200" z="33300" angle="200" name="B46" raceKeys="Kralien enemy" hullKeys="Cruiser small" fleetnumber="94"/>
+    <create type="enemy" x="65340" y="200" z="30600" angle="200" name="B47" raceKeys="Arvonian enemy" hullKeys="Carrier Carrier " fleetnumber="94"/>
     <set_special name="B41" ship="-1" captain="5" ability="Cloak"/>
-    <set_special name="B41" clear="yes" ability="Teleport"/>
     <set_special name="B41" clear="yes" ability="Warp"/>
     <set_special name="B41" ability="Tractor"/>
+    <set_special name="B41" clear="yes" ability="Teleport"/>
     <set_special name="B41" ability="Drones"/>
     <set_special name="B41" clear="yes" ability="HET"/>
     <set_special name="B41" clear="yes" ability="AntiMine"/>
+    <set_special name="B41" clear="yes" ability="AntiTorp"/>
     <set_special name="B41" clear="yes" ability="ShldDrain"/>
     <set_special name="B41" clear="yes" ability="ShldVamp"/>
     <set_special name="B41" clear="yes" ability="LowVis"/>
     <set_special name="B41" clear="yes" ability="Stealth"/>
     <set_variable name="Bonus_4" value="1"/>
-</event>
+  </event>
   <event name="B41 Surrendered">
     <if_variable name="Bonus_4" comparator="EQUALS" value="1"/>
     <if_variable name="B41_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B41" comparator="EQUALS" value="1"/>
-    <big_message title="Skaraan Enforcer B41 Surrendered" subtitle1="50 kilotons" subtitle2="+25 kt surrender bonus"/>
-    <log text="Skaraan Enforcer B41 Surrendered"/>
     <set_variable name="B41_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B41"/>
+    <set_variable name="Tonnage" value="Tonnage+50+25"/>
+    <big_message title="Skaraan Enforcer surrendered" subtitle1="50 kilotons" subtitle2="+25 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+75"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Skaraan Enforcer B41 Surrendered"/>
   </event>
   <event name="B41 Destroyed">
     <if_variable name="Bonus_4" comparator="EQUALS" value="1"/>
+    <if_variable name="B41_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B41_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B41"/>
-    <big_message title="Skaraan Enforcer B41 Destroyed" subtitle1="50 kilotons" subtitle2=""/>
-    <log text="Skaraan Enforcer B41 Destroyed"/>
     <set_variable name="B41_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+50"/>
+    <big_message title="Skaraan Enforcer B41 destroyed" subtitle1="50 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Skaraan Enforcer B41 destroyed"/>
   </event>
   <event name="B42 Surrendered">
     <if_variable name="Bonus_4" comparator="EQUALS" value="1"/>
     <if_variable name="B42_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B42" comparator="EQUALS" value="1"/>
-    <big_message title="Torgoth Leviathan B42 Surrendered" subtitle1="90 kilotons" subtitle2="+45 kt surrender bonus"/>
-    <log text="Torgoth Leviathan B42 Surrendered"/>
     <set_variable name="B42_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B42"/>
+    <set_variable name="Tonnage" value="Tonnage+90+45"/>
+    <big_message title="Torgoth Leviathan surrendered" subtitle1="90 kilotons" subtitle2="+45 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+135"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Torgoth Leviathan B42 Surrendered"/>
   </event>
   <event name="B42 Destroyed">
     <if_variable name="Bonus_4" comparator="EQUALS" value="1"/>
+    <if_variable name="B42_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B42_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B42"/>
-    <big_message title="Torgoth Leviathan B42 Destroyed" subtitle1="90 kilotons" subtitle2=""/>
-    <log text="Torgoth Leviathan B42 Destroyed"/>
     <set_variable name="B42_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+90"/>
+    <big_message title="Torgoth Leviathan B42 destroyed" subtitle1="90 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Torgoth Leviathan B42 destroyed"/>
   </event>
- <event name="B43 Surrendered">
+  <event name="B43 Surrendered">
     <if_variable name="Bonus_4" comparator="EQUALS" value="1"/>
     <if_variable name="B43_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B43" comparator="EQUALS" value="1"/>
-    <big_message title="Skaraan Executor B43 Surrendered" subtitle1="25 kilotons" subtitle2="+13 kt surrender bonus"/>
-    <log text="Kralien Dreadnought B43 Surrendered"/>
     <set_variable name="B43_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B43"/>
+    <set_variable name="Tonnage" value="Tonnage+25+13"/>
+    <big_message title="Kralien Dreadnought surrendered" subtitle1="25 kilotons" subtitle2="+13 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+38"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Dreadnought B43 Surrendered"/>
   </event>
   <event name="B43 Destroyed">
     <if_variable name="Bonus_4" comparator="EQUALS" value="1"/>
+    <if_variable name="B43_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B43_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B43"/>
-    <big_message title="Kralien Dreadnought B43 Destroyed" subtitle1="25 kilotons" subtitle2=""/>
-    <log text="Kralien Dreadnought B43 Destroyed"/>
     <set_variable name="B43_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+25"/>
+    <big_message title="Kralien Dreadnought B43 destroyed" subtitle1="25 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Dreadnought B43 destroyed"/>
   </event>
- <event name="B44 Surrendered">
+  <event name="B44 Surrendered">
     <if_variable name="Bonus_4" comparator="EQUALS" value="1"/>
     <if_variable name="B44_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B44" comparator="EQUALS" value="1"/>
-    <big_message title="Kralien Battleship B44 Surrendered" subtitle1="17 kilotons" subtitle2="+9 kt surrender bonus"/>
-    <log text="Kralien Battleship B44 Surrendered"/>
     <set_variable name="B44_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B44"/>
+    <set_variable name="Tonnage" value="Tonnage+17+9"/>
+    <big_message title="Kralien Battleship surrendered" subtitle1="17 kilotons" subtitle2="+9 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+26"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Battleship B44 Surrendered"/>
   </event>
   <event name="B44 Destroyed">
     <if_variable name="Bonus_4" comparator="EQUALS" value="1"/>
+    <if_variable name="B44_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B44_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B44"/>
-    <big_message title="Kralien Battleship B44 Destroyed" subtitle1="17 kilotons" subtitle2=""/>
-    <log text="Kralien Battleship B44 Destroyed"/>
     <set_variable name="B44_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+17"/>
+    <big_message title="Kralien Battleship B44 destroyed" subtitle1="17 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Battleship B44 destroyed"/>
   </event>
   <event name="B45 Surrendered">
     <if_variable name="Bonus_4" comparator="EQUALS" value="1"/>
     <if_variable name="B45_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B45" comparator="EQUALS" value="1"/>
-    <big_message title="Skaraan Executor B45 Surrendered" subtitle1="9 kilotons" subtitle2="+5 kt surrender bonus"/>
-    <log text="Kralien Cruiser B45 Surrendered"/>
     <set_variable name="B45_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B45"/>
+    <set_variable name="Tonnage" value="Tonnage+9+5"/>
+    <big_message title="Kralien Cruiser surrendered" subtitle1="9 kilotons" subtitle2="+5 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+14"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Cruiser B45 Surrendered"/>
   </event>
   <event name="B45 Destroyed">
     <if_variable name="Bonus_4" comparator="EQUALS" value="1"/>
+    <if_variable name="B45_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B45_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B45"/>
-    <big_message title="Kralien Cruiser B45 Destroyed" subtitle1="9 kilotons" subtitle2=""/>
-    <log text="Kralien Cruiser B45 Destroyed"/>
     <set_variable name="B45_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
+    <big_message title="Kralien Cruiser B45 destroyed" subtitle1="9 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Cruiser B45 destroyed"/>
   </event>
- <event name="B46 Surrendered">
+  <event name="B46 Surrendered">
     <if_variable name="Bonus_4" comparator="EQUALS" value="1"/>
     <if_variable name="B46_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B46" comparator="EQUALS" value="1"/>
-    <big_message title="Kralien Cruiser B46 Surrendered" subtitle1="9 kilotons" subtitle2="+5 kt surrender bonus"/>
-    <log text="Kralien Cruiser B46 Surrendered"/>
     <set_variable name="B46_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B46"/>
+    <set_variable name="Tonnage" value="Tonnage+9+5"/>
+    <big_message title="Kralien Cruiser surrendered" subtitle1="9 kilotons" subtitle2="+5 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+14"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Cruiser B46 Surrendered"/>
   </event>
   <event name="B46 Destroyed">
     <if_variable name="Bonus_4" comparator="EQUALS" value="1"/>
+    <if_variable name="B46_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B46_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B46"/>
-    <big_message title="Kralien Cruiser B46 Destroyed" subtitle1="9 kilotons" subtitle2=""/>
-    <log text="Kralien Cruiser B46 Destroyed"/>
     <set_variable name="B46_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
+    <big_message title="Kralien Cruiser B46 destroyed" subtitle1="9 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Cruiser B46 destroyed"/>
   </event>
- <event name="B47 Surrendered">
+  <event name="B47 Surrendered">
     <if_variable name="Bonus_4" comparator="EQUALS" value="1"/>
     <if_variable name="B47_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B47" comparator="EQUALS" value="1"/>
-    <big_message title="Arvonian Carrier B47 Surrendered" subtitle1="45 kilotons" subtitle2="+23 kt surrender bonus"/>
-    <log text="Arvonian Carrier B47 Surrendered"/>
     <set_variable name="B47_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B47"/>
+    <set_variable name="Tonnage" value="Tonnage+45+23"/>
+    <big_message title="Arvonian Carrier Carrier surrendered" subtitle1="45 kilotons" subtitle2="+23 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+68"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Arvonian Carrier Carrier B47 Surrendered"/>
   </event>
   <event name="B47 Destroyed">
     <if_variable name="Bonus_4" comparator="EQUALS" value="1"/>
+    <if_variable name="B47_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B47_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B47"/>
-    <big_message title="Arvonian Carrier B47 Destroyed" subtitle1="45 kilotons" subtitle2=""/>
-    <log text="Arvonian Carrier B47 Destroyed"/>
     <set_variable name="B47_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+45"/>
+    <big_message title="Arvonian Carrier Carrier B47 destroyed" subtitle1="45 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Arvonian Carrier Carrier B47 destroyed"/>
   </event>
-
-<!-- ******* Bonus Fleet 3 ***************-->
-<event name="Spawn Bonus Fleet 3">
+  <event name="Spawn Bonus Bonus_3">
     <if_variable name="Bonus_3" comparator="EQUALS" value="0"/>
     <if_not_exists name="31"/>
     <if_not_exists name="32"/>
     <if_not_exists name="33"/>
     <if_not_exists name="34"/>
     <if_not_exists name="35"/>
-   <incoming_comms_text from="Enemy Fleet">
+    <incoming_comms_text from="Enemy Fleet">
       Congratulations, Artemis. You collected all of the Lateral Arrays. We are sending a bonus fleet for you to fight.
-   </incoming_comms_text>
-
+            </incoming_comms_text>
     <create type="enemy" x="44000" y="0" z="30000" angle="200" name="B31" raceKeys="Skaraan enemy" hullKeys="Executor large" fleetnumber="93"/>
     <create type="enemy" x="44140" y="-200" z="29800" angle="200" name="B32" raceKeys="Torgoth enemy" hullKeys="Leviathan medium" fleetnumber="93"/>
-    <create type="enemy" x="44240" y="-200" z="29600" angle="200" name="B37" raceKeys="Arvonian enemy" hullKeys="Carrier Carrier" fleetnumber="93"/>
-    <create type="enemy" x="43960" y="-200" z="31200" angle="200" name="B33" raceKeys="Krlien enemy" hullKeys="Dreadnought large" fleetnumber="93"/>
+    <create type="enemy" x="43960" y="-200" z="31200" angle="200" name="B33" raceKeys="Kralien enemy" hullKeys="Dreadnought large" fleetnumber="93"/>
     <create type="enemy" x="44133" y="200" z="30300" angle="200" name="B34" raceKeys="Kralien enemy" hullKeys="Battleship medium" fleetnumber="93"/>
     <create type="enemy" x="44444" y="200" z="32300" angle="200" name="B35" raceKeys="Kralien enemy" hullKeys="Cruiser small" fleetnumber="93"/>
     <create type="enemy" x="43540" y="200" z="32430" angle="200" name="B36" raceKeys="Kralien enemy" hullKeys="Cruiser small" fleetnumber="93"/>
-    <set_special name="B31" ship="-1" captain="5" ability="Warp"/>
-    <set_special name="B31" clear="yes" ability="Teleport"/>
+    <create type="enemy" x="44240" y="-200" z="29600" angle="200" name="B37" raceKeys="Arvonian enemy" hullKeys="Carrier Carrier " fleetnumber="93"/>
     <set_special name="B31" clear="yes" ability="Cloak"/>
+    <set_special name="B31" ship="-1" captain="5" ability="Warp"/>
     <set_special name="B31" ability="Tractor"/>
+    <set_special name="B31" clear="yes" ability="Teleport"/>
     <set_special name="B31" ability="Drones"/>
     <set_special name="B31" clear="yes" ability="HET"/>
-    <set_special name="B31" ability="AntiTorp"/>
     <set_special name="B31" clear="yes" ability="AntiMine"/>
+    <set_special name="B31" ability="AntiTorp"/>
     <set_special name="B31" clear="yes" ability="ShldDrain"/>
     <set_special name="B31" clear="yes" ability="ShldVamp"/>
     <set_special name="B31" clear="yes" ability="LowVis"/>
     <set_special name="B31" clear="yes" ability="Stealth"/>
     <set_variable name="Bonus_3" value="1"/>
-</event>
+  </event>
   <event name="B31 Surrendered">
     <if_variable name="Bonus_3" comparator="EQUALS" value="1"/>
     <if_variable name="B31_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B31" comparator="EQUALS" value="1"/>
-    <big_message title="Skaraan Executor B31 Surrendered" subtitle1="70 kilotons" subtitle2="+35 kt surrender bonus"/>
-    <log text="Skaraan Executor B31 Surrendered"/>
     <set_variable name="B31_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B31"/>
+    <set_variable name="Tonnage" value="Tonnage+70+35"/>
+    <big_message title="Skaraan Executor surrendered" subtitle1="70 kilotons" subtitle2="+35 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+105"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Skaraan Executor B31 Surrendered"/>
   </event>
   <event name="B31 Destroyed">
     <if_variable name="Bonus_3" comparator="EQUALS" value="1"/>
+    <if_variable name="B31_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B31_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B31"/>
-    <big_message title="Skaraan Executor B31 Destroyed" subtitle1="70 kilotons" subtitle2=""/>
-    <log text="Skaraan Executor B31 Destroyed"/>
     <set_variable name="B31_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+70"/>
+    <big_message title="Skaraan Executor B31 destroyed" subtitle1="70 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Skaraan Executor B31 destroyed"/>
   </event>
   <event name="B32 Surrendered">
     <if_variable name="Bonus_3" comparator="EQUALS" value="1"/>
     <if_variable name="B32_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B32" comparator="EQUALS" value="1"/>
-    <big_message title="Torgoth Leviathan B32 Surrendered" subtitle1="90 kilotons" subtitle2="+45 kt surrender bonus"/>
-    <log text="Torgoth Leviathan B32 Surrendered"/>
     <set_variable name="B32_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B32"/>
+    <set_variable name="Tonnage" value="Tonnage+90+45"/>
+    <big_message title="Torgoth Leviathan surrendered" subtitle1="90 kilotons" subtitle2="+45 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+135"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Torgoth Leviathan B32 Surrendered"/>
   </event>
   <event name="B32 Destroyed">
     <if_variable name="Bonus_3" comparator="EQUALS" value="1"/>
+    <if_variable name="B32_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B32_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B32"/>
-    <big_message title="Torgoth Leviathan B32 Destroyed" subtitle1="90 kilotons" subtitle2=""/>
-    <log text="Torgoth Leviathan B32 Destroyed"/>
     <set_variable name="B32_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+90"/>
+    <big_message title="Torgoth Leviathan B32 destroyed" subtitle1="90 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Torgoth Leviathan B32 destroyed"/>
   </event>
- <event name="B33 Surrendered">
+  <event name="B33 Surrendered">
     <if_variable name="Bonus_3" comparator="EQUALS" value="1"/>
     <if_variable name="B33_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B33" comparator="EQUALS" value="1"/>
-    <big_message title="Skaraan Executor B33 Surrendered" subtitle1="25 kilotons" subtitle2="+13 kt surrender bonus"/>
-    <log text="Kralien Dreadnought B33 Surrendered"/>
     <set_variable name="B33_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B33"/>
+    <set_variable name="Tonnage" value="Tonnage+25+13"/>
+    <big_message title="Kralien Dreadnought surrendered" subtitle1="25 kilotons" subtitle2="+13 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+38"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Dreadnought B33 Surrendered"/>
   </event>
   <event name="B33 Destroyed">
     <if_variable name="Bonus_3" comparator="EQUALS" value="1"/>
+    <if_variable name="B33_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B33_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B33"/>
-    <big_message title="Kralien Dreadnought B33 Destroyed" subtitle1="25 kilotons" subtitle2=""/>
-    <log text="Kralien Dreadnought B33 Destroyed"/>
     <set_variable name="B33_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+25"/>
+    <big_message title="Kralien Dreadnought B33 destroyed" subtitle1="25 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Dreadnought B33 destroyed"/>
   </event>
- <event name="B34 Surrendered">
+  <event name="B34 Surrendered">
     <if_variable name="Bonus_3" comparator="EQUALS" value="1"/>
     <if_variable name="B34_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B34" comparator="EQUALS" value="1"/>
-    <big_message title="Kralien Battleship B34 Surrendered" subtitle1="17 kilotons" subtitle2="+9 kt surrender bonus"/>
-    <log text="Kralien Battleship B34 Surrendered"/>
     <set_variable name="B34_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B34"/>
+    <set_variable name="Tonnage" value="Tonnage+17+9"/>
+    <big_message title="Kralien Battleship surrendered" subtitle1="17 kilotons" subtitle2="+9 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+26"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Battleship B34 Surrendered"/>
   </event>
   <event name="B34 Destroyed">
     <if_variable name="Bonus_3" comparator="EQUALS" value="1"/>
+    <if_variable name="B34_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B34_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B34"/>
-    <big_message title="Kralien Battleship B34 Destroyed" subtitle1="17 kilotons" subtitle2="+9 kt surrender bonus"/>
-    <log text="Kralien Battleship B34 Destroyed"/>
     <set_variable name="B34_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+26"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <set_variable name="Tonnage" value="Tonnage+17"/>
+    <big_message title="Kralien Battleship B34 destroyed" subtitle1="17 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Battleship B34 destroyed"/>
   </event>
   <event name="B35 Surrendered">
     <if_variable name="Bonus_3" comparator="EQUALS" value="1"/>
     <if_variable name="B35_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B35" comparator="EQUALS" value="1"/>
-    <big_message title="Skaraan Executor B35 Surrendered" subtitle1="9 kilotons" subtitle2="+5 kt surrender bonus"/>
-    <log text="Kralien Cruiser B35 Surrendered"/>
     <set_variable name="B35_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B35"/>
+    <set_variable name="Tonnage" value="Tonnage+9+5"/>
+    <big_message title="Kralien Cruiser surrendered" subtitle1="9 kilotons" subtitle2="+5 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+14"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Cruiser B35 Surrendered"/>
   </event>
   <event name="B35 Destroyed">
     <if_variable name="Bonus_3" comparator="EQUALS" value="1"/>
+    <if_variable name="B35_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B35_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B35"/>
-    <big_message title="Kralien Cruiser B35 Destroyed" subtitle1="9 kilotons" subtitle2=""/>
-    <log text="Kralien Cruiser B35 Destroyed"/>
     <set_variable name="B35_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
+    <big_message title="Kralien Cruiser B35 destroyed" subtitle1="9 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Cruiser B35 destroyed"/>
   </event>
- <event name="B36 Surrendered">
+  <event name="B36 Surrendered">
     <if_variable name="Bonus_3" comparator="EQUALS" value="1"/>
     <if_variable name="B36_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B36" comparator="EQUALS" value="1"/>
-    <big_message title="Kralien Cruiser B36 Surrendered" subtitle1="9 kilotons" subtitle2="+5 kt surrender bonus"/>
-    <log text="Kralien Cruiser B36 Surrendered"/>
     <set_variable name="B36_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B36"/>
+    <set_variable name="Tonnage" value="Tonnage+9+5"/>
+    <big_message title="Kralien Cruiser surrendered" subtitle1="9 kilotons" subtitle2="+5 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+14"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Cruiser B36 Surrendered"/>
   </event>
   <event name="B36 Destroyed">
     <if_variable name="Bonus_3" comparator="EQUALS" value="1"/>
+    <if_variable name="B36_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B36_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B36"/>
-    <big_message title="Kralien Cruiser B36 Destroyed" subtitle1="9 kilotons" subtitle2=""/>
-    <log text="Kralien Cruiser B36 Destroyed"/>
     <set_variable name="B36_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
+    <big_message title="Kralien Cruiser B36 destroyed" subtitle1="9 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Cruiser B36 destroyed"/>
   </event>
- <event name="B37 Surrendered">
+  <event name="B37 Surrendered">
     <if_variable name="Bonus_3" comparator="EQUALS" value="1"/>
     <if_variable name="B37_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B37" comparator="EQUALS" value="1"/>
-    <big_message title="Arvonian Carrier B37 Surrendered" subtitle1="45 kilotons" subtitle2="+23 kt surrender bonus"/>
-    <log text="Arvonian Carrier B37 Surrendered"/>
     <set_variable name="B37_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B37"/>
+    <set_variable name="Tonnage" value="Tonnage+45+23"/>
+    <big_message title="Arvonian Carrier Carrier surrendered" subtitle1="45 kilotons" subtitle2="+23 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+68"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Arvonian Carrier Carrier B37 Surrendered"/>
   </event>
   <event name="B37 Destroyed">
     <if_variable name="Bonus_3" comparator="EQUALS" value="1"/>
+    <if_variable name="B37_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B37_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B37"/>
-    <big_message title="Arvonian Carrier B37 Destroyed" subtitle1="45 kilotons" subtitle2=""/>
-    <log text="Arvonian Carrier B37 Destroyed"/>
     <set_variable name="B37_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+45"/>
+    <big_message title="Arvonian Carrier Carrier B37 destroyed" subtitle1="45 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Arvonian Carrier Carrier B37 destroyed"/>
   </event>
-  
-<!-- ******* Bonus Fleet 2 ***************-->
-<event name="Spawn Bonus Fleet 2">
+  <event name="Spawn Bonus Bonus_2">
     <if_variable name="Bonus_2" comparator="EQUALS" value="0"/>
     <if_not_exists name="21"/>
     <if_not_exists name="22"/>
@@ -820,174 +1007,213 @@
     <if_not_exists name="24"/>
     <if_not_exists name="25"/>
     <if_not_exists name="26"/>
-   <incoming_comms_text from="Enemy Fleet">
+    <incoming_comms_text from="Enemy Fleet">
       Congratulations, Artemis. You collected all of the Cetrocite Crystals. We are sending a bonus fleet for you to fight.
-   </incoming_comms_text>
-
+            </incoming_comms_text>
     <create type="enemy" x="75000" y="0" z="31000" angle="200" name="B21" raceKeys="Skaraan enemy" hullKeys="Executor large" fleetnumber="92"/>
     <create type="enemy" x="75140" y="-200" z="30800" angle="200" name="B22" raceKeys="Torgoth enemy" hullKeys="Behemoth large" fleetnumber="92"/>
-    <create type="enemy" x="75240" y="200" z="30600" angle="200" name="B27" raceKeys="Arvonian enemy" hullKeys="Carrier Carrier" fleetnumber="92"/>
     <create type="enemy" x="74960" y="-200" z="32200" angle="200" name="B23" raceKeys="Kralien enemy" hullKeys="Dreadnought large" fleetnumber="92"/>
     <create type="enemy" x="75240" y="200" z="31300" angle="200" name="B24" raceKeys="Kralien enemy" hullKeys="Battleship medium" fleetnumber="92"/>
     <create type="enemy" x="75540" y="200" z="33333" angle="200" name="B25" raceKeys="Kralien enemy" hullKeys="Cruiser small" fleetnumber="92"/>
     <create type="enemy" x="75040" y="-200" z="33300" angle="200" name="B26" raceKeys="Kralien enemy" hullKeys="Cruiser small" fleetnumber="92"/>
-    <set_special name="B21" ship="-1" captain="5" ability="Warp"/>
-    <set_special name="B21" clear="yes" ability="Teleport"/>
+    <create type="enemy" x="75240" y="200" z="30600" angle="200" name="B27" raceKeys="Arvonian enemy" hullKeys="Carrier Carrier " fleetnumber="92"/>
     <set_special name="B21" clear="yes" ability="Cloak"/>
+    <set_special name="B21" ship="-1" captain="5" ability="Warp"/>
     <set_special name="B21" ability="Tractor"/>
+    <set_special name="B21" clear="yes" ability="Teleport"/>
     <set_special name="B21" ability="Drones"/>
     <set_special name="B21" clear="yes" ability="HET"/>
-    <set_special name="B21" ability="AntiTorp"/>
     <set_special name="B21" clear="yes" ability="AntiMine"/>
+    <set_special name="B21" ability="AntiTorp"/>
     <set_special name="B21" clear="yes" ability="ShldDrain"/>
     <set_special name="B21" clear="yes" ability="ShldVamp"/>
     <set_special name="B21" clear="yes" ability="LowVis"/>
     <set_special name="B21" clear="yes" ability="Stealth"/>
     <set_variable name="Bonus_2" value="1"/>
-</event>
+  </event>
   <event name="B21 Surrendered">
     <if_variable name="Bonus_2" comparator="EQUALS" value="1"/>
     <if_variable name="B21_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B21" comparator="EQUALS" value="1"/>
-    <big_message title="Skaraan Executor B21 Surrendered" subtitle1="70 kilotons" subtitle2="+35 kt surrender bonus"/>
-    <log text="Skaraan Executor B21 Surrendered"/>
     <set_variable name="B21_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B21"/>
+    <set_variable name="Tonnage" value="Tonnage+70+35"/>
+    <big_message title="Skaraan Executor surrendered" subtitle1="70 kilotons" subtitle2="+35 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+105"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Skaraan Executor B21 Surrendered"/>
   </event>
   <event name="B21 Destroyed">
     <if_variable name="Bonus_2" comparator="EQUALS" value="1"/>
+    <if_variable name="B21_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B21_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B21"/>
-    <big_message title="Skaraan Executor B21 Destroyed" subtitle1="70 kilotons" subtitle2=""/>
-    <log text="Skaraan Executor B21 Destroyed"/>
     <set_variable name="B21_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+70"/>
+    <big_message title="Skaraan Executor B21 destroyed" subtitle1="70 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Skaraan Executor B21 destroyed"/>
   </event>
   <event name="B22 Surrendered">
     <if_variable name="Bonus_2" comparator="EQUALS" value="1"/>
     <if_variable name="B22_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B22" comparator="EQUALS" value="1"/>
-    <big_message title="Torgoth Behemoth B22 Surrendered" subtitle1="150 kilotons" subtitle2="+75 kt surrender bonus"/>
-    <log text="Torgoth Behemoth B22 Surrendered"/>
     <set_variable name="B22_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B22"/>
+    <set_variable name="Tonnage" value="Tonnage+150+75"/>
+    <big_message title="Torgoth Behemoth surrendered" subtitle1="150 kilotons" subtitle2="+75 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+225"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Torgoth Behemoth B22 Surrendered"/>
   </event>
   <event name="B22 Destroyed">
     <if_variable name="Bonus_2" comparator="EQUALS" value="1"/>
+    <if_variable name="B22_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B22_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B22"/>
-    <big_message title="Torgoth Behemoth B22 Destroyed" subtitle1="150 kilotons" subtitle2=""/>
-    <log text="Torgoth Behemoth B22 Destroyed"/>
     <set_variable name="B22_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+150"/>
+    <big_message title="Torgoth Behemoth B22 destroyed" subtitle1="150 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Torgoth Behemoth B22 destroyed"/>
   </event>
- <event name="B23 Surrendered">
+  <event name="B23 Surrendered">
     <if_variable name="Bonus_2" comparator="EQUALS" value="1"/>
     <if_variable name="B23_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B23" comparator="EQUALS" value="1"/>
-    <big_message title="Skaraan Executor B23 Surrendered" subtitle1="25 kilotons" subtitle2="+13 kt surrender bonus"/>
-    <log text="Kralien Dreadnought B23 Surrendered"/>
     <set_variable name="B23_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B23"/>
+    <set_variable name="Tonnage" value="Tonnage+25+13"/>
+    <big_message title="Kralien Dreadnought surrendered" subtitle1="25 kilotons" subtitle2="+13 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+38"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Dreadnought B23 Surrendered"/>
   </event>
   <event name="B23 Destroyed">
     <if_variable name="Bonus_2" comparator="EQUALS" value="1"/>
+    <if_variable name="B23_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B23_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B23"/>
-    <big_message title="Kralien Dreadnought B23 Destroyed" subtitle1="25 kilotons" subtitle2=""/>
-    <log text="Kralien Dreadnought B23 Destroyed"/>
     <set_variable name="B23_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+25"/>
+    <big_message title="Kralien Dreadnought B23 destroyed" subtitle1="25 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Dreadnought B23 destroyed"/>
   </event>
- <event name="B24 Surrendered">
+  <event name="B24 Surrendered">
     <if_variable name="Bonus_2" comparator="EQUALS" value="1"/>
     <if_variable name="B24_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B24" comparator="EQUALS" value="1"/>
-    <big_message title="Kralien Battleship B24 Surrendered" subtitle1="17 kilotons" subtitle2="+9 kt surrender bonus"/>
-    <log text="Kralien Battleship B24 Surrendered"/>
     <set_variable name="B24_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B24"/>
+    <set_variable name="Tonnage" value="Tonnage+17+9"/>
+    <big_message title="Kralien Battleship surrendered" subtitle1="17 kilotons" subtitle2="+9 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+26"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Battleship B24 Surrendered"/>
   </event>
   <event name="B24 Destroyed">
     <if_variable name="Bonus_2" comparator="EQUALS" value="1"/>
+    <if_variable name="B24_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B24_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B24"/>
-    <big_message title="Kralien Battleship B24 Destroyed" subtitle1="17 kilotons" subtitle2=""/>
-    <log text="Kralien Battleship B24 Destroyed"/>
     <set_variable name="B24_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+17"/>
+    <big_message title="Kralien Battleship B24 destroyed" subtitle1="17 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Battleship B24 destroyed"/>
   </event>
   <event name="B25 Surrendered">
     <if_variable name="Bonus_2" comparator="EQUALS" value="1"/>
     <if_variable name="B25_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B25" comparator="EQUALS" value="1"/>
-    <big_message title="Skaraan Executor B25 Surrendered" subtitle1="9 kilotons" subtitle2="+5 kt surrender bonus"/>
-    <log text="Kralien Cruiser B25 Surrendered"/>
     <set_variable name="B25_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B25"/>
+    <set_variable name="Tonnage" value="Tonnage+9+5"/>
+    <big_message title="Kralien Cruiser surrendered" subtitle1="9 kilotons" subtitle2="+5 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+14"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Cruiser B25 Surrendered"/>
   </event>
   <event name="B25 Destroyed">
     <if_variable name="Bonus_2" comparator="EQUALS" value="1"/>
+    <if_variable name="B25_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B25_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B25"/>
-    <big_message title="Kralien Cruiser B25 Destroyed" subtitle1="9 kilotons" subtitle2=""/>
-    <log text="Kralien Cruiser B25 Destroyed"/>
     <set_variable name="B25_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
+    <big_message title="Kralien Cruiser B25 destroyed" subtitle1="9 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Cruiser B25 destroyed"/>
   </event>
- <event name="B26 Surrendered">
+  <event name="B26 Surrendered">
     <if_variable name="Bonus_2" comparator="EQUALS" value="1"/>
     <if_variable name="B26_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B26" comparator="EQUALS" value="1"/>
-    <big_message title="Kralien Cruiser B26 Surrendered" subtitle1="9 kilotons" subtitle2="+5 kt surrender bonus"/>
-    <log text="Kralien Cruiser B26 Surrendered"/>
     <set_variable name="B26_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B26"/>
+    <set_variable name="Tonnage" value="Tonnage+9+5"/>
+    <big_message title="Kralien Cruiser surrendered" subtitle1="9 kilotons" subtitle2="+5 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+14"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Cruiser B26 Surrendered"/>
   </event>
   <event name="B26 Destroyed">
     <if_variable name="Bonus_2" comparator="EQUALS" value="1"/>
+    <if_variable name="B26_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B26_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B26"/>
-    <big_message title="Kralien Cruiser B26 Destroyed" subtitle1="9 kilotons" subtitle2=""/>
-    <log text="Kralien Cruiser B26 Destroyed"/>
     <set_variable name="B26_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
+    <big_message title="Kralien Cruiser B26 destroyed" subtitle1="9 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Cruiser B26 destroyed"/>
   </event>
- <event name="B27 Surrendered">
+  <event name="B27 Surrendered">
     <if_variable name="Bonus_2" comparator="EQUALS" value="1"/>
     <if_variable name="B27_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B27" comparator="EQUALS" value="1"/>
-    <big_message title="Arvonian Carrier B27 Surrendered" subtitle1="45 kilotons" subtitle2="+23 kt surrender bonus"/>
-    <log text="Arvonian Carrier B27 Surrendered"/>
     <set_variable name="B27_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B27"/>
+    <set_variable name="Tonnage" value="Tonnage+45+23"/>
+    <big_message title="Arvonian Carrier Carrier surrendered" subtitle1="45 kilotons" subtitle2="+23 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+68"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Arvonian Carrier Carrier B27 Surrendered"/>
   </event>
   <event name="B27 Destroyed">
     <if_variable name="Bonus_2" comparator="EQUALS" value="1"/>
+    <if_variable name="B27_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B27_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B27"/>
-    <big_message title="Arvonian Carrier B27 Destroyed" subtitle1="45 kilotons" subtitle2=""/>
-    <log text="Arvonian Carrier B27 Destroyed"/>
     <set_variable name="B27_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+45"/>
+    <big_message title="Arvonian Carrier Carrier B27 destroyed" subtitle1="45 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Arvonian Carrier Carrier B27 destroyed"/>
   </event>
-
-<!-- ******* Bonus Fleet 1 ***************-->
-<event name="Spawn Bonus Fleet 1">
+  <event name="Spawn Bonus Bonus_1">
     <if_variable name="Bonus_1" comparator="EQUALS" value="0"/>
     <if_not_exists name="11"/>
     <if_not_exists name="12"/>
@@ -996,390 +1222,477 @@
     <if_not_exists name="15"/>
     <if_not_exists name="16"/>
     <if_not_exists name="17"/>
-   <incoming_comms_text from="Enemy Fleet">
+    <incoming_comms_text from="Enemy Fleet">
       Congratulations, Artemis. You collected all of the Cetrocite Crystals. We are sending a bonus fleet for you to fight.
-   </incoming_comms_text>
-
+            </incoming_comms_text>
     <create type="enemy" x="66000" y="0" z="31000" angle="200" name="B11" raceKeys="Skaraan enemy" hullKeys="Executor large" fleetnumber="91"/>
     <create type="enemy" x="66140" y="-200" z="30800" angle="200" name="B12" raceKeys="Torgoth enemy" hullKeys="Behemoth large" fleetnumber="91"/>
-    <create type="enemy" x="66040" y="200" z="30700" angle="200" name="B17" raceKeys="Arvonian enemy" hullKeys="Carrier Carrier" fleetnumber="91"/>
     <create type="enemy" x="66960" y="-200" z="32200" angle="200" name="B13" raceKeys="Kralien enemy" hullKeys="Dreadnought large" fleetnumber="91"/>
     <create type="enemy" x="66540" y="200" z="31300" angle="200" name="B14" raceKeys="Kralien enemy" hullKeys="Battleship medium" fleetnumber="91"/>
-    <create type="enemy" x="66540" y="-200" z="30250" angle="200" name="B18" raceKeys="Kralien enemy" hullKeys="Battleship medium" fleetnumber="91"/>
     <create type="enemy" x="66640" y="200" z="33300" angle="200" name="B15" raceKeys="Kralien enemy" hullKeys="Cruiser small" fleetnumber="91"/>
     <create type="enemy" x="66740" y="-200" z="33400" angle="200" name="B16" raceKeys="Kralien enemy" hullKeys="Cruiser small" fleetnumber="91"/>
-    <set_special name="B11" ship="-1" captain="5" ability="Warp"/>
-    <set_special name="B11" clear="yes" ability="Teleport"/>
+    <create type="enemy" x="66040" y="200" z="30700" angle="200" name="B17" raceKeys="Arvonian enemy" hullKeys="Carrier Carrier" fleetnumber="91"/>
+    <create type="enemy" x="66540" y="-200" z="30250" angle="200" name="B18" raceKeys="Kralien enemy" hullKeys="Battleship medium" fleetnumber="91"/>
     <set_special name="B11" clear="yes" ability="Cloak"/>
+    <set_special name="B11" ship="-1" captain="5" ability="Warp"/>
     <set_special name="B11" ability="Tractor"/>
+    <set_special name="B11" clear="yes" ability="Teleport"/>
     <set_special name="B11" ability="Drones"/>
     <set_special name="B11" clear="yes" ability="HET"/>
-    <set_special name="B11" ability="AntiTorp"/>
     <set_special name="B11" clear="yes" ability="AntiMine"/>
+    <set_special name="B11" ability="AntiTorp"/>
     <set_special name="B11" clear="yes" ability="ShldDrain"/>
     <set_special name="B11" clear="yes" ability="ShldVamp"/>
     <set_special name="B11" clear="yes" ability="LowVis"/>
     <set_special name="B11" clear="yes" ability="Stealth"/>
     <set_variable name="Bonus_1" value="1"/>
-</event>
+  </event>
   <event name="B11 Surrendered">
     <if_variable name="Bonus_1" comparator="EQUALS" value="1"/>
     <if_variable name="B11_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B11" comparator="EQUALS" value="1"/>
-    <big_message title="Skaraan Executor B11 Surrendered" subtitle1="70 kilotons" subtitle2="+35 kt surrender bonus"/>
-    <log text="Skaraan Executor B11 Surrendered"/>
     <set_variable name="B11_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B11"/>
+    <set_variable name="Tonnage" value="Tonnage+70+35"/>
+    <big_message title="Skaraan Executor surrendered" subtitle1="70 kilotons" subtitle2="+35 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+105"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Skaraan Executor B11 Surrendered"/>
   </event>
   <event name="B11 Destroyed">
     <if_variable name="Bonus_1" comparator="EQUALS" value="1"/>
+    <if_variable name="B11_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B11_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B11"/>
-    <big_message title="Skaraan Executor B11 Destroyed" subtitle1="70 kilotons" subtitle2=""/>
-    <log text="Skaraan Executor B11 Destroyed"/>
     <set_variable name="B11_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+70"/>
+    <big_message title="Skaraan Executor B11 destroyed" subtitle1="70 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Skaraan Executor B11 destroyed"/>
   </event>
   <event name="B12 Surrendered">
     <if_variable name="Bonus_1" comparator="EQUALS" value="1"/>
     <if_variable name="B12_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B12" comparator="EQUALS" value="1"/>
-    <big_message title="Torgoth Behemoth B12 Surrendered" subtitle1="150 kilotons" subtitle2="+75 kt surrender bonus"/>
-    <log text="Torgoth Behemoth B12 Surrendered"/>
     <set_variable name="B12_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B12"/>
+    <set_variable name="Tonnage" value="Tonnage+150+75"/>
+    <big_message title="Torgoth Behemoth surrendered" subtitle1="150 kilotons" subtitle2="+75 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+225"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Torgoth Behemoth B12 Surrendered"/>
   </event>
   <event name="B12 Destroyed">
     <if_variable name="Bonus_1" comparator="EQUALS" value="1"/>
+    <if_variable name="B12_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B12_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B12"/>
-    <big_message title="Torgoth Behemoth B12 Destroyed" subtitle1="150 kilotons" subtitle2=""/>
-    <log text="Torgoth Behemoth B12 Destroyed"/>
     <set_variable name="B12_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+150"/>
+    <big_message title="Torgoth Behemoth B12 destroyed" subtitle1="150 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Torgoth Behemoth B12 destroyed"/>
   </event>
- <event name="B13 Surrendered">
+  <event name="B13 Surrendered">
     <if_variable name="Bonus_1" comparator="EQUALS" value="1"/>
     <if_variable name="B13_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B13" comparator="EQUALS" value="1"/>
-    <big_message title="Skaraan Executor B13 Surrendered" subtitle1="25 kilotons" subtitle2="+13 kt surrender bonus"/>
-    <log text="Kralien Dreadnought B13 Surrendered"/>
     <set_variable name="B13_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B13"/>
+    <set_variable name="Tonnage" value="Tonnage+25+13"/>
+    <big_message title="Kralien Dreadnought surrendered" subtitle1="25 kilotons" subtitle2="+13 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+38"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Dreadnought B13 Surrendered"/>
   </event>
   <event name="B13 Destroyed">
     <if_variable name="Bonus_1" comparator="EQUALS" value="1"/>
+    <if_variable name="B13_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B13_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B13"/>
-    <big_message title="Kralien Dreadnought B13 Destroyed" subtitle1="25 kilotons" subtitle2=""/>
-    <log text="Kralien Dreadnought B13 Destroyed"/>
     <set_variable name="B13_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+25"/>
+    <big_message title="Kralien Dreadnought B13 destroyed" subtitle1="25 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Dreadnought B13 destroyed"/>
   </event>
- <event name="B14 Surrendered">
+  <event name="B14 Surrendered">
     <if_variable name="Bonus_1" comparator="EQUALS" value="1"/>
     <if_variable name="B14_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B14" comparator="EQUALS" value="1"/>
-    <big_message title="Skaraan Executor B14 Surrendered" subtitle1="17 kilotons" subtitle2="+9 kt surrender bonus"/>
-    <log text="Kralien Battleship B14 Surrendered"/>
     <set_variable name="B14_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B14"/>
+    <set_variable name="Tonnage" value="Tonnage+17+9"/>
+    <big_message title="Kralien Battleship surrendered" subtitle1="17 kilotons" subtitle2="+9 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+26"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Battleship B14 Surrendered"/>
   </event>
   <event name="B14 Destroyed">
     <if_variable name="Bonus_1" comparator="EQUALS" value="1"/>
+    <if_variable name="B14_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B14_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B14"/>
-    <big_message title="Kralien Battleship B14 Destroyed" subtitle1="17 kilotons" subtitle2=""/>
-    <log text="Kralien Battleship B14 Destroyed"/>
     <set_variable name="B14_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+17"/>
-  </event>
- <event name="B18 Surrendered">
-    <if_variable name="Bonus_1" comparator="EQUALS" value="1"/>
-    <if_variable name="B18_surrendered" comparator="EQUALS" value="0"/>
-    <if_object_property property="hasSurrendered" name="B18" comparator="EQUALS" value="1"/>
-    <big_message title="Kralien Battleship B18 Surrendered" subtitle1="17 kilotons" subtitle2="+9 kt surrender bonus"/>
-    <log text="Kralien Battleship B18 Surrendered"/>
-    <set_variable name="B18_surrendered" value="1"/>
+    <big_message title="Kralien Battleship B14 destroyed" subtitle1="17 kilotons" subtitle2=""/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+26"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Battleship B14 destroyed"/>
   </event>
-  <event name="B18 Destroyed">
-    <if_variable name="Bonus_1" comparator="EQUALS" value="1"/>
-    <if_variable name="B18_dead" comparator="EQUALS" value="0"/>
-    <if_not_exists name="B18"/>
-    <big_message title="Kralien Battleship B18 Destroyed" subtitle1="17 kilotons" subtitle2=""/>
-    <log text="Kralien Battleship B18 Destroyed"/>
-    <set_variable name="B18_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+17"/>
-  </event>
-
   <event name="B15 Surrendered">
     <if_variable name="Bonus_1" comparator="EQUALS" value="1"/>
     <if_variable name="B15_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B15" comparator="EQUALS" value="1"/>
-    <big_message title="Skaraan Executor B15 Surrendered" subtitle1="9 kilotons" subtitle2="+5 kt surrender bonus"/>
-    <log text="Kralien Cruiser B15 Surrendered"/>
     <set_variable name="B15_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B15"/>
+    <set_variable name="Tonnage" value="Tonnage+9+5"/>
+    <big_message title="Kralien Cruiser surrendered" subtitle1="9 kilotons" subtitle2="+5 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+14"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Cruiser B15 Surrendered"/>
   </event>
   <event name="B15 Destroyed">
     <if_variable name="Bonus_1" comparator="EQUALS" value="1"/>
+    <if_variable name="B15_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B15_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B15"/>
-    <big_message title="Kralien Cruiser B15 Destroyed" subtitle1="9 kilotons" subtitle2=""/>
-    <log text="Kralien Cruiser B15 Destroyed"/>
     <set_variable name="B15_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
+    <big_message title="Kralien Cruiser B15 destroyed" subtitle1="9 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Cruiser B15 destroyed"/>
   </event>
- <event name="B16 Surrendered">
+  <event name="B16 Surrendered">
     <if_variable name="Bonus_1" comparator="EQUALS" value="1"/>
     <if_variable name="B16_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B16" comparator="EQUALS" value="1"/>
-    <big_message title="Kralien Cruiser B16 Surrendered" subtitle1="9 kilotons" subtitle2="+5 kt surrender bonus"/>
-    <log text="Kralien Cruiser B16 Surrendered"/>
     <set_variable name="B16_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B16"/>
+    <set_variable name="Tonnage" value="Tonnage+9+5"/>
+    <big_message title="Kralien Cruiser surrendered" subtitle1="9 kilotons" subtitle2="+5 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+14"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Cruiser B16 Surrendered"/>
   </event>
   <event name="B16 Destroyed">
     <if_variable name="Bonus_1" comparator="EQUALS" value="1"/>
+    <if_variable name="B16_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B16_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B16"/>
-    <big_message title="Kralien Cruiser B16 Destroyed" subtitle1="9 kilotons" subtitle2=""/>
-    <log text="Kralien Cruiser B16 Destroyed"/>
     <set_variable name="B16_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
+    <big_message title="Kralien Cruiser B16 destroyed" subtitle1="9 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Cruiser B16 destroyed"/>
   </event>
- <event name="B17 Surrendered">
+  <event name="B17 Surrendered">
     <if_variable name="Bonus_1" comparator="EQUALS" value="1"/>
     <if_variable name="B17_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B17" comparator="EQUALS" value="1"/>
-    <big_message title="Arvonian Carrier B17 Surrendered" subtitle1="45 kilotons" subtitle2="+23 kt surrender bonus"/>
-    <log text="Arvonian Carrier B17 Surrendered"/>
     <set_variable name="B17_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B17"/>
+    <set_variable name="Tonnage" value="Tonnage+45+23"/>
+    <big_message title="Arvonian Carrier surrendered" subtitle1="45 kilotons" subtitle2="+23 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+68"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Arvonian Carrier B17 Surrendered"/>
   </event>
   <event name="B17 Destroyed">
     <if_variable name="Bonus_1" comparator="EQUALS" value="1"/>
+    <if_variable name="B17_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B17_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B17"/>
-    <big_message title="Arvonian Carrier B17 Destroyed" subtitle1="45 kilotons" subtitle2=""/>
-    <log text="Arvonian Carrier B17 Destroyed"/>
     <set_variable name="B17_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+45"/>
+    <big_message title="Arvonian Carrier B17 destroyed" subtitle1="45 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Arvonian Carrier B17 destroyed"/>
   </event>
-  
-<!-- ******* Bonus Fleet 0 ***************-->
-<event name="Spawn Bonus Fleet 0">
+  <event name="B18 Surrendered">
+    <if_variable name="Bonus_1" comparator="EQUALS" value="1"/>
+    <if_variable name="B18_surrendered" comparator="EQUALS" value="0"/>
+    <if_object_property property="hasSurrendered" name="B18" comparator="EQUALS" value="1"/>
+    <set_variable name="B18_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B18"/>
+    <set_variable name="Tonnage" value="Tonnage+17+9"/>
+    <big_message title="Kralien Battleship surrendered" subtitle1="17 kilotons" subtitle2="+9 kt surrender bonus"/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Battleship B18 Surrendered"/>
+  </event>
+  <event name="B18 Destroyed">
+    <if_variable name="Bonus_1" comparator="EQUALS" value="1"/>
+    <if_variable name="B18_surrendered" comparator="EQUALS" value="0"/>
+    <if_variable name="B18_dead" comparator="EQUALS" value="0"/>
+    <if_not_exists name="B18"/>
+    <set_variable name="B18_dead" value="1"/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <set_variable name="Tonnage" value="Tonnage+17"/>
+    <big_message title="Kralien Battleship B18 destroyed" subtitle1="17 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Battleship B18 destroyed"/>
+  </event>
+  <event name="Spawn Bonus Bonus_0">
     <if_variable name="Bonus_0" comparator="EQUALS" value="0"/>
-    <if_not_exists name="01"/>
-    <if_not_exists name="02"/>
-    <if_not_exists name="03"/>
-    <if_not_exists name="04"/>
-    <if_not_exists name="05"/>
-    <if_not_exists name="06"/>
-    <if_not_exists name="07"/>
-    <if_not_exists name="08"/>
-   <incoming_comms_text from="Enemy Fleet">
+    <if_not_exists name="31"/>
+    <if_not_exists name="32"/>
+    <if_not_exists name="33"/>
+    <if_not_exists name="34"/>
+    <if_not_exists name="35"/>
+    <incoming_comms_text from="Enemy Fleet">
       Congratulations, Artemis. You collected all of the High Density Power Cells. We are sending a bonus fleet for you to fight.
-   </incoming_comms_text>
-
+            </incoming_comms_text>
     <create type="enemy" x="26000" y="0" z="32000" angle="200" name="B01" raceKeys="Skaraan enemy" hullKeys="Executor large" fleetnumber="90"/>
     <create type="enemy" x="26140" y="-200" z="31800" angle="200" name="B02" raceKeys="Torgoth enemy" hullKeys="Behemoth large" fleetnumber="90"/>
-    <create type="enemy" x="26040" y="200" z="31700" angle="200" name="B07" raceKeys="Arvonian enemy" hullKeys="Carrier Carrier" fleetnumber="90"/>
     <create type="enemy" x="26960" y="-200" z="33200" angle="200" name="B03" raceKeys="Kralien enemy" hullKeys="Dreadnought large" fleetnumber="90"/>
     <create type="enemy" x="26540" y="200" z="32300" angle="200" name="B04" raceKeys="Kralien enemy" hullKeys="Battleship medium" fleetnumber="90"/>
-    <create type="enemy" x="26540" y="-200" z="31250" angle="200" name="B08" raceKeys="Kralien enemy" hullKeys="Battleship medium" fleetnumber="90"/>
     <create type="enemy" x="26640" y="200" z="34300" angle="200" name="B05" raceKeys="Kralien enemy" hullKeys="Cruiser small" fleetnumber="90"/>
     <create type="enemy" x="26740" y="-200" z="34400" angle="200" name="B06" raceKeys="Kralien enemy" hullKeys="Cruiser small" fleetnumber="90"/>
-    <set_special name="B01" ship="-1" captain="5" ability="Warp"/>
-    <set_special name="B01" ability="Teleport"/>
+    <create type="enemy" x="26040" y="200" z="31700" angle="200" name="B07" raceKeys="Arvonian enemy" hullKeys="Carrier Carrier" fleetnumber="90"/>
+    <create type="enemy" x="26540" y="-200" z="31250" angle="200" name="B08" raceKeys="Kralien enemy" hullKeys="Battleship medium" fleetnumber="90"/>
     <set_special name="B01" ability="Cloak"/>
+    <set_special name="B01" ship="-1" captain="5" ability="Warp"/>
     <set_special name="B01" ability="Tractor"/>
+    <set_special name="B01" ability="Teleport"/>
     <set_special name="B01" ability="Drones"/>
     <set_special name="B01" clear="yes" ability="HET"/>
-    <set_special name="B01" ability="AntiTorp"/>
     <set_special name="B01" ability="AntiMine"/>
+    <set_special name="B01" ability="AntiTorp"/>
     <set_special name="B01" ability="ShldDrain"/>
     <set_special name="B01" ability="ShldVamp"/>
     <set_special name="B01" clear="yes" ability="LowVis"/>
     <set_special name="B01" clear="yes" ability="Stealth"/>
     <set_variable name="Bonus_0" value="1"/>
-</event>
+  </event>
   <event name="B01 Surrendered">
     <if_variable name="Bonus_0" comparator="EQUALS" value="1"/>
     <if_variable name="B01_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B01" comparator="EQUALS" value="1"/>
-    <big_message title="Skaraan Executor B01 Surrendered" subtitle1="70 kilotons" subtitle2="+35 kt surrender bonus"/>
-    <log text="Skaraan Executor B01 Surrendered"/>
     <set_variable name="B01_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B01"/>
+    <set_variable name="Tonnage" value="Tonnage+70+35"/>
+    <big_message title="Skaraan Executor surrendered" subtitle1="70 kilotons" subtitle2="+35 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+105"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Skaraan Executor B01 Surrendered"/>
   </event>
   <event name="B01 Destroyed">
     <if_variable name="Bonus_0" comparator="EQUALS" value="1"/>
+    <if_variable name="B01_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B01_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B01"/>
-    <big_message title="Skaraan Executor B01 Destroyed" subtitle1="70 kilotons" subtitle2=""/>
-    <log text="Skaraan Executor B01 Destroyed"/>
     <set_variable name="B01_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+70"/>
+    <big_message title="Skaraan Executor B01 destroyed" subtitle1="70 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Skaraan Executor B01 destroyed"/>
   </event>
   <event name="B02 Surrendered">
     <if_variable name="Bonus_0" comparator="EQUALS" value="1"/>
     <if_variable name="B02_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B02" comparator="EQUALS" value="1"/>
-    <big_message title="Torgoth Behemoth B02 Surrendered" subtitle1="150 kilotons" subtitle2="+75 kt surrender bonus"/>
-    <log text="Torgoth Behemoth B02 Surrendered"/>
     <set_variable name="B02_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B02"/>
+    <set_variable name="Tonnage" value="Tonnage+150+75"/>
+    <big_message title="Torgoth Behemoth surrendered" subtitle1="150 kilotons" subtitle2="+75 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+225"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Torgoth Behemoth B02 Surrendered"/>
   </event>
   <event name="B02 Destroyed">
     <if_variable name="Bonus_0" comparator="EQUALS" value="1"/>
+    <if_variable name="B02_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B02_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B02"/>
-    <big_message title="Torgoth Behemoth B02 Destroyed" subtitle1="150 kilotons" subtitle2=""/>
-    <log text="Torgoth Behemoth B02 Destroyed"/>
     <set_variable name="B02_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+150"/>
+    <big_message title="Torgoth Behemoth B02 destroyed" subtitle1="150 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Torgoth Behemoth B02 destroyed"/>
   </event>
- <event name="B03 Surrendered">
+  <event name="B03 Surrendered">
     <if_variable name="Bonus_0" comparator="EQUALS" value="1"/>
     <if_variable name="B03_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B03" comparator="EQUALS" value="1"/>
-    <big_message title="Skaraan Executor B03 Surrendered" subtitle1="25 kilotons" subtitle2="+13 kt surrender bonus"/>
-    <log text="Kralien Dreadnought B03 Surrendered"/>
     <set_variable name="B03_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B03"/>
+    <set_variable name="Tonnage" value="Tonnage+25+13"/>
+    <big_message title="Kralien Dreadnought surrendered" subtitle1="25 kilotons" subtitle2="+13 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+38"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Dreadnought B03 Surrendered"/>
   </event>
   <event name="B03 Destroyed">
     <if_variable name="Bonus_0" comparator="EQUALS" value="1"/>
+    <if_variable name="B03_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B03_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B03"/>
-    <big_message title="Kralien Dreadnought B03 Destroyed" subtitle1="25 kilotons" subtitle2=""/>
-    <log text="Kralien Dreadnought B03 Destroyed"/>
     <set_variable name="B03_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+25"/>
+    <big_message title="Kralien Dreadnought B03 destroyed" subtitle1="25 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Dreadnought B03 destroyed"/>
   </event>
- <event name="B04 Surrendered">
+  <event name="B04 Surrendered">
     <if_variable name="Bonus_0" comparator="EQUALS" value="1"/>
     <if_variable name="B04_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B04" comparator="EQUALS" value="1"/>
-    <big_message title="Skaraan Executor B04 Surrendered" subtitle1="17 kilotons" subtitle2="+9 kt surrender bonus"/>
-    <log text="Kralien Battleship B04 Surrendered"/>
     <set_variable name="B04_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B04"/>
+    <set_variable name="Tonnage" value="Tonnage+17+9"/>
+    <big_message title="Kralien Battleship surrendered" subtitle1="17 kilotons" subtitle2="+9 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+26"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Battleship B04 Surrendered"/>
   </event>
   <event name="B04 Destroyed">
     <if_variable name="Bonus_0" comparator="EQUALS" value="1"/>
+    <if_variable name="B04_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B04_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B04"/>
-    <big_message title="Kralien Battleship B04 Destroyed" subtitle1="17 kilotons" subtitle2=""/>
-    <log text="Kralien Battleship B04 Destroyed"/>
     <set_variable name="B04_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+17"/>
-  </event>
- <event name="B08 Surrendered">
-    <if_variable name="Bonus_0" comparator="EQUALS" value="1"/>
-    <if_variable name="B08_surrendered" comparator="EQUALS" value="0"/>
-    <if_object_property property="hasSurrendered" name="B08" comparator="EQUALS" value="1"/>
-    <big_message title="Kralien Battleship B08 Surrendered" subtitle1="17 kilotons" subtitle2="+9 kt surrender bonus"/>
-    <log text="Kralien Battleship B08 Surrendered"/>
-    <set_variable name="B08_surrendered" value="1"/>
+    <big_message title="Kralien Battleship B04 destroyed" subtitle1="17 kilotons" subtitle2=""/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+26"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Battleship B04 destroyed"/>
   </event>
-  <event name="B08 Destroyed">
-    <if_variable name="Bonus_0" comparator="EQUALS" value="1"/>
-    <if_variable name="B08_dead" comparator="EQUALS" value="0"/>
-    <if_not_exists name="B08"/>
-    <big_message title="Kralien Battleship B08 Destroyed" subtitle1="17 kilotons" subtitle2=""/>
-    <log text="Kralien Battleship B08 Destroyed"/>
-    <set_variable name="B08_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+17"/>
-  </event>
-
   <event name="B05 Surrendered">
     <if_variable name="Bonus_0" comparator="EQUALS" value="1"/>
     <if_variable name="B05_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B05" comparator="EQUALS" value="1"/>
-    <big_message title="Skaraan Executor B05 Surrendered" subtitle1="9 kilotons" subtitle2="+5 kt surrender bonus"/>
-    <log text="Kralien Cruiser B05 Surrendered"/>
     <set_variable name="B05_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B05"/>
+    <set_variable name="Tonnage" value="Tonnage+9+5"/>
+    <big_message title="Kralien Cruiser surrendered" subtitle1="9 kilotons" subtitle2="+5 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+14"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Cruiser B05 Surrendered"/>
   </event>
   <event name="B05 Destroyed">
     <if_variable name="Bonus_0" comparator="EQUALS" value="1"/>
+    <if_variable name="B05_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B05_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B05"/>
-    <big_message title="Kralien Cruiser B05 Destroyed" subtitle1="9 kilotons" subtitle2=""/>
-    <log text="Kralien Cruiser B05 Destroyed"/>
     <set_variable name="B05_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
+    <big_message title="Kralien Cruiser B05 destroyed" subtitle1="9 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Cruiser B05 destroyed"/>
   </event>
- <event name="B06 Surrendered">
+  <event name="B06 Surrendered">
     <if_variable name="Bonus_0" comparator="EQUALS" value="1"/>
     <if_variable name="B06_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B06" comparator="EQUALS" value="1"/>
-    <big_message title="Kralien Cruiser B06 Surrendered" subtitle1="9 kilotons" subtitle2="+5 kt surrender bonus"/>
-    <log text="Kralien Cruiser B06 Surrendered"/>
     <set_variable name="B06_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B06"/>
+    <set_variable name="Tonnage" value="Tonnage+9+5"/>
+    <big_message title="Kralien Cruiser surrendered" subtitle1="9 kilotons" subtitle2="+5 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+14"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Cruiser B06 Surrendered"/>
   </event>
   <event name="B06 Destroyed">
     <if_variable name="Bonus_0" comparator="EQUALS" value="1"/>
+    <if_variable name="B06_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B06_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B06"/>
-    <big_message title="Kralien Cruiser B06 Destroyed" subtitle1="9 kilotons" subtitle2=""/>
-    <log text="Kralien Cruiser B06 Destroyed"/>
     <set_variable name="B06_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
+    <big_message title="Kralien Cruiser B06 destroyed" subtitle1="9 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Cruiser B06 destroyed"/>
   </event>
- <event name="B07 Surrendered">
+  <event name="B07 Surrendered">
     <if_variable name="Bonus_0" comparator="EQUALS" value="1"/>
     <if_variable name="B07_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="B07" comparator="EQUALS" value="1"/>
-    <big_message title="Arvonian Carrier B07 Surrendered" subtitle1="45 kilotons" subtitle2="+23 kt surrender bonus"/>
-    <log text="Arvonian Carrier B07 Surrendered"/>
     <set_variable name="B07_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B07"/>
+    <set_variable name="Tonnage" value="Tonnage+45+23"/>
+    <big_message title="Arvonian Carrier surrendered" subtitle1="45 kilotons" subtitle2="+23 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage+68"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Arvonian Carrier B07 Surrendered"/>
   </event>
   <event name="B07 Destroyed">
     <if_variable name="Bonus_0" comparator="EQUALS" value="1"/>
+    <if_variable name="B07_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="B07_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B07"/>
-    <big_message title="Arvonian Carrier B07 Destroyed" subtitle1="45 kilotons" subtitle2=""/>
-    <log text="Arvonian Carrier B07 Destroyed"/>
     <set_variable name="B07_dead" value="1"/>
     <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+45"/>
+    <big_message title="Arvonian Carrier B07 destroyed" subtitle1="45 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Arvonian Carrier B07 destroyed"/>
+  </event>
+  <event name="B08 Surrendered">
+    <if_variable name="Bonus_0" comparator="EQUALS" value="1"/>
+    <if_variable name="B08_surrendered" comparator="EQUALS" value="0"/>
+    <if_object_property property="hasSurrendered" name="B08" comparator="EQUALS" value="1"/>
+    <set_variable name="B08_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="B08"/>
+    <set_variable name="Tonnage" value="Tonnage+17+9"/>
+    <big_message title="Kralien Battleship surrendered" subtitle1="17 kilotons" subtitle2="+9 kt surrender bonus"/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Battleship B08 Surrendered"/>
+  </event>
+  <event name="B08 Destroyed">
+    <if_variable name="Bonus_0" comparator="EQUALS" value="1"/>
+    <if_variable name="B08_surrendered" comparator="EQUALS" value="0"/>
+    <if_variable name="B08_dead" comparator="EQUALS" value="0"/>
+    <if_not_exists name="B08"/>
+    <set_variable name="B08_dead" value="1"/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <set_variable name="Tonnage" value="Tonnage+17"/>
+    <big_message title="Kralien Battleship B08 destroyed" subtitle1="17 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Battleship B08 destroyed"/>
   </event>
 </mission_data>

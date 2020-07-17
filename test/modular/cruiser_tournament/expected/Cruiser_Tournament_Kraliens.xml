@@ -1,0 +1,472 @@
+<mission_data version="1.0">
+  <start>
+    <create type="enemy" x="40300.0" y="0.0" z="52300.0" angle="45" name="K00" raceKeys="Kralien enemy" hullKeys="small Cruiser" fleetnumber="68"/>
+    <create type="enemy" x="40300.0" y="0.0" z="52000.0" angle="45" name="K01" raceKeys="Kralien enemy" hullKeys="small Cruiser" fleetnumber="68"/>
+    <create type="enemy" x="40000.0" y="0.0" z="52000.0" angle="45" name="K02" raceKeys="Kralien enemy" hullKeys="small Cruiser" fleetnumber="68"/>
+    <create type="enemy" x="60000.0" y="0.0" z="47000.0" angle="180" name="K04" raceKeys="Kralien enemy" hullKeys="medium Battleship" fleetnumber="69"/>
+    <create type="enemy" x="60700.0" y="0.0" z="47000.0" angle="180" name="K05" raceKeys="Kralien enemy" hullKeys="medium Battleship" fleetnumber="69"/>
+    <create type="enemy" x="60300.0" y="0.0" z="47000.0" angle="180" name="K06" raceKeys="Kralien enemy" hullKeys="medium Battleship" fleetnumber="69"/>
+    <create type="enemy" x="70000.0" y="0.0" z="42000.0" angle="180" name="K07" raceKeys="Kralien enemy" hullKeys="large Dreadnought" fleetnumber="67"/>
+    <create type="enemy" x="69700.0" y="0.0" z="42000.0" angle="180" name="K08" raceKeys="Kralien enemy" hullKeys="large Dreadnought" fleetnumber="67"/>
+    <create type="enemy" x="70300.0" y="0.0" z="42000.0" angle="180" name="K09" raceKeys="Kralien enemy" hullKeys="large Dreadnought" fleetnumber="67"/>
+    <create type="enemy" x="60300.0" y="0.0" z="2300.0" angle="45" name="K10" raceKeys="Kralien enemy" hullKeys="small Cruiser" fleetnumber="57"/>
+    <create type="enemy" x="60300.0" y="0.0" z="2000.0" angle="45" name="K11" raceKeys="Kralien enemy" hullKeys="small Cruiser" fleetnumber="57"/>
+    <create type="enemy" x="60000.0" y="0.0" z="2000.0" angle="45" name="K12" raceKeys="Kralien enemy" hullKeys="small Cruiser" fleetnumber="57"/>
+    <create type="enemy" x="60000.0" y="0.0" z="17000.0" angle="180" name="K14" raceKeys="Kralien enemy" hullKeys="medium Battleship" fleetnumber="58"/>
+    <create type="enemy" x="59700.0" y="0.0" z="17000.0" angle="180" name="K15" raceKeys="Kralien enemy" hullKeys="medium Battleship" fleetnumber="58"/>
+    <create type="enemy" x="60300.0" y="0.0" z="17000.0" angle="180" name="K16" raceKeys="Kralien enemy" hullKeys="medium Battleship" fleetnumber="58"/>
+    <create type="enemy" x="60000.0" y="0.0" z="12000.0" angle="180" name="K17" raceKeys="Kralien enemy" hullKeys="large Dreadnought" fleetnumber="59"/>
+    <create type="enemy" x="59700.0" y="0.0" z="12000.0" angle="180" name="K18" raceKeys="Kralien enemy" hullKeys="large Dreadnought" fleetnumber="59"/>
+    <create type="enemy" x="60300.0" y="0.0" z="12000.0" angle="180" name="K19" raceKeys="Kralien enemy" hullKeys="large Dreadnought" fleetnumber="59"/>
+  </start>
+  
+  <event name="K00 Surrendered">
+    <if_variable name="K00_surrendered" comparator="EQUALS" value="0"/>
+    <if_object_property property="hasSurrendered" name="K00" comparator="EQUALS" value="1"/>
+    <set_variable name="K00_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="K00"/>
+    <set_variable name="Tonnage" value="Tonnage+9+5"/>
+    <big_message title="Kralien Cruiser surrendered" subtitle1="9 kilotons" subtitle2="+5 kt surrender bonus"/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Cruiser K00 Surrendered"/>
+  </event>
+  <event name="K00 Destroyed">
+    <if_variable name="K00_surrendered" comparator="EQUALS" value="0"/>
+    <if_variable name="K00_dead" comparator="EQUALS" value="0"/>
+    <if_not_exists name="K00"/>
+    <set_variable name="K00_dead" value="1"/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <set_variable name="Tonnage" value="Tonnage+9"/>
+    <big_message title="Kralien Cruiser K00 destroyed" subtitle1="9 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Cruiser K00 destroyed"/>
+  </event>
+  
+  <event name="K01 Surrendered">
+    <if_variable name="K01_surrendered" comparator="EQUALS" value="0"/>
+    <if_object_property property="hasSurrendered" name="K01" comparator="EQUALS" value="1"/>
+    <set_variable name="K01_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="K01"/>
+    <set_variable name="Tonnage" value="Tonnage+9+5"/>
+    <big_message title="Kralien Cruiser surrendered" subtitle1="9 kilotons" subtitle2="+5 kt surrender bonus"/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Cruiser K01 Surrendered"/>
+  </event>
+  <event name="K01 Destroyed">
+    <if_variable name="K01_surrendered" comparator="EQUALS" value="0"/>
+    <if_variable name="K01_dead" comparator="EQUALS" value="0"/>
+    <if_not_exists name="K01"/>
+    <set_variable name="K01_dead" value="1"/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <set_variable name="Tonnage" value="Tonnage+9"/>
+    <big_message title="Kralien Cruiser K01 destroyed" subtitle1="9 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Cruiser K01 destroyed"/>
+  </event>
+  
+  <event name="K02 Surrendered">
+    <if_variable name="K02_surrendered" comparator="EQUALS" value="0"/>
+    <if_object_property property="hasSurrendered" name="K02" comparator="EQUALS" value="1"/>
+    <set_variable name="K02_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="K02"/>
+    <set_variable name="Tonnage" value="Tonnage+9+5"/>
+    <big_message title="Kralien Cruiser surrendered" subtitle1="9 kilotons" subtitle2="+5 kt surrender bonus"/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Cruiser K02 Surrendered"/>
+  </event>
+  <event name="K02 Destroyed">
+    <if_variable name="K02_surrendered" comparator="EQUALS" value="0"/>
+    <if_variable name="K02_dead" comparator="EQUALS" value="0"/>
+    <if_not_exists name="K02"/>
+    <set_variable name="K02_dead" value="1"/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <set_variable name="Tonnage" value="Tonnage+9"/>
+    <big_message title="Kralien Cruiser K02 destroyed" subtitle1="9 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Cruiser K02 destroyed"/>
+  </event>
+  
+  <event name="K04 Surrendered">
+    <if_variable name="K04_surrendered" comparator="EQUALS" value="0"/>
+    <if_object_property property="hasSurrendered" name="K04" comparator="EQUALS" value="1"/>
+    <set_variable name="K04_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="K04"/>
+    <set_variable name="Tonnage" value="Tonnage+17+9"/>
+    <big_message title="Kralien Battleship surrendered" subtitle1="17 kilotons" subtitle2="+9 kt surrender bonus"/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Battleship K04 Surrendered"/>
+  </event>
+  <event name="K04 Destroyed">
+    <if_variable name="K04_surrendered" comparator="EQUALS" value="0"/>
+    <if_variable name="K04_dead" comparator="EQUALS" value="0"/>
+    <if_not_exists name="K04"/>
+    <set_variable name="K04_dead" value="1"/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <set_variable name="Tonnage" value="Tonnage+17"/>
+    <big_message title="Kralien Battleship K04 destroyed" subtitle1="17 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Battleship K04 destroyed"/>
+  </event>
+  
+  <event name="K05 Surrendered">
+    <if_variable name="K05_surrendered" comparator="EQUALS" value="0"/>
+    <if_object_property property="hasSurrendered" name="K05" comparator="EQUALS" value="1"/>
+    <set_variable name="K05_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="K05"/>
+    <set_variable name="Tonnage" value="Tonnage+17+9"/>
+    <big_message title="Kralien Battleship surrendered" subtitle1="17 kilotons" subtitle2="+9 kt surrender bonus"/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Battleship K05 Surrendered"/>
+  </event>
+  <event name="K05 Destroyed">
+    <if_variable name="K05_surrendered" comparator="EQUALS" value="0"/>
+    <if_variable name="K05_dead" comparator="EQUALS" value="0"/>
+    <if_not_exists name="K05"/>
+    <set_variable name="K05_dead" value="1"/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <set_variable name="Tonnage" value="Tonnage+17"/>
+    <big_message title="Kralien Battleship K05 destroyed" subtitle1="17 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Battleship K05 destroyed"/>
+  </event>
+  
+  <event name="K06 Surrendered">
+    <if_variable name="K06_surrendered" comparator="EQUALS" value="0"/>
+    <if_object_property property="hasSurrendered" name="K06" comparator="EQUALS" value="1"/>
+    <set_variable name="K06_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="K06"/>
+    <set_variable name="Tonnage" value="Tonnage+17+9"/>
+    <big_message title="Kralien Battleship surrendered" subtitle1="17 kilotons" subtitle2="+9 kt surrender bonus"/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Battleship K06 Surrendered"/>
+  </event>
+  <event name="K06 Destroyed">
+    <if_variable name="K06_surrendered" comparator="EQUALS" value="0"/>
+    <if_variable name="K06_dead" comparator="EQUALS" value="0"/>
+    <if_not_exists name="K06"/>
+    <set_variable name="K06_dead" value="1"/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <set_variable name="Tonnage" value="Tonnage+17"/>
+    <big_message title="Kralien Battleship K06 destroyed" subtitle1="17 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Battleship K06 destroyed"/>
+  </event>
+  
+  <event name="K07 Surrendered">
+    <if_variable name="K07_surrendered" comparator="EQUALS" value="0"/>
+    <if_object_property property="hasSurrendered" name="K07" comparator="EQUALS" value="1"/>
+    <set_variable name="K07_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="K07"/>
+    <set_variable name="Tonnage" value="Tonnage+25+13"/>
+    <big_message title="Kralien Dreadnought surrendered" subtitle1="25 kilotons" subtitle2="+13 kt surrender bonus"/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Dreadnought K07 Surrendered"/>
+  </event>
+  <event name="K07 Destroyed">
+    <if_variable name="K07_surrendered" comparator="EQUALS" value="0"/>
+    <if_variable name="K07_dead" comparator="EQUALS" value="0"/>
+    <if_not_exists name="K07"/>
+    <set_variable name="K07_dead" value="1"/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <set_variable name="Tonnage" value="Tonnage+25"/>
+    <big_message title="Kralien Dreadnought K07 destroyed" subtitle1="25 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Dreadnought K07 destroyed"/>
+  </event>
+  
+  <event name="K08 Surrendered">
+    <if_variable name="K08_surrendered" comparator="EQUALS" value="0"/>
+    <if_object_property property="hasSurrendered" name="K08" comparator="EQUALS" value="1"/>
+    <set_variable name="K08_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="K08"/>
+    <set_variable name="Tonnage" value="Tonnage+25+13"/>
+    <big_message title="Kralien Dreadnought surrendered" subtitle1="25 kilotons" subtitle2="+13 kt surrender bonus"/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Dreadnought K08 Surrendered"/>
+  </event>
+  <event name="K08 Destroyed">
+    <if_variable name="K08_surrendered" comparator="EQUALS" value="0"/>
+    <if_variable name="K08_dead" comparator="EQUALS" value="0"/>
+    <if_not_exists name="K08"/>
+    <set_variable name="K08_dead" value="1"/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <set_variable name="Tonnage" value="Tonnage+25"/>
+    <big_message title="Kralien Dreadnought K08 destroyed" subtitle1="25 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Dreadnought K08 destroyed"/>
+  </event>
+  
+  <event name="K09 Surrendered">
+    <if_variable name="K09_surrendered" comparator="EQUALS" value="0"/>
+    <if_object_property property="hasSurrendered" name="K09" comparator="EQUALS" value="1"/>
+    <set_variable name="K09_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="K09"/>
+    <set_variable name="Tonnage" value="Tonnage+25+13"/>
+    <big_message title="Kralien Dreadnought surrendered" subtitle1="25 kilotons" subtitle2="+13 kt surrender bonus"/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Dreadnought K09 Surrendered"/>
+  </event>
+  <event name="K09 Destroyed">
+    <if_variable name="K09_surrendered" comparator="EQUALS" value="0"/>
+    <if_variable name="K09_dead" comparator="EQUALS" value="0"/>
+    <if_not_exists name="K09"/>
+    <set_variable name="K09_dead" value="1"/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <set_variable name="Tonnage" value="Tonnage+25"/>
+    <big_message title="Kralien Dreadnought K09 destroyed" subtitle1="25 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Dreadnought K09 destroyed"/>
+  </event>
+  
+  <event name="K10 Surrendered">
+    <if_variable name="K10_surrendered" comparator="EQUALS" value="0"/>
+    <if_object_property property="hasSurrendered" name="K10" comparator="EQUALS" value="1"/>
+    <set_variable name="K10_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="K10"/>
+    <set_variable name="Tonnage" value="Tonnage+9+5"/>
+    <big_message title="Kralien Cruiser surrendered" subtitle1="9 kilotons" subtitle2="+5 kt surrender bonus"/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Cruiser K10 Surrendered"/>
+  </event>
+  <event name="K10 Destroyed">
+    <if_variable name="K10_surrendered" comparator="EQUALS" value="0"/>
+    <if_variable name="K10_dead" comparator="EQUALS" value="0"/>
+    <if_not_exists name="K10"/>
+    <set_variable name="K10_dead" value="1"/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <set_variable name="Tonnage" value="Tonnage+9"/>
+    <big_message title="Kralien Cruiser K10 destroyed" subtitle1="9 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Cruiser K10 destroyed"/>
+  </event>
+  
+  <event name="K11 Surrendered">
+    <if_variable name="K11_surrendered" comparator="EQUALS" value="0"/>
+    <if_object_property property="hasSurrendered" name="K11" comparator="EQUALS" value="1"/>
+    <set_variable name="K11_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="K11"/>
+    <set_variable name="Tonnage" value="Tonnage+9+5"/>
+    <big_message title="Kralien Cruiser surrendered" subtitle1="9 kilotons" subtitle2="+5 kt surrender bonus"/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Cruiser K11 Surrendered"/>
+  </event>
+  <event name="K11 Destroyed">
+    <if_variable name="K11_surrendered" comparator="EQUALS" value="0"/>
+    <if_variable name="K11_dead" comparator="EQUALS" value="0"/>
+    <if_not_exists name="K11"/>
+    <set_variable name="K11_dead" value="1"/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <set_variable name="Tonnage" value="Tonnage+9"/>
+    <big_message title="Kralien Cruiser K11 destroyed" subtitle1="9 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Cruiser K11 destroyed"/>
+  </event>
+  
+  <event name="K12 Surrendered">
+    <if_variable name="K12_surrendered" comparator="EQUALS" value="0"/>
+    <if_object_property property="hasSurrendered" name="K12" comparator="EQUALS" value="1"/>
+    <set_variable name="K12_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="K12"/>
+    <set_variable name="Tonnage" value="Tonnage+9+5"/>
+    <big_message title="Kralien Cruiser surrendered" subtitle1="9 kilotons" subtitle2="+5 kt surrender bonus"/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Cruiser K12 Surrendered"/>
+  </event>
+  <event name="K12 Destroyed">
+    <if_variable name="K12_surrendered" comparator="EQUALS" value="0"/>
+    <if_variable name="K12_dead" comparator="EQUALS" value="0"/>
+    <if_not_exists name="K12"/>
+    <set_variable name="K12_dead" value="1"/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <set_variable name="Tonnage" value="Tonnage+9"/>
+    <big_message title="Kralien Cruiser K12 destroyed" subtitle1="9 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Cruiser K12 destroyed"/>
+  </event>
+  
+  <event name="K14 Surrendered">
+    <if_variable name="K14_surrendered" comparator="EQUALS" value="0"/>
+    <if_object_property property="hasSurrendered" name="K14" comparator="EQUALS" value="1"/>
+    <set_variable name="K14_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="K14"/>
+    <set_variable name="Tonnage" value="Tonnage+17+9"/>
+    <big_message title="Kralien Battleship surrendered" subtitle1="17 kilotons" subtitle2="+9 kt surrender bonus"/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Battleship K14 Surrendered"/>
+  </event>
+  <event name="K14 Destroyed">
+    <if_variable name="K14_surrendered" comparator="EQUALS" value="0"/>
+    <if_variable name="K14_dead" comparator="EQUALS" value="0"/>
+    <if_not_exists name="K14"/>
+    <set_variable name="K14_dead" value="1"/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <set_variable name="Tonnage" value="Tonnage+17"/>
+    <big_message title="Kralien Battleship K14 destroyed" subtitle1="17 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Battleship K14 destroyed"/>
+  </event>
+  
+  <event name="K15 Surrendered">
+    <if_variable name="K15_surrendered" comparator="EQUALS" value="0"/>
+    <if_object_property property="hasSurrendered" name="K15" comparator="EQUALS" value="1"/>
+    <set_variable name="K15_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="K15"/>
+    <set_variable name="Tonnage" value="Tonnage+17+9"/>
+    <big_message title="Kralien Battleship surrendered" subtitle1="17 kilotons" subtitle2="+9 kt surrender bonus"/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Battleship K15 Surrendered"/>
+  </event>
+  <event name="K15 Destroyed">
+    <if_variable name="K15_surrendered" comparator="EQUALS" value="0"/>
+    <if_variable name="K15_dead" comparator="EQUALS" value="0"/>
+    <if_not_exists name="K15"/>
+    <set_variable name="K15_dead" value="1"/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <set_variable name="Tonnage" value="Tonnage+17"/>
+    <big_message title="Kralien Battleship K15 destroyed" subtitle1="17 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Battleship K15 destroyed"/>
+  </event>
+  
+  <event name="K16 Surrendered">
+    <if_variable name="K16_surrendered" comparator="EQUALS" value="0"/>
+    <if_object_property property="hasSurrendered" name="K16" comparator="EQUALS" value="1"/>
+    <set_variable name="K16_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="K16"/>
+    <set_variable name="Tonnage" value="Tonnage+17+9"/>
+    <big_message title="Kralien Battleship surrendered" subtitle1="17 kilotons" subtitle2="+9 kt surrender bonus"/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Battleship K16 Surrendered"/>
+  </event>
+  <event name="K16 Destroyed">
+    <if_variable name="K16_surrendered" comparator="EQUALS" value="0"/>
+    <if_variable name="K16_dead" comparator="EQUALS" value="0"/>
+    <if_not_exists name="K16"/>
+    <set_variable name="K16_dead" value="1"/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <set_variable name="Tonnage" value="Tonnage+17"/>
+    <big_message title="Kralien Battleship K16 destroyed" subtitle1="17 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Battleship K16 destroyed"/>
+  </event>
+  
+  <event name="K17 Surrendered">
+    <if_variable name="K17_surrendered" comparator="EQUALS" value="0"/>
+    <if_object_property property="hasSurrendered" name="K17" comparator="EQUALS" value="1"/>
+    <set_variable name="K17_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="K17"/>
+    <set_variable name="Tonnage" value="Tonnage+25+13"/>
+    <big_message title="Kralien Dreadnought surrendered" subtitle1="25 kilotons" subtitle2="+13 kt surrender bonus"/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Dreadnought K17 Surrendered"/>
+  </event>
+  <event name="K17 Destroyed">
+    <if_variable name="K17_surrendered" comparator="EQUALS" value="0"/>
+    <if_variable name="K17_dead" comparator="EQUALS" value="0"/>
+    <if_not_exists name="K17"/>
+    <set_variable name="K17_dead" value="1"/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <set_variable name="Tonnage" value="Tonnage+25"/>
+    <big_message title="Kralien Dreadnought K17 destroyed" subtitle1="25 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Dreadnought K17 destroyed"/>
+  </event>
+  
+  <event name="K18 Surrendered">
+    <if_variable name="K18_surrendered" comparator="EQUALS" value="0"/>
+    <if_object_property property="hasSurrendered" name="K18" comparator="EQUALS" value="1"/>
+    <set_variable name="K18_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="K18"/>
+    <set_variable name="Tonnage" value="Tonnage+25+13"/>
+    <big_message title="Kralien Dreadnought surrendered" subtitle1="25 kilotons" subtitle2="+13 kt surrender bonus"/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Dreadnought K18 Surrendered"/>
+  </event>
+  <event name="K18 Destroyed">
+    <if_variable name="K18_surrendered" comparator="EQUALS" value="0"/>
+    <if_variable name="K18_dead" comparator="EQUALS" value="0"/>
+    <if_not_exists name="K18"/>
+    <set_variable name="K18_dead" value="1"/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <set_variable name="Tonnage" value="Tonnage+25"/>
+    <big_message title="Kralien Dreadnought K18 destroyed" subtitle1="25 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Dreadnought K18 destroyed"/>
+  </event>
+  
+  <event name="K19 Surrendered">
+    <if_variable name="K19_surrendered" comparator="EQUALS" value="0"/>
+    <if_object_property property="hasSurrendered" name="K19" comparator="EQUALS" value="1"/>
+    <set_variable name="K19_surrendered" value="1"/>
+    <set_object_property property="topSpeed" value="0.2" name="K19"/>
+    <set_variable name="Tonnage" value="Tonnage+25+13"/>
+    <big_message title="Kralien Dreadnought surrendered" subtitle1="25 kilotons" subtitle2="+13 kt surrender bonus"/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Dreadnought K19 Surrendered"/>
+  </event>
+  <event name="K19 Destroyed">
+    <if_variable name="K19_surrendered" comparator="EQUALS" value="0"/>
+    <if_variable name="K19_dead" comparator="EQUALS" value="0"/>
+    <if_not_exists name="K19"/>
+    <set_variable name="K19_dead" value="1"/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <set_variable name="Tonnage" value="Tonnage+25"/>
+    <big_message title="Kralien Dreadnought K19 destroyed" subtitle1="25 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Kralien Dreadnought K19 destroyed"/>
+  </event>
+</mission_data>

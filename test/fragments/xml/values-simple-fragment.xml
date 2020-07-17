@@ -22,7 +22,7 @@
       <set_variable name="${mystructure.anomaly}" value="${CONST_TIMER_SECONDS}"/>
       <set_variable name="health" value="${mystructure.inner.health}"/>
     </expand>
-    <repeat range="test">
+    <repeat _range="test">
       <set_variable name="health" value="${health}"/>
     </repeat>
   </start>

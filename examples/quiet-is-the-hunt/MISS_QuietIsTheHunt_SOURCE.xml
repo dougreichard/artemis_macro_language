@@ -8,16 +8,16 @@
 
   <start>
 
-    <repeat range="Ships">
+    <repeat _range="Ships">
       <!-- Fighter need in bay before creating player -->
-      <repeat range="Pilots">
+      <repeat _range="Pilots">
         <set_player_carried_type name ="${pilot}" player_slot="${Ships.slot}" hullID="100" raceKeys="TSN" hullKeys="TSN Medium Fighter" bay_slot="${_index+1}" />
       </repeat>
-      <create type="player" player_slot="${slot}" x="${map.x(3.5)}" y="0" z="${map.z('C.5')+_index*1000}" name="${ship}" raceKeys="TSN" hullKeys="Carrier"/>
+      <create type="player" player_slot="${slot}" x="${_.map.x(3.5)}" y="0" z="${_.map.z('C.5')+_index*1000}" name="${ship}" raceKeys="TSN" hullKeys="Carrier"/>
       <set_object_property player_slot ="${slot}" property="topSpeed" value="0" />
       <set_object_property player_slot ="${slot}" property="turnRate" value="0" />
-      <repeat range="Escort">
-        <create type ="neutral" x="${map.x(3.5-0.1*_index)}" y="0" z="${map.z('C.5')}" hullId="${hullId}" raceKeys="${raceKeys}" hullKeys="${hullKeys}" name="${escortName}" angle="180"/>
+      <repeat _range="Escort">
+        <create type ="neutral" x="${_.map.x(3.5-0.1*_index)}" y="0" z="${_.map.z('C.5')}" hullId="${hullId}" raceKeys="${raceKeys}" hullKeys="${hullKeys}" name="${escortName}" angle="180"/>
       </repeat>
 
     </repeat>
@@ -25,12 +25,12 @@
     <set_difficulty_level value="5"/>
   </start>
 
-  <expand template="PilotEnemyTracking" />
-  <repeat range="Ships">
-    <repeat range="Pilots">
+  <expand _template="PilotEnemyTracking" />
+  <repeat _range="Ships">
+    <repeat _range="Pilots">
 
-      <repeat range="NavPoints">
-        <expand template="NavPoint" who="${Pilots.pilot}" what="${navpoint}" distance="2350" stateVar="${Pilots.pilot}_State" navIndex="${_index}"/>
+      <repeat _range="NavPoints">
+        <expand _template="NavPoint" who="${Pilots.pilot}" what="${navpoint}" distance="2350" stateVar="${Pilots.pilot}_State" navIndex="${_index}"/>
       </repeat>
       
       <expand template="LaunchTracker" who="${pilot}" hero="${hero}" ship="${Ships.ship}" slot="${Ships.slot}" distance="3000" stateVar="${pilot}_State" navCount="${utils.length('NavPoints')}" />

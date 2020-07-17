@@ -1,0 +1,218 @@
+<mission_data>
+  <event name="Difficulty 1">
+    <if_variable name="credits1" comparator="EQUALS" value="1"/>
+    <if_difficulty comparator="EQUALS" value="1"/>
+    <big_message title="Written for TSN Light Cruiser" subtitle1="with a trainee crew" subtitle2="difficulty factor 1"/>
+    <set_variable name="credits1" value="2"/>
+    <log text="DIFFICULTY FACTOR 1"/>
+  </event>
+  <event name="Difficulty 2">
+    <if_variable name="credits1" comparator="EQUALS" value="1"/>
+    <if_difficulty comparator="EQUALS" value="2"/>
+    <big_message title="Written for TSN Light Cruiser" subtitle1="with a cadette crew" subtitle2="difficulty factor 2"/>
+    <set_variable name="credits1" value="2"/>
+    <log text="DIFFICULTY FACTOR 2"/>
+  </event>
+  <event name="Difficulty 2">
+    <if_variable name="Difficult_Factor" comparator="EQUALS" value="0"/>
+    <if_difficulty comparator="GREATER" value="1"/>
+    <addto_object_property name="DS1" property="positionX" value="+1000"/>
+    <addto_object_property name="DS1" property="positionZ" value="-1300"/>
+    <addto_object_property name="DS2" property="positionX" value="-900"/>
+    <addto_object_property name="DS2" property="positionZ" value="-1400"/>
+    <addto_object_property name="DS3" property="positionX" value="+500"/>
+    <addto_object_property name="DS3" property="positionZ" value="-300"/>
+    <addto_object_property name="DS4" property="positionX" value="-500"/>
+    <addto_object_property name="DS4" property="positionZ" value="-300"/>
+  </event>
+  <event name="Difficulty 3">
+    <if_variable name="credits1" comparator="EQUALS" value="1"/>
+    <if_difficulty comparator="EQUALS" value="3"/>
+    <big_message title="Written for TSN Light Cruiser" subtitle1="with a cadette crew" subtitle2="difficulty factor 3"/>
+    <set_variable name="credits1" value="2"/>
+    <log text="DIFFICULTY FACTOR 3"/>
+  </event>
+  <event name="Difficulty 3">
+    <if_variable name="Difficult_Factor" comparator="EQUALS" value="0"/>
+    <if_difficulty comparator="GREATER" value="2"/>
+    <addto_object_property name="DS1" property="positionX" value="+1000"/>
+    <addto_object_property name="DS1" property="positionZ" value="-1200"/>
+    <addto_object_property name="DS2" property="positionX" value="-1000"/>
+    <addto_object_property name="DS2" property="positionZ" value="-1200"/>
+    <addto_object_property name="DS3" property="positionX" value="+500"/>
+    <addto_object_property name="DS3" property="positionZ" value="-300"/>
+    <addto_object_property name="DS4" property="positionX" value="-500"/>
+    <addto_object_property name="DS4" property="positionZ" value="-300"/>
+  </event>
+  <event name="Difficulty 4">
+    <if_variable name="credits1" comparator="EQUALS" value="1"/>
+    <if_difficulty comparator="EQUALS" value="4"/>
+    <big_message title="Written for TSN Light Cruiser" subtitle1="with a cadette crew" subtitle2="difficulty factor 4"/>
+    <set_variable name="credits1" value="2"/>
+    <log text="DIFFICULTY FACTOR 4"/>
+  </event>
+  <event name="Difficulty 4">
+    <if_variable name="Difficult_Factor" comparator="EQUALS" value="0"/>
+    <if_difficulty comparator="GREATER" value="3"/>
+    <addto_object_property name="DS1" property="positionX" value="+1000"/>
+    <addto_object_property name="DS1" property="positionZ" value="-1400"/>
+    <addto_object_property name="DS2" property="positionX" value="-1000"/>
+    <addto_object_property name="DS2" property="positionZ" value="-1500"/>
+    <addto_object_property name="DS3" property="positionX" value="+500"/>
+    <addto_object_property name="DS3" property="positionZ" value="-300"/>
+    <addto_object_property name="DS4" property="positionX" value="-500"/>
+    <addto_object_property name="DS4" property="positionZ" value="-300"/>
+    <set_special name="K61" clear="yes" ability="Cloak"/>
+  </event>
+  <event name="Difficulty 5">
+    <if_variable name="credits1" comparator="EQUALS" value="1"/>
+    <if_difficulty comparator="EQUALS" value="5"/>
+    <big_message title="Written for TSN Light Cruiser" subtitle1="with an experienced crew" subtitle2="difficulty factor 5"/>
+    <set_variable name="credits1" value="2"/>
+    <log text="DIFFICULTY FACTOR 5"/>
+  </event>
+  <event name="Difficulty 5">
+    <if_variable name="Difficult_Factor" comparator="EQUALS" value="0"/>
+    <if_difficulty comparator="GREATER" value="4"/>
+    <addto_object_property name="DS1" property="positionX" value="+1000"/>
+    <addto_object_property name="DS1" property="positionZ" value="-2000"/>
+    <addto_object_property name="DS2" property="positionX" value="-1200"/>
+    <addto_object_property name="DS2" property="positionZ" value="-2000"/>
+    <addto_object_property name="DS3" property="positionX" value="+500"/>
+    <addto_object_property name="DS3" property="positionZ" value="-300"/>
+    <addto_object_property name="DS4" property="positionX" value="-500"/>
+    <addto_object_property name="DS4" property="positionZ" value="-300"/>
+  </event>
+  <event name="Difficulty 6">
+    <if_variable name="credits1" comparator="EQUALS" value="1"/>
+    <if_difficulty comparator="EQUALS" value="6"/>
+    <big_message title="Written for TSN Light Cruiser" subtitle1="with an experienced crew" subtitle2="difficulty factor 6"/>
+    <set_variable name="credits1" value="2"/>
+    <log text="DIFFICULTY FACTOR 6"/>
+  </event>
+  <event name="Difficulty 6">
+    <if_variable name="Difficult_Factor" comparator="EQUALS" value="0"/>
+    <if_difficulty comparator="GREATER" value="5"/>
+    <addto_object_property name="DS1" property="positionX" value="+1000"/>
+    <addto_object_property name="DS1" property="positionZ" value="-5000"/>
+    <addto_object_property name="DS2" property="positionX" value="-1200"/>
+    <addto_object_property name="DS2" property="positionZ" value="-5000"/>
+    <addto_object_property name="DS3" property="positionX" value="+500"/>
+    <addto_object_property name="DS3" property="positionZ" value="-300"/>
+    <addto_object_property name="DS4" property="positionX" value="-500"/>
+    <addto_object_property name="DS4" property="positionZ" value="-300"/>
+    <set_object_property property="nebulaIsOpaque" value="1"/>
+  </event>
+  <event name="Difficulty 7">
+    <if_variable name="credits1" comparator="EQUALS" value="1"/>
+    <if_difficulty comparator="EQUALS" value="7"/>
+    <big_message title="Written for TSN Light Cruiser" subtitle1="with a verteran crew" subtitle2="difficulty factor 7"/>
+    <set_variable name="credits1" value="2"/>
+    <log text="DIFFICULTY FACTOR 7"/>
+  </event>
+  <event name="Difficulty 7">
+    <if_variable name="Difficult_Factor" comparator="EQUALS" value="0"/>
+    <if_difficulty comparator="GREATER" value="6"/>
+    <addto_object_property name="DS1" property="positionX" value="+1000"/>
+    <addto_object_property name="DS1" property="positionZ" value="-6000"/>
+    <addto_object_property name="DS2" property="positionX" value="-1200"/>
+    <addto_object_property name="DS2" property="positionZ" value="-6000"/>
+    <addto_object_property name="DS3" property="positionX" value="+500"/>
+    <addto_object_property name="DS3" property="positionZ" value="-300"/>
+    <addto_object_property name="DS4" property="positionX" value="-500"/>
+    <addto_object_property name="DS4" property="positionZ" value="-300"/>
+    <create type="blackHole" x="50000" y="0" z="50000"/>
+  </event>
+  <event name="Difficulty 8">
+    <if_variable name="credits1" comparator="EQUALS" value="1"/>
+    <if_difficulty comparator="EQUALS" value="8"/>
+    <big_message title="Written for TSN Light Cruiser" subtitle1="with a verteran crew" subtitle2="difficulty factor 8"/>
+    <set_variable name="credits1" value="2"/>
+    <log text="DIFFICULTY FACTOR 8"/>
+  </event>
+  <event name="Difficulty 8">
+    <if_variable name="Difficult_Factor" comparator="EQUALS" value="0"/>
+    <if_difficulty comparator="GREATER" value="7"/>
+    <addto_object_property name="DS1" property="positionX" value="+1000"/>
+    <addto_object_property name="DS1" property="positionZ" value="-7000"/>
+    <addto_object_property name="DS2" property="positionX" value="-1200"/>
+    <addto_object_property name="DS2" property="positionZ" value="-7000"/>
+    <addto_object_property name="DS3" property="positionX" value="+500"/>
+    <addto_object_property name="DS3" property="positionZ" value="-300"/>
+    <addto_object_property name="DS4" property="positionX" value="-500"/>
+    <addto_object_property name="DS4" property="positionZ" value="-300"/>
+    <create count="40" type="mines" startAngle="230" endAngle="310" startX="8000" startY="0" startZ="40000" radius="10000"/>
+  </event>
+  <event name="Difficulty 9">
+    <if_variable name="credits1" comparator="EQUALS" value="1"/>
+    <if_difficulty comparator="EQUALS" value="9"/>
+    <big_message title="Written for TSN Light Cruiser" subtitle1="with an elite crew" subtitle2="difficulty factor 9"/>
+    <set_variable name="credits1" value="2"/>
+    <log text="DIFFICULTY FACTOR 9"/>
+  </event>
+  <event name="Difficulty 9">
+    <if_variable name="Difficult_Factor" comparator="EQUALS" value="0"/>
+    <if_difficulty comparator="GREATER" value="8"/>
+    <addto_object_property name="DS1" property="positionX" value="+1000"/>
+    <addto_object_property name="DS1" property="positionZ" value="-8000"/>
+    <addto_object_property name="DS2" property="positionX" value="-1200"/>
+    <addto_object_property name="DS2" property="positionZ" value="-8000"/>
+    <addto_object_property name="DS3" property="positionX" value="+500"/>
+    <addto_object_property name="DS3" property="positionZ" value="-300"/>
+    <addto_object_property name="DS4" property="positionX" value="-500"/>
+    <addto_object_property name="DS4" property="positionZ" value="-300"/>
+    <create count="40" type="mines" startAngle="50" endAngle="130" startX="92000" startY="0" startZ="40000" radius="10000"/>
+  </event>
+  <event name="Difficulty 10">
+    <if_variable name="credits1" comparator="EQUALS" value="1"/>
+    <if_difficulty comparator="EQUALS" value="10"/>
+    <big_message title="Written for TSN Light Cruiser" subtitle1="with an elite crew" subtitle2="difficulty factor 10"/>
+    <set_variable name="credits1" value="2"/>
+    <log text="DIFFICULTY FACTOR 10"/>
+  </event>
+  <event name="Difficulty 10">
+    <if_variable name="Difficult_Factor" comparator="EQUALS" value="0"/>
+    <if_difficulty comparator="GREATER" value="9"/>
+    <addto_object_property name="DS1" property="positionX" value="+1000"/>
+    <addto_object_property name="DS1" property="positionZ" value="-9000"/>
+    <addto_object_property name="DS2" property="positionX" value="-1200"/>
+    <addto_object_property name="DS2" property="positionZ" value="-9000"/>
+    <addto_object_property name="DS3" property="positionX" value="+500"/>
+    <addto_object_property name="DS3" property="positionZ" value="-300"/>
+    <addto_object_property name="DS4" property="positionX" value="-500"/>
+    <addto_object_property name="DS4" property="positionZ" value="-300"/>
+    <create type="monster" x="40000" y="-500" z="85000" monsterType="4" name="F" podnumber="1"/>
+    <create type="monster" x="41000" y="-500" z="85700" monsterType="4" name="G" podnumber="1"/>
+    <set_relative_position name2="G" name1="F" angle="10" distance="150"/>
+    <create type="monster" x="40010" y="500" z="85200" monsterType="4" name="H" podnumber="1"/>
+    <set_relative_position name2="H" name1="F" angle="350" distance="150"/>
+    <create type="monster" x="48500" y="500" z="87000" monsterType="4" name="I" podnumber="1"/>
+    <set_relative_position name2="I" name1="F" angle="90" distance="150"/>
+    <create type="monster" x="48000" y="-500" z="88000" monsterType="4" name="J" podnumber="1"/>
+    <set_relative_position name2="J" name1="F" angle="270" distance="150"/>
+  </event>
+  <event name="Difficulty 11">
+    <if_variable name="credits1" comparator="EQUALS" value="1"/>
+    <if_difficulty comparator="EQUALS" value="11"/>
+    <big_message title="Written for TSN Light Cruiser" subtitle1="with an insane crew" subtitle2="difficulty factor 11"/>
+    <set_variable name="credits1" value="2"/>
+    <log text="DIFFICULTY FACTOR 11"/>
+  </event>
+  <event name="Difficulty 11">
+    <if_variable name="Difficult_Factor" comparator="EQUALS" value="0"/>
+    <if_difficulty comparator="GREATER" value="10"/>
+    <addto_object_property name="DS1" property="positionX" value="+1000"/>
+    <addto_object_property name="DS1" property="positionZ" value="-9000"/>
+    <addto_object_property name="DS2" property="positionX" value="-1200"/>
+    <addto_object_property name="DS2" property="positionZ" value="-9000"/>
+    <addto_object_property name="DS3" property="positionX" value="+500"/>
+    <addto_object_property name="DS3" property="positionZ" value="-300"/>
+    <addto_object_property name="DS4" property="positionX" value="-500"/>
+    <addto_object_property name="DS4" property="positionZ" value="-300"/>
+    <create type="monster" monsterType="2" x="83000" y="120" z="96000"/>
+  </event>
+  <event name="Difficulty Done">
+    <if_variable name="Difficult_Factor" comparator="EQUALS" value="0"/>
+    <set_variable name="Difficult_Factor" value="1"/>
+  </event>
+</mission_data>

@@ -4,7 +4,7 @@
   </imports>
   <start>
     <set_variable name="Station_Prime" value="1.0"/>
-    <repeat range="AllShips">
+    <repeat _range="AllShips">
       <set_variable name="${ship}_Station" value="1.0"/>
       <create type="station" x="${x}" y="0.0" z="${z}" name="${ship} Station" raceKeys="Arvonian" hullKeys="Command Base" sideValue="${sideValue}"/>
       <set_object_property property="pirateRepWithStations" value="1.0" name="${ship}"/>
@@ -22,7 +22,7 @@
     <if_variable name="Station_Prime" comparator="EQUALS" value="1.0"/>
     <if_timer_finished name="Station_Prime"/>
     
-    <repeat range="AllShips">
+    <repeat _range="AllShips">
       <set_object_property property="missileStoresHoming" value="5" name="${ship} Station"/>
       <set_object_property property="missileStoresNuke" value="1" name="${ship} Station"/>
       <set_object_property property="missileStoresEMP" value="1" name="${ship} Station"/>
@@ -38,7 +38,7 @@
     <set_object_property property="pushRadius" value="0.0" name="_"/>
   </event>
 
-<repeat range="AllShips">
+<repeat _range="AllShips">
   <event name="${ship} Station Destroyed">
     <if_not_exists name="${ship} Station"/>
     <if_variable name="${ship}_Station" comparator="EQUALS" value="1.0"/>

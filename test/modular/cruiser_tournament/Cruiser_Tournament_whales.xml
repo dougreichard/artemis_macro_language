@@ -13,19 +13,18 @@
     </values>
     <!-- There are whales spread around the sector -->
     <start>
-        <repeat range="whales">
+        <repeat _range="whales">
             <create type="monster" x="${x}" y="${y}" z="${z}" monsterType="1" name="${name}" podnumber="6"/>
         </repeat>
     </start>
     <!-- Count Whale Bonus -->
-    <repeat range="whales">
+    <repeat _range="whales">
         <event name="Bonus ${name}">
             <if_variable name="PeriodEnd" comparator="EQUALS" value="1"/>
             <if_exists name="${name}"/>
             <set_variable name="Bonus" value="Bonus+1"/>
         </event>
     </repeat>
-
     <event name="Add Whale Bonus">
         <if_variable name="Bonus" comparator="GREATER" value="1"/>
         <set_variable name="Tonnage" Value="Tonnage+Bonus"/>

@@ -1,0 +1,103 @@
+<mission_data version="1.0">
+  <values>
+    <range name="cargo">
+      <value name="Delta Queen" x="50100.0" z="94000.0" start="1" weight="-50" />
+      <value name="Alpha Betty" x="49900.0" z="93000.0" start="2" />
+    </range>
+    <range name="loads">
+      <value load="Xiridium" station="DS1" />
+      <value load="Salistra" station="DS2" />
+      <value load="Augite" station="DS3" />
+      <value load="Platinum" station="DS4" />
+    </range>
+  </values>
+  <start>
+    <repeat _range="cargo">
+      <create type="neutral" x="${x}" y="0.0" z="${z}" angle="0" name="${name}" raceKeys="Terran friendly" hullKeys="Cargo"/>
+      <add_ai type="POINT_THROTTLE" value1="50000" value2="0" value3="0" value4="0" name="${name}"/>
+      <add_ai type="FOLLOW_COMMS_ORDERS" name="${name}"/>
+      <set_ship_text name="${name}" class="Upgraded Cargo Carrier" hailtext="We have a load of ${_.lookup('loads')[_.int(start)].item}. Where should we deliver it?."/>
+      <set_variable name="${name}_Cargo" value="${start}" integer="yes"/>
+    </repeat>
+  </start>
+  <repeat _range="cargo">
+    <event name="${name} Destroyed">
+      <if_variable name="${name}_dead" comparator="EQUALS" value="0"/>
+      <if_not_exists name="${name}"/>
+      <big_message title="Friendly Freighter ${name} Destroyed" subtitle1="Penalty -50 kilotons" subtitle2=""/>
+      <log text="Friendly Freighter ${name} Destroyed"/>
+      <set_variable name="${name}_dead" value="1"/>
+      <set_variable name="Tonnage" value="Tonnage-50"/>
+      <set_variable name="report_score" value="1"/>
+      <set_timer name="report_timer" seconds="8"/>
+    </event>
+    <event name="Hold ${name}">
+      <if_variable name="${name}" comparator="EQUALS" value="0"/>
+      <set_object_property property="topSpeed" value="0.0" name="${name}"/>
+      <set_object_property property="angle" value="0.0" name="${name}"/>
+      <set_variable name="${name}" value="1"/>
+    </event>
+    <event name="Release ${name}">
+      <if_variable name="${name}" comparator="EQUALS" value="1"/>
+      <!-- if_variable name="Minutes" comparator="LESS" value="48"/-->
+      <if_object_property property="angle" name="${name}" comparator="LESS" value="3.13"/>
+      <set_object_property property="topSpeed" value="0.5" name="${name}"/>
+      <set_object_property property="turnRate" value="0.01" name="${name}"/>
+      <set_variable name="${name}" value="2"/>
+      <expand _skip="${name != 'Delta Queen'}">
+        <incoming_comms_text from="${name}" type="FRIEND">
+    Bonus available! At the end of every period you will be awarded bonus kilotons for every surviving whale! To win this bonus PROTECT THE WHALES!
+        </incoming_comms_text>
+      </expand>
+    </event>
+  </repeat>
+  <repeat _range="cargo" _as="cargo">
+    <repeat _range="loads" _as="stations">
+      <repeat _range="loads" _as="loads1">
+        <expand _skip="${loads1._index == stations._index}">
+          <event name="${cargo.name} ${loads1.load} ${stations.station}">
+            <if_distance name1="${cargo.name}" name2="${stations.station}" comparator="LESS" value="1000"/>
+            <if_variable name="${cargo.name}_Cargo" comparator="EQUALS" value="${loads1._index+1}"/>
+            <set_variable name="${cargo.name}_Cargo" value="${stations._index+1}"/>
+            <incoming_comms_text from="${cargo.name}" type="STATION">
+      ${cargo.name} has delivered a load of ${loads1.load}. We are producing an EMP${(stations._index+4)%4?'':' and a Nuke'} for you. We are loading ${cargo.name} with ${stations.load}.
+            </incoming_comms_text>
+            <expand _skip="${(stations._index+4)%4!=0}">
+              <addto_object_property test="${(stations._index+4)%4}" name="${stations.station}" property="missileStoresNuke" value="1"/>
+            </expand>
+            <addto_object_property name="${stations.station}" property="missileStoresEMP" value="1"/>
+            <set_ship_text name="${cargo.name}" hailtext="We are carrying a load of Platinum. Where should we deliver it?."/>
+          </event>
+        </expand>
+      </repeat>
+    </repeat>
+  </repeat>
+
+  <!--
+  _skip   loads._index ==  inner._index
+  nuke _skip (stations._index+4)%4)
+
+  1 = 1 
+  [2] Salistra [1] DS1 > newLoad=[1] Xirdium 
+  [3] Augite [1] DS1 > newLoad=[1] Xirdium 
+  [4] Platinum [1] DS1 > newLoad=[1] Xirdium nuke 1 
+  
+  
+  [1] Xirdium [2] DS2 > newLoad=[2] Salistra nuke 1 
+  2 = 2
+  [3] Augite [2] DS2 > newLoad=[2] Salistra 
+  [4] Platinum [2] DS2 > newLoad=[2] Salistra 
+  
+  [1] Xirdium [3] DS3 > newLoad=[3]  Augite  
+  [2] Salistra [3] DS3 > newLoad=[3]  Augite nuke 1 
+  3 = 3
+  [4] Platinum [3] DS3 > newLoad=[3]  Augite 
+  
+  [1] Xirdium [3] DS3 > newLoad=[3]  Platinum  
+  [2] Salistra [3] DS3 > newLoad=[3]  Platinum 
+  [3] Augite [2] DS2 > newLoad=[2] Platinum nuke 1
+  4 = 4
+
+  -->
+
+</mission_data>

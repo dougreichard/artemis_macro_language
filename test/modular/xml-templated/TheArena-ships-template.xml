@@ -5,12 +5,12 @@
 
   <start>
     <set_variable name="Respawn_Player_Time" value="60.0"/>
-    <repeat range="AllShips">
+    <repeat _range="AllShips">
       <set_variable name="${ship}" value="1.0"/>
       <set_relative_position name2="${ship}" distance="30100" angle="${angle}" name1="_"/>
     </repeat>
   </start>
-  <repeat range="AllShips">
+  <repeat _range="AllShips">
     <event name="${ship} Destroyed">
       <if_not_exists name="${ship}"/>
       <if_variable name="${ship}" comparator="EQUALS" value="1.0"/>

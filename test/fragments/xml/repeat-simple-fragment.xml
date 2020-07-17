@@ -14,7 +14,7 @@
 
   <start>
   
-    <repeat length="5" >
+    <repeat _length="5" >
         <set_variable name="egg${_index}" value="1.0"/>
         <set_timer name="egg${_index}_Timer" seconds="${25+_index*5}"/>
     </repeat>
@@ -23,16 +23,16 @@
       <set_variable name="lookup" value="${Anomalies[2].angle}"/>
     </expand>
   
-    <repeat range="Anomalies">
+    <repeat _range="Anomalies">
       <set_variable name="${anomaly}" value="1.0"/>
     </repeat>
-    <repeat length="7">
+    <repeat _length="7">
       <set_variable name="Variable[${_index}]" value="${_index*10}"/>
     </repeat>
     <set_variable name="Respawn_Anomaly_Time" value="90.0"/>
   </start>
 
-  <repeat range="Anomalies" _skip="${object == 'A5'}">
+  <repeat _range="Anomalies" _skip="${object == 'A5'}">
     <event name="${anomaly} Destroyed">
       <if_not_exists name="${object}"/>
       <if_variable name="${anomaly}" comparator="EQUALS" value="1.0"/>

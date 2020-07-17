@@ -12,13 +12,13 @@
     </range>
   </values>
   <start>
-    <repeat range="Anomalies">
+    <repeat _range="Anomalies">
       <set_variable name="${anomaly}" value="1.0"/>
     </repeat>
     <set_variable name="Respawn_Anomaly_Time" value="90.0"/>
   </start>
 
-  <repeat range="Anomalies">
+  <repeat _range="Anomalies">
     <event name="${anomaly} Destroyed">
       <if_not_exists name="${object}"/>
       <if_variable name="${anomaly}" comparator="EQUALS" value="1.0"/>

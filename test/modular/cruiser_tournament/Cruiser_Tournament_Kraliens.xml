@@ -1,0 +1,36 @@
+<mission_data version="1.0">
+  <imports>
+    <import name="Cruiser_Tournament_templates.xml" />
+  </imports>
+  <values>
+    <range name="kraliens">
+      <value name="K00" x="40300.0" z="52300.0" angle="45" race="Kralien" size="small" hull="Cruiser" fleetnumber="68" weight="9" surrender="5" />
+      <value name="K01" x="40300.0" z="52000.0" angle="45" race="Kralien" size="small" hull="Cruiser" fleetnumber="68" weight="9" surrender="5"/>
+      <value name="K02" x="40000.0" z="52000.0" angle="45" race="Kralien" size="small" hull="Cruiser" fleetnumber="68" weight="9" surrender="5"/>
+      <value name="K04" x="60000.0" z="47000.0" angle="180" race="Kralien" size="medium" hull="Battleship" fleetnumber="69" weight="17" surrender="9"/>
+      <value name="K05" x="60700.0" z="47000.0" angle="180" race="Kralien" size="medium" hull="Battleship" fleetnumber="69" weight="17" surrender="9"/>
+      <value name="K06" x="60300.0" z="47000.0" angle="180" race="Kralien" size="medium" hull="Battleship" fleetnumber="69" weight="17" surrender="9"/>
+      <value name="K07" x="70000.0" z="42000.0" angle="180" race="Kralien" size="large" hull="Dreadnought" fleetnumber="67" weight="25" surrender="13"/>
+      <value name="K08" x="69700.0" z="42000.0" angle="180" race="Kralien" size="large" hull="Dreadnought" fleetnumber="67" weight="25" surrender="13"/>
+      <value name="K09" x="70300.0" z="42000.0" angle="180" race="Kralien" size="large" hull="Dreadnought" fleetnumber="67" weight="25" surrender="13"/>
+      <value name="K10" x="60300.0" z="2300.0" angle="45" race="Kralien" size="small" hull="Cruiser" fleetnumber="57" weight="9" surrender="5"/>
+      <value name="K11" x="60300.0" z="2000.0" angle="45" race="Kralien" size="small" hull="Cruiser" fleetnumber="57" weight="9" surrender="5"/>
+      <value name="K12" x="60000.0" z="2000.0" angle="45" race="Kralien" size="small" hull="Cruiser" fleetnumber="57" weight="9" surrender="5"/>
+      <value name="K14" x="60000.0" z="17000.0" angle="180" race="Kralien" size="medium" hull="Battleship" fleetnumber="58" weight="17" surrender="9"/>
+      <value name="K15" x="59700.0" z="17000.0" angle="180" race="Kralien" size="medium" hull="Battleship" fleetnumber="58" weight="17" surrender="9"/>
+      <value name="K16" x="60300.0" z="17000.0" angle="180" race="Kralien" size="medium" hull="Battleship" fleetnumber="58" weight="17" surrender="9"/>
+      <value name="K17" x="60000.0" z="12000.0" angle="180" race="Kralien" size="large" hull="Dreadnought" fleetnumber="59" weight="25" surrender="13"/>
+      <value name="K18" x="59700.0" z="12000.0" angle="180" race="Kralien" size="large" hull="Dreadnought" fleetnumber="59" weight="25" surrender="13"/>
+      <value name="K19" x="60300.0" z="12000.0" angle="180" race="Kralien" size="large" hull="Dreadnought" fleetnumber="59" weight="25" surrender="13"/>
+    </range>
+  </values>
+  <start>
+    <repeat _range="kraliens">
+      <create type="enemy" x="${x}" y="0.0" z="${z}" angle="${angle}" name="${name}" raceKeys="${race} enemy" hullKeys="${size} ${hull}" fleetnumber="${fleetnumber}"/>
+    </repeat>
+  </start>
+  <repeat _range="kraliens">
+    <!-- Gets params from range since they are named the same.-->
+    <expand _template="tonnage" />
+  </repeat>
+</mission_data>

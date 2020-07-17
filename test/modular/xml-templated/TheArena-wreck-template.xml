@@ -13,7 +13,7 @@
   </values>
 
   <start>
-    <repeat range="Wrecks">
+    <repeat _range="Wrecks">
       <expand required="wreck">
         <set_variable name="${wreck}" value="1.0"/>
       </expand>
@@ -21,7 +21,7 @@
     <set_variable name="Respawn_Wreck_Time" value="50.0"/>
   </start>
 
-  <repeat range="Wrecks">
+  <repeat _range="Wrecks">
     <event name="${wreck} Destroyed">
       <if_not_exists name="${wreck}"/>
       <if_variable name="${wreck}" comparator="EQUALS" value="1.0"/>

@@ -1,20 +1,104 @@
 <mission_data>
     <values>
         <range name="difficulty">
-            <value level="1" crew_type="a trainee" />
-            <value level="2" crew_type="a cadette" />
-            <value level="3" crew_type="a cadette" />
-            <value level="4" crew_type="a cadette" />
-            <value level="5" crew_type="an experienced" />
-            <value level="6" crew_type="an experienced" />
-            <value level="7" crew_type="a verteran" />
-            <value level="8" crew_type="a verteran" />
-            <value level="9" crew_type="an elite" />
-            <value level="10" crew_type="an elite" />
-            <value level="11" crew_type="an insane" />
+            <struct>
+                <value level="1" crew_type="a trainee" />
+                <range name="stations">
+                </range>
+            </struct>
+            <struct>
+                <value level="2" crew_type="a cadette" />
+                <range name="stations">
+                    <value name="DS1" x="+1000" z="-1300"/>
+                    <value name="DS2" x="-900" z="-1400"/>
+                    <value name="DS3" x="+500" z="-300"/>
+                    <value name="DS4" x="-500" z="-300"/>
+                </range>
+            </struct>
+            <struct>
+                <value level="3" crew_type="a cadette" />
+                <range name="stations">
+                    <value name="DS1" x="+1000" z="-1200"/>
+                    <value name="DS2" x="-1000" z="-1200"/>
+                    <value name="DS3" x="+500" z="-300"/>
+                    <value name="DS4" x="-500" z="-300"/>
+                </range>
+            </struct>
+            <struct>
+                <value level="4" crew_type="a cadette" />
+                <range name="stations">
+                    <value name="DS1" x="+1000" z="-1400"/>
+                    <value name="DS2" x="-1000" z="-1500"/>
+                    <value name="DS3" x="+500" z="-300"/>
+                    <value name="DS4" x="-500" z="-300"/>
+                </range>
+            </struct>
+            <struct>
+                <value level="5" crew_type="an experienced" />
+                <range name="stations">
+                    <value name="DS1" x="+1000" z="-2000"/>
+                    <value name="DS2" x="-1200" z="-2000"/>
+                    <value name="DS3" x="+500" z="-300"/>
+                    <value name="DS4" x="-500" z="-300"/>
+                </range>
+            </struct>
+            <struct>
+                <value level="6" crew_type="an experienced" />
+                <range name="stations">
+                    <value name="DS1" x="+1000" z="-5000"/>
+                    <value name="DS2" x="-1200" z="-5000"/>
+                    <value name="DS3" x="+500" z="-300"/>
+                    <value name="DS4" x="-500" z="-300"/>
+                </range>
+            </struct>
+            <struct>
+                <value level="7" crew_type="a verteran" />
+                <range name="stations">
+                    <value name="DS1" x="+1000" z="-6000"/>
+                    <value name="DS2" x="-1200" z="-6000"/>
+                    <value name="DS3" x="+500" z="-300"/>
+                    <value name="DS4" x="-500" z="-300"/>
+                </range>
+            </struct>
+            <struct>
+                <value level="8" crew_type="a verteran" />
+                <range name="stations">
+                    <value name="DS1" x="+1000" z="-7000"/>
+                    <value name="DS2" x="-1200" z="-7000"/>
+                    <value name="DS3" x="+500" z="-300"/>
+                    <value name="DS4" x="-500" z="-300"/>
+                </range>
+            </struct>
+            <struct>
+                <value level="9" crew_type="an elite" />
+                <range name="stations">
+                    <value name="DS1" x="+1000" z="-8000"/>
+                    <value name="DS2" x="-1200" z="-8000"/>
+                    <value name="DS3" x="+500" z="-300"/>
+                    <value name="DS4" x="-500" z="-300"/>
+                </range>
+            </struct>
+            <struct>
+                <value level="10" crew_type="an elite" />
+                <range name="stations">
+                    <value name="DS1" x="+1000" z="-9000"/>
+                    <value name="DS2" x="-1200" z="-9000"/>
+                    <value name="DS3" x="+500" z="-300"/>
+                    <value name="DS4" x="-500" z="-300"/>
+                </range>
+            </struct>
+            <struct>
+                <value level="11" crew_type="an insane" />
+                <range name="stations">
+                    <value name="DS1" x="+1000" z="-9000"/>
+                    <value name="DS2" x="-1200" z="-9000"/>
+                    <value name="DS3" x="+500" z="-300"/>
+                    <value name="DS4" x="-500" z="-300"/>
+                </range>
+            </struct>
         </range>
     </values>
-    <repeat range="difficulty">
+    <repeat _range="difficulty">
         <event name="Difficulty ${level}">
             <if_variable name="credits1" comparator="EQUALS" value="1"/>
             <if_difficulty comparator="EQUALS" value="${level}"/>
@@ -22,9 +106,51 @@
             <set_variable name="credits1" value="2"/>
             <log text="DIFFICULTY FACTOR ${level}"/>
         </event>
+        <expand _skip="${stations.length==0}">
+            <event name="Difficulty ${level}">
+                <if_variable name="Difficult_Factor" comparator="EQUALS" value="0"/>
+                <if_difficulty comparator="GREATER" value="${_.int(level)-1}"/>
+                <repeat _range="stations">
+                    <addto_object_property name="${name}" property="positionX" value="${x}"/>
+                    <addto_object_property name="${name}" property="positionZ" value="${z}"/>
+                </repeat>
+                <expand _template="extra${level}" _optional="true" />
+            </event>
+        </expand>
     </repeat>
     <event name="Difficulty Done">
         <if_variable name="Difficult_Factor" comparator="EQUALS" value="0"/>
         <set_variable name="Difficult_Factor" value="1"/>
     </event>
+    <templates>
+        <template name="extra4">
+            <set_special name="K61" clear="yes" ability="Cloak"/>
+        </template>
+        <template name="extra6">
+            <set_object_property property="nebulaIsOpaque" value="1"/>
+        </template>
+        <template name="extra7">
+            <create type="blackHole" x="50000" y="0" z="50000"/>
+        </template>
+        <template name="extra8">
+            <create count="40" type="mines" startAngle="230" endAngle="310" startX="8000" startY="0" startZ="40000" radius="10000"/>
+        </template>
+        <template name="extra9">
+            <create count="40" type="mines" startAngle="50" endAngle="130" startX="92000" startY="0" startZ="40000" radius="10000"/>
+        </template>
+        <template name="extra10">
+            <create type="monster" x="40000" y="-500" z="85000" monsterType="4" name="F" podnumber="1"/>
+            <create type="monster" x="41000" y="-500" z="85700" monsterType="4" name="G" podnumber="1"/>
+            <set_relative_position name2="G" name1="F" angle="10" distance="150"/>
+            <create type="monster" x="40010" y="500" z="85200" monsterType="4" name="H" podnumber="1"/>
+            <set_relative_position name2="H" name1="F" angle="350" distance="150"/>
+            <create type="monster" x="48500" y="500" z="87000" monsterType="4" name="I" podnumber="1"/>
+            <set_relative_position name2="I" name1="F" angle="90" distance="150"/>
+            <create type="monster" x="48000" y="-500" z="88000" monsterType="4" name="J" podnumber="1"/>
+            <set_relative_position name2="J" name1="F" angle="270" distance="150"/>
+        </template>
+        <template name="extra11">
+            <create type="monster" monsterType="2" x="83000" y="120" z="96000"/>
+        </template>
+    </templates>
 </mission_data>

@@ -25,13 +25,13 @@
 
 
   <start>
-    <repeat range="AllShips">
+    <repeat _range="AllShips">
       <set_variable name="${ship}_Cargo" value="0.0"/>
     </repeat>
   </start>
 
-  <repeat range="AllShips" as="Ship">
-    <repeat range="AllShips2" as="Target" angle="90" _skip="${Ship.ship == Target.ship}">
+  <repeat _range="AllShips" _as="Ship">
+    <repeat _range="AllShips2" _as="Target" angle="90" _skip="${Ship.ship == Target.ship}">
       <event name="${Ship.ship} to ${Target.ship}">
         <set_relative_position name2="${Ship.ship}" distance="39000" angle="${angle}" name1="${Target.ship}"/>
       </event>
