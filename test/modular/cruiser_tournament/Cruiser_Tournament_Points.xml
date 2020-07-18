@@ -1,0 +1,67 @@
+<mission_data version="1.0">
+  <values>
+    <struct name="POINTS">
+    <struct name="Enemy">
+        <struct name="Hunter">
+          <value weight="40" surrender="20" />
+        </struct>
+      </struct>
+      <struct name="Arvonian">
+        <struct name="Carrier">
+          <value weight="45" surrender="23" />
+        </struct>
+        <struct name="Light Carrier">
+          <value weight="25" surrender="13" />
+        </struct>
+      </struct>
+      <struct name="Kralien">
+        <struct name="Cruiser">
+          <value weight="9" surrender="5" />
+        </struct>
+         <struct name="Dreadnought">
+          <value weight="25" surrender="13" />
+        </struct>
+        <struct name="Battleship">
+          <value weight="17" surrender="9" />
+        </struct>
+      </struct>
+      <struct name="Torgoth">
+        <struct name="Goliath">
+          <value weight="80" surrender="40" />
+        </struct>
+        <struct name="Behemoth">
+          <value weight="150" surrender="75" />
+        </struct>
+        <struct name="Leviathan">
+          <value weight="90" surrender="45" />
+        </struct>
+      </struct>
+      <struct name="Pirate">
+        <struct name="Strongbow">
+          <value weight="20" surrender="10" />
+        </struct>
+      </struct>
+       <struct name="Terran">
+        <struct name="Destroyer">
+          <value weight="-30"  />
+        </struct>
+      </struct>
+       <struct name="Friendly">
+        <struct name="Freighter">
+          <value weight="-50"  />
+        </struct>
+      </struct>
+      <struct name="Skaraan">
+        <struct name="Defiler">
+          <value weight="40" surrender="20" />
+        </struct>
+        <struct name="Executor">
+          <value weight="70" surrender="35" />
+        </struct>
+        <struct name="Enforcer">
+          <value weight="50" surrender="25" />
+        </struct>
+      </struct>
+    </struct>
+  </values>
+</mission_data>

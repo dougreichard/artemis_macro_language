@@ -16,6 +16,6 @@
     </start>
     <repeat _range="pirates">
         <!--Override text to match original  -->
-        <expand _template="tonnage" race="Pirate" hull="" />
+        <expand _template="tonnage" race="Pirate" hull="Strongbow" />
     </repeat>
 </mission_data>

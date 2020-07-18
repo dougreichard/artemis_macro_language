@@ -14,5 +14,5 @@
     <set_special name="K61" clear="yes" ability="LowVis"/>
     <set_special name="K61" clear="yes" ability="Stealth"/>
   </start>
-  <expand _template="tonnage" name="K61" race="Skaraan" hull="Defiler" weight="40" surrender="20" />
+  <expand _template="tonnage" name="K61" race="Skaraan" hull="Defiler" />
 </mission_data> 

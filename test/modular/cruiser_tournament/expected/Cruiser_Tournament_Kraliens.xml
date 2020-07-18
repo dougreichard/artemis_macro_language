@@ -19,7 +19,6 @@
     <create type="enemy" x="59700.0" y="0.0" z="12000.0" angle="180" name="K18" raceKeys="Kralien enemy" hullKeys="large Dreadnought" fleetnumber="59"/>
     <create type="enemy" x="60300.0" y="0.0" z="12000.0" angle="180" name="K19" raceKeys="Kralien enemy" hullKeys="large Dreadnought" fleetnumber="59"/>
   </start>
-  
   <event name="K00 Surrendered">
     <if_variable name="K00_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="K00" comparator="EQUALS" value="1"/>
@@ -44,7 +43,6 @@
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Cruiser K00 destroyed"/>
   </event>
-  
   <event name="K01 Surrendered">
     <if_variable name="K01_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="K01" comparator="EQUALS" value="1"/>
@@ -69,7 +67,6 @@
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Cruiser K01 destroyed"/>
   </event>
-  
   <event name="K02 Surrendered">
     <if_variable name="K02_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="K02" comparator="EQUALS" value="1"/>
@@ -94,7 +91,6 @@
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Cruiser K02 destroyed"/>
   </event>
-  
   <event name="K04 Surrendered">
     <if_variable name="K04_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="K04" comparator="EQUALS" value="1"/>
@@ -119,7 +115,6 @@
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Battleship K04 destroyed"/>
   </event>
-  
   <event name="K05 Surrendered">
     <if_variable name="K05_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="K05" comparator="EQUALS" value="1"/>
@@ -144,7 +139,6 @@
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Battleship K05 destroyed"/>
   </event>
-  
   <event name="K06 Surrendered">
     <if_variable name="K06_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="K06" comparator="EQUALS" value="1"/>
@@ -169,7 +163,6 @@
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Battleship K06 destroyed"/>
   </event>
-  
   <event name="K07 Surrendered">
     <if_variable name="K07_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="K07" comparator="EQUALS" value="1"/>
@@ -194,7 +187,6 @@
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Dreadnought K07 destroyed"/>
   </event>
-  
   <event name="K08 Surrendered">
     <if_variable name="K08_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="K08" comparator="EQUALS" value="1"/>
@@ -219,7 +211,6 @@
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Dreadnought K08 destroyed"/>
   </event>
-  
   <event name="K09 Surrendered">
     <if_variable name="K09_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="K09" comparator="EQUALS" value="1"/>
@@ -244,7 +235,6 @@
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Dreadnought K09 destroyed"/>
   </event>
-  
   <event name="K10 Surrendered">
     <if_variable name="K10_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="K10" comparator="EQUALS" value="1"/>
@@ -269,7 +259,6 @@
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Cruiser K10 destroyed"/>
   </event>
-  
   <event name="K11 Surrendered">
     <if_variable name="K11_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="K11" comparator="EQUALS" value="1"/>
@@ -294,7 +283,6 @@
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Cruiser K11 destroyed"/>
   </event>
-  
   <event name="K12 Surrendered">
     <if_variable name="K12_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="K12" comparator="EQUALS" value="1"/>
@@ -319,7 +307,6 @@
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Cruiser K12 destroyed"/>
   </event>
-  
   <event name="K14 Surrendered">
     <if_variable name="K14_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="K14" comparator="EQUALS" value="1"/>
@@ -344,7 +331,6 @@
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Battleship K14 destroyed"/>
   </event>
-  
   <event name="K15 Surrendered">
     <if_variable name="K15_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="K15" comparator="EQUALS" value="1"/>
@@ -369,7 +355,6 @@
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Battleship K15 destroyed"/>
   </event>
-  
   <event name="K16 Surrendered">
     <if_variable name="K16_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="K16" comparator="EQUALS" value="1"/>
@@ -394,7 +379,6 @@
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Battleship K16 destroyed"/>
   </event>
-  
   <event name="K17 Surrendered">
     <if_variable name="K17_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="K17" comparator="EQUALS" value="1"/>
@@ -419,7 +403,6 @@
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Dreadnought K17 destroyed"/>
   </event>
-  
   <event name="K18 Surrendered">
     <if_variable name="K18_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="K18" comparator="EQUALS" value="1"/>
@@ -444,7 +427,6 @@
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Dreadnought K18 destroyed"/>
   </event>
-  
   <event name="K19 Surrendered">
     <if_variable name="K19_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="K19" comparator="EQUALS" value="1"/>

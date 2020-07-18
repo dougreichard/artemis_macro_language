@@ -286,7 +286,6 @@
   <event name="clear check in comm buttons">
     <if_timer_finished name="Player_Check"/>
     <if_variable name="Player_Check_Button" comparator="EQUALS" value="1.0"/>
-    
     <clear_comms_button text="Artemis Press to Join Game"/>
     <clear_comms_button text="Intrepid Press to Join Game"/>
     <clear_comms_button text="Aegis Press to Join Game"/>

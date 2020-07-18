@@ -1,5 +1,4 @@
 <mission_data version="1.0">
-  
   <event name="Artemis Tagged Intrepid">
     <if_object_tag_matches objectName="Intrepid" string="Artemis"/>
     <set_comms_button text="Artemis Choose Hacking Program vs Intrepid?" sideValue="10"/>

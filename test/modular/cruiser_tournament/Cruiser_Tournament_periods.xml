@@ -1,783 +1,210 @@
-<!-- End of ANY Period -->
-    <event name="Period Over">
-        <if_timer_finished name="Eight_Minute_timer"/>
-        <if_variable name="PeriodEnd" comparator="EQUALS" value="0"/>
-        <set_variable name="PeriodEnd" value="1" integer="yes"/>
-    </event>
-    <!-- End of First Period -->
-    <event name="Period 1">
-        <if_variable name="PeriodEnd" comparator="Equals" value="1"/>
-        <if_variable name="Period_Counter" comparator="EQUALS" value="0"/>
-        <set_variable name="Period_Counter" value="1"/>
-        <set_variable name="PeriodEnd" value="0"/>
-        <big_message title="End of First Period" subtitle1="Now spawning more enemies." subtitle2="Whale Bonus = |Bonus|"/>
-        <set_timer name="Eight_Minute_timer" seconds="480"/>
-        <log text="End of First Period. Whale Bonus = |Bonus|"/>
-        <log text="Score = |Tonnage| kt  |Minutes| minutes remaining."/>
-    </event>
-    <!-- Spawn Pirate -->
-    <event name="Spawn Pirate 1_2">
-        <if_variable name="Period_Counter" comparator="EQUALS" value="1"/>
-        <if_variable name="Spawn1_2" comparator="EQUALS" value="0"/>
-        <create type="enemy" x="99990.0" y="-10.0" z="10.0" name="Black Comet" raceKeys="Pirate" hullKeys="Strongbow" fleetnumber="-1"/>
-        <set_special name="Black Comet" ability="Cloak"/>
-    </event>
-    <event name="Black Comet Surrendered">
-        <if_variable name="Comet_surrendered" comparator="EQUALS" value="0"/>
-        <if_variable name="Spawn3_1" comparator="EQUALS" value="1"/>
-        <if_object_property property="hasSurrendered" name="Black Comet" comparator="EQUALS" value="1"/>
-        <big_message title="Pirate Black Comet Surrendered" subtitle1="20 kilotons" subtitle2="+10 kt surrender bonus"/>
-        <log text="Pirate Black Comet Surrendered"/>
-        <set_variable name="Comet_surrendered" value="1"/>
-        <set_variable name="Tonnage" value="Tonnage+30"/>
-        <set_variable name="report_score" value="1"/>
-        <set_timer name="report_timer" seconds="8"/>
-    </event>
-    <event name="Black Comet Destroyed">
-        <if_variable name="Comet_dead" comparator="EQUALS" value="0"/>
-        <if_variable name="Spawn1_2" comparator="EQUALS" value="1"/>
-        <if_not_exists name="Black Comet"/>
-        <if_variable name="Comet_surrendered" comparator="EQUALS" value="0"/>
-        <big_message title="Pirate Black Comet Destroyed" subtitle1="20 kilotons" subtitle2=""/>
-        <log text="Pirate Black Comet Destroyed"/>
-        <set_variable name="Comet_dead" value="1"/>
-        <set_variable name="Tonnage" value="Tonnage+20"/>
-        <set_variable name="report_score" value="1"/>
-        <set_timer name="report_timer" seconds="8"/>
-    </event>
-    <!-- Spawn Arvonians -->
-    <event name="Spawn 1_2">
-        <if_variable name="Period_Counter" comparator="EQUALS" value="1"/>
-        <if_variable name="Spawn1_2" comparator="EQUALS" value="0"/>
-        <create type="enemy" x="16500" y="-350" z="41100" angle="270" name="D12" raceKeys="Arvonian" hullKeys="Light Carrier carrier" fleetnumber="32"/>
-        <set_variable name="Spawn1_2" value="1"/>
-    </event>
-    <event name="D12 Surrendered">
-        <if_variable name="D12_surrendered" comparator="EQUALS" value="0"/>
-        <if_variable name="Spawn3_1" comparator="EQUALS" value="1"/>
-        <if_object_property property="hasSurrendered" name="D12" comparator="EQUALS" value="1"/>
-        <big_message title="Arvonian Light Carrier D12 Surrendered" subtitle1="25 kilotons" subtitle2="+13 kt surrender bonus"/>
-        <log text="Arvonian Light Carrier D12 Surrendered"/>
-        <set_variable name="D12_surrendered" value="1"/>
-        <set_variable name="Tonnage" value="Tonnage+38"/>
-        <set_variable name="report_score" value="1"/>
-        <set_timer name="report_timer" seconds="8"/>
-    </event>
-    <event name="D12 Destroyed">
-        <if_variable name="D12_dead" comparator="EQUALS" value="0"/>
-        <if_variable name="Spawn1_2" comparator="EQUALS" value="1"/>
-        <if_not_exists name="D12"/>
-        <if_variable name="D12_surrendered" comparator="EQUALS" value="0"/>
-        <big_message title="Arvonian Light Carrier D12 Destroyed" subtitle1="25 kilotons" subtitle2=""/>
-        <log text="Arvonian Light Carrier D12 Destroyed"/>
-        <set_variable name="D12_dead" value="1"/>
-        <set_variable name="Tonnage" value="Tonnage+25"/>
-        <set_variable name="report_score" value="1"/>
-        <set_timer name="report_timer" seconds="8"/>
-    </event>
-    <event name="Spawn 1_3">
-        <if_variable name="Period_Counter" comparator="EQUALS" value="1"/>
-        <if_variable name="Spawn1_3" comparator="EQUALS" value="0"/>
-        <create type="enemy" x="13000" y="450" z="40500" angle="245" name="R13" raceKeys="Torgoth enemy" hullKeys="Goliath small" fleetnumber="33"/>
-        <set_variable name="Spawn1_3" value="1"/>
-    </event>
-    <event name="R13 Surrendered">
-        <if_variable name="R13_surrendered" comparator="EQUALS" value="0"/>
-        <if_variable name="Spawn3_1" comparator="EQUALS" value="1"/>
-        <if_object_property property="hasSurrendered" name="R13" comparator="EQUALS" value="1"/>
-        <big_message title="Torgoth Goliath R13 Surrendered" subtitle1="80 kilotons" subtitle2="+40 kt surrender bonus"/>
-        <log text="Torgoth Goliath R13 Surrendered"/>
-        <set_variable name="R13_surrendered" value="1"/>
-        <set_variable name="Tonnage" value="Tonnage+120"/>
-        <set_variable name="report_score" value="1"/>
-        <set_timer name="report_timer" seconds="8"/>
-    </event>
-    <event name="R13 Destroyed">
-        <if_variable name="R13_dead" comparator="EQUALS" value="0"/>
-        <if_variable name="Spawn1_3" comparator="EQUALS" value="1"/>
-        <if_not_exists name="R13"/>
-        <if_variable name="R13_surrendered" comparator="EQUALS" value="0"/>
-        <big_message title="Torgoth Goliath R13 Destroyed" subtitle1="" subtitle2=""/>
-        <log text="Torgoth Goliath R13 Destroyed"/>
-        <set_variable name="R13_dead" value="1"/>
-        <set_variable name="Tonnage" value="Tonnage+80"/>
-        <set_variable name="report_score" value="1"/>
-        <set_timer name="report_timer" seconds="8"/>
-    </event>
-    <event name="Spawn 1_4">
-        <if_variable name="Period_Counter" comparator="EQUALS" value="1"/>
-        <if_variable name="Spawn1_4" comparator="EQUALS" value="0"/>
-        <create type="enemy" x="51000" y="-80" z="31100" angle="200" name="N14" raceKeys="Skaraan enemy" hullKeys="Defiler small" fleetnumber="34"/>
-        <set_special name="N14" ship="-1" captain="5" ability="AntiTorp"/>
-        <set_special name="N14" clear="yes" ability="Teleport"/>
-        <set_special name="N14" ability="Warp"/>
-        <set_special name="N14" clear="yes" ability="Tractor"/>
-        <set_special name="N14" clear="yes" ability="Drones"/>
-        <set_special name="N14" clear="yes" ability="AntiMine"/>
-        <set_special name="N14" clear="yes" ability="ShldDrain"/>
-        <set_special name="N14" clear="yes" ability="ShldVamp"/>
-        <set_special name="N14" clear="yes" ability="LowVis"/>
-        <set_special name="N14" clear="yes" ability="Stealth"/>
-        <set_special name="N14" clear="yes" ability="Cloak"/>
-        <set_variable name="Spawn1_4" value="1"/>
-    </event>
-    <event name="N14 Surrendered">
-        <if_variable name="N14_surrendered" comparator="EQUALS" value="0"/>
-        <if_variable name="Spawn3_1" comparator="EQUALS" value="1"/>
-        <if_object_property property="hasSurrendered" name="N14" comparator="EQUALS" value="1"/>
-        <big_message title="Skaraan Defiler N14 Surrendered" subtitle1="40 kilotons" subtitle2="+20 kt surrender bonus"/>
-        <log text="Skaraan Defiler N14 Surrendered"/>
-        <set_variable name="N14_surrendered" value="1"/>
-        <set_variable name="Tonnage" value="Tonnage+60"/>
-        <set_variable name="report_score" value="1"/>
-        <set_timer name="report_timer" seconds="8"/>
-    </event>
-    <event name="N14 Destroyed">
-        <if_variable name="N14_dead" comparator="EQUALS" value="0"/>
-        <if_variable name="Spawn1_4" comparator="EQUALS" value="1"/>
-        <if_not_exists name="N14"/>
-        <if_variable name="N14_surrendered" comparator="EQUALS" value="0.0"/>
-        <big_message title="Skaraan Defiler N14 Destroyed" subtitle1="40 kilotons" subtitle2=""/>
-        <log text="Skaraan Defiler N14 Destroyed"/>
-        <set_variable name="N14_dead" value="1"/>
-        <set_variable name="Tonnage" value="Tonnage+40"/>
-        <set_variable name="report_score" value="1"/>
-        <set_timer name="report_timer" seconds="8"/>
-    </event>
-    <!-- End of Second Period -->
-    <event name="Period 2">
-        <if_variable name="PeriodEnd" comparator="Equals" value="1"/>
-        <if_variable name="Period_Counter" comparator="EQUALS" value="1"/>
-        <set_variable name="Period_Counter" value="2"/>
-        <set_variable name="PeriodEnd" value="0"/>
-        <big_message title="End of Second Period" subtitle1="Now spawning more enemies." subtitle2="Whale Bonus = |Bonus|"/>
-        <set_timer name="Eight_Minute_timer" seconds="480"/>
-        <log text="End of Second Period. Whale Bonus = |Bonus|"/>
-        <log text="Score = |Tonnage| kt  |Minutes| minutes remaining."/>
-    </event>
-    <!-- Spawn Arvonians -->
-    <event name="Spawn2_2">
-        <if_variable name="Period_Counter" comparator="EQUALS" value="2"/>
-        <if_variable name="Spawn2_2" comparator="EQUALS" value="0"/>
-        <create type="enemy" x="16500" y="-500" z="41000" angle="270" name="D16" raceKeys="Arvonian" hullKeys="Carrier carrier" fleetnumber="36"/>
-        <set_variable name="Spawn2_2" value="1"/>
-    </event>
-    <event name="D16 Surrendered">
-        <if_variable name="D16_surrendered" comparator="EQUALS" value="0"/>
-        <if_variable name="Spawn3_1" comparator="EQUALS" value="1"/>
-        <if_object_property property="hasSurrendered" name="D16" comparator="EQUALS" value="1"/>
-        <big_message title="Arvonian Carrier D16 Surrendered" subtitle1="45 kilotons" subtitle2="+23 kt surrender bonus"/>
-        <log text="Arvonian Carrier D16 Surrendered"/>
-        <set_variable name="D16_surrendered" value="1"/>
-        <set_variable name="Tonnage" value="Tonnage+68"/>
-        <set_variable name="report_score" value="1"/>
-        <set_timer name="report_timer" seconds="8"/>
-    </event>
-    <event name="D16 Destroyed">
-        <if_variable name="D16_dead" comparator="EQUALS" value="0"/>
-        <if_variable name="Spawn2_2" comparator="EQUALS" value="1"/>
-        <if_not_exists name="D16"/>
-        <big_message title="Arvonian Carrier D16 Destroyed" subtitle1="45 kilotons" subtitle2=""/>
-        <log text="Arvonian Carrier D16 Destroyed"/>
-        <set_variable name="D16_dead" value="1"/>
-        <set_variable name="Tonnage" value="Tonnage+45"/>
-        <set_variable name="report_score" value="1"/>
-        <set_timer name="report_timer" seconds="8"/>
-    </event>
-    <event name="Spawn2_3">
-        <if_variable name="Period_Counter" comparator="EQUALS" value="2"/>
-        <if_variable name="Spawn2_3" comparator="EQUALS" value="0"/>
-        <create type="enemy" x="13000" y="500" z="40500" angle="245" name="R17" raceKeys="Torgoth enemy" hullKeys="Leviathan medium" fleetnumber="37"/>
-        <set_variable name="Spawn2_3" value="1"/>
-    </event>
-    <event name="R17 Surrendered">
-        <if_variable name="R17_surrendered" comparator="EQUALS" value="0"/>
-        <if_object_property property="hasSurrendered" name="R17" comparator="EQUALS" value="1"/>
-        <big_message title="Torgoth Leviathan R17 Surrendered" subtitle1="90 kilotons" subtitle2="+45 kt surrender bonus"/>
-        <log text="Torgoth Leviathan R17 Surrendered"/>
-        <set_variable name="R17_surrendered" value="1"/>
-        <set_variable name="Tonnage" value="Tonnage+135"/>
-        <set_variable name="report_score" value="1"/>
-        <set_timer name="report_timer" seconds="8"/>
-    </event>
-    <event name="R17 Destroyed">
-        <if_variable name="R17_dead" comparator="EQUALS" value="0"/>
-        <if_variable name="Spawn2_3" comparator="EQUALS" value="1"/>
-        <if_not_exists name="R17"/>
-        <if_variable name="R17_surrendered" comparator="EQUALS" value="0"/>
-        <big_message title="Torgoth Leviathan R17 Destroyed" subtitle1="90 kilotons" subtitle2=""/>
-        <log text="Torgoth Leviathan R17 Destroyed"/>
-        <set_variable name="R17_dead" value="1"/>
-        <set_variable name="Tonnage" value="Tonnage+90"/>
-        <set_variable name="report_score" value="1"/>
-        <set_timer name="report_timer" seconds="8"/>
-    </event>
-    <event name="Spawn2_4">
-        <if_variable name="Period_Counter" comparator="EQUALS" value="2"/>
-        <if_variable name="Spawn2_4" comparator="EQUALS" value="0"/>
-        <create type="enemy" x="51000" y="0" z="31000" angle="200" name="N18" raceKeys="Skaraan enemy" hullKeys="Enforcer medium" fleetnumber="38"/>
-        <set_special name="N18" ship="-1" captain="5" ability="AntiTorp"/>
-        <set_special name="N18" clear="yes" ability="Teleport"/>
-        <set_special name="N18" ability="Warp"/>
-        <set_special name="N18" ability="Tractor"/>
-        <set_special name="N18" ability="Drones"/>
-        <set_special name="N18" clear="yes" ability="AntiMine"/>
-        <set_special name="N18" clear="yes" ability="ShldDrain"/>
-        <set_special name="N18" clear="yes" ability="ShldVamp"/>
-        <set_special name="N18" clear="yes" ability="LowVis"/>
-        <set_special name="N18" clear="yes" ability="Stealth"/>
-        <set_variable name="Spawn2_4" value="1"/>
-    </event>
-    <event name="N18 Surrendered">
-        <if_variable name="N18_surrendered" comparator="EQUALS" value="0"/>
-        <if_object_property property="hasSurrendered" name="N18" comparator="EQUALS" value="1"/>
-        <big_message title="Skaraan Enforcer N18 Surrendered" subtitle1="50 kilotons" subtitle2="+25 kt surrender bonus"/>
-        <log text="Skaraan Enforcer N18 Surrendered"/>
-        <set_variable name="N18_surrendered" value="1"/>
-        <set_variable name="Tonnage" value="Tonnage+75"/>
-        <set_variable name="report_score" value="1"/>
-        <set_timer name="report_timer" seconds="8"/>
-    </event>
-    <event name="N18 Destroyed" id_arme="a44daf9b-9204-450a-bc31-653fc186d26b">
-        <if_variable name="N18_dead" comparator="EQUALS" value="0"/>
-        <if_variable name="Spawn2_4" comparator="EQUALS" value="1"/>
-        <if_not_exists name="N18"/>
-        <if_variable name="N18_surrendered" comparator="EQUALS" value="0"/>
-        <big_message title="Skaraan Enforcer N18 Destroyed" subtitle1="50 kilotons" subtitle2=""/>
-        <log text="Skaraan Enforcer N18 Destroyed"/>
-        <set_variable name="N18_dead" value="1"/>
-        <set_variable name="Tonnage" value="Tonnage+50"/>
-        <set_variable name="report_score" value="1"/>
-        <set_timer name="report_timer" seconds="8"/>
-    </event>
-    <!-- End of Third Period -->
-    <event name="Period 3">
-        <if_variable name="PeriodEnd" comparator="Equals" value="1"/>
-        <if_variable name="Period_Counter" comparator="EQUALS" value="2"/>
-        <set_variable name="Period_Counter" value="3"/>
-        <set_variable name="PeriodEnd" value="0"/>
-        <big_message title="End of Third Period" subtitle1="Now spawning more enemies." subtitle2="Whale Bonus = |Bonus|"/>
-        <set_timer name="Eight_Minute_timer" seconds="480"/>
-        <log text="End of Third Period. Whale Bonus = |Bonus|"/>
-        <log text="Score = |Tonnage| kt  |Minutes| minutes remaining."/>
-    </event>
-    <!-- Spawn Arvonians -->
-    <event name="Spawn3_2">
-        <if_variable name="Period_Counter" comparator="EQUALS" value="3"/>
-        <if_variable name="Spawn3_2" comparator="EQUALS" value="0"/>
-        <create type="enemy" x="16500" y="-500" z="71000" angle="270" name="D20" raceKeys="Arvonian" hullKeys="Carrier carrier" fleetnumber="40"/>
-        <set_variable name="Spawn3_2" value="1"/>
-    </event>
-    <event name="D20 Surrendered">
-        <if_variable name="D20_surrendered" comparator="EQUALS" value="0"/>
-        <if_variable name="Spawn3_1" comparator="EQUALS" value="1"/>
-        <if_object_property property="hasSurrendered" name="D20" comparator="EQUALS" value="1"/>
-        <big_message title="Arvonian Carrier D20 Surrendered" subtitle1="45 kilotons" subtitle2="+23 kt surrender bonus"/>
-        <log text="Arvonian Carrier D20 Surrendered"/>
-        <set_variable name="D20_surrendered" value="1"/>
-        <set_variable name="Tonnage" value="Tonnage+68"/>
-        <set_variable name="report_score" value="1"/>
-        <set_timer name="report_timer" seconds="8"/>
-    </event>
-    <event name="D20 Destroyed">
-        <if_variable name="D20_dead" comparator="EQUALS" value="0"/>
-        <if_variable name="Spawn3_2" comparator="EQUALS" value="1"/>
-        <if_not_exists name="D20"/>
-        <if_variable name="D20_surrendered" comparator="EQUALS" value="0"/>
-        <big_message title="Arvonian Carrier D20 Destroyed" subtitle1="" subtitle2=""/>
-        <log text="Arvonian Carrier D20 Destroyed"/>
-        <set_variable name="D20_dead" value="1"/>
-        <set_variable name="Tonnage" value="Tonnage+45"/>
-        <set_variable name="report_score" value="1"/>
-        <set_timer name="report_timer" seconds="8"/>
-    </event>
-    <event name="Spawn3_3">
-        <if_variable name="Period_Counter" comparator="EQUALS" value="3"/>
-        <if_variable name="Spawn3_3" comparator="EQUALS" value="0"/>
-        <create type="enemy" x="13000" y="500" z="30500" angle="245" name="R21" raceKeys="Torgoth enemy" hullKeys="Behemoth large" fleetnumber="41"/>
-        <create type="enemy" x="13500" y="-500" z="30000" angle="245" name="R22" raceKeys="Torgoth enemy" hullKeys="Leviathan medium" fleetnumber="41"/>
-        <set_variable name="Spawn3_3" value="1"/>
-    </event>
-    <event name="R21 Surrendered">
-        <if_variable name="R21_surrendered" comparator="EQUALS" value="0"/>
-        <if_object_property property="hasSurrendered" name="R21" comparator="EQUALS" value="1"/>
-        <if_variable name="Spawn3_3" comparator="EQUALS" value="1"/>
-        <big_message title="Enemy R21 Surrendered" subtitle1="150 kilotons" subtitle2="+75 kt surrender bonus"/>
-        <log text="Enemy R21 Surrendered"/>
-        <set_variable name="R21_surrendered" value="1"/>
-        <set_variable name="Tonnage" value="Tonnage+225"/>
-        <set_variable name="report_score" value="1"/>
-        <set_timer name="report_timer" seconds="8"/>
-    </event>
-    <event name="R21 Destroyed">
-        <if_variable name="R21_dead" comparator="EQUALS" value="0"/>
-        <if_variable name="Spawn3_3" comparator="EQUALS" value="1"/>
-        <if_not_exists name="R21"/>
-        <if_variable name="R21_surrendered" comparator="EQUALS" value="0"/>
-        <big_message title="Torgoth Behemoth R21 Destroyed" subtitle1="150 kilotons" subtitle2=""/>
-        <log text="Torgoth Behemoth R21 Destroyed"/>
-        <set_variable name="R21_dead" value="1"/>
-        <set_variable name="Tonnage" value="Tonnage+150"/>
-        <set_variable name="report_score" value="1"/>
-        <set_timer name="report_timer" seconds="8"/>
-    </event>
-    <event name="R22 Surrendered">
-        <if_variable name="R22_surrendered" comparator="EQUALS" value="0"/>
-        <if_object_property property="hasSurrendered" name="R22" comparator="EQUALS" value="1"/>
-        <if_variable name="Spawn3_3" comparator="EQUALS" value="1"/>
-        <big_message title="Torgoth Leviathan R22 Surrendered" subtitle1="90 kilotons" subtitle2="+45 kt surrender bonus"/>
-        <log text="Torgoth Leviathan R22 Surrendered"/>
-        <set_variable name="R22_surrendered" value="1"/>
-        <set_variable name="Tonnage" value="Tonnage+135"/>
-        <set_variable name="report_score" value="1"/>
-        <set_timer name="report_timer" seconds="8"/>
-    </event>
-    <event name="R22 Destroyed">
-        <if_variable name="R22_dead" comparator="EQUALS" value="0"/>
-        <if_variable name="Spawn3_3" comparator="EQUALS" value="1"/>
-        <if_not_exists name="R22"/>
-        <if_variable name="R22_surrendered" comparator="EQUALS" value="0"/>
-        <big_message title="Torgoth Leviathan R22 Destroyed" subtitle1="90 kilotons" subtitle2=""/>
-        <log text="Torgoth Behemoth R22 Destroyed"/>
-        <set_variable name="R22_dead" value="1"/>
-        <set_variable name="Tonnage" value="Tonnage+90"/>
-        <set_variable name="report_score" value="1"/>
-        <set_timer name="report_timer" seconds="8"/>
-    </event>
-    <event name="Spawn3_4">
-        <if_variable name="Period_Counter" comparator="EQUALS" value="3"/>
-        <if_variable name="Spawn3_4" comparator="EQUALS" value="0"/>
-        <create type="enemy" x="51000" y="0" z="21000" angle="200" name="N22" raceKeys="Skaraan enemy" hullKeys="Executor large" fleetnumber="42"/>
-        <set_special name="N22" ship="-1" captain="5" ability="AntiTorp"/>
-        <set_special name="N22" ability="Teleport"/>
-        <set_special name="N22" ability="Warp"/>
-        <set_special name="N22" ability="Tractor"/>
-        <set_special name="N22" ability="Drones"/>
-        <set_special name="N22" clear="yes" ability="AntiMine"/>
-        <set_special name="N22" clear="yes" ability="ShldDrain"/>
-        <set_special name="N22" ability="ShldVamp"/>
-        <set_special name="N22" clear="yes" ability="LowVis"/>
-        <set_special name="N22" clear="yes" ability="Stealth"/>
-        <set_variable name="Spawn3_4" value="1"/>
-    </event>
-    <event name="N22 Surrendered">
-        <if_variable name="N22_surrendered" comparator="EQUALS" value="0"/>
-        <if_object_property property="hasSurrendered" name="N22" comparator="EQUALS" value="1"/>
-        <big_message title="Skaraan Executor N22 Surrendered" subtitle1="70 Kilotons" subtitle2="+35 kt surrender bonus"/>
-        <log text="Enemy N22 Surrendered"/>
-        <set_variable name="N22_surrendered" value="1"/>
-        <set_variable name="Tonnage" value="Tonnage+105"/>
-        <set_variable name="report_score" value="1"/>
-        <set_timer name="report_timer" seconds="8"/>
-    </event>
-    <event name="N22 Destroyed">
-        <if_variable name="N22_dead" comparator="EQUALS" value="0"/>
-        <if_variable name="Spawn3_4" comparator="EQUALS" value="1"/>
-        <if_not_exists name="N22"/>
-        <if_variable name="N22_surrendered" comparator="EQUALS" value="0"/>
-        <big_message title="Skaraan Executor N22 Destroyed" subtitle1="45 kilotons" subtitle2=""/>
-        <log text="Skaraan Executor N22 Destroyed"/>
-        <set_variable name="N22_dead" value="1"/>
-        <set_variable name="Tonnage" value="Tonnage+70"/>
-        <set_variable name="report_score" value="1"/>
-        <set_timer name="report_timer" seconds="8"/>
-    </event>
-    <!-- End of Fourth Period -->
-    <event name="Period 4">
-        <if_variable name="PeriodEnd" comparator="Equals" value="1"/>
-        <if_variable name="Period_Counter" comparator="EQUALS" value="3"/>
-        <set_variable name="Period_Counter" value="4"/>
-        <set_variable name="PeriodEnd" value="0"/>
-        <big_message title="End of Fourth Period" subtitle1="Now spawning more enemies." subtitle2="Whale Bonus = |Bonus|"/>
-        <set_timer name="Eight_Minute_timer" seconds="480"/>
-        <log text="End of Fourth Period. Whale Bonus = |Bonus|"/>
-        <log text="Score = |Tonnage| kt  |Minutes| minutes remaining."/>
-    </event>
-    <!-- Spawn Arvonians -->
-    <event name="Spawn4_2">
-        <if_variable name="Period_Counter" comparator="EQUALS" value="4"/>
-        <if_variable name="Spawn4_2" comparator="EQUALS" value="0"/>
-        <create type="enemy" x="86500" y="-500" z="31000" angle="270" name="D25" raceKeys="Arvonian" hullKeys="Carrier carrier" fleetnumber="43"/>
-        <create type="enemy" x="86700" y="500" z="31900" angle="270" name="D26" raceKeys="Arvonian" hullKeys="Carrier carrier" fleetnumber="43"/>
-        <set_variable name="Spawn4_2" value="1"/>
-    </event>
-    <event name="D25 Surrendered">
-        <if_variable name="D25_surrendered" comparator="EQUALS" value="0"/>
-        <if_variable name="Spawn3_1" comparator="EQUALS" value="1"/>
-        <if_object_property property="hasSurrendered" name="D25" comparator="EQUALS" value="1"/>
-        <big_message title="Arvonian Carrier D25 Surrendered" subtitle1="45 Kilotons" subtitle2="+23 kt surrender bonus"/>
-        <log text="Arvonian Carrier D25 Surrendered"/>
-        <set_variable name="D25_surrendered" value="1"/>
-        <set_variable name="Tonnage" value="Tonnage+68"/>
-        <set_variable name="report_score" value="1"/>
-        <set_timer name="report_timer" seconds="8"/>
-    </event>
-    <event name="D25 Destroyed">
-        <if_variable name="D25_dead" comparator="EQUALS" value="0"/>
-        <if_variable name="Spawn4_2" comparator="EQUALS" value="1"/>
-        <if_not_exists name="D25"/>
-        <if_variable name="D25_surrendered" comparator="EQUALS" value="0"/>
-        <big_message title="Arvonian Carrier D25 Destroyed" subtitle1="45 kilotons" subtitle2=""/>
-        <log text="Arvonian Carrier D25 Destroyed"/>
-        <set_variable name="D25_dead" value="1"/>
-        <set_variable name="Tonnage" value="Tonnage+45"/>
-        <set_variable name="report_score" value="1"/>
-        <set_timer name="report_timer" seconds="8"/>
-    </event>
-    <event name="D26 Surrendered">
-        <if_variable name="D26_surrendered" comparator="EQUALS" value="0"/>
-        <if_variable name="Spawn3_1" comparator="EQUALS" value="1"/>
-        <if_object_property property="hasSurrendered" name="D26" comparator="EQUALS" value="1"/>
-        <big_message title="Arvonian Carrier D26 Surrendered" subtitle1="45 Kilotons" subtitle2="+23 kt surrender bonus"/>
-        <log text="Arvonian Carrier D26 Surrendered"/>
-        <set_variable name="D26_surrendered" value="1"/>
-        <set_variable name="Tonnage" value="Tonnage+68"/>
-        <set_variable name="report_score" value="1"/>
-        <set_timer name="report_timer" seconds="8"/>
-    </event>
-    <event name="D26 Destroyed">
-        <if_variable name="D26_dead" comparator="EQUALS" value="0"/>
-        <if_variable name="Spawn4_2" comparator="EQUALS" value="1"/>
-        <if_not_exists name="D26"/>
-        <if_variable name="D26_surrendered" comparator="EQUALS" value="0"/>
-        <big_message title="Arvonian Carrier D26 Destroyed" subtitle1="45 kilotons" subtitle2=""/>
-        <log text="Arvonian Carrier D26 Destroyed"/>
-        <set_variable name="D26_dead" value="1"/>
-        <set_variable name="Tonnage" value="Tonnage+45"/>
-        <set_variable name="report_score" value="1"/>
-        <set_timer name="report_timer" seconds="8"/>
-    </event>
-    <event name="Spawn4_3">
-        <if_variable name="Period_Counter" comparator="EQUALS" value="4"/>
-        <if_variable name="Spawn4_3" comparator="EQUALS" value="0"/>
-        <create type="enemy" x="13000" y="500" z="40500" angle="245" name="R27" raceKeys="Torgoth enemy" hullKeys="Behemoth large" fleetnumber="44"/>
-        <create type="enemy" x="12600" y="-500" z="40600" angle="245" name="R28" raceKeys="Torgoth enemy" hullKeys="Behemoth large" fleetnumber="44"/>
-        <set_variable name="Spawn4_3" value="1"/>
-    </event>
-    <event name="R27 Surrendered">
-        <if_variable name="R27_surrendered" comparator="EQUALS" value="0"/>
-        <if_object_property property="hasSurrendered" name="R27" comparator="EQUALS" value="1"/>
-        <big_message title="Torgoth Behemoth R27 Surrendered" subtitle1="150 kilotons" subtitle2="+75 kt surrender bonus"/>
-        <log text="Torgoth Behemoth R27 Surrendered"/>
-        <set_variable name="R27_surrendered" value="1"/>
-        <set_variable name="Tonnage" value="Tonnage+225"/>
-        <set_variable name="report_score" value="1"/>
-        <set_timer name="report_timer" seconds="8"/>
-    </event>
-    <event name="R27 Destroyed">
-        <if_variable name="R27_dead" comparator="EQUALS" value="0"/>
-        <if_variable name="Spawn4_3" comparator="EQUALS" value="1"/>
-        <if_not_exists name="R27"/>
-        <if_variable name="R27_surrendered" comparator="EQUALS" value="0"/>
-        <big_message title="Enemy R27 Destroyed" subtitle1="150 kilotons" subtitle2=""/>
-        <log text="Enemy Carrier R27 Destroyed"/>
-        <set_variable name="R27_dead" value="1"/>
-        <set_variable name="Tonnage" value="Tonnage+150"/>
-        <set_variable name="report_score" value="1"/>
-        <set_timer name="report_timer" seconds="8"/>
-    </event>
-    <event name="R28 Surrendered">
-        <if_variable name="R28_surrendered" comparator="EQUALS" value="0"/>
-        <if_object_property property="hasSurrendered" name="R28" comparator="EQUALS" value="1"/>
-        <big_message title="Torgoth Behemoth R28 Surrendered" subtitle1="150 kilotons" subtitle2="+75 kt surrender bonus"/>
-        <log text="Torgoth Behemoth R28 Surrendered"/>
-        <set_variable name="R28_surrendered" value="1"/>
-        <set_variable name="Tonnage" value="Tonnage+225"/>
-    </event>
-    <event name="R28 Destroyed">
-        <if_variable name="R28_dead" comparator="EQUALS" value="0"/>
-        <if_variable name="Spawn4_3" comparator="EQUALS" value="1"/>
-        <if_not_exists name="R28"/>
-        <if_variable name="R28_surrendered" comparator="EQUALS" value="0"/>
-        <big_message title="Torgoth Behemoth R28 Destroyed" subtitle1="150 kilotons" subtitle2=""/>
-        <log text="Torgoth Behemoth R28 Destroyed"/>
-        <set_variable name="R28_dead" value="1"/>
-        <set_variable name="Tonnage" value="Tonnage+150"/>
-        <set_variable name="report_score" value="1"/>
-        <set_timer name="report_timer" seconds="8"/>
-    </event>
-    <event name="Spawn4_4">
-        <if_variable name="Period_Counter" comparator="EQUALS" value="4"/>
-        <if_variable name="Spawn4_4" comparator="EQUALS" value="0"/>
-        <create type="enemy" x="51000" y="0" z="31000" angle="200" name="N29" raceKeys="Skaraan enemy" hullKeys="Executor large" fleetnumber="46"/>
-        <create type="enemy" x="51400" y="-200" z="30800" angle="200" name="N30" raceKeys="Skaraan enemy" hullKeys="Executor large" fleetnumber="46"/>
-        <set_special name="N29" ship="-1" captain="5" ability="AntiTorp"/>
-        <set_special name="N29" ability="Teleport"/>
-        <set_special name="N29" ability="Warp"/>
-        <set_special name="N29" ability="Tractor"/>
-        <set_special name="N29" ability="Drones"/>
-        <set_special name="N29" clear="yes" ability="AntiMine"/>
-        <set_special name="N29" clear="yes" ability="ShldDrain"/>
-        <set_special name="N29" ability="ShldVamp"/>
-        <set_special name="N29" clear="yes" ability="LowVis"/>
-        <set_special name="N29" clear="yes" ability="Stealth"/>
-        <set_special name="N30" ship="-1" captain="5" ability="AntiTorp"/>
-        <set_special name="N30" ability="Teleport"/>
-        <set_special name="N30" ability="Warp"/>
-        <set_special name="N30" ability="Tractor"/>
-        <set_special name="N30" ability="Drones"/>
-        <set_special name="N30" ability="AntiMine"/>
-        <set_special name="N30" clear="yes" ability="ShldDrain"/>
-        <set_special name="N30" ability="ShldVamp"/>
-        <set_special name="N30" clear="yes" ability="LowVis"/>
-        <set_special name="N30" clear="yes" ability="Stealth"/>
-        <set_variable name="Spawn4_4" value="1"/>
-        <set_variable name="Spawn4_4" value="1"/>
-    </event>
-    <event name="N29 Surrendered">
-        <if_variable name="N29_surrendered" comparator="EQUALS" value="0"/>
-        <if_object_property property="hasSurrendered" name="N29" comparator="EQUALS" value="1"/>
-        <big_message title="Skaraan Executor N29 Surrendered" subtitle1="70 kilotons" subtitle2="+35 kt surrender bonus"/>
-        <log text="Skaraan Executor N29 Surrendered"/>
-        <set_variable name="N29_surrendered" value="1"/>
-        <set_variable name="Tonnage" value="Tonnage+105"/>
-        <set_variable name="report_score" value="1"/>
-        <set_timer name="report_timer" seconds="8"/>
-    </event>
-    <event name="N29 Destroyed">
-        <if_variable name="N29_dead" comparator="EQUALS" value="0"/>
-        <if_variable name="Spawn4_4" comparator="EQUALS" value="1"/>
-        <if_not_exists name="N29"/>
-        <if_variable name="N29_surrendered" comparator="EQUALS" value="0"/>
-        <big_message title="Skaraan Executor N29 Destroyed" subtitle1="70 kilotons" subtitle2=""/>
-        <log text="Skaraan Executor N29 Destroyed"/>
-        <set_variable name="N29_dead" value="1"/>
-        <set_variable name="Tonnage" value="Tonnage+70"/>
-        <set_variable name="report_score" value="1"/>
-        <set_timer name="report_timer" seconds="8"/>
-    </event>
-    <event name="N30 Surrendered">
-        <if_variable name="N30_surrendered" comparator="EQUALS" value="0"/>
-        <if_object_property property="hasSurrendered" name="N30" comparator="EQUALS" value="1"/>
-        <big_message title="Skaraan Executor N30 Surrendered" subtitle1="70 kilotons" subtitle2="+35 kt surrender bonus"/>
-        <log text="Skaraan Executor N30 Surrendered"/>
-        <set_variable name="N30_surrendered" value="1"/>
-        <set_variable name="Tonnage" value="Tonnage+105"/>
-        <set_variable name="report_score" value="1"/>
-        <set_timer name="report_timer" seconds="8"/>
-    </event>
-    <event name="N30 Destroyed">
-        <if_variable name="N30_dead" comparator="EQUALS" value="0"/>
-        <if_variable name="Spawn4_4" comparator="EQUALS" value="1"/>
-        <if_not_exists name="N30"/>
-        <if_variable name="N30_surrendered" comparator="EQUALS" value="0"/>
-        <big_message title="Skaraan Executor N30 Destroyed" subtitle1="70 kilotons" subtitle2=""/>
-        <log text="Skaraan Executor N30 Destroyed"/>
-        <set_variable name="N30_dead" value="1"/>
-        <set_variable name="Tonnage" value="Tonnage+70"/>
-        <set_variable name="report_score" value="1"/>
-        <set_timer name="report_timer" seconds="8"/>
-    </event>
-    <!-- End of Fifth Period -->
-    <event name="Period 5">
-        <if_variable name="PeriodEnd" comparator="Equals" value="1"/>
-        <if_variable name="Period_Counter" comparator="EQUALS" value="4"/>
-        <set_variable name="Period_Counter" value="5"/>
-        <set_variable name="PeriodEnd" value="0"/>
-        <big_message title="STARTING FINAL PERIOD" subtitle1="End of Fifth Period" subtitle2="Whale Bonus = |Bonus|"/>
-        <set_timer name="Eight_Minute_timer" seconds="480"/>
-        <log text="End of Fifth Period. Whale Bonus = |Bonus|"/>
-        <log text="Score = |Tonnage| kt  |Minutes| minutes remaining."/>
-    </event>
-    <!-- End of Sixth Period -->
-    <event name="Period 6">
-        <if_variable name="PeriodEnd" comparator="Equals" value="1"/>
-        <if_variable name="Period_Counter" comparator="EQUALS" value="5"/>
-        <set_variable name="Period_Counter" value="6"/>
-        <set_variable name="PeriodEnd" value="0"/>
-        <big_message title="END OF FINAL PERIOD" subtitle1="Congratulations" subtitle2="Whale Bonus = |Bonus|"/>
-        <set_timer name="endint_timer" seconds="8"/>
-        <log text="End of Sixth Period. Whale Bonus = |Bonus|"/>
-        <log text="Final Score = |Tonnage| kilotons."/>
-        <play_sound_now filename="Fanfare.wav"/>
-    </event>
-    <!-- Spawn Pirate 2 -->
-    <event name="Spawn Pirate Skywayman">
-        <if_variable name="Period_Counter" comparator="EQUALS" value="5"/>
-        <if_variable name="Spawn5_2" comparator="EQUALS" value="0"/>
-        <create type="enemy" x="99990.0" y="-100.0" z="10.0" name="Skywayman" raceKeys="Pirate" hullKeys="Strongbow" fleetnumber="-1"/>
-        <set_special name="Skywayman" ability="Cloak"/>
-    </event>
-    <event name="Skywayman Surrendered">
-        <if_variable name="Skywayman_surrendered" comparator="EQUALS" value="0"/>
-        <if_variable name="Spawn5_2" comparator="EQUALS" value="1"/>
-        <if_object_property property="hasSurrendered" name="Skywayman" comparator="EQUALS" value="1"/>
-        <big_message title="Pirate Skywayman Surrendered" subtitle1="20 kilotons" subtitle2="+10 kt surrender bonus"/>
-        <log text="Pirate Skywayman Surrendered"/>
-        <set_variable name="Skywayman_surrendered" value="1"/>
-        <set_variable name="Tonnage" value="Tonnage+30"/>
-        <set_variable name="report_score" value="1"/>
-        <set_timer name="report_timer" seconds="8"/>
-    </event>
-    <!-- Spawn Arvonians -->
-    <event name="Spawn5_2">
-        <if_variable name="Period_Counter" comparator="EQUALS" value="5"/>
-        <if_variable name="Spawn5_2" comparator="EQUALS" value="0"/>
-        <create type="enemy" x="16500" y="-500" z="41000" angle="270" name="D33" raceKeys="Arvonian" hullKeys="Carrier carrier" fleetnumber="50"/>
-        <create type="enemy" x="16700" y="500" z="41900" angle="270" name="D34" raceKeys="Arvonian" hullKeys="Carrier carrier" fleetnumber="50"/>
-        <set_variable name="Spawn5_2" value="1"/>
-    </event>
-    <event name="D33 Surrendered">
-        <if_variable name="D33_surrendered" comparator="EQUALS" value="0"/>
-        <if_variable name="Spawn3_1" comparator="EQUALS" value="1"/>
-        <if_object_property property="hasSurrendered" name="D33" comparator="EQUALS" value="1"/>
-        <big_message title="Arvonian Carrier D33 Surrendered" subtitle1="45 kilotons" subtitle2="+23 kt surrender bonus"/>
-        <log text="Arvonian Carrier D33 Surrendered"/>
-        <set_variable name="D33_surrendered" value="1"/>
-        <set_variable name="Tonnage" value="Tonnage+68"/>
-        <set_variable name="report_score" value="1"/>
-        <set_timer name="report_timer" seconds="8"/>
-    </event>
-    <event name="D33 Destroyed">
-        <if_variable name="D33_dead" comparator="EQUALS" value="0"/>
-        <if_variable name="Spawn5_2" comparator="EQUALS" value="1"/>
-        <if_not_exists name="D33"/>
-        <if_variable name="D33_surrendered" comparator="EQUALS" value="0"/>
-        <big_message title="Arvonian Carrier D33 Destroyed" subtitle1="45 kilotons" subtitle2=""/>
-        <log text="Arvonian Carrier D33 Destroyed"/>
-        <set_variable name="D33_dead" value="1"/>
-        <set_variable name="Tonnage" value="Tonnage+45"/>
-        <set_variable name="report_score" value="1"/>
-        <set_timer name="report_timer" seconds="8"/>
-    </event>
-    <event name="D34 Surrendered">
-        <if_variable name="D34_surrendered" comparator="EQUALS" value="0"/>
-        <if_variable name="Spawn5_2" comparator="EQUALS" value="1"/>
-        <if_object_property property="hasSurrendered" name="D34" comparator="EQUALS" value="1"/>
-        <big_message title="Arvonian Carrier D34 Surrendered" subtitle1="45 kilotons" subtitle2="+23 kt surrender bonus"/>
-        <log text="Arvonian Carrier D34 Surrendered"/>
-        <set_variable name="D34_surrendered" value="1"/>
-        <set_variable name="Tonnage" value="Tonnage+68"/>
-        <set_variable name="report_score" value="1"/>
-        <set_timer name="report_timer" seconds="8"/>
-    </event>
-    <event name="D34 Destroyed">
-        <if_variable name="D34_dead" comparator="EQUALS" value="0"/>
-        <if_variable name="Spawn5_2" comparator="EQUALS" value="1"/>
-        <if_not_exists name="D34"/>
-        <if_variable name="D34_surrendered" comparator="EQUALS" value="0"/>
-        <big_message title="Arvonian Carrier D34 Destroyed" subtitle1="45 kilotons" subtitle2=""/>
-        <log text="Arvonian Carrier D34 Destroyed"/>
-        <set_variable name="D34_dead" value="1"/>
-        <set_variable name="Tonnage" value="Tonnage+45"/>
-        <set_variable name="report_score" value="1"/>
-        <set_timer name="report_timer" seconds="8"/>
-    </event>
-    <event name="Spawn5_3">
-        <if_variable name="Period_Counter" comparator="EQUALS" value="5"/>
-        <if_variable name="Spawn5_3" comparator="EQUALS" value="0"/>
-        <create type="enemy" x="88000" y="500" z="40500" angle="245" name="R35" raceKeys="Torgoth enemy" hullKeys="Behemoth large" fleetnumber="52"/>
-        <create type="enemy" x="88600" y="-500" z="40600" angle="245" name="R36" raceKeys="Torgoth enemy" hullKeys="Behemoth large" fleetnumber="52"/>
-        <set_variable name="Spawn5_3" value="1"/>
-    </event>
-    <event name="R35 Surrendered">
-        <if_variable name="R35_surrendered" comparator="EQUALS" value="0"/>
-        <if_object_property property="hasSurrendered" name="R35" comparator="EQUALS" value="1"/>
-        <big_message title="Torgoth Behemoth R35 Surrendered" subtitle1="150 kilotons" subtitle2="+75 kt surrender bonus"/>
-        <log text="Torgoth Behemoth R35 Surrendered"/>
-        <set_variable name="R35_surrendered" value="1"/>
-        <set_variable name="Tonnage" value="Tonnage+225"/>
-        <set_variable name="report_score" value="1"/>
-        <set_timer name="report_timer" seconds="8"/>
-    </event>
-    <event name="R35 Destroyed">
-        <if_variable name="R35_dead" comparator="EQUALS" value="0"/>
-        <if_variable name="Spawn5_3" comparator="EQUALS" value="1"/>
-        <if_not_exists name="R35"/>
-        <big_message title="Torgoth Behemoth R35 Destroyed" subtitle1="150 kilotons" subtitle2=""/>
-        <log text="Torgoth Behemoth R35 Destroyed"/>
-        <set_variable name="R35_dead" value="1"/>
-        <set_variable name="Tonnage" value="Tonnage+150"/>
-        <set_variable name="report_score" value="1"/>
-        <set_timer name="report_timer" seconds="8"/>
-    </event>
-    <event name="R36 Surrendered">
-        <if_variable name="R36_surrendered" comparator="EQUALS" value="0"/>
-        <if_object_property property="hasSurrendered" name="R36" comparator="EQUALS" value="1"/>
-        <big_message title="Torgoth Behemoth R36 Surrendered" subtitle1="150 kilotons" subtitle2="+75 kt surrender bonus"/>
-        <log text="Torgoth Behemoth R36 Surrendered"/>
-        <set_variable name="R36_surrendered" value="1"/>
-        <set_variable name="Tonnage" value="Tonnage+225"/>
-        <set_variable name="report_score" value="1"/>
-        <set_timer name="report_timer" seconds="8"/>
-    </event>
-    <event name="R36 Destroyed">
-        <if_variable name="R36_dead" comparator="EQUALS" value="0"/>
-        <if_variable name="Spawn5_3" comparator="EQUALS" value="1"/>
-        <if_not_exists name="R36"/>
-        <big_message title="Torgoth Behemoth R36 Destroyed" subtitle1="150 kilotons" subtitle2=""/>
-        <log text="Torgoth Behemoth R36 Destroyed"/>
-        <set_variable name="R36_dead" value="1"/>
-        <set_variable name="Tonnage" value="Tonnage+150"/>
-        <set_variable name="report_score" value="1"/>
-        <set_timer name="report_timer" seconds="8"/>
-    </event>
-    <event name="Spawn5_4">
-        <if_variable name="Period_Counter" comparator="EQUALS" value="5"/>
-        <if_variable name="Spawn5_4" comparator="EQUALS" value="0"/>
-        <create type="enemy" x="51000" y="0" z="61000" angle="200" name="N37" raceKeys="Skaraan enemy" hullKeys="Executor large" fleetnumber="54"/>
-        <create type="enemy" x="51400" y="-200" z="60800" angle="200" name="N38" raceKeys="Skaraan enemy" hullKeys="Executor large" fleetnumber="54"/>
-        <set_special name="N37" ship="-1" captain="5" ability="AntiTorp"/>
-        <set_special name="N37" ability="Teleport"/>
-        <set_special name="N37" ability="Warp"/>
-        <set_special name="N37" ability="Tractor"/>
-        <set_special name="N37" ability="Drones"/>
-        <set_special name="N37" ability="HET"/>
-        <set_special name="N37" ability="AntiMine"/>
-        <set_special name="N37" clear="yes" ability="ShldDrain"/>
-        <set_special name="N37" ability="ShldVamp"/>
-        <set_special name="N37" clear="yes" ability="LowVis"/>
-        <set_special name="N37" clear="yes" ability="Stealth"/>
-        <set_special name="N38" ship="-1" captain="5" ability="AntiTorp"/>
-        <set_special name="N38" ability="Teleport"/>
-        <set_special name="N38" ability="HET"/>
-        <set_special name="N38" ability="Warp"/>
-        <set_special name="N38" ability="Tractor"/>
-        <set_special name="N38" ability="Drones"/>
-        <set_special name="N38" ability="AntiMine"/>
-        <set_special name="N38" clear="yes" ability="ShldDrain"/>
-        <set_special name="N38" ability="ShldVamp"/>
-        <set_special name="N38" clear="yes" ability="LowVis"/>
-        <set_special name="N38" clear="yes" ability="Stealth"/>
-        <set_variable name="Spawn5_4" value="1"/>
-    </event>
-    <event name="N37 Surrendered">
-        <if_variable name="N37_surrendered" comparator="EQUALS" value="0"/>
-        <if_object_property property="hasSurrendered" name="N37" comparator="EQUALS" value="1"/>
-        <big_message title="Skaraan Executor N37 Surrendered" subtitle1="70 kilotons" subtitle2="+35 kt surrender bonus"/>
-        <log text="Skaraan Executor N37 Surrendered"/>
-        <set_variable name="N37_surrendered" value="1"/>
-        <set_variable name="Tonnage" value="Tonnage+105"/>
-        <set_variable name="report_score" value="1"/>
-        <set_timer name="report_timer" seconds="8"/>
-    </event>
-    <event name="N37 Destroyed">
-        <if_variable name="N37_dead" comparator="EQUALS" value="0"/>
-        <if_variable name="Spawn5_4" comparator="EQUALS" value="1"/>
-        <if_not_exists name="N37"/>
-        <big_message title="Skaraan Executor N37 Destroyed" subtitle1="70 kilotons" subtitle2=""/>
-        <log text="Skaraan Executor N37 Destroyed"/>
-        <set_variable name="N37_dead" value="1"/>
-        <set_variable name="Tonnage" value="Tonnage+70"/>
-        <set_variable name="report_score" value="1"/>
-        <set_timer name="report_timer" seconds="8"/>
-    </event>
-    <event name="N38 Surrendered">
-        <if_variable name="N38_surrendered" comparator="EQUALS" value="0"/>
-        <if_object_property property="hasSurrendered" name="N38" comparator="EQUALS" value="1"/>
-        <big_message title="Skaraan Executor N38 Surrendered" subtitle1="70 kilotons" subtitle2="+35 kt surrender bonus"/>
-        <log text="Skaraan Executor N38 Surrendered"/>
-        <set_variable name="N38_surrendered" value="1"/>
-        <set_variable name="Tonnage" value="Tonnage+105"/>
-        <set_variable name="report_score" value="1"/>
-        <set_timer name="report_timer" seconds="8"/>
-    </event>
-    <event name="N38 Destroyed">
-        <if_variable name="N38_dead" comparator="EQUALS" value="0"/>
-        <if_variable name="Spawn5_4" comparator="EQUALS" value="1"/>
-        <if_not_exists name="N38"/>
-        <big_message title="Skaraan Executor N38 Destroyed" subtitle1="70 kilotons" subtitle2=""/>
-        <log text="Skaraan Executor N38 Destroyed"/>
-        <set_variable name="N38_dead" value="1"/>
-        <set_variable name="Tonnage" value="Tonnage+70"/>
-    </event>
+<mission_data version="1.0">
+  <imports>
+    <import name="Cruiser_Tournament_templates.xml" />
+  </imports>
+  <values>
+    <range name="periods">
+      <struct>
+        <value name="First Period" />
+        <range name="enemies">
+          <value name="Black Comet" x="99990.0" y="-10.0" z="10.0" angle="0" race="Pirate" hull="Strongbow" size=" " fleetnumber="-1" extra="spawn_pirate" />
+          <value name="D12" x="16500" y="-350" z="41100" angle="270" race="Arvonian" hull="Light Carrier" size="carrier" fleetnumber="32" />
+          <value name="R13" x="13000" y="450" z="40500" angle="245" race="Torgoth" hull="Goliath" size="small" fleetnumber="33" />
+          <value name="N14" x="51000" y="-80" z="31100" angle="200" race="Skaraan" hull="Defiler" size="small" fleetnumber="34" extra="spawn_skaraan_a" />
+        </range>
+      </struct>
+      <struct>
+        <value name="Second Period" />
+        <range name="enemies">
+          <value name="D16" x="16500" y="-500" z="41000" angle="270" race="Arvonian" hull="Carrier" size="carrier" fleetnumber="36" />
+          <value name="R17" x="13000" y="500" z="40500" angle="245" race="Torgoth" hull="Leviathan" size="medium" fleetnumber="37" />
+          <value name="N18" x="51000" y="0" z="31000" angle="200" race="Skaraan" hull="Enforcer" size="medium" fleetnumber="38" extra="spawn_skaraan_b"/>
+        </range>
+      </struct>
+      <struct>
+        <value name="Third Period" />
+        <range name="enemies">
+          <value name="D20" x="16500" y="-500" z="71000" angle="270" race="Arvonian" hull="Carrier" size="carrier" fleetnumber="40" />
+          <value name="R21" x="13000" y="500" z="30500" angle="245" race="Torgoth" hull="Behemoth" size="large" fleetnumber="41"/>
+          <value name="R22" x="13500" y="-500" z="30000" angle="245" race="Torgoth" hull="Leviathan" size="medium" fleetnumber="41" />
+          <value name="N22" x="51000" y="0" z="21000" angle="200" race="Skaraan" hull="Executor" size="large" fleetnumber="42" extra="spawn_skaraan_c" />
+        </range>
+      </struct>
+      <struct>
+        <value name="Forth Period" />
+        <range name="enemies">
+          <value name="D25" x="86500" y="-500" z="31000" angle="270" race="Arvonian" hull="Carrier" size="carrier" fleetnumber="43" weight="45" surrender="23" />
+          <value name="D26" x="86700" y="500" z="31900" angle="270" race="Arvonian" hull="Carrier" size="carrier" fleetnumber="43" weight="45" surrender="23"/>
+          <value name="R27" x="13000" y="500" z="40500" angle="245" race="Torgoth" hull="Behemoth" size="large" fleetnumber="44" weight="150" surrender="75"/>
+          <value name="R28" x="12600" y="-500" z="40600" angle="245" race="Torgoth" hull="Behemoth" size="large" fleetnumber="44" weight="150" surrender="75"/>
+          <value name="N29" x="51000" y="0" z="31000" angle="200" race="Skaraan" hull="Executor" size="large" fleetnumber="46" extra="spawn_skaraan_c" weight="70" surrender="35"/>
+          <value name="N30" x="51400" y="-200" z="30800" angle="200" race="Skaraan" hull="Executor" size="large" fleetnumber="46" extra="spawn_skaraan_d" weight="70" surrender="35"/>
+        </range>
+      </struct>
+      <struct>
+        <value name="Fifth Period" />
+        <range name="enemies">
+          <value name="Skywayman" x="99990.0" y="-100.0" z="10.0" angle="0" race="Pirate" hull="Strongbow" size=" " fleetnumber="-1" extra="spawn_pirate" />
+          <value name="D33" x="16500" y="-500" z="41000" angle="270" race="Arvonian" hull="Carrier" size="carrier" fleetnumber="50" />
+          <value name="D34" x="16700" y="500" z="41900" angle="270" race="Arvonian" hull="Carrier" size="carrier" fleetnumber="50" />
+          <value name="R35" x="88000" y="500" z="40500" angle="245" race="Torgoth" hull="Behemoth" size="large" fleetnumber="52" />
+          <value name="R36" x="88600" y="-500" z="40600" angle="245" race="Torgoth" hull="Behemoth" size="large" fleetnumber="52" />
+          <value name="N37" x="51000" y="0" z="61000" angle="200" race="Skaraan" hull="Executor" size="large" fleetnumber="54" extra="spawn_skaraan_e" />
+          <value name="N38" x="51400" y="-200" z="60800" angle="200" race="Skaraan" hull="Executor" size="large" fleetnumber="54" extra="spawn_skaraan_e" />
+        </range>
+      </struct>
+    </range>
+  </values>
+
+  <start>
+    <!-- Period Timer -->
+    <set_timer name="Eight_Minute_timer" seconds="480"/>
+  </start>
+
+
+  <!-- End of ANY Period -->
+  <event name="Period Over">
+    <if_timer_finished name="Eight_Minute_timer"/>
+    <if_variable name="PeriodEnd" comparator="EQUALS" value="0"/>
+    <set_variable name="PeriodEnd" value="1" integer="yes"/>
+  </event>
+
+  <repeat _range="periods" _as="period">
+    <!-- End of Period -->
+    <event name="${name}">
+      <if_variable name="PeriodEnd" comparator="Equals" value="1"/>
+      <if_variable name="Period_Counter" comparator="EQUALS" value="${_index}"/>
+      <set_variable name="Period_Counter" value="${_index+1}"/>
+      <set_variable name="PeriodEnd" value="0"/>
+      <big_message title="End of First Period" subtitle1="Now spawning more enemies." subtitle2="Whale Bonus = |Bonus|"/>
+      <set_timer name="Eight_Minute_timer" seconds="480"/>
+      <log text="End of ${name}. Whale Bonus = |Bonus|"/>
+      <log text="Score = |Tonnage| kt  |Minutes| minutes remaining."/>
+    </event>
+    <repeat _range="enemies">
+      <expand _template="spawn" />
+      <expand _template="tonnage" />
+    </repeat>
+  </repeat>
+
+  <!-- End of Sixth Period is end of game -->
+  <event name="Period 6">
+    <if_variable name="PeriodEnd" comparator="Equals" value="1"/>
+    <if_variable name="Period_Counter" comparator="EQUALS" value="5"/>
+    <set_variable name="Period_Counter" value="6"/>
+    <set_variable name="PeriodEnd" value="0"/>
+    <big_message title="END OF FINAL PERIOD" subtitle1="Congratulations" subtitle2="Whale Bonus = |Bonus|"/>
+    <set_timer name="endint_timer" seconds="8"/>
+    <log text="End of Sixth Period. Whale Bonus = |Bonus|"/>
+    <log text="Final Score = |Tonnage| kilotons."/>
+    <play_sound_now filename="Fanfare.wav"/>
+  </event>
+
+  <templates>
+    <template name="spawn">
+    <params>
+      <param name="name" />
+      <param name="x" />
+      <param name="y" />
+      <param name="z" />
+      <param name="race" />
+      <param name="hull" />
+      <param name="size" />
+      <param name="extra" description="description" default=""/>
+    </params>
+      <event name="Spawn ${name}">
+        <if_variable name="Period_Counter" comparator="EQUALS" value="period._index"/>
+        <if_variable name="Spawn${name}" comparator="EQUALS" value="0"/>
+        <create type="enemy" x="${x}" y="${y}" z="${z}" name="${name}" raceKeys="${race}" hullKeys="${hull} ${size}" fleetnumber="${fleetnumber}"/>
+        <expand _template="${extra}" _optional="true" />
+        <set_variable name="Spawn${name}" comparator="EQUALS" value="1"/>
+      </event>
+    </template>
+    <!-- Common extra spawn info for pirates-->
+    <template name="spawn_pirate">
+      <params>
+        <param name="name" description="The name of the ship"/>
+      </params>
+      <set_special name="${name}" ability="Cloak"/>
+    </template>
+    <!-- Common extra spawn info for skaraan -->
+    <template name="spawn_Skaraan_A">
+    <params>
+        <param name="name" description="The name of the ship"/>
+      </params>
+      
+      <set_special name="${name}" ship="-1" captain="5" ability="AntiTorp"/>
+      <set_special name="${name}" clear="yes" ability="Teleport"/>
+      <set_special name="${name}" ability="Warp"/>
+      <set_special name="${name}" clear="yes" ability="Tractor"/>
+      <set_special name="${name}" clear="yes" ability="Drones"/>
+      <set_special name="${name}" clear="yes" ability="AntiMine"/>
+      <set_special name="${name}" clear="yes" ability="ShldDrain"/>
+      <set_special name="${name}" clear="yes" ability="ShldVamp"/>
+      <set_special name="${name}" clear="yes" ability="LowVis"/>
+      <set_special name="${name}" clear="yes" ability="Stealth"/>
+      <set_special name="${name}" clear="yes" ability="Cloak"/>
+    </template>
+    <template name="spawn_skaraan_b">
+    <params>
+        <param name="name" description="The name of the ship"/>
+      </params>
+      
+      <set_special name="${name}" ship="-1" captain="5" ability="AntiTorp"/>
+      <set_special name="${name}" clear="yes" ability="Teleport"/>
+      <set_special name="${name}" ability="Warp"/>
+      <set_special name="${name}" ability="Tractor"/>
+      <set_special name="${name}" ability="Drones"/>
+      <set_special name="${name}" clear="yes" ability="AntiMine"/>
+      <set_special name="${name}" clear="yes" ability="ShldDrain"/>
+      <set_special name="${name}" clear="yes" ability="ShldVamp"/>
+      <set_special name="${name}" clear="yes" ability="LowVis"/>
+      <set_special name="${name}" clear="yes" ability="Stealth"/>
+    </template>
+    <template name="spawn_skarran_c">
+    <params>
+        <param name="name" description="The name of the ship"/>
+      </params>
+      
+      <set_special name="${name}" ship="-1" captain="5" ability="AntiTorp"/>
+      <set_special name="${name}" ability="Teleport"/>
+      <set_special name="${name}" ability="Warp"/>
+      <set_special name="${name}" ability="Tractor"/>
+      <set_special name="${name}" ability="Drones"/>
+      <set_special name="${name}" clear="yes" ability="AntiMine"/>
+      <set_special name="${name}" clear="yes" ability="ShldDrain"/>
+      <set_special name="${name}" ability="ShldVamp"/>
+      <set_special name="${name}" clear="yes" ability="LowVis"/>
+      <set_special name="${name}" clear="yes" ability="Stealth"/>
+    </template>
+    <template name="skaraan_d">
+    <params>
+        <param name="name" description="The name of the ship"/>
+      </params>
+      
+      <set_special name="${name}" ship="-1" captain="5" ability="AntiTorp"/>
+      <set_special name="${name}" ability="Teleport"/>
+      <set_special name="${name}" ability="Warp"/>
+      <set_special name="${name}" ability="Tractor"/>
+      <set_special name="${name}" ability="Drones"/>
+      <set_special name="${name}" ability="AntiMine"/>
+      <set_special name="${name}" clear="yes" ability="ShldDrain"/>
+      <set_special name="${name}" ability="ShldVamp"/>
+      <set_special name="${name}" clear="yes" ability="LowVis"/>
+      <set_special name="${name}" clear="yes" ability="Stealth"/>
+    </template>
+    <template name="skaraan_e">
+      <set_special name="${name}" ship="-1" captain="5" ability="AntiTorp"/>
+      <set_special name="${name}" ability="Teleport"/>
+      <set_special name="${name}" ability="Warp"/>
+      <set_special name="${name}" ability="Tractor"/>
+      <set_special name="${name}" ability="Drones"/>
+      <set_special name="${name}" ability="HET"/>
+      <set_special name="${name}" ability="AntiMine"/>
+      <set_special name="${name}" clear="yes" ability="ShldDrain"/>
+      <set_special name="${name}" ability="ShldVamp"/>
+      <set_special name="${name}" clear="yes" ability="LowVis"/>
+      <set_special name="${name}" clear="yes" ability="Stealth"/>
+    </template>
+  </templates>
+</mission_data>

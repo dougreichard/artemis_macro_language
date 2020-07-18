@@ -589,7 +589,7 @@
     <create type="enemy" x="65440" y="200" z="31300" angle="200" name="B44" raceKeys="Kralien enemy" hullKeys="Battleship medium" fleetnumber="94"/>
     <create type="enemy" x="65540" y="-200" z="33000" angle="200" name="B45" raceKeys="Kralien enemy" hullKeys="Cruiser small" fleetnumber="94"/>
     <create type="enemy" x="65340" y="200" z="33300" angle="200" name="B46" raceKeys="Kralien enemy" hullKeys="Cruiser small" fleetnumber="94"/>
-    <create type="enemy" x="65340" y="200" z="30600" angle="200" name="B47" raceKeys="Arvonian enemy" hullKeys="Carrier Carrier " fleetnumber="94"/>
+    <create type="enemy" x="65340" y="200" z="30600" angle="200" name="B47" raceKeys="Arvonian enemy" hullKeys="Carrier  Carrier" fleetnumber="94"/>
     <set_special name="B41" ship="-1" captain="5" ability="Cloak"/>
     <set_special name="B41" clear="yes" ability="Warp"/>
     <set_special name="B41" ability="Tractor"/>
@@ -767,10 +767,10 @@
     <set_variable name="B47_surrendered" value="1"/>
     <set_object_property property="topSpeed" value="0.2" name="B47"/>
     <set_variable name="Tonnage" value="Tonnage+45+23"/>
-    <big_message title="Arvonian Carrier Carrier surrendered" subtitle1="45 kilotons" subtitle2="+23 kt surrender bonus"/>
+    <big_message title="Arvonian Carrier surrendered" subtitle1="45 kilotons" subtitle2="+23 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
-    <log text="Arvonian Carrier Carrier B47 Surrendered"/>
+    <log text="Arvonian Carrier B47 Surrendered"/>
   </event>
   <event name="B47 Destroyed">
     <if_variable name="Bonus_4" comparator="EQUALS" value="1"/>
@@ -781,10 +781,10 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+45"/>
-    <big_message title="Arvonian Carrier Carrier B47 destroyed" subtitle1="45 kilotons" subtitle2=""/>
+    <big_message title="Arvonian Carrier B47 destroyed" subtitle1="45 kilotons" subtitle2=""/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
-    <log text="Arvonian Carrier Carrier B47 destroyed"/>
+    <log text="Arvonian Carrier B47 destroyed"/>
   </event>
   <event name="Spawn Bonus Bonus_3">
     <if_variable name="Bonus_3" comparator="EQUALS" value="0"/>
@@ -802,7 +802,7 @@
     <create type="enemy" x="44133" y="200" z="30300" angle="200" name="B34" raceKeys="Kralien enemy" hullKeys="Battleship medium" fleetnumber="93"/>
     <create type="enemy" x="44444" y="200" z="32300" angle="200" name="B35" raceKeys="Kralien enemy" hullKeys="Cruiser small" fleetnumber="93"/>
     <create type="enemy" x="43540" y="200" z="32430" angle="200" name="B36" raceKeys="Kralien enemy" hullKeys="Cruiser small" fleetnumber="93"/>
-    <create type="enemy" x="44240" y="-200" z="29600" angle="200" name="B37" raceKeys="Arvonian enemy" hullKeys="Carrier Carrier " fleetnumber="93"/>
+    <create type="enemy" x="44240" y="-200" z="29600" angle="200" name="B37" raceKeys="Arvonian enemy" hullKeys="Carrier Carrier" fleetnumber="93"/>
     <set_special name="B31" clear="yes" ability="Cloak"/>
     <set_special name="B31" ship="-1" captain="5" ability="Warp"/>
     <set_special name="B31" ability="Tractor"/>
@@ -980,10 +980,10 @@
     <set_variable name="B37_surrendered" value="1"/>
     <set_object_property property="topSpeed" value="0.2" name="B37"/>
     <set_variable name="Tonnage" value="Tonnage+45+23"/>
-    <big_message title="Arvonian Carrier Carrier surrendered" subtitle1="45 kilotons" subtitle2="+23 kt surrender bonus"/>
+    <big_message title="Arvonian Carrier surrendered" subtitle1="45 kilotons" subtitle2="+23 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
-    <log text="Arvonian Carrier Carrier B37 Surrendered"/>
+    <log text="Arvonian Carrier B37 Surrendered"/>
   </event>
   <event name="B37 Destroyed">
     <if_variable name="Bonus_3" comparator="EQUALS" value="1"/>
@@ -994,10 +994,10 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+45"/>
-    <big_message title="Arvonian Carrier Carrier B37 destroyed" subtitle1="45 kilotons" subtitle2=""/>
+    <big_message title="Arvonian Carrier B37 destroyed" subtitle1="45 kilotons" subtitle2=""/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
-    <log text="Arvonian Carrier Carrier B37 destroyed"/>
+    <log text="Arvonian Carrier B37 destroyed"/>
   </event>
   <event name="Spawn Bonus Bonus_2">
     <if_variable name="Bonus_2" comparator="EQUALS" value="0"/>
@@ -1016,7 +1016,7 @@
     <create type="enemy" x="75240" y="200" z="31300" angle="200" name="B24" raceKeys="Kralien enemy" hullKeys="Battleship medium" fleetnumber="92"/>
     <create type="enemy" x="75540" y="200" z="33333" angle="200" name="B25" raceKeys="Kralien enemy" hullKeys="Cruiser small" fleetnumber="92"/>
     <create type="enemy" x="75040" y="-200" z="33300" angle="200" name="B26" raceKeys="Kralien enemy" hullKeys="Cruiser small" fleetnumber="92"/>
-    <create type="enemy" x="75240" y="200" z="30600" angle="200" name="B27" raceKeys="Arvonian enemy" hullKeys="Carrier Carrier " fleetnumber="92"/>
+    <create type="enemy" x="75240" y="200" z="30600" angle="200" name="B27" raceKeys="Arvonian enemy" hullKeys="Carrier  Carrier" fleetnumber="92"/>
     <set_special name="B21" clear="yes" ability="Cloak"/>
     <set_special name="B21" ship="-1" captain="5" ability="Warp"/>
     <set_special name="B21" ability="Tractor"/>
@@ -1194,10 +1194,10 @@
     <set_variable name="B27_surrendered" value="1"/>
     <set_object_property property="topSpeed" value="0.2" name="B27"/>
     <set_variable name="Tonnage" value="Tonnage+45+23"/>
-    <big_message title="Arvonian Carrier Carrier surrendered" subtitle1="45 kilotons" subtitle2="+23 kt surrender bonus"/>
+    <big_message title="Arvonian Carrier surrendered" subtitle1="45 kilotons" subtitle2="+23 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
-    <log text="Arvonian Carrier Carrier B27 Surrendered"/>
+    <log text="Arvonian Carrier B27 Surrendered"/>
   </event>
   <event name="B27 Destroyed">
     <if_variable name="Bonus_2" comparator="EQUALS" value="1"/>
@@ -1208,10 +1208,10 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+45"/>
-    <big_message title="Arvonian Carrier Carrier B27 destroyed" subtitle1="45 kilotons" subtitle2=""/>
+    <big_message title="Arvonian Carrier B27 destroyed" subtitle1="45 kilotons" subtitle2=""/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
-    <log text="Arvonian Carrier Carrier B27 destroyed"/>
+    <log text="Arvonian Carrier B27 destroyed"/>
   </event>
   <event name="Spawn Bonus Bonus_1">
     <if_variable name="Bonus_1" comparator="EQUALS" value="0"/>

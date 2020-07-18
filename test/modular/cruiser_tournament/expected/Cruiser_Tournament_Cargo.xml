@@ -12,14 +12,17 @@
     <set_variable name="Alpha Betty_Cargo" value="2" integer="yes"/>
   </start>
   <event name="Delta Queen Destroyed">
+    <if_variable name="Delta Queen_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="Delta Queen_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="Delta Queen"/>
-    <big_message title="Friendly Freighter Delta Queen Destroyed" subtitle1="Penalty -50 kilotons" subtitle2=""/>
-    <log text="Friendly Freighter Delta Queen Destroyed"/>
     <set_variable name="Delta Queen_dead" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage-50"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
+    <set_variable name="Tonnage" value="Tonnage+-50"/>
+    <big_message title="Friendly Freighter Delta Queen destroyed" subtitle1="Penalty -50 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Friendly Freighter Delta Queen destroyed"/>
   </event>
   <event name="Hold Delta Queen">
     <if_variable name="Delta Queen" comparator="EQUALS" value="0"/>
@@ -29,7 +32,6 @@
   </event>
   <event name="Release Delta Queen">
     <if_variable name="Delta Queen" comparator="EQUALS" value="1"/>
-    
     <if_object_property property="angle" name="Delta Queen" comparator="LESS" value="3.13"/>
     <set_object_property property="topSpeed" value="0.5" name="Delta Queen"/>
     <set_object_property property="turnRate" value="0.01" name="Delta Queen"/>
@@ -39,14 +41,17 @@
         </incoming_comms_text>
   </event>
   <event name="Alpha Betty Destroyed">
+    <if_variable name="Alpha Betty_surrendered" comparator="EQUALS" value="0"/>
     <if_variable name="Alpha Betty_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="Alpha Betty"/>
-    <big_message title="Friendly Freighter Alpha Betty Destroyed" subtitle1="Penalty -50 kilotons" subtitle2=""/>
-    <log text="Friendly Freighter Alpha Betty Destroyed"/>
     <set_variable name="Alpha Betty_dead" value="1"/>
-    <set_variable name="Tonnage" value="Tonnage-50"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
+    <set_variable name="Tonnage" value="Tonnage+-50"/>
+    <big_message title="Friendly Freighter Alpha Betty destroyed" subtitle1="Penalty -50 kilotons" subtitle2=""/>
+    <set_variable name="report_score" value="1"/>
+    <set_timer name="report_timer" seconds="8"/>
+    <log text="Friendly Freighter Alpha Betty destroyed"/>
   </event>
   <event name="Hold Alpha Betty">
     <if_variable name="Alpha Betty" comparator="EQUALS" value="0"/>
@@ -56,7 +61,6 @@
   </event>
   <event name="Release Alpha Betty">
     <if_variable name="Alpha Betty" comparator="EQUALS" value="1"/>
-    
     <if_object_property property="angle" name="Alpha Betty" comparator="LESS" value="3.13"/>
     <set_object_property property="topSpeed" value="0.5" name="Alpha Betty"/>
     <set_object_property property="turnRate" value="0.01" name="Alpha Betty"/>
@@ -308,5 +312,4 @@
     <addto_object_property name="DS4" property="missileStoresEMP" value="1"/>
     <set_ship_text name="Alpha Betty" hailtext="We are carrying a load of Platinum. Where should we deliver it?."/>
   </event>
-  
 </mission_data>

@@ -1,9 +1,43 @@
 <mission_data>
+  <!-- This one has the values and template below the content-->
+  <!-- Just to show that the order is a stylistic choice -->
+  <!-- This one has the values and template below the content-->
+  <!-- Just to show that the order is a stylistic choice -->
+  <!-- This one has the values and template below the content-->
+  <!-- Just to show that the order is a stylistic choice -->
+  <!-- This one has the values and template below the content-->
+  <!-- Just to show that the order is a stylistic choice -->
+  <!-- This one has the values and template below the content-->
+  <!-- Just to show that the order is a stylistic choice -->
+      <repeat _range="difficulty">
+        <event name="Difficulty ${level}">
+            <if_variable name="credits1" comparator="EQUALS" value="1"/>
+            <if_difficulty comparator="EQUALS" value="${level}"/>
+            <big_message title="Written for TSN Light Cruiser" subtitle1="with ${crew_type} crew" subtitle2="difficulty factor ${level}"/>
+            <set_variable name="credits1" value="2"/>
+            <log text="DIFFICULTY FACTOR ${level}"/>
+        </event>
+        <expand _skip="${stations.length==0}">
+            <event name="Difficulty ${level}">
+                <if_variable name="Difficult_Factor" comparator="EQUALS" value="0"/>
+                <if_difficulty comparator="GREATER" value="${_.int(level)-1}"/>
+                <repeat _range="stations">
+                    <addto_object_property name="${name}" property="positionX" value="${x}"/>
+                    <addto_object_property name="${name}" property="positionZ" value="${z}"/>
+                </repeat>
+                <expand _template="extra${level}" _optional="true" />
+            </event>
+        </expand>
+    </repeat>
+    <event name="Difficulty Done">
+        <if_variable name="Difficult_Factor" comparator="EQUALS" value="0"/>
+        <set_variable name="Difficult_Factor" value="1"/>
+    </event>
     <values>
         <range name="difficulty">
             <struct>
                 <value level="1" crew_type="a trainee" />
-                <range name="stations">
+                <range name="stations" >
                 </range>
             </struct>
             <struct>
@@ -98,30 +132,8 @@
             </struct>
         </range>
     </values>
-    <repeat _range="difficulty">
-        <event name="Difficulty ${level}">
-            <if_variable name="credits1" comparator="EQUALS" value="1"/>
-            <if_difficulty comparator="EQUALS" value="${level}"/>
-            <big_message title="Written for TSN Light Cruiser" subtitle1="with ${crew_type} crew" subtitle2="difficulty factor ${level}"/>
-            <set_variable name="credits1" value="2"/>
-            <log text="DIFFICULTY FACTOR ${level}"/>
-        </event>
-        <expand _skip="${stations.length==0}">
-            <event name="Difficulty ${level}">
-                <if_variable name="Difficult_Factor" comparator="EQUALS" value="0"/>
-                <if_difficulty comparator="GREATER" value="${_.int(level)-1}"/>
-                <repeat _range="stations">
-                    <addto_object_property name="${name}" property="positionX" value="${x}"/>
-                    <addto_object_property name="${name}" property="positionZ" value="${z}"/>
-                </repeat>
-                <expand _template="extra${level}" _optional="true" />
-            </event>
-        </expand>
-    </repeat>
-    <event name="Difficulty Done">
-        <if_variable name="Difficult_Factor" comparator="EQUALS" value="0"/>
-        <set_variable name="Difficult_Factor" value="1"/>
-    </event>
+
+    
     <templates>
         <template name="extra4">
             <set_special name="K61" clear="yes" ability="Cloak"/>
@@ -154,3 +166,4 @@
         </template>
     </templates>
 </mission_data>
+

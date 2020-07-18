@@ -5,10 +5,10 @@
 
     <values>
         <range name="hunters">
-            <value name="Hunter[1]" timer="70" x="58300" y="57" z="78300" weight="40" surrender="20" />
-            <value name="Hunter[2]" timer="80" x="59300" y="57" z="23500" weight="40" surrender="20" />
-            <value name="Hunter[3]" timer="90" x="38200" y="-57" z="43500" weight="40" surrender="20" />
-            <value name="Hunter[4]" timer="100" x="58200" y="-245" z="43500" weight="40" surrender="20" />
+            <value name="Hunter[1]" timer="70" x="58300" y="57" z="78300" />
+            <value name="Hunter[2]" timer="80" x="59300" y="57" z="23500" />
+            <value name="Hunter[3]" timer="90" x="38200" y="-57" z="43500" />
+            <value name="Hunter[4]" timer="100" x="58200" y="-245" z="43500" />
         </range>
     </values>
     <!-- Hunter Code  -->
@@ -47,6 +47,6 @@
     </event>
     <repeat _range="hunters">
         <!--Override text to match original  -->
-        <expand _template="tonnage" race="Enemy" hull="" />
+        <expand _template="tonnage" race="Enemy" hull="Hunter" />
     </repeat>
 </mission_data>

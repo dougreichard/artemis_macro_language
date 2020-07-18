@@ -207,7 +207,7 @@
     <log text="CRUISER TOURNAMENT has started"/>
     <log text="Beginning First Period. 48 minutes remaining."/>
     <set_timer name="credits_timer1" seconds="10"/>
-    <set_timer name="Eight_Minute_timer" seconds="480"/>
+    
     <set_timer name="One_Minute_timer" seconds="60"/>
     <set_variable name="Tonnage" value="0" integer="yes"/>
     <set_variable name="Period_Counter" value="0" integer="yes"/>
@@ -2281,7 +2281,7 @@
   <!-- Spawn Pirate 2 -->
   <event name="Spawn Pirate Skywayman">
     <if_variable name="Period_Counter" comparator="EQUALS" value="5"/>
-    <if_variable name="Spawn5_2" comparator="EQUALS" value="0"/>
+    <if_variable name="Spawn1_2" comparator="EQUALS" value="0"/>
     <create type="enemy" x="99990.0" y="-100.0" z="10.0" name="Skywayman" raceKeys="Pirate" hullKeys="Strongbow" fleetnumber="-1"/>
     <set_special name="Skywayman" ability="Cloak"/>
   </event>

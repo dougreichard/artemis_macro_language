@@ -102,8 +102,4 @@
     <warning_popup_message message="All Damage Control Teams transferred to Moscow." consoles="E"/>
     <add_ai type="FOLLOW_COMMS_ORDERS" name="Moscow"/>
   </event>
-  
-  
-  
-  
 </mission_data>

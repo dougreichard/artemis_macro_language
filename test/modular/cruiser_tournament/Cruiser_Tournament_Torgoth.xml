@@ -6,34 +6,34 @@
     <range name="torgoth">
       <struct>
         <value name="Behemoth 1" x="22222.0" y="-500.0" z="22200.0" size="large" hull="Behemoth" />
-        <value weight="150" surrender="75" ship="0.0" captain="1.0" />
+        <value ship="0.0" captain="1.0" />
       </struct>
       <struct>
         <value name="Goliath 1" x="22000.0" y="0.0" z="23000.0" size="small" hull="Goliath" />
-        <value weight="80" surrender="40" ship="1.0" captain="-1.0" />
+        <value ship="1.0" captain="-1.0" />
       </struct>
       <struct>
         <value name="Goliath 2" x="22433.0" y="500.0" z="21800.0" size="small" hull="Goliath" />
-        <value weight="80" surrender="40" ship="-1.0" captain="-1.0" />
+        <value ship="-1.0" captain="-1.0" />
       </struct>
       <struct>
         <value name="Leviathan 1" x="22000.0" y="0.0" z="23000.0" size="medium" hull="Leviathan" />
-        <value weight="90" surrender="45" ship="0.0" captain="0.0" />
+        <value ship="0.0" captain="0.0" />
       </struct>
       <struct>
         <value name="Leviathan 2" x="21000.0" y="0.0" z="22000.0" size="medium" hull="Leviathan" />
-        <value weight="90" surrender="45" ship="-1.0" captain="-1.0" />
+        <value ship="-1.0" captain="-1.0" />
       </struct>
     </range>
   </values>
   <start>
     <repeat _range="torgoth">
-      <create type="enemy" x="${x}" y="${y}" z="${z}" angle="45" name="${name}" raceKeys="Torgoth enemy" hulKeysl="${size} ${hull}" size="" fleetnumber="5"/>
+      <create type="enemy" x="${x}" y="${y}" z="${z}" angle="45" name="${name}" raceKeys="Torgoth enemy" hullKeys="${size} ${hull}"  fleetnumber="5"/>
       <set_special name="${name}" ship="0.0" captain="1.0"/>
     </repeat>
   </start>
   <repeat _range="torgoth">
     <!--Override text to match original  -->
-    <expand _template="tonnage" race="Enemy" hull="Torgoth"  />
+    <expand _template="tonnage" race="Torgoth" />
   </repeat>
 </mission_data>

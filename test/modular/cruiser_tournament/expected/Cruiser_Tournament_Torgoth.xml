@@ -11,17 +11,16 @@
     <create type="enemy" x="21000.0" y="0.0" z="22000.0" angle="45" name="Leviathan 2" raceKeys="Torgoth enemy" hulKeysl="medium Leviathan" size="" fleetnumber="5"/>
     <set_special name="Leviathan 2" ship="0.0" captain="1.0"/>
   </start>
-  
   <event name="Behemoth 1 Surrendered">
     <if_variable name="Behemoth 1_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="Behemoth 1" comparator="EQUALS" value="1"/>
     <set_variable name="Behemoth 1_surrendered" value="1"/>
     <set_object_property property="topSpeed" value="0.2" name="Behemoth 1"/>
     <set_variable name="Tonnage" value="Tonnage+150+75"/>
-    <big_message title="Enemy Torgoth surrendered" subtitle1="150 kilotons" subtitle2="+75 kt surrender bonus"/>
+    <big_message title="Torgoth Behemoth surrendered" subtitle1="150 kilotons" subtitle2="+75 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
-    <log text="Enemy Torgoth Behemoth 1 Surrendered"/>
+    <log text="Torgoth Behemoth Behemoth 1 Surrendered"/>
   </event>
   <event name="Behemoth 1 Destroyed">
     <if_variable name="Behemoth 1_surrendered" comparator="EQUALS" value="0"/>
@@ -31,22 +30,21 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+150"/>
-    <big_message title="Enemy Torgoth Behemoth 1 destroyed" subtitle1="150 kilotons" subtitle2=""/>
+    <big_message title="Torgoth Behemoth Behemoth 1 destroyed" subtitle1="150 kilotons" subtitle2=""/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
-    <log text="Enemy Torgoth Behemoth 1 destroyed"/>
+    <log text="Torgoth Behemoth Behemoth 1 destroyed"/>
   </event>
-  
   <event name="Goliath 1 Surrendered">
     <if_variable name="Goliath 1_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="Goliath 1" comparator="EQUALS" value="1"/>
     <set_variable name="Goliath 1_surrendered" value="1"/>
     <set_object_property property="topSpeed" value="0.2" name="Goliath 1"/>
     <set_variable name="Tonnage" value="Tonnage+80+40"/>
-    <big_message title="Enemy Torgoth surrendered" subtitle1="80 kilotons" subtitle2="+40 kt surrender bonus"/>
+    <big_message title="Torgoth Goliath surrendered" subtitle1="80 kilotons" subtitle2="+40 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
-    <log text="Enemy Torgoth Goliath 1 Surrendered"/>
+    <log text="Torgoth Goliath Goliath 1 Surrendered"/>
   </event>
   <event name="Goliath 1 Destroyed">
     <if_variable name="Goliath 1_surrendered" comparator="EQUALS" value="0"/>
@@ -56,22 +54,21 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+80"/>
-    <big_message title="Enemy Torgoth Goliath 1 destroyed" subtitle1="80 kilotons" subtitle2=""/>
+    <big_message title="Torgoth Goliath Goliath 1 destroyed" subtitle1="80 kilotons" subtitle2=""/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
-    <log text="Enemy Torgoth Goliath 1 destroyed"/>
+    <log text="Torgoth Goliath Goliath 1 destroyed"/>
   </event>
-  
   <event name="Goliath 2 Surrendered">
     <if_variable name="Goliath 2_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="Goliath 2" comparator="EQUALS" value="1"/>
     <set_variable name="Goliath 2_surrendered" value="1"/>
     <set_object_property property="topSpeed" value="0.2" name="Goliath 2"/>
     <set_variable name="Tonnage" value="Tonnage+80+40"/>
-    <big_message title="Enemy Torgoth surrendered" subtitle1="80 kilotons" subtitle2="+40 kt surrender bonus"/>
+    <big_message title="Torgoth Goliath surrendered" subtitle1="80 kilotons" subtitle2="+40 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
-    <log text="Enemy Torgoth Goliath 2 Surrendered"/>
+    <log text="Torgoth Goliath Goliath 2 Surrendered"/>
   </event>
   <event name="Goliath 2 Destroyed">
     <if_variable name="Goliath 2_surrendered" comparator="EQUALS" value="0"/>
@@ -81,22 +78,21 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+80"/>
-    <big_message title="Enemy Torgoth Goliath 2 destroyed" subtitle1="80 kilotons" subtitle2=""/>
+    <big_message title="Torgoth Goliath Goliath 2 destroyed" subtitle1="80 kilotons" subtitle2=""/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
-    <log text="Enemy Torgoth Goliath 2 destroyed"/>
+    <log text="Torgoth Goliath Goliath 2 destroyed"/>
   </event>
-  
   <event name="Leviathan 1 Surrendered">
     <if_variable name="Leviathan 1_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="Leviathan 1" comparator="EQUALS" value="1"/>
     <set_variable name="Leviathan 1_surrendered" value="1"/>
     <set_object_property property="topSpeed" value="0.2" name="Leviathan 1"/>
     <set_variable name="Tonnage" value="Tonnage+90+45"/>
-    <big_message title="Enemy Torgoth surrendered" subtitle1="90 kilotons" subtitle2="+45 kt surrender bonus"/>
+    <big_message title="Torgoth Leviathan surrendered" subtitle1="90 kilotons" subtitle2="+45 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
-    <log text="Enemy Torgoth Leviathan 1 Surrendered"/>
+    <log text="Torgoth Leviathan Leviathan 1 Surrendered"/>
   </event>
   <event name="Leviathan 1 Destroyed">
     <if_variable name="Leviathan 1_surrendered" comparator="EQUALS" value="0"/>
@@ -106,22 +102,21 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+90"/>
-    <big_message title="Enemy Torgoth Leviathan 1 destroyed" subtitle1="90 kilotons" subtitle2=""/>
+    <big_message title="Torgoth Leviathan Leviathan 1 destroyed" subtitle1="90 kilotons" subtitle2=""/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
-    <log text="Enemy Torgoth Leviathan 1 destroyed"/>
+    <log text="Torgoth Leviathan Leviathan 1 destroyed"/>
   </event>
-  
   <event name="Leviathan 2 Surrendered">
     <if_variable name="Leviathan 2_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="Leviathan 2" comparator="EQUALS" value="1"/>
     <set_variable name="Leviathan 2_surrendered" value="1"/>
     <set_object_property property="topSpeed" value="0.2" name="Leviathan 2"/>
     <set_variable name="Tonnage" value="Tonnage+90+45"/>
-    <big_message title="Enemy Torgoth surrendered" subtitle1="90 kilotons" subtitle2="+45 kt surrender bonus"/>
+    <big_message title="Torgoth Leviathan surrendered" subtitle1="90 kilotons" subtitle2="+45 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
-    <log text="Enemy Torgoth Leviathan 2 Surrendered"/>
+    <log text="Torgoth Leviathan Leviathan 2 Surrendered"/>
   </event>
   <event name="Leviathan 2 Destroyed">
     <if_variable name="Leviathan 2_surrendered" comparator="EQUALS" value="0"/>
@@ -131,9 +126,9 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+90"/>
-    <big_message title="Enemy Torgoth Leviathan 2 destroyed" subtitle1="90 kilotons" subtitle2=""/>
+    <big_message title="Torgoth Leviathan Leviathan 2 destroyed" subtitle1="90 kilotons" subtitle2=""/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
-    <log text="Enemy Torgoth Leviathan 2 destroyed"/>
+    <log text="Torgoth Leviathan Leviathan 2 destroyed"/>
   </event>
 </mission_data>

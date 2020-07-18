@@ -1,5 +1,4 @@
 <mission_data version="1.0">
-  
   <event name="Deploy Mayday">
     <if_variable name="Mayday" comparator="EQUALS" value="0"/>
     <if_object_property name="Artemis" property="energy" comparator="LESS" value="50"/>

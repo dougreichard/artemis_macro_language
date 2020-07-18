@@ -1,6 +1,5 @@
 <mission_data>
   <start>
-    
     <create type="enemy" x="58300" y="57" z="78300" angle="45" name="Hunter[1]" raceKeys="Torgoth" hullKeys="Goliath" fleetnumber="-1"/>
     <set_ship_text name="Hunter[1]" race="Torgoth" class="Whale Hunter" desc="Licensed Professional Hunter of Whales"/>
     <add_ai name="Hunter[1]" type="CHASE_WHALE" value1="20000"/>
@@ -26,8 +25,6 @@
     <set_special name="Hunter[4]" clear="yes" ability="Drones"/>
     <set_timer name="Hunter[4]_timer" seconds="100"/>
   </start>
-  
-  
   <event name="Hunter[1] Beacon Deploy">
     <if_exists name="Hunter[1]"/>
     <if_timer_finished name="Hunter[1]_timer"/>
@@ -60,7 +57,6 @@
     <set_relative_position name2="B3" name1="Hunter[4]" angle="0" distance="1000"/>
     <set_timer name="Hunter[4]_timer" seconds="70"/>
   </event>
-  
   <event name="Prime Hunters">
     <if_variable name="HunterPrime" comparator="EQUALS" value="0"/>
     <set_variable name="HunterPrime" value="1" integer="yes"/>
@@ -77,17 +73,16 @@
     <set_object_property name="Hunter[4]" property="shieldMaxStateBack" value="20"/>
     <set_object_property name="Hunter[4]" property="topSpeed" value="0.38"/>
   </event>
-  
   <event name="Hunter[1] Surrendered">
     <if_variable name="Hunter[1]_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="Hunter[1]" comparator="EQUALS" value="1"/>
     <set_variable name="Hunter[1]_surrendered" value="1"/>
     <set_object_property property="topSpeed" value="0.2" name="Hunter[1]"/>
     <set_variable name="Tonnage" value="Tonnage+40+20"/>
-    <big_message title="Enemy  surrendered" subtitle1="40 kilotons" subtitle2="+20 kt surrender bonus"/>
+    <big_message title="Enemy Hunter surrendered" subtitle1="40 kilotons" subtitle2="+20 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
-    <log text="Enemy  Hunter[1] Surrendered"/>
+    <log text="Enemy Hunter Hunter[1] Surrendered"/>
   </event>
   <event name="Hunter[1] Destroyed">
     <if_variable name="Hunter[1]_surrendered" comparator="EQUALS" value="0"/>
@@ -97,22 +92,21 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+40"/>
-    <big_message title="Enemy  Hunter[1] destroyed" subtitle1="40 kilotons" subtitle2=""/>
+    <big_message title="Enemy Hunter Hunter[1] destroyed" subtitle1="40 kilotons" subtitle2=""/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
-    <log text="Enemy  Hunter[1] destroyed"/>
+    <log text="Enemy Hunter Hunter[1] destroyed"/>
   </event>
-  
   <event name="Hunter[2] Surrendered">
     <if_variable name="Hunter[2]_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="Hunter[2]" comparator="EQUALS" value="1"/>
     <set_variable name="Hunter[2]_surrendered" value="1"/>
     <set_object_property property="topSpeed" value="0.2" name="Hunter[2]"/>
     <set_variable name="Tonnage" value="Tonnage+40+20"/>
-    <big_message title="Enemy  surrendered" subtitle1="40 kilotons" subtitle2="+20 kt surrender bonus"/>
+    <big_message title="Enemy Hunter surrendered" subtitle1="40 kilotons" subtitle2="+20 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
-    <log text="Enemy  Hunter[2] Surrendered"/>
+    <log text="Enemy Hunter Hunter[2] Surrendered"/>
   </event>
   <event name="Hunter[2] Destroyed">
     <if_variable name="Hunter[2]_surrendered" comparator="EQUALS" value="0"/>
@@ -122,22 +116,21 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+40"/>
-    <big_message title="Enemy  Hunter[2] destroyed" subtitle1="40 kilotons" subtitle2=""/>
+    <big_message title="Enemy Hunter Hunter[2] destroyed" subtitle1="40 kilotons" subtitle2=""/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
-    <log text="Enemy  Hunter[2] destroyed"/>
+    <log text="Enemy Hunter Hunter[2] destroyed"/>
   </event>
-  
   <event name="Hunter[3] Surrendered">
     <if_variable name="Hunter[3]_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="Hunter[3]" comparator="EQUALS" value="1"/>
     <set_variable name="Hunter[3]_surrendered" value="1"/>
     <set_object_property property="topSpeed" value="0.2" name="Hunter[3]"/>
     <set_variable name="Tonnage" value="Tonnage+40+20"/>
-    <big_message title="Enemy  surrendered" subtitle1="40 kilotons" subtitle2="+20 kt surrender bonus"/>
+    <big_message title="Enemy Hunter surrendered" subtitle1="40 kilotons" subtitle2="+20 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
-    <log text="Enemy  Hunter[3] Surrendered"/>
+    <log text="Enemy Hunter Hunter[3] Surrendered"/>
   </event>
   <event name="Hunter[3] Destroyed">
     <if_variable name="Hunter[3]_surrendered" comparator="EQUALS" value="0"/>
@@ -147,22 +140,21 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+40"/>
-    <big_message title="Enemy  Hunter[3] destroyed" subtitle1="40 kilotons" subtitle2=""/>
+    <big_message title="Enemy Hunter Hunter[3] destroyed" subtitle1="40 kilotons" subtitle2=""/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
-    <log text="Enemy  Hunter[3] destroyed"/>
+    <log text="Enemy Hunter Hunter[3] destroyed"/>
   </event>
-  
   <event name="Hunter[4] Surrendered">
     <if_variable name="Hunter[4]_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="Hunter[4]" comparator="EQUALS" value="1"/>
     <set_variable name="Hunter[4]_surrendered" value="1"/>
     <set_object_property property="topSpeed" value="0.2" name="Hunter[4]"/>
     <set_variable name="Tonnage" value="Tonnage+40+20"/>
-    <big_message title="Enemy  surrendered" subtitle1="40 kilotons" subtitle2="+20 kt surrender bonus"/>
+    <big_message title="Enemy Hunter surrendered" subtitle1="40 kilotons" subtitle2="+20 kt surrender bonus"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
-    <log text="Enemy  Hunter[4] Surrendered"/>
+    <log text="Enemy Hunter Hunter[4] Surrendered"/>
   </event>
   <event name="Hunter[4] Destroyed">
     <if_variable name="Hunter[4]_surrendered" comparator="EQUALS" value="0"/>
@@ -172,9 +164,9 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+40"/>
-    <big_message title="Enemy  Hunter[4] destroyed" subtitle1="40 kilotons" subtitle2=""/>
+    <big_message title="Enemy Hunter Hunter[4] destroyed" subtitle1="40 kilotons" subtitle2=""/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
-    <log text="Enemy  Hunter[4] destroyed"/>
+    <log text="Enemy Hunter Hunter[4] destroyed"/>
   </event>
 </mission_data>

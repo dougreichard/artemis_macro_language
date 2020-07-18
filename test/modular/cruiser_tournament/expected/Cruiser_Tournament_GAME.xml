@@ -3,7 +3,6 @@
     <log text="CRUISER TOURNAMENT has started"/>
     <log text="Beginning First Period. 48 minutes remaining."/>
     <set_timer name="credits_timer1" seconds="10"/>
-    <set_timer name="Eight_Minute_timer" seconds="480"/>
     <set_timer name="One_Minute_timer" seconds="60"/>
     <set_variable name="Tonnage" value="0" integer="yes"/>
     <set_variable name="Period_Counter" value="0" integer="yes"/>
@@ -12,8 +11,6 @@
     <set_variable name="Bonus" value="0" integer="yes"/>
     <set_comms_button text="Request Score Report" sideValue="2" player_slot="0"/>
   </start>
-  
-  
   <event name="Time is up">
     <if_timer_finished name="endint_timer"/>
     <if_variable name="terminate" comparator="EQUALS" value="0"/>
@@ -38,7 +35,6 @@
     <end_mission/>
     <set_variable name="gameOver" value="1"/>
   </event>
-  
   <event name="Credits 1">
     <if_timer_finished name="credits_timer1"/>
     <if_variable name="credits1" comparator="EQUALS" value="0"/>
@@ -50,7 +46,6 @@
   <event name="Report Score">
     <if_timer_finished name="report_timer"/>
     <if_variable name="report_score" comparator="EQUALS" value="1"/>
-    
     <big_message title="Current score = |Tonnage| kilotons" subtitle1="Time = |Minutes| minutes remaining" subtitle2=""/>
     <set_variable name="report_score" value="0"/>
     <log text="Score = |Tonnage| kt  |Minutes| minutes remaining."/>
@@ -69,6 +64,5 @@
     <clear_comms_button text="Request Cargo Report"/>
     <set_comms_button text="Request Score Report" sideValue="2" player_slot="0"/>
     <set_comms_button text="Request Cargo Report" sideValue="2" player_slot="0"/>
-    
   </event>
 </mission_data>

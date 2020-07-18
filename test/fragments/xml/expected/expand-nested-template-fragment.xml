@@ -1,5 +1,4 @@
 <mission_data>
-  
   <event name="Hunter[1] Surrendered">
     <if_variable name="Hunter[1]_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="Hunter[1]" comparator="EQUALS" value="1"/>
@@ -24,7 +23,6 @@
     <set_timer name="report_timer" seconds="8"/>
     <log text="Enemy  Hunter[1] destroyed"/>
   </event>
-  
   <event name="Hunter[2] Surrendered">
     <if_variable name="Hunter[2]_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="Hunter[2]" comparator="EQUALS" value="1"/>
@@ -49,7 +47,6 @@
     <set_timer name="report_timer" seconds="8"/>
     <log text="Enemy  Hunter[2] destroyed"/>
   </event>
-  
   <event name="Hunter[3] Surrendered">
     <if_variable name="Hunter[3]_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="Hunter[3]" comparator="EQUALS" value="1"/>
@@ -74,7 +71,6 @@
     <set_timer name="report_timer" seconds="8"/>
     <log text="Enemy  Hunter[3] destroyed"/>
   </event>
-  
   <event name="Hunter[4] Surrendered">
     <if_variable name="Hunter[4]_surrendered" comparator="EQUALS" value="0"/>
     <if_object_property property="hasSurrendered" name="Hunter[4]" comparator="EQUALS" value="1"/>

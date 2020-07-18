@@ -16,7 +16,7 @@
     </repeat>
   </start>
   <repeat _range="destroyers">
-    <expand _template="tonnage_destroy" race="Terran" hull="Destroyer" weight="-30" />
+    <expand _template="tonnage_destroy" race="Terran" hull="Destroyer"  />
     <expand _template="broke" />
     <expand _template="fix" />
   </repeat>
@@ -43,7 +43,7 @@
     ${msg}, Artemis. To rescue us you must rendezvous with us and send over a full set of Damage Control teams.
         </incoming_comms_text>
         <set_variable name="${name}" value="1"/>
-        <expand _template="${extra}" _skip="${extra==''}" />
+        <expand _template="${extra}" _optional='true' />
       </event>
     </template>
     <template name="Phoenix When">

@@ -1,9 +1,12 @@
 <mission_data version="1.0">
+  <imports>
+    <import name="Cruiser_Tournament_Points.xml" />
+  </imports>
   <templates>
     <template name="tonnage_destroy">
       <params>
         <param name="name" description="The name of the ship"/>
-        <param name="weight" description="The weight in tonnage of the ship"/>
+        <param name="weight" description="The weight in tonnage of the ship" default="${POINTS[race][hull].weight}" />
         <param name="race" description="The race text for the ship"/>
         <param name="hull" description="The hull text for the ship" default=""/>
         <param name="fleetID" description="The fleet ID (For bonus fleets)" default=""/>
@@ -28,8 +31,8 @@
     <template name="tonnage_surrender">
       <params>
         <param name="name" description="The name of the ship"/>
-        <param name="weight" description="The weight in tonnage of the ship"/>
-        <param name="surrender" description="The surrender bonus of the ship"/>
+        <param name="weight" description="The weight in tonnage of the ship" default="${POINTS[race][hull].weight}" />
+        <param name="surrender" description="The surrender bonus of the ship" default="${POINTS[race][hull].surrender}"/>
         <param name="race" description="The race text for the ship"/>
         <param name="hull" description="The hull text for the ship" default=""/>
         <param name="fleetID" description="The fleet ID (For bonus fleets)" default=""/>

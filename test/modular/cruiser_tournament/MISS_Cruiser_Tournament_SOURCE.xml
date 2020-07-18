@@ -6,19 +6,19 @@
     <import name="Cruiser_Tournament_Difficulty.xml" />
     <import name="Cruiser_Tournament_Mayday.xml" />
     <import name="Cruiser_Tournament_Anomolies.xml" />
-    <import name="Cruiser_Tournament_Torgoth.xml" />
-    <import name="Cruiser_Tournament_Kraliens.xml" />
-    <import name="Cruiser_Tournament_Hunters.xml" />
-    <import name="Cruiser_Tournament_Pirates.xml" />
+    <import name="Cruiser_Tournament_Whales.xml" />
     <import name="Cruiser_Tournament_Skaraan.xml" />
     <import name="Cruiser_Tournament_Stations.xml" />
-    <import name="Cruiser_Tournament_BonusFleets.xml" />
-    <import name="Cruiser_Tournament_Whales.xml" />
     <import name="Cruiser_Tournament_Cargo.xml" />
     <import name="Cruiser_Tournament_Destroyers.xml" />
-    <!-- <import name="Cruiser_Tournament_periods.xml" /> -->
+    <import name="Cruiser_Tournament_Pirates.xml" />
+    <import name="Cruiser_Tournament_Hunters.xml" />
+    <import name="Cruiser_Tournament_Periods.xml" />
+    <import name="Cruiser_Tournament_BonusFleets.xml" />
+    <import name="Cruiser_Tournament_Kraliens.xml" />
+   <import name="Cruiser_Tournament_Torgoth.xml" /> 
   </imports>
- <mission_description>
+  <mission_description>
   A TSN Cruiser has 48 minutes to vanquish as many enemies as possible.^^For a full crew of 6 in Artemis 2.7.1.^^Your Comms Officer should take notes or print out the Communications Cheat Sheet in the mission folder.
   </mission_description>
   <start name="CRUISER TOURNAMENT">

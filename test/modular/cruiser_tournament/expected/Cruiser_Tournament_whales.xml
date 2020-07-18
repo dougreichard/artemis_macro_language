@@ -9,8 +9,6 @@
     <create type="monster" x="5000" y="-500" z="40000" monsterType="1" name="Pi" podnumber="6"/>
     <create type="monster" x="95000" y="500" z="40000" monsterType="1" name="Te" podnumber="6"/>
   </start>
-  
-  
   <event name="Bonus Ed">
     <if_variable name="PeriodEnd" comparator="EQUALS" value="1"/>
     <if_exists name="Ed"/>

@@ -34,7 +34,6 @@
     <set_object_property property="missileStoresPshock" value="2" name="DS4"/>
     <set_comms_button text="Request Cargo Report" sideValue="2" player_slot="0"/>
   </start>
-  
   <event name="DS1 Hint">
     <if_variable name="DS1_hint" comparator="EQUALS" value="0"/>
     <if_docked name="DS1"/>

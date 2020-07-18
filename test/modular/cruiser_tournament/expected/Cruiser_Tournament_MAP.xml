@@ -8,7 +8,6 @@
     <create count="35" type="nebulas" startAngle="200" endAngle="300" startX="30000.0" startY="0.0" startZ="65000.0" radius="33000" randomRange="5000" randomSeed="2"/>
     <create count="25" type="nebulas" startAngle="100" endAngle="300" startX="50000.0" startY="0.0" startZ="25000.0" radius="22000" randomRange="3200" randomSeed="3"/>
     <create count="25" type="nebulas" startAngle="20" endAngle="110" startX="70000.0" startY="0.0" startZ="40000.0" radius="23000" randomRange="3000" randomSeed="4"/>
-    
     <set_skybox_index index="27"/>
   </start>
 </mission_data>

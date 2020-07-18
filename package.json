@@ -7,7 +7,8 @@
     "test": "mocha -u bdd --timeout 999999 --colors ./test/",
     "docs": "jsdoc -c jsdoc-config.json",
     "pkg": "pkg index.js  --output build\\aml.exe  -t win-x64",
-    "quiet": "cd .\\examples\\quiet-is-the-hunt && ..\\..\\build\\aml "
+    "quiet": "cd .\\examples\\quiet-is-the-hunt && ..\\..\\build\\aml ",
+    "tourn": "cd .\\test\\modular\\cruiser_tournament && ..\\..\\..\\build\\aml "
   },
   "author": "",
   "license": "ISC",

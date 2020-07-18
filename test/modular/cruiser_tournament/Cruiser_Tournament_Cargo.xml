@@ -1,7 +1,11 @@
 <mission_data version="1.0">
+    <imports>
+        <import name="Cruiser_Tournament_templates.xml" />
+    </imports>
+
   <values>
     <range name="cargo">
-      <value name="Delta Queen" x="50100.0" z="94000.0" start="1" weight="-50" />
+      <value name="Delta Queen" x="50100.0" z="94000.0" start="1"  />
       <value name="Alpha Betty" x="49900.0" z="93000.0" start="2" />
     </range>
     <range name="loads">
@@ -16,21 +20,12 @@
       <create type="neutral" x="${x}" y="0.0" z="${z}" angle="0" name="${name}" raceKeys="Terran friendly" hullKeys="Cargo"/>
       <add_ai type="POINT_THROTTLE" value1="50000" value2="0" value3="0" value4="0" name="${name}"/>
       <add_ai type="FOLLOW_COMMS_ORDERS" name="${name}"/>
-      <set_ship_text name="${name}" class="Upgraded Cargo Carrier" hailtext="We have a load of ${_.lookup('loads')[_.int(start)].item}. Where should we deliver it?."/>
+      <set_ship_text name="${name}" class="Upgraded Cargo Carrier" hailtext="We have a load of ${loads[_.int(start)].item}. Where should we deliver it?."/>
       <set_variable name="${name}_Cargo" value="${start}" integer="yes"/>
     </repeat>
   </start>
   <repeat _range="cargo">
-    <event name="${name} Destroyed">
-      <if_variable name="${name}_dead" comparator="EQUALS" value="0"/>
-      <if_not_exists name="${name}"/>
-      <big_message title="Friendly Freighter ${name} Destroyed" subtitle1="Penalty -50 kilotons" subtitle2=""/>
-      <log text="Friendly Freighter ${name} Destroyed"/>
-      <set_variable name="${name}_dead" value="1"/>
-      <set_variable name="Tonnage" value="Tonnage-50"/>
-      <set_variable name="report_score" value="1"/>
-      <set_timer name="report_timer" seconds="8"/>
-    </event>
+    <expand _template="tonnage_destroy" race="Friendly" hull="Freighter" />
     <event name="Hold ${name}">
       <if_variable name="${name}" comparator="EQUALS" value="0"/>
       <set_object_property property="topSpeed" value="0.0" name="${name}"/>
@@ -98,6 +93,18 @@
   [3] Augite [2] DS2 > newLoad=[2] Platinum nuke 1
   4 = 4
 
+<event name="${name} Destroyed">
+      <if_variable name="${name}_dead" comparator="EQUALS" value="0"/>
+      <if_not_exists name="${name}"/>
+      <big_message title="Friendly Freighter ${name} Destroyed" subtitle1="Penalty -50 kilotons" subtitle2=""/>
+      <log text="Friendly Freighter ${name} Destroyed"/>
+      <set_variable name="${name}_dead" value="1"/>
+      <set_variable name="Tonnage" value="Tonnage-50"/>
+      <set_variable name="report_score" value="1"/>
+      <set_timer name="report_timer" seconds="8"/>
+    </event>
+
   -->
 
 </mission_data>
+

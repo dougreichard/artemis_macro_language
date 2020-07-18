@@ -12,12 +12,12 @@
                     <value trigger="71"/>
                 </range>
                 <range name="enemies">
-                    <value name="B71" x="5000" y="0" z="41000" angle="200" race="Skaraan" hull="Executor" size="large" weight="70" surrender="35" />
-                    <value name="B72" x="5140" y="-200" z="40800" angle="200" race="Torgoth" hull="Leviathan" size="medium" weight="90" surrender="45"/>
-                    <value name="B73" x="4960" y="-200" z="42200" angle="200" race="Kralien" hull="Dreadnought" size="large" weight="25" surrender="13" />
-                    <value name="B74" x="5540" y="200" z="43300" angle="200" race="Kralien" hull="Battleship" size= "medium" weight="17" surrender="9" />
-                    <value name="B75" x="5440" y="200" z="43500" angle="200" race="Kralien" hull="Cruiser" size="small" weight="9" surrender="5"/>
-                    <value name="B76" x="5340" y="200" z="42300" angle="200" race="Kralien" hull="Cruiser" size="small" weight="9" surrender="5" />
+                    <value name="B71" x="5000" y="0" z="41000" angle="200" race="Skaraan" hull="Executor" size="large" />
+                    <value name="B72" x="5140" y="-200" z="40800" angle="200" race="Torgoth" hull="Leviathan" size="medium" />
+                    <value name="B73" x="4960" y="-200" z="42200" angle="200" race="Kralien" hull="Dreadnought" size="large" />
+                    <value name="B74" x="5540" y="200" z="43300" angle="200" race="Kralien" hull="Battleship" size= "medium" />
+                    <value name="B75" x="5440" y="200" z="43500" angle="200" race="Kralien" hull="Cruiser" size="small" />
+                    <value name="B76" x="5340" y="200" z="42300" angle="200" race="Kralien" hull="Cruiser" size="small" />
                 </range>
                 <range name="abilities">
                     <value match="clear" ability="Teleport"/>
@@ -43,12 +43,12 @@
                     <value trigger="62"/>
                 </range>
                 <range name="enemies">
-                    <value name="B61" x="75000" y="0" z="41000" angle="200" race="Skaraan" hull="Enforcer" size="medium" weight="50" surrender="25" />
-                    <value name="B62" x="75140" y="-200" z="40800" angle="200" race="Torgoth" hull="Leviathan" size="medium" weight="90" surrender="45"/>
-                    <value name="B63" x="74960" y="-200" z="42200" angle="200" race="Kralien" hull="Dreadnought" size="large" weight="25" surrender="13" />
-                    <value name="B64" x="75540" y="200" z="43100" angle="200" race="Kralien" hull="Battleship" size= "medium" weight="17" surrender="9" />
-                    <value name="B65" x="75440" y="200" z="43700" angle="200" race="Kralien" hull="Cruiser" size="small" weight="9" surrender="5"/>
-                    <value name="B66" x="75340" y="200" z="43300" angle="200" race="Kralien" hull="Cruiser" size="small" weight="9" surrender="5" />
+                    <value name="B61" x="75000" y="0" z="41000" angle="200" race="Skaraan" hull="Enforcer" size="medium" />
+                    <value name="B62" x="75140" y="-200" z="40800" angle="200" race="Torgoth" hull="Leviathan" size="medium" />
+                    <value name="B63" x="74960" y="-200" z="42200" angle="200" race="Kralien" hull="Dreadnought" size="large" />
+                    <value name="B64" x="75540" y="200" z="43100" angle="200" race="Kralien" hull="Battleship" size= "medium" />
+                    <value name="B65" x="75440" y="200" z="43700" angle="200" race="Kralien" hull="Cruiser" size="small" />
+                    <value name="B66" x="75340" y="200" z="43300" angle="200" race="Kralien" hull="Cruiser" size="small" />
                 </range>
                 <range name="abilities">
                     <value match="clear" ability="Cloak"/>
@@ -73,13 +73,13 @@
                     <value trigger="53"/>
                 </range>
                 <range name="enemies">
-                    <value name="B51" x="65000" y="0" z="31000" angle="200" race="Skaraan" hull="Enforcer" size="medium" weight="50" surrender="25" />
-                    <value name="B52" x="65140" y="-200" z="30800" angle="200" race="Torgoth" hull="Leviathan" size="medium" weight="90" surrender="45"/>
-                    <value name="B53" x="64960" y="-200" z="32200" angle="200" race="Kralien" hull="Dreadnought" size="large" weight="25" surrender="13" />
-                    <value name="B54" x="65540" y="200" z="31300" angle="200" race="Kralien" hull="Battleship" size= "medium" weight="17" surrender="9" />
-                    <value name="B55" x="65440" y="-200" z="33000" angle="200" race="Kralien" hull="Cruiser" size="small" weight="9" surrender="5"/>
-                    <value name="B56" x="65340" y="200" z="33300" angle="200" race="Kralien" hull="Cruiser" size="small" weight="9" surrender="5" />
-                    <value name="B57" x="65340" y="200" z="30600" angle="200" race="Arvonian" hull="Light Carrier" size="" weight="25" surrender="13" />
+                    <value name="B51" x="65000" y="0" z="31000" angle="200" race="Skaraan" hull="Enforcer" size="medium" />
+                    <value name="B52" x="65140" y="-200" z="30800" angle="200" race="Torgoth" hull="Leviathan" size="medium" />
+                    <value name="B53" x="64960" y="-200" z="32200" angle="200" race="Kralien" hull="Dreadnought" size="large" />
+                    <value name="B54" x="65540" y="200" z="31300" angle="200" race="Kralien" hull="Battleship" size= "medium" />
+                    <value name="B55" x="65440" y="-200" z="33000" angle="200" race="Kralien" hull="Cruiser" size="small" />
+                    <value name="B56" x="65340" y="200" z="33300" angle="200" race="Kralien" hull="Cruiser" size="small" />
+                    <value name="B57" x="65340" y="200" z="30600" angle="200" race="Arvonian" hull="Light Carrier" size="" />
                 </range>
                 <range name="abilities">
                     <value match="captain" ability="Cloak"/>
@@ -105,13 +105,13 @@
                     <value trigger="44"/>
                 </range>
                 <range name="enemies">
-                    <value name="B41" x="65000" y="0" z="31000" angle="200" race="Skaraan" hull="Enforcer" size="medium" weight="50" surrender="25" />
-                    <value name="B42" x="65140" y="-200" z="30800" angle="200" race="Torgoth" hull="Leviathan" size="medium" weight="90" surrender="45"/>
-                    <value name="B43" x="64960" y="-200" z="32200" angle="200" race="Kralien" hull="Dreadnought" size="large" weight="25" surrender="13" />
-                    <value name="B44" x="65440" y="200" z="31300" angle="200" race="Kralien" hull="Battleship" size= "medium" weight="17" surrender="9" />
-                    <value name="B45" x="65540" y="-200" z="33000" angle="200" race="Kralien" hull="Cruiser" size="small" weight="9" surrender="5"/>
-                    <value name="B46" x="65340" y="200" z="33300" angle="200" race="Kralien" hull="Cruiser" size="small" weight="9" surrender="5" />
-                    <value name="B47" x="65340" y="200" z="30600" angle="200" race="Arvonian" hull="Carrier Carrier" size="" weight="45" surrender="23" />
+                    <value name="B41" x="65000" y="0" z="31000" angle="200" race="Skaraan" hull="Enforcer" size="medium" />
+                    <value name="B42" x="65140" y="-200" z="30800" angle="200" race="Torgoth" hull="Leviathan" size="medium" />
+                    <value name="B43" x="64960" y="-200" z="32200" angle="200" race="Kralien" hull="Dreadnought" size="large" />
+                    <value name="B44" x="65440" y="200" z="31300" angle="200" race="Kralien" hull="Battleship" size= "medium" />
+                    <value name="B45" x="65540" y="-200" z="33000" angle="200" race="Kralien" hull="Cruiser" size="small" />
+                    <value name="B46" x="65340" y="200" z="33300" angle="200" race="Kralien" hull="Cruiser" size="small" />
+                    <value name="B47" x="65340" y="200" z="30600" angle="200" race="Arvonian" hull="Carrier" size=" Carrier" />
                 </range>
                 <range name="abilities">
                     <value match="captain" ability="Cloak"/>
@@ -138,13 +138,13 @@
                     <value trigger="35"/>
                 </range>
                 <range name="enemies">
-                    <value name="B31" x="44000" y="0" z="30000" angle="200" race="Skaraan" hull="Executor" size="large" weight="70" surrender="35" />
-                    <value name="B32" x="44140" y="-200" z="29800" angle="200" race="Torgoth" hull="Leviathan" size="medium" weight="90" surrender="45"/>
-                    <value name="B33" x="43960" y="-200" z="31200" angle="200" race="Kralien" hull="Dreadnought" size="large" weight="25" surrender="13" />
-                    <value name="B34" x="44133" y="200" z="30300" angle="200" race="Kralien" hull="Battleship" size= "medium" weight="17" surrender="9" />
-                    <value name="B35" x="44444" y="200" z="32300" angle="200" race="Kralien" hull="Cruiser" size="small" weight="9" surrender="5"/>
-                    <value name="B36" x="43540" y="200" z="32430" angle="200" race="Kralien" hull="Cruiser" size="small" weight="9" surrender="5" />
-                    <value name="B37" x="44240" y="-200" z="29600" angle="200" race="Arvonian" hull="Carrier Carrier" size="" weight="45" surrender="23" />
+                    <value name="B31" x="44000" y="0" z="30000" angle="200" race="Skaraan" hull="Executor" size="large" />
+                    <value name="B32" x="44140" y="-200" z="29800" angle="200" race="Torgoth" hull="Leviathan" size="medium" />
+                    <value name="B33" x="43960" y="-200" z="31200" angle="200" race="Kralien" hull="Dreadnought" size="large" />
+                    <value name="B34" x="44133" y="200" z="30300" angle="200" race="Kralien" hull="Battleship" size= "medium" />
+                    <value name="B35" x="44444" y="200" z="32300" angle="200" race="Kralien" hull="Cruiser" size="small" />
+                    <value name="B36" x="43540" y="200" z="32430" angle="200" race="Kralien" hull="Cruiser" size="small" />
+                    <value name="B37" x="44240" y="-200" z="29600" angle="200" race="Arvonian" hull="Carrier" size="Carrier" />
                 </range>
                 <range name="abilities">
                     <value match="clear" ability="Cloak"/>
@@ -172,13 +172,13 @@
                     <value trigger="26"/>
                 </range>
                 <range name="enemies">
-                    <value name="B21" x="75000" y="0" z="31000" angle="200" race="Skaraan" hull="Executor" size="large" weight="70" surrender="35" />
-                    <value name="B22" x="75140" y="-200" z="30800" angle="200" race="Torgoth" hull="Behemoth" size="large" weight="150" surrender="75"/>
-                    <value name="B23" x="74960" y="-200" z="32200" angle="200" race="Kralien" hull="Dreadnought" size="large" weight="25" surrender="13" />
-                    <value name="B24" x="75240" y="200" z="31300" angle="200" race="Kralien" hull="Battleship" size= "medium" weight="17" surrender="9" />
-                    <value name="B25" x="75540" y="200" z="33333" angle="200" race="Kralien" hull="Cruiser" size="small" weight="9" surrender="5"/>
-                    <value name="B26" x="75040" y="-200" z="33300" angle="200" race="Kralien" hull="Cruiser" size="small" weight="9" surrender="5" />
-                    <value name="B27" x="75240" y="200" z="30600" angle="200" race="Arvonian" hull="Carrier Carrier" size="" weight="45" surrender="23" />
+                    <value name="B21" x="75000" y="0" z="31000" angle="200" race="Skaraan" hull="Executor" size="large" />
+                    <value name="B22" x="75140" y="-200" z="30800" angle="200" race="Torgoth" hull="Behemoth" size="large" />
+                    <value name="B23" x="74960" y="-200" z="32200" angle="200" race="Kralien" hull="Dreadnought" size="large" />
+                    <value name="B24" x="75240" y="200" z="31300" angle="200" race="Kralien" hull="Battleship" size= "medium" />
+                    <value name="B25" x="75540" y="200" z="33333" angle="200" race="Kralien" hull="Cruiser" size="small" />
+                    <value name="B26" x="75040" y="-200" z="33300" angle="200" race="Kralien" hull="Cruiser" size="small" />
+                    <value name="B27" x="75240" y="200" z="30600" angle="200" race="Arvonian" hull="Carrier" size=" Carrier" />
                 </range>
                 <range name="abilities">
                     <value match="clear" ability="Cloak"/>
@@ -207,14 +207,14 @@
                     <value trigger="17"/>
                 </range>
                 <range name="enemies">
-                    <value name="B11" x="66000" y="0" z="31000" angle="200" race="Skaraan" hull="Executor" size="large" weight="70" surrender="35" />
-                    <value name="B12" x="66140" y="-200" z="30800" angle="200" race="Torgoth" hull="Behemoth" size="large" weight="150" surrender="75"/>
-                    <value name="B13" x="66960" y="-200" z="32200" angle="200" race="Kralien" hull="Dreadnought" size="large" weight="25" surrender="13" />
-                    <value name="B14" x="66540" y="200" z="31300" angle="200" race="Kralien" hull="Battleship" size= "medium" weight="17" surrender="9" />
-                    <value name="B15" x="66640" y="200" z="33300" angle="200" race="Kralien" hull="Cruiser" size="small" weight="9" surrender="5"/>
-                    <value name="B16" x="66740" y="-200" z="33400" angle="200" race="Kralien" hull="Cruiser" size="small" weight="9" surrender="5" />
-                    <value name="B17" x="66040" y="200" z="30700" angle="200" race="Arvonian" hull="Carrier" size="Carrier" weight="45" surrender="23" />
-                    <value name="B18" x="66540" y="-200" z="30250" angle="200" race="Kralien" hull="Battleship" size="medium" weight="17" surrender="9" />
+                    <value name="B11" x="66000" y="0" z="31000" angle="200" race="Skaraan" hull="Executor" size="large" />
+                    <value name="B12" x="66140" y="-200" z="30800" angle="200" race="Torgoth" hull="Behemoth" size="large" />
+                    <value name="B13" x="66960" y="-200" z="32200" angle="200" race="Kralien" hull="Dreadnought" size="large" />
+                    <value name="B14" x="66540" y="200" z="31300" angle="200" race="Kralien" hull="Battleship" size= "medium" />
+                    <value name="B15" x="66640" y="200" z="33300" angle="200" race="Kralien" hull="Cruiser" size="small" />
+                    <value name="B16" x="66740" y="-200" z="33400" angle="200" race="Kralien" hull="Cruiser" size="small" />
+                    <value name="B17" x="66040" y="200" z="30700" angle="200" race="Arvonian" hull="Carrier" size="Carrier" />
+                    <value name="B18" x="66540" y="-200" z="30250" angle="200" race="Kralien" hull="Battleship" size="medium" />
                 </range>
                 <range name="abilities">
                     <value match="clear" ability="Cloak"/>
@@ -241,14 +241,14 @@
                     <value trigger="35"/>
                 </range>
                 <range name="enemies">
-                    <value name="B01" x="26000" y="0" z="32000" angle="200" race="Skaraan" hull="Executor" size="large" weight="70" surrender="35" />
-                    <value name="B02" x="26140" y="-200" z="31800" angle="200" race="Torgoth" hull="Behemoth" size="large" weight="150" surrender="75"/>
-                    <value name="B03" x="26960" y="-200" z="33200" angle="200" race="Kralien" hull="Dreadnought" size="large" weight="25" surrender="13" />
-                    <value name="B04" x="26540" y="200" z="32300" angle="200" race="Kralien" hull="Battleship" size= "medium" weight="17" surrender="9" />
-                    <value name="B05" x="26640" y="200" z="34300" angle="200" race="Kralien" hull="Cruiser" size="small" weight="9" surrender="5"/>
-                    <value name="B06" x="26740" y="-200" z="34400" angle="200" race="Kralien" hull="Cruiser" size="small" weight="9" surrender="5" />
-                    <value name="B07" x="26040" y="200" z="31700" angle="200" race="Arvonian" hull="Carrier" size="Carrier" weight="45" surrender="23" />
-                    <value name="B08" x="26540" y="-200" z="31250" angle="200" race="Kralien" hull="Battleship" size="medium" weight="17" surrender="9" />
+                    <value name="B01" x="26000" y="0" z="32000" angle="200" race="Skaraan" hull="Executor" size="large" />
+                    <value name="B02" x="26140" y="-200" z="31800" angle="200" race="Torgoth" hull="Behemoth" size="large" />
+                    <value name="B03" x="26960" y="-200" z="33200" angle="200" race="Kralien" hull="Dreadnought" size="large" />
+                    <value name="B04" x="26540" y="200" z="32300" angle="200" race="Kralien" hull="Battleship" size= "medium" />
+                    <value name="B05" x="26640" y="200" z="34300" angle="200" race="Kralien" hull="Cruiser" size="small" />
+                    <value name="B06" x="26740" y="-200" z="34400" angle="200" race="Kralien" hull="Cruiser" size="small" />
+                    <value name="B07" x="26040" y="200" z="31700" angle="200" race="Arvonian" hull="Carrier" size="Carrier" />
+                    <value name="B08" x="26540" y="-200" z="31250" angle="200" race="Kralien" hull="Battleship" size="medium" />
                 </range>
                 <range name="abilities">
                     <value match="on" ability="Cloak"/>
