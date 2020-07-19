@@ -50,6 +50,9 @@
         <struct name="Freighter">
           <value weight="-50"  />
         </struct>
+        <struct name="Base">
+          <value weight="-90"  />
+        </struct>
       </struct>
       <struct name="Skaraan">
         <struct name="Defiler">

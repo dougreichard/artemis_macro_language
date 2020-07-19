@@ -43,8 +43,6 @@
     <if_variable name="B71_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B71"/>
     <set_variable name="B71_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+70"/>
     <big_message title="Skaraan Executor B71 destroyed" subtitle1="70 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -69,8 +67,6 @@
     <if_variable name="B72_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B72"/>
     <set_variable name="B72_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+90"/>
     <big_message title="Torgoth Leviathan B72 destroyed" subtitle1="90 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -95,8 +91,6 @@
     <if_variable name="B73_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B73"/>
     <set_variable name="B73_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+25"/>
     <big_message title="Kralien Dreadnought B73 destroyed" subtitle1="25 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -121,8 +115,6 @@
     <if_variable name="B74_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B74"/>
     <set_variable name="B74_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+17"/>
     <big_message title="Kralien Battleship B74 destroyed" subtitle1="17 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -147,8 +139,6 @@
     <if_variable name="B75_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B75"/>
     <set_variable name="B75_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
     <big_message title="Kralien Cruiser B75 destroyed" subtitle1="9 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -173,8 +163,6 @@
     <if_variable name="B76_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B76"/>
     <set_variable name="B76_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
     <big_message title="Kralien Cruiser B76 destroyed" subtitle1="9 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -226,8 +214,6 @@
     <if_variable name="B61_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B61"/>
     <set_variable name="B61_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+50"/>
     <big_message title="Skaraan Enforcer B61 destroyed" subtitle1="50 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -252,8 +238,6 @@
     <if_variable name="B62_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B62"/>
     <set_variable name="B62_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+90"/>
     <big_message title="Torgoth Leviathan B62 destroyed" subtitle1="90 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -278,8 +262,6 @@
     <if_variable name="B63_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B63"/>
     <set_variable name="B63_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+25"/>
     <big_message title="Kralien Dreadnought B63 destroyed" subtitle1="25 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -304,8 +286,6 @@
     <if_variable name="B64_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B64"/>
     <set_variable name="B64_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+17"/>
     <big_message title="Kralien Battleship B64 destroyed" subtitle1="17 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -330,8 +310,6 @@
     <if_variable name="B65_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B65"/>
     <set_variable name="B65_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
     <big_message title="Kralien Cruiser B65 destroyed" subtitle1="9 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -356,8 +334,6 @@
     <if_variable name="B66_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B66"/>
     <set_variable name="B66_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
     <big_message title="Kralien Cruiser B66 destroyed" subtitle1="9 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -411,8 +387,6 @@
     <if_variable name="B51_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B51"/>
     <set_variable name="B51_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+50"/>
     <big_message title="Skaraan Enforcer B51 destroyed" subtitle1="50 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -437,8 +411,6 @@
     <if_variable name="B52_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B52"/>
     <set_variable name="B52_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+90"/>
     <big_message title="Torgoth Leviathan B52 destroyed" subtitle1="90 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -463,8 +435,6 @@
     <if_variable name="B53_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B53"/>
     <set_variable name="B53_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+25"/>
     <big_message title="Kralien Dreadnought B53 destroyed" subtitle1="25 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -489,8 +459,6 @@
     <if_variable name="B54_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B54"/>
     <set_variable name="B54_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+17"/>
     <big_message title="Kralien Battleship B54 destroyed" subtitle1="17 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -515,8 +483,6 @@
     <if_variable name="B55_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B55"/>
     <set_variable name="B55_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
     <big_message title="Kralien Cruiser B55 destroyed" subtitle1="9 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -541,8 +507,6 @@
     <if_variable name="B56_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B56"/>
     <set_variable name="B56_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
     <big_message title="Kralien Cruiser B56 destroyed" subtitle1="9 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -567,8 +531,6 @@
     <if_variable name="B57_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B57"/>
     <set_variable name="B57_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+25"/>
     <big_message title="Arvonian Light Carrier B57 destroyed" subtitle1="25 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -623,8 +585,6 @@
     <if_variable name="B41_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B41"/>
     <set_variable name="B41_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+50"/>
     <big_message title="Skaraan Enforcer B41 destroyed" subtitle1="50 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -649,8 +609,6 @@
     <if_variable name="B42_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B42"/>
     <set_variable name="B42_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+90"/>
     <big_message title="Torgoth Leviathan B42 destroyed" subtitle1="90 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -675,8 +633,6 @@
     <if_variable name="B43_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B43"/>
     <set_variable name="B43_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+25"/>
     <big_message title="Kralien Dreadnought B43 destroyed" subtitle1="25 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -701,8 +657,6 @@
     <if_variable name="B44_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B44"/>
     <set_variable name="B44_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+17"/>
     <big_message title="Kralien Battleship B44 destroyed" subtitle1="17 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -727,8 +681,6 @@
     <if_variable name="B45_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B45"/>
     <set_variable name="B45_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
     <big_message title="Kralien Cruiser B45 destroyed" subtitle1="9 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -753,8 +705,6 @@
     <if_variable name="B46_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B46"/>
     <set_variable name="B46_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
     <big_message title="Kralien Cruiser B46 destroyed" subtitle1="9 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -779,8 +729,6 @@
     <if_variable name="B47_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B47"/>
     <set_variable name="B47_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+45"/>
     <big_message title="Arvonian Carrier B47 destroyed" subtitle1="45 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -836,8 +784,6 @@
     <if_variable name="B31_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B31"/>
     <set_variable name="B31_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+70"/>
     <big_message title="Skaraan Executor B31 destroyed" subtitle1="70 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -862,8 +808,6 @@
     <if_variable name="B32_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B32"/>
     <set_variable name="B32_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+90"/>
     <big_message title="Torgoth Leviathan B32 destroyed" subtitle1="90 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -888,8 +832,6 @@
     <if_variable name="B33_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B33"/>
     <set_variable name="B33_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+25"/>
     <big_message title="Kralien Dreadnought B33 destroyed" subtitle1="25 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -914,8 +856,6 @@
     <if_variable name="B34_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B34"/>
     <set_variable name="B34_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+17"/>
     <big_message title="Kralien Battleship B34 destroyed" subtitle1="17 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -940,8 +880,6 @@
     <if_variable name="B35_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B35"/>
     <set_variable name="B35_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
     <big_message title="Kralien Cruiser B35 destroyed" subtitle1="9 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -966,8 +904,6 @@
     <if_variable name="B36_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B36"/>
     <set_variable name="B36_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
     <big_message title="Kralien Cruiser B36 destroyed" subtitle1="9 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -992,8 +928,6 @@
     <if_variable name="B37_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B37"/>
     <set_variable name="B37_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+45"/>
     <big_message title="Arvonian Carrier B37 destroyed" subtitle1="45 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -1050,8 +984,6 @@
     <if_variable name="B21_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B21"/>
     <set_variable name="B21_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+70"/>
     <big_message title="Skaraan Executor B21 destroyed" subtitle1="70 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -1076,8 +1008,6 @@
     <if_variable name="B22_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B22"/>
     <set_variable name="B22_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+150"/>
     <big_message title="Torgoth Behemoth B22 destroyed" subtitle1="150 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -1102,8 +1032,6 @@
     <if_variable name="B23_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B23"/>
     <set_variable name="B23_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+25"/>
     <big_message title="Kralien Dreadnought B23 destroyed" subtitle1="25 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -1128,8 +1056,6 @@
     <if_variable name="B24_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B24"/>
     <set_variable name="B24_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+17"/>
     <big_message title="Kralien Battleship B24 destroyed" subtitle1="17 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -1154,8 +1080,6 @@
     <if_variable name="B25_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B25"/>
     <set_variable name="B25_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
     <big_message title="Kralien Cruiser B25 destroyed" subtitle1="9 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -1180,8 +1104,6 @@
     <if_variable name="B26_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B26"/>
     <set_variable name="B26_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
     <big_message title="Kralien Cruiser B26 destroyed" subtitle1="9 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -1206,8 +1128,6 @@
     <if_variable name="B27_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B27"/>
     <set_variable name="B27_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+45"/>
     <big_message title="Arvonian Carrier B27 destroyed" subtitle1="45 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -1266,8 +1186,6 @@
     <if_variable name="B11_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B11"/>
     <set_variable name="B11_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+70"/>
     <big_message title="Skaraan Executor B11 destroyed" subtitle1="70 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -1292,8 +1210,6 @@
     <if_variable name="B12_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B12"/>
     <set_variable name="B12_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+150"/>
     <big_message title="Torgoth Behemoth B12 destroyed" subtitle1="150 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -1318,8 +1234,6 @@
     <if_variable name="B13_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B13"/>
     <set_variable name="B13_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+25"/>
     <big_message title="Kralien Dreadnought B13 destroyed" subtitle1="25 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -1344,8 +1258,6 @@
     <if_variable name="B14_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B14"/>
     <set_variable name="B14_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+17"/>
     <big_message title="Kralien Battleship B14 destroyed" subtitle1="17 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -1370,8 +1282,6 @@
     <if_variable name="B15_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B15"/>
     <set_variable name="B15_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
     <big_message title="Kralien Cruiser B15 destroyed" subtitle1="9 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -1396,8 +1306,6 @@
     <if_variable name="B16_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B16"/>
     <set_variable name="B16_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
     <big_message title="Kralien Cruiser B16 destroyed" subtitle1="9 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -1422,8 +1330,6 @@
     <if_variable name="B17_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B17"/>
     <set_variable name="B17_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+45"/>
     <big_message title="Arvonian Carrier B17 destroyed" subtitle1="45 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -1448,8 +1354,6 @@
     <if_variable name="B18_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B18"/>
     <set_variable name="B18_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+17"/>
     <big_message title="Kralien Battleship B18 destroyed" subtitle1="17 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -1506,8 +1410,6 @@
     <if_variable name="B01_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B01"/>
     <set_variable name="B01_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+70"/>
     <big_message title="Skaraan Executor B01 destroyed" subtitle1="70 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -1532,8 +1434,6 @@
     <if_variable name="B02_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B02"/>
     <set_variable name="B02_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+150"/>
     <big_message title="Torgoth Behemoth B02 destroyed" subtitle1="150 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -1558,8 +1458,6 @@
     <if_variable name="B03_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B03"/>
     <set_variable name="B03_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+25"/>
     <big_message title="Kralien Dreadnought B03 destroyed" subtitle1="25 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -1584,8 +1482,6 @@
     <if_variable name="B04_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B04"/>
     <set_variable name="B04_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+17"/>
     <big_message title="Kralien Battleship B04 destroyed" subtitle1="17 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -1610,8 +1506,6 @@
     <if_variable name="B05_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B05"/>
     <set_variable name="B05_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
     <big_message title="Kralien Cruiser B05 destroyed" subtitle1="9 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -1636,8 +1530,6 @@
     <if_variable name="B06_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B06"/>
     <set_variable name="B06_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
     <big_message title="Kralien Cruiser B06 destroyed" subtitle1="9 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -1662,8 +1554,6 @@
     <if_variable name="B07_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B07"/>
     <set_variable name="B07_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+45"/>
     <big_message title="Arvonian Carrier B07 destroyed" subtitle1="45 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -1688,8 +1578,6 @@
     <if_variable name="B08_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="B08"/>
     <set_variable name="B08_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+17"/>
     <big_message title="Kralien Battleship B08 destroyed" subtitle1="17 kilotons"/>
     <set_variable name="report_score" value="1"/>

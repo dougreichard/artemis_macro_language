@@ -42,8 +42,6 @@
     <if_variable name="Black Comet_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="Black Comet"/>
     <set_variable name="Black Comet_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+20"/>
     <big_message title="Pirate Strongbow Black Comet destroyed" subtitle1="20 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -74,8 +72,6 @@
     <if_variable name="D12_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="D12"/>
     <set_variable name="D12_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+25"/>
     <big_message title="Arvonian Light Carrier D12 destroyed" subtitle1="25 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -106,8 +102,6 @@
     <if_variable name="R13_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="R13"/>
     <set_variable name="R13_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+80"/>
     <big_message title="Torgoth Goliath R13 destroyed" subtitle1="80 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -150,8 +144,6 @@
     <if_variable name="N14_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="N14"/>
     <set_variable name="N14_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+40"/>
     <big_message title="Skaraan Defiler N14 destroyed" subtitle1="40 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -192,8 +184,6 @@
     <if_variable name="D16_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="D16"/>
     <set_variable name="D16_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+45"/>
     <big_message title="Arvonian Carrier D16 destroyed" subtitle1="45 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -224,8 +214,6 @@
     <if_variable name="R17_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="R17"/>
     <set_variable name="R17_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+90"/>
     <big_message title="Torgoth Leviathan R17 destroyed" subtitle1="90 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -268,8 +256,6 @@
     <if_variable name="N18_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="N18"/>
     <set_variable name="N18_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+50"/>
     <big_message title="Skaraan Enforcer N18 destroyed" subtitle1="50 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -310,8 +296,6 @@
     <if_variable name="D20_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="D20"/>
     <set_variable name="D20_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+45"/>
     <big_message title="Arvonian Carrier D20 destroyed" subtitle1="45 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -342,8 +326,6 @@
     <if_variable name="R21_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="R21"/>
     <set_variable name="R21_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+150"/>
     <big_message title="Torgoth Behemoth R21 destroyed" subtitle1="150 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -374,8 +356,6 @@
     <if_variable name="R22_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="R22"/>
     <set_variable name="R22_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+90"/>
     <big_message title="Torgoth Leviathan R22 destroyed" subtitle1="90 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -418,8 +398,6 @@
     <if_variable name="N22_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="N22"/>
     <set_variable name="N22_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+70"/>
     <big_message title="Skaraan Executor N22 destroyed" subtitle1="70 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -460,8 +438,6 @@
     <if_variable name="D25_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="D25"/>
     <set_variable name="D25_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+45"/>
     <big_message title="Arvonian Carrier D25 destroyed" subtitle1="45 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -492,8 +468,6 @@
     <if_variable name="D26_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="D26"/>
     <set_variable name="D26_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+45"/>
     <big_message title="Arvonian Carrier D26 destroyed" subtitle1="45 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -524,8 +498,6 @@
     <if_variable name="R27_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="R27"/>
     <set_variable name="R27_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+150"/>
     <big_message title="Torgoth Behemoth R27 destroyed" subtitle1="150 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -556,8 +528,6 @@
     <if_variable name="R28_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="R28"/>
     <set_variable name="R28_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+150"/>
     <big_message title="Torgoth Behemoth R28 destroyed" subtitle1="150 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -600,8 +570,6 @@
     <if_variable name="N29_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="N29"/>
     <set_variable name="N29_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+70"/>
     <big_message title="Skaraan Executor N29 destroyed" subtitle1="70 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -644,8 +612,6 @@
     <if_variable name="N30_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="N30"/>
     <set_variable name="N30_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+70"/>
     <big_message title="Skaraan Executor N30 destroyed" subtitle1="70 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -687,8 +653,6 @@
     <if_variable name="Skywayman_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="Skywayman"/>
     <set_variable name="Skywayman_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+20"/>
     <big_message title="Pirate Strongbow Skywayman destroyed" subtitle1="20 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -719,8 +683,6 @@
     <if_variable name="D33_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="D33"/>
     <set_variable name="D33_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+45"/>
     <big_message title="Arvonian Carrier D33 destroyed" subtitle1="45 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -751,8 +713,6 @@
     <if_variable name="D34_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="D34"/>
     <set_variable name="D34_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+45"/>
     <big_message title="Arvonian Carrier D34 destroyed" subtitle1="45 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -783,8 +743,6 @@
     <if_variable name="R35_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="R35"/>
     <set_variable name="R35_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+150"/>
     <big_message title="Torgoth Behemoth R35 destroyed" subtitle1="150 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -815,8 +773,6 @@
     <if_variable name="R36_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="R36"/>
     <set_variable name="R36_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+150"/>
     <big_message title="Torgoth Behemoth R36 destroyed" subtitle1="150 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -859,8 +815,6 @@
     <if_variable name="N37_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="N37"/>
     <set_variable name="N37_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+70"/>
     <big_message title="Skaraan Executor N37 destroyed" subtitle1="70 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -903,8 +857,6 @@
     <if_variable name="N38_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="N38"/>
     <set_variable name="N38_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+70"/>
     <big_message title="Skaraan Executor N38 destroyed" subtitle1="70 kilotons"/>
     <set_variable name="report_score" value="1"/>

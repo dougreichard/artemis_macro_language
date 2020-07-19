@@ -27,8 +27,6 @@
     <if_variable name="Behemoth 1_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="Behemoth 1"/>
     <set_variable name="Behemoth 1_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+150"/>
     <big_message title="Torgoth Behemoth Behemoth 1 destroyed" subtitle1="150 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -51,8 +49,6 @@
     <if_variable name="Goliath 1_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="Goliath 1"/>
     <set_variable name="Goliath 1_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+80"/>
     <big_message title="Torgoth Goliath Goliath 1 destroyed" subtitle1="80 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -75,8 +71,6 @@
     <if_variable name="Goliath 2_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="Goliath 2"/>
     <set_variable name="Goliath 2_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+80"/>
     <big_message title="Torgoth Goliath Goliath 2 destroyed" subtitle1="80 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -99,8 +93,6 @@
     <if_variable name="Leviathan 1_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="Leviathan 1"/>
     <set_variable name="Leviathan 1_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+90"/>
     <big_message title="Torgoth Leviathan Leviathan 1 destroyed" subtitle1="90 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -123,8 +115,6 @@
     <if_variable name="Leviathan 2_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="Leviathan 2"/>
     <set_variable name="Leviathan 2_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+90"/>
     <big_message title="Torgoth Leviathan Leviathan 2 destroyed" subtitle1="90 kilotons"/>
     <set_variable name="report_score" value="1"/>

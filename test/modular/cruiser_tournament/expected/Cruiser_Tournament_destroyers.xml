@@ -12,8 +12,6 @@
     <if_variable name="Phoenix_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="Phoenix"/>
     <set_variable name="Phoenix_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+-30"/>
     <big_message title="Terran Destroyer Phoenix destroyed" subtitle1="Penalty -30 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -61,8 +59,6 @@
     <if_variable name="Moscow_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="Moscow"/>
     <set_variable name="Moscow_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+-30"/>
     <big_message title="Terran Destroyer Moscow destroyed" subtitle1="Penalty -30 kilotons"/>
     <set_variable name="report_score" value="1"/>

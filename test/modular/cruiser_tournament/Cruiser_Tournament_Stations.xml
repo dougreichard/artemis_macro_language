@@ -1,4 +1,7 @@
 <mission_data>
+<imports>
+    <import name="Cruiser_Tournament_templates.xml" />
+  </imports>
   <values>
     <range name="stations">
       <struct>
@@ -46,16 +49,8 @@
       </incoming_comms_text>
       <set_variable name="${name}_hint" value="1"/>
     </event>
-    <event name="${name} Destroyed">
-      <if_variable name="${name}_dead" comparator="EQUALS" value="0"/>
-      <if_not_exists name="${name}"/>
-      <big_message title="Friendly Base ${name} Destroyed" subtitle1="Penalty -90 kilotons" subtitle2=""/>
-      <log text="Friendly Base ${name} Destroyed"/>
-      <set_variable name="${name}_dead" value="1"/>
-      <set_variable name="Tonnage" value="Tonnage-90"/>
-      <set_variable name="report_score" value="1"/>
-      <set_timer name="report_timer" seconds="8"/>
-    </event>
+   
+    <expand _template="tonnage_destroy" race="Friendly" hull="Base" friend="true" />
 
     <event name="Instructions from ${name}">
       <if_variable name="Minutes" comparator="EQUALS" value="${minutes}"/>

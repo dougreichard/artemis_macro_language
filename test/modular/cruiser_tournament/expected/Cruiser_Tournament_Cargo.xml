@@ -16,8 +16,6 @@
     <if_variable name="Delta Queen_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="Delta Queen"/>
     <set_variable name="Delta Queen_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+-50"/>
     <big_message title="Friendly Freighter Delta Queen destroyed" subtitle1="Penalty -50 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -45,8 +43,6 @@
     <if_variable name="Alpha Betty_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="Alpha Betty"/>
     <set_variable name="Alpha Betty_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+-50"/>
     <big_message title="Friendly Freighter Alpha Betty destroyed" subtitle1="Penalty -50 kilotons"/>
     <set_variable name="report_score" value="1"/>

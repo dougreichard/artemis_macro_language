@@ -23,28 +23,19 @@ If **someValue** = "Hello, world"
 ```
 
 
-## Expand data from from Javscript Plugin data
+
+## Expand into the start tag
+You can force the content of an expand to be appended to the start tag.
+adding '_start' with any non-blank value will expand on the start.
 
 ``` xml
-<expand>
+<expand _start="true">
   <big-message title="${plugins.MyPlugin.message}"/>
 </expand>
 ```
 
-
-
-You can supply the parameters for the template
-
-``` xml
- <templates>
-        <template name="">
-            <params>
-                <param name="name">         
-            </params>
-        </template>
-    </templates>
-```
-
+# expanding templates
+To expand a template supply the name of the template via the attribute _template.
 
 ``` xml
 <repeat _range="Eggs" _as="egg">
@@ -61,4 +52,68 @@ You can supply the parameters for the template
         scoringEnabledVariable="Scoring_Allowed" />
     </repeat>
   </repeat>
+```
+
+# Indirect expansion templates
+The attribute _template.can contain a template string.
+This enables the creation of templates that indirectly use other templates.
+This allows for the creation of more reusable code.
+
+<expand _template="${additionalStuff}" />
+
+``` xml
+<templates>
+  <template name="ChoiceOne">
+    <big-message title="Hello"/>
+  </template>
+  <template name="ChoiceTwo">
+    <big-message title="Goodbye"/>
+  </template>
+
+  <template name="UseChoices">
+    <expand _template="${choice}" />
+    <big-message title="That's all I have to say"/>
+  </template>
+</templates>
+
+<expand _template="UseChoices"  choice="ChoiceOne" />
+<expand _template="UseChoices"  choice="ChoiceTwo" />
+
+``` 
+Generates  
+
+``` xml
+    <big-message title="Hello"/>
+    <big-message title="That's all I have to say"/>
+    <big-message title="Goodbye"/>
+    <big-message title="That's all I have to say"/>
+```
+
+## Optional
+
+``` xml
+  <template name="UseChoices">
+    <expand _template="${choice}" _optional-"true" />
+    <big-message title="That's all I have to say"/>
+  </template>
+``
+
+<expand _template="UseChoices"  choice="ChoiceOne" />
+<expand _template="UseChoices"  choice="" />
+
+``` xml
+    <big-message title="Hello"/>
+    <big-message title="That's all I have to say"/>
+    <big-message title="That's all I have to say"/>
+```
+
+
+
+
+## Expand data from from Javscript Plugin data
+
+``` xml
+<expand>
+  <big-message title="${plugins.MyPlugin.message}"/>
+</expand>
 ```

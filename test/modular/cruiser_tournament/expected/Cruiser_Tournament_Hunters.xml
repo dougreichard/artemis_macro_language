@@ -89,8 +89,6 @@
     <if_variable name="Hunter[1]_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="Hunter[1]"/>
     <set_variable name="Hunter[1]_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+40"/>
     <big_message title="Enemy Hunter Hunter[1] destroyed" subtitle1="40 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -113,8 +111,6 @@
     <if_variable name="Hunter[2]_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="Hunter[2]"/>
     <set_variable name="Hunter[2]_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+40"/>
     <big_message title="Enemy Hunter Hunter[2] destroyed" subtitle1="40 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -137,8 +133,6 @@
     <if_variable name="Hunter[3]_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="Hunter[3]"/>
     <set_variable name="Hunter[3]_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+40"/>
     <big_message title="Enemy Hunter Hunter[3] destroyed" subtitle1="40 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -161,8 +155,6 @@
     <if_variable name="Hunter[4]_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="Hunter[4]"/>
     <set_variable name="Hunter[4]_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+40"/>
     <big_message title="Enemy Hunter Hunter[4] destroyed" subtitle1="40 kilotons"/>
     <set_variable name="report_score" value="1"/>

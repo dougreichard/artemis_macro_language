@@ -30,8 +30,6 @@
     <if_variable name="K61_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="K61"/>
     <set_variable name="K61_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+40"/>
     <big_message title="Skaraan Defiler K61 destroyed" subtitle1="40 kilotons"/>
     <set_variable name="report_score" value="1"/>

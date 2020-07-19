@@ -39,27 +39,48 @@ const START_LOG_DATA = "&lt;&lt;&lt;START_AML_DATA>>>"
 const END_LOG_DATA = "&lt;&lt;&lt;END_AML_DATA>>>"
 
 class Utils {
+    constructor(data) {
+        this.data = data
+    }
+    lookup(s) {
+        return this.data[s]
+    }
+    int(s) {
+        return parseInt(s)
+    }
+    integer(s) {
+        return parseInt(s)
+    }
+    float(s) {
+        return parseFloat(s)
+    }
+    length(s) {
+        let range = this.data[s]
+        if (range &amp;&amp; range.length) {
+            return range.length
+        }
+    }
     get map() {
         return {
             z: (x) => {
                 let keys = {
                     a: 0,
-                    b:1,
-                    c:2,
-                    d:3,
-                    e:4
+                    b: 1,
+                    c: 2,
+                    d: 3,
+                    e: 4
                 }
                 x = x.trim().toLowerCase()
-                let n = keys[x.substring(0,1)]
+                let n = keys[x.substring(0, 1)]
                 let fract = Number(x.substring(1))
-                return (n+fract)*20000
+                return (n + fract) * 20000
             }, y: (y) => {
-                if (y.constructor === String ) {
+                if (y.constructor === String) {
                     y = Number(y)
                 }
                 return y * 20000
             }, x: (x) => {
-                if (x.constructor === String ) {
+                if (x.constructor === String) {
                     x = Number(x)
                 }
                 return 120000 - x * 20000
@@ -67,22 +88,38 @@ class Utils {
         }
     }
 }
-let util = new Utils()
 
 /** Class representing mission file data */
 class MissionFile {
     constructor(init, filename) {
         this.filename = filename
         this.model = init.model
+
+        this.data = {}
+        this.addPlugins()
+
         // this.allErrors = {}
         if (init.errors) {
             this.error(init.errors)
         }
         //this.ranges = {}
-        this.data = {map: util.map}
+
         this.templates = {}
         this.plugins = {}
     }
+    /**
+     * Adds the global plugins to the system
+     */
+    addPlugins() {
+        let utils = new Utils(this.data)
+        this.data.utils = utils
+        // this.data.map = utils.map
+        // this.data.int = utils.int
+        // this.data.float = utils.float
+        // this.data.integer = utils.int
+        this.data._ = utils
+    }
+
     get basedir() {
         return path.dirname(this.filename)
     }
@@ -133,7 +170,11 @@ class MissionFile {
    */
     toXML() {
         if (!this.model) return
-        let xml = convert.js2xml(this.model, { compact: false, spaces: 4 });
+        let xml = convert.js2xml(this.model, { compact: false, ignoreComment: true, spaces: 2})
+
+        // remove those annoying empty attributes
+        xml = xml.replace(/\s\w+=\"\"/gi, "");
+        xml = xml.replace(/\n\s+\n/gi, "\n");
         return xml.replace(/\n/g, '\r\n')
     }
     /**
@@ -401,17 +442,40 @@ class MissionFile {
         let mission_data = this.findFirstElement(this.model, "mission_data")
         if (!mission_data) return
         let allStarts = this.removeChildren(mission_data, "start")
-        if (allStarts.length == 0) return
+
         if (allStarts.length == 1) {
             mission_data.elements.unshift(allStarts[0].element)
+        } else if (allStarts.length > 1) {
+            let start = { type: "element", name: "start", elements: [] }
+            for (let i = 0, l = allStarts.length; i &lt; l; i++) {
+                start.elements = start.elements.concat(allStarts[i].element.elements)
+            }
+            mission_data.elements.unshift(start)
+        }
+        // Put mission description to top
+        let desc = this.removeFirstChild(mission_data, "mission_description")
+        if (desc.element) {
+            mission_data.elements.unshift(desc.element)
+        }
+    }
+    /**
+    * Removes event that have no elements
+    * 
+    */
+    removeEmptyEvents() {
+        if (!this.model) {
             return
         }
-        let start = { type: "element", name: "start", elements: [] }
-        for (let i = 0, l = allStarts.length; i &lt; l; i++) {
-            start.elements = start.elements.concat(allStarts[i].element.elements)
-        }
-        mission_data.elements.unshift(start)
 
+        let mission_data = this.findFirstElement(this.model, "mission_data")
+        if (!mission_data) return
+        let events = this.findChildren(mission_data, "event")
+
+        for (let i = events.length - 1; i >= 0; i--) {
+            if (events[i].element &amp;&amp; (!events[i].element.elements || events[i].element.elements.length == 0)) {
+                mission_data.elements.splice(events[i].index, 1)
+            }
+        }
     }
     /**
     * Merges this document's event elements into a main file
@@ -478,19 +542,26 @@ class MissionFile {
             let name = ele.attributes.name
             addTo[name] = []
             if (ele.elements &amp;&amp; ele.elements.length) {
+                let structs = this.findElements(ele, "struct")
+                for (let i = 0, l = structs.length; i &lt; l; i++) {
+                    let item = {}
+                    let ele = structs[i]
+                    this.processValueTags(ele, item)
+                    this.processStructs(ele, item)
+                    this.processRanges(ele, item)
+                    addTo[name].push(item)
+                }
                 let items = this.findElements(ele, "value")
                 for (let i = 0, l = items.length; i &lt; l; i++) {
                     addTo[name].push(items[i].attributes)
                 }
-            } else {
-                this.error({ message: 'A range requires values' })
             }
         }
     }
     /**
     * Grabs all the templates
     */
-    processTemplateParameters(template, args) {
+    async processTemplateParameters(template, scope) {
         let paramsTag = this.findFirstElement(template, "params")
         if (!paramsTag) return
         let params = this.findElements(paramsTag, "param")
@@ -499,14 +570,18 @@ class MissionFile {
             let ele = params[p]
             let name = ele.attributes.name
             let defaultValue = ele.attributes['default']
-            if (args[name]) {
+            if (scope[name]) {
                 // cool return
                 continue
-            } else if (defaultValue) {
-                // Add the default value
-                args[name] = defaultValue
+            } else if (defaultValue !== undefined) {
+                try {
+                    scope[name] = await interpolate(defaultValue, scope)
+                } catch (e) {
+                    this.error(
+                        { message: `Expanding default template parameter ${defaultValue}"\n\t${e.message}\n\t}` })
+                }
             } else {
-                this.error({ message: `${template.attributes.name} missing parameter ${name}` })
+                this.error({ message: `expanding template "${template.attributes.name}" requires parameter "${name}"` })
                 valid = false
             }
         }
@@ -515,35 +590,41 @@ class MissionFile {
     /**
     * Expand all the templates
     */
-    async processExpandTemplates(parent) {
+    async processExpandTemplates(parent, tempStart) {
         let expands = this.findChildren(parent, "expand")
+        // ANY expands exist, make sure we keep expanding.
+        let count = expands.length;
         // Walking backward to do simple replace in place
-        let count = 0;
-
         for (let i = expands.length - 1; i >= 0; i--) {
             let ele = expands[i].element
             let template = ele
             // Expand any macro in the attributes
-
-            if (ele.attributes &amp;&amp; ele.attributes.template) {
-                let templateName = ele.attributes.template
+            let addToStart =  ele.attributes &amp;&amp; ele.attributes._start
+            if (ele.attributes &amp;&amp; ele.attributes._template !== undefined) {
+                let templateName = ele.attributes._template
                 template = this.templates[templateName]
-                ///  processTemplateParameters(template, args)
-            }
-            // Allow the skipping of this
-            if (ele.attributes &amp;&amp; ele.attributes.skip) {
-                let test = await interpolate(ele.attributes.skip, outerScope)
-                if (test == 'true') {
-                    continue
+                // Allow for optional templates
+                if (!template) {
+                    if (!ele.attributes._optional) {
+                        this.error({ message: `Template "${templateName}" not found. Missing import?` })
+                    }
+                    parent.elements.splice(expands[i].index, 1)
+                    count--
+                    continue;
                 }
-            }
+            } 
+
 
             let outerScope = { plugins: this.plugins }
             Object.assign(outerScope, this.data)
+            if (parent.__scope) {
+                Object.assign(outerScope, parent.__scope)
+            }
             // Include data from repeats
             if (ele.__scope) {
                 Object.assign(outerScope, ele.__scope)
             }
+
             if (ele.attributes) {
                 let clone = {}
                 let attribs = Object.entries(ele.attributes)
@@ -552,32 +633,50 @@ class MissionFile {
                         clone[key] = await interpolate(value, outerScope)
                     }
                     catch (e) {
-                        this.error({ message: `no data for macro expression ${e.message}` })
+                        this.error({ message: `no data for macro expression "${value}"\n\t${e.message}` })
                     }
                 }
                 Object.assign(outerScope, clone)
             }
-
+            // Allow the skipping of this
+            if (ele.attributes &amp;&amp; ele.attributes._skip) {
+                let test = await interpolate(ele.attributes._skip, outerScope)
+                test = test.toString().toLowerCase();
+                if (test == 'true') {
+                    parent.elements.splice(expands[i].index, 1)
+                    continue
+                } 
+            }
+            // 
+            if (ele.attributes &amp;&amp; ele.attributes._template) {
+                await this.processTemplateParameters(template, outerScope)
+            }
 
             let childElements = template.elements
             let replaceWith = []
+            if (!childElements) {
+                this.error({ message: `ERROR: Cannot have template with no elements` })
+            }
+
             for (let c = 0, cl = childElements.length; c &lt; cl; c++) {
-                if (childElements[c].name === "repeat") {
-                    this.error({ message: `Repeats are not allowed within templates` })
-                    continue
-                } else if (childElements[c].name === "params") {
-                    continue
-                } else if (childElements[c].name === "expand") {
-                    replaceWith.push(childElements[c])
-                    count++
+                if (childElements[c].name === "params") {
                     continue
                 }
                 let clone = await this.deepInterpolate(childElements[c], outerScope)
                 if (clone) {
+                    clone.__scope = {}
+                    Object.assign(clone.__scope, outerScope)
                     replaceWith.push(clone)
                 }
             }
-            parent.elements.splice(expands[i].index, 1, ...replaceWith)
+            if (addToStart &amp;&amp; tempStart) {
+                parent.elements.splice(expands[i].index, 1)
+                // rember we're walking backwards
+                tempStart.elements = replaceWith.concat(tempStart.elements)
+            } else {
+                parent.elements.splice(expands[i].index, 1, ...replaceWith)
+            }
+           
         }
         return count
     }
@@ -585,31 +684,33 @@ class MissionFile {
      * When this is called expands should eb the only thing left
      */
     async processAllExpands() {
-        let count = 1
-        while (count) {
-            count = 0
-            // Process them at the top level
-            let mission_data = this.findFirstElement(this.model, "mission_data")
-            if (!mission_data) return
-            count += await this.processExpandTemplates(mission_data)
-            if (count) {
-                this.makeSingleStart()
+        let count = 0
+        // Process them at the top level
+        let mission_data = this.findFirstElement(this.model, "mission_data")
+        if (!mission_data) return
+        let tempStart = {type:"element", name:"start", elements:[]}
+        count += await this.processExpandTemplates(mission_data, tempStart)
+        if (count) {
+            if (tempStart.elements.length) {
+                mission_data.elements.push(tempStart)
             }
-            // Process them in start
-            let start = this.findFirstElement(mission_data, "start")
-            if (start &amp;&amp; start.elements) {
-                count += await this.processExpandTemplates(start)
-            }
-            // process them in every event
-            let events = this.findElements(mission_data, "event")
-            if (events.length) {
-                for (let i = 0, l = events.length; i &lt; l; i++) {
-                    if (events[i].elements) {
-                        count += await this.processExpandTemplates(events[i])
-                    }
+            this.makeSingleStart()
+        }
+        // Process them in start
+        let start = this.findFirstElement(mission_data, "start")
+        if (start &amp;&amp; start.elements) {
+            count += await this.processExpandTemplates(start)
+        }
+        // process them in every event
+        let events = this.findElements(mission_data, "event")
+        if (events.length) {
+            for (let i = 0, l = events.length; i &lt; l; i++) {
+                if (events[i].elements) {
+                    count += await this.processExpandTemplates(events[i])
                 }
             }
         }
+        return count
     }
     /**
     * Finds all templates in the file, caches them, then remove the elements
@@ -643,7 +744,7 @@ class MissionFile {
         // if (element.name == 'repeat') {
         //     return
         // }
-        if (element.name == 'repeat' || element.name == 'expand') {
+        if (element.name == 'repeat') {
             clone.__scope = values
             stopExpanding = true
         }
@@ -653,14 +754,16 @@ class MissionFile {
             let attribs = Object.entries(element.attributes)
             for (let [key, value] of attribs) {
                 try {
+                    let v = value
                     if (element.name != 'repeat' &amp;&amp; !stopExpanding) {
-                        clone.attributes[key] = await interpolate(value, values)
-                    } else {
-                        clone.attributes[key] = value
-                    }
+                        if (value.search(/\$/) >= 0) {
+                            v = await interpolate(value, values)
+                        }
+                    } 
+                    clone.attributes[key] = v
                 }
                 catch (e) {
-                    this.error({ message: `no data for macro expression ${e.message}` })
+                    this.error({ message: `no data for macro expression "${value}"\n\t${e.message}` })
                 }
             }
         }
@@ -678,26 +781,26 @@ class MissionFile {
         }
         return clone
     }
-     /**
-     * Uses the values to expand template string. This is recursive to all child elements
-     * @param {ModelElement} elements The elements to process
-     * @param {object} values The values to use
-     */
+    /**
+    * Uses the values to expand template string. This is recursive to all child elements
+    * @param {ModelElement} elements The elements to process
+    * @param {object} values The values to use
+    */
     async deepExpand(element, values) {
         if (element.type == "text") {
             element.text = await interpolate(element.text, values)
-        } 
+        }
         if (element.attributes) {
             // I believe the keys can't be templated
             let attribs = Object.entries(element.attributes)
             for (let [key, value] of attribs) {
                 try {
-                    if (value.search(/\$/)>= 0) {
+                    if (value.search(/\$/) >= 0) {
                         element.attributes[key] = await interpolate(value, values)
                     }
                 }
                 catch (e) {
-                    this.error({ message: `no data for macro expression ${e.message}` })
+                    this.error({ message: `no data for macro expression "${value}"\n\t${e.message}` })
                 }
             }
         }
@@ -706,6 +809,30 @@ class MissionFile {
                 // Interpolate the keys, the values, and any text elements
                 let child = element.elements[i]
                 await this.deepExpand(child, values)
+            }
+        }
+    }
+    /**
+     * Uses the values to expand template string. This is recursive to all child elements
+     * @param {ModelElement} elements The elements to process
+     * @param {object} values The values to use
+     */
+    async shallowInterpolate(element, values) {
+        if (element.type == "text") {
+            element.text = await interpolate(element.text, values)
+        }
+        if (element.attributes) {
+            // I believe the keys can't be templated
+            let attribs = Object.entries(element.attributes)
+            for (let [key, value] of attribs) {
+                try {
+                    if (value.search(/\$/) >= 0) {
+                        element.attributes[key] = await interpolate(value, values)
+                    }
+                }
+                catch (e) {
+                    this.error({ message: `no data for macro expression "${value}"\n\t${e.message}` })
+                }
             }
         }
     }
@@ -720,54 +847,58 @@ class MissionFile {
         if (!repeats) return
         if (repeats.length == 0) return
 
-
         let hasNested = false
         for (let r = repeats.length - 1; r >= 0; r--) {
             let element = repeats[r].element
 
             let outerScope = { plugins: this.plugins }
             Object.assign(outerScope, this.data)
-
-            let rangeName = element.attributes.range
-            let isActuallyArray
-            let range
-            if (rangeName) {
-                range = this.data[rangeName]
-                if (!range) {
-                    this.error({ message: `Range not found ${rangeName}; Range should be defined in a values tag.` })
-                    continue
-                }
-                isActuallyArray = Array.isArray(range)
-            } else if (element.attributes.length) {
-                range = { length: parseInt(element.attributes.length) }
-                if (!range.length) {
-                    this.error({ message: `Repeat needs a range or a length` })
-                }
-            }
-            if (!range) {
-                this.error({ message: `Repeat has no range` })
-                continue;
-            } else if (!range.length) {
-                this.error({ message: "Range is not an array" })
-                continue
-            }
             let skipFilter = element.attributes["_skip"]
             // Copy the attributes of the repeat to scope
             Object.assign(outerScope, element.attributes)
             // As is used to attach to sub repeats
             // the current values as an object
-            let rangeAs = rangeName
-            if (element.attributes.as) {
-                rangeAs = element.attributes.as
+            if (parent.__scope) {
+                Object.assign(outerScope, parent.__scope)
             }
             if (element.__scope) {
                 // Make sur we don't walk over this scopes
                 // with the __scope data
                 // e.f. range, as
                 let scope = {}
-                Object.assign(scope, element.__scope)
                 Object.assign(scope, outerScope)
+                Object.assign(scope, element.__scope)
                 outerScope = scope
+            }
+
+            let rangeName = element.attributes._range
+            let isActuallyArray
+            let range
+            if (rangeName) {
+                range = outerScope[rangeName]
+                if (!range) {
+                    this.error({ message: `Range not found ${rangeName}; Range should be defined in a values tag.` })
+                    continue
+                }
+                isActuallyArray = Array.isArray(range)
+            } else if (element.attributes._length) {
+                range = { length: parseInt(element.attributes._length) }
+                if (range.length == 0) {
+
+                } else if (!range.length) {
+                    this.error({ message: `Repeat needs a range or a length` })
+                }
+            }
+            if (!range) {
+                this.error({ message: `Repeat has no range` })
+                continue;
+            } else if (range.length === undefined) {
+                this.error({ message: `Range "${rangeName}" is not an array` })
+                continue
+            }
+            let rangeAs = rangeName
+            if (element.attributes._as) {
+                rangeAs = element.attributes._as
             }
 
             // Accumulate all the elements
@@ -788,6 +919,9 @@ class MissionFile {
 
                 if (skipFilter) {
                     let test = await interpolate(skipFilter, scope)
+                    if (test) {
+                        test = test.toString().toLowerCase();
+                    }
                     if (test == 'true') {
                         continue
                     }
@@ -795,8 +929,11 @@ class MissionFile {
                 //////////////////////////////////////////////////////
                 /// Clone and expand all the content
                 for (let c = 0, cl = childElements.length; c &lt; cl; c++) {
+
                     if (childElements[c].name != "repeat") {
                         let clone = await this.deepInterpolate(childElements[c], scope)
+                        clone.__scope = {}
+                        Object.assign(clone.__scope, scope)
                         if (clone) {
                             replaceWith.push(clone)
                         }
@@ -833,24 +970,25 @@ class MissionFile {
      */
     async processAllRepeats() {
         // Process them at the top level
+        let more = false
         let mission_data = this.findFirstElement(this.model, "mission_data")
         if (!mission_data) return
-        await this.processAllRepeatsFor(mission_data)
+        more = await this.processAllRepeatsFor(mission_data)
         // Process them in start
         let start = this.findFirstElement(mission_data, "start")
         if (start &amp;&amp; start.elements) {
-            await this.processAllRepeatsFor(start)
+            more |= await this.processAllRepeatsFor(start)
         }
         // process them in every event
         let events = this.findElements(mission_data, "event")
         if (events.length) {
             for (let i = 0, l = events.length; i &lt; l; i++) {
                 if (events[i].elements) {
-                    await this.processAllRepeatsFor(events[i])
+                    more |= await this.processAllRepeatsFor(events[i])
                 }
-
             }
         }
+        return more
     }
     /**
      * Will process all repeats within a given element
@@ -858,10 +996,7 @@ class MissionFile {
      */
     async processAllRepeatsFor(parent) {
         if (!parent) return
-        let repeatsExist = true
-        while (repeatsExist) {
-            repeatsExist = await this.processRepeats(parent)
-        }
+        return await this.processRepeats(parent)
     }
     /**
      * Merges elements for imported file. This is recursive
@@ -913,6 +1048,9 @@ class MissionFile {
 
                 // Expand templates
                 await mission.processFile(this)
+                /////////////////////////////////////////////
+                // 
+                this.removePluginsFromImport(mission)
                 Object.assign(this.data, mission.data)
                 Object.assign(this.templates, mission.templates)
                 //main.addErrors(mission)
@@ -928,6 +1066,16 @@ class MissionFile {
         }
     }
     /**
+     * Removes Plugins from imports before merging into main
+     * @param {MissionFile} mission The Imported Data
+     */
+    removePluginsFromImport(mission) {
+        delete mission.data.utils
+        delete mission.data.int
+        delete mission.data.float
+        delete mission.data.map
+    }
+    /**
      * Process the imports,ranges,repeats, templates and expands of a main document
      */
     async processFile(main, values) {
@@ -937,16 +1085,40 @@ class MissionFile {
             if (!mission_data) return
             // Process values first to allow overrides and use with imports
             this.processValues(main)
-            await this.processImports(this)
-
+            // This is to reset any values before imports
+            // incase they are used in SKIPs
             if (values) {
                 Object.assign(this.data, values)
             }
-            await this.processAllRepeats()
+            await this.processImports(this)
+            // This is to reset any values after imports
+            if (values) {
+                Object.assign(this.data, values)
+            }
             await this.processTemplates()
-            await this.processAllExpands()
-            // one last expand all
+
+            // Keep expanding stuff until there isn't anymore
+            let more = true
+            while (more) {
+                more = false
+                let repeats = true
+                let expand = true
+                // Do all repeats you can
+                while (repeats) {
+                    repeats = await this.processAllRepeats()
+                    more |= repeats
+                }
+                // then all expands
+                while (expand) {
+                    expand = await this.processAllExpands()
+                    more |= expand
+                }
+
+            }
+            //Replaces any lingering ${} statements using the data model
             await this.deepExpand(mission_data, this.data)
+            await this.makeSingleStart()
+            await this.removeEmptyEvents()
 
         }
     }
@@ -968,7 +1140,7 @@ exports.MissionFile = MissionFile</code></pre>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.4</a> on Wed Jun 03 2020 09:48:25 GMT-0400 (Eastern Daylight Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.4</a> on Sat Jul 18 2020 22:04:53 GMT-0400 (Eastern Daylight Time)
 </footer>
 
 <script> prettyPrint(); </script>

@@ -4,9 +4,6 @@
 The range tag is defined under the mission_data [values](tag-values.md) tag
 ranges define a set of data for use with [repeat tags](tag-repeat.md) and macro statements.
 
-
-
-
 ``` xml
 <values>
     <range name="AllShips">

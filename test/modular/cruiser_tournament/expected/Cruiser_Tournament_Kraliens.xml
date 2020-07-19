@@ -35,8 +35,6 @@
     <if_variable name="K00_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="K00"/>
     <set_variable name="K00_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
     <big_message title="Kralien Cruiser K00 destroyed" subtitle1="9 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -59,8 +57,6 @@
     <if_variable name="K01_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="K01"/>
     <set_variable name="K01_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
     <big_message title="Kralien Cruiser K01 destroyed" subtitle1="9 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -83,8 +79,6 @@
     <if_variable name="K02_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="K02"/>
     <set_variable name="K02_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
     <big_message title="Kralien Cruiser K02 destroyed" subtitle1="9 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -107,8 +101,6 @@
     <if_variable name="K04_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="K04"/>
     <set_variable name="K04_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+17"/>
     <big_message title="Kralien Battleship K04 destroyed" subtitle1="17 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -131,8 +123,6 @@
     <if_variable name="K05_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="K05"/>
     <set_variable name="K05_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+17"/>
     <big_message title="Kralien Battleship K05 destroyed" subtitle1="17 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -155,8 +145,6 @@
     <if_variable name="K06_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="K06"/>
     <set_variable name="K06_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+17"/>
     <big_message title="Kralien Battleship K06 destroyed" subtitle1="17 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -179,8 +167,6 @@
     <if_variable name="K07_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="K07"/>
     <set_variable name="K07_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+25"/>
     <big_message title="Kralien Dreadnought K07 destroyed" subtitle1="25 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -203,8 +189,6 @@
     <if_variable name="K08_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="K08"/>
     <set_variable name="K08_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+25"/>
     <big_message title="Kralien Dreadnought K08 destroyed" subtitle1="25 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -227,8 +211,6 @@
     <if_variable name="K09_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="K09"/>
     <set_variable name="K09_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+25"/>
     <big_message title="Kralien Dreadnought K09 destroyed" subtitle1="25 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -251,8 +233,6 @@
     <if_variable name="K10_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="K10"/>
     <set_variable name="K10_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
     <big_message title="Kralien Cruiser K10 destroyed" subtitle1="9 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -275,8 +255,6 @@
     <if_variable name="K11_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="K11"/>
     <set_variable name="K11_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
     <big_message title="Kralien Cruiser K11 destroyed" subtitle1="9 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -299,8 +277,6 @@
     <if_variable name="K12_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="K12"/>
     <set_variable name="K12_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
     <big_message title="Kralien Cruiser K12 destroyed" subtitle1="9 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -323,8 +299,6 @@
     <if_variable name="K14_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="K14"/>
     <set_variable name="K14_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+17"/>
     <big_message title="Kralien Battleship K14 destroyed" subtitle1="17 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -347,8 +321,6 @@
     <if_variable name="K15_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="K15"/>
     <set_variable name="K15_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+17"/>
     <big_message title="Kralien Battleship K15 destroyed" subtitle1="17 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -371,8 +343,6 @@
     <if_variable name="K16_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="K16"/>
     <set_variable name="K16_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+17"/>
     <big_message title="Kralien Battleship K16 destroyed" subtitle1="17 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -395,8 +365,6 @@
     <if_variable name="K17_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="K17"/>
     <set_variable name="K17_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+25"/>
     <big_message title="Kralien Dreadnought K17 destroyed" subtitle1="25 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -419,8 +387,6 @@
     <if_variable name="K18_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="K18"/>
     <set_variable name="K18_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+25"/>
     <big_message title="Kralien Dreadnought K18 destroyed" subtitle1="25 kilotons"/>
     <set_variable name="report_score" value="1"/>
@@ -443,8 +409,6 @@
     <if_variable name="K19_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="K19"/>
     <set_variable name="K19_dead" value="1"/>
-    <set_variable name="report_score" value="1"/>
-    <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+25"/>
     <big_message title="Kralien Dreadnought K19 destroyed" subtitle1="25 kilotons"/>
     <set_variable name="report_score" value="1"/>
