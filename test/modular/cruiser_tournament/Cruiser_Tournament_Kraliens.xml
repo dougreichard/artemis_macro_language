@@ -1,6 +1,7 @@
 <mission_data version="1.0">
   <imports>
     <import name="Cruiser_Tournament_templates.xml" />
+        <import name="Cruiser_Tournament_spawn.xml" />
   </imports>
   <values>
     <range name="kraliens">
@@ -24,13 +25,8 @@
       <value name="K19" x="60300.0" z="12000.0" angle="180" race="Kralien" size="large" hull="Dreadnought" fleetnumber="59" />
     </range>
   </values>
-  <start>
-    <repeat _range="kraliens">
-      <create type="enemy" x="${x}" y="0.0" z="${z}" angle="${angle}" name="${name}" raceKeys="${race} enemy" hullKeys="${size} ${hull}" fleetnumber="${fleetnumber}"/>
-    </repeat>
-  </start>
   <repeat _range="kraliens">
     <!-- Gets params from range since they are named the same.-->
-    <expand _template="tonnage" />
+    <expand _template="tonnage_start" />
   </repeat>
 </mission_data>

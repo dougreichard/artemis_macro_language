@@ -1,6 +1,7 @@
 <mission_data>
   <imports>
     <import name="Cruiser_Tournament_templates.xml" />
+    <import name="Cruiser_Tournament_spawn.xml" />
   </imports>
     <values>
         <range name="fleet">
@@ -12,27 +13,14 @@
                     <value trigger="71"/>
                 </range>
                 <range name="enemies">
-                    <value name="B71" x="5000" y="0" z="41000" angle="200" race="Skaraan" hull="Executor" size="large" />
+                    <value name="B71" x="5000" y="0" z="41000" angle="200" race="Skaraan" hull="Executor" size="large"
+                        extra="set_abilities" ability_captain="AniTorp" ability_clear="Teleport,shlddrain,LowVis,Stealth" />
                     <value name="B72" x="5140" y="-200" z="40800" angle="200" race="Torgoth" hull="Leviathan" size="medium" />
                     <value name="B73" x="4960" y="-200" z="42200" angle="200" race="Kralien" hull="Dreadnought" size="large" />
                     <value name="B74" x="5540" y="200" z="43300" angle="200" race="Kralien" hull="Battleship" size= "medium" />
                     <value name="B75" x="5440" y="200" z="43500" angle="200" race="Kralien" hull="Cruiser" size="small" />
                     <value name="B76" x="5340" y="200" z="42300" angle="200" race="Kralien" hull="Cruiser" size="small" />
                 </range>
-                <range name="abilities">
-                    <value match="clear" ability="Teleport"/>
-                    <value match="on" ability="Warp"/>
-                    <value match="on" ability="Tractor"/>
-                    <value match="on" ability="Drones"/>
-                    <value match="on" ability="HET"/>
-                    <value match="on" ability="AntiMine"/>
-                    <value match="captain" ability="AntiTorp"/>
-                    <value match="clear" ability="ShldDrain"/>
-                    <value match="on" ability="ShldVamp"/>
-                    <value match="clear" ability="LowVis"/>
-                    <value match="clear" ability="Stealth"/>
-                </range>
-
             </struct>
             <struct>
                 <value name="Bonus_6" number="96" collect="Carapaction Coils" />
@@ -43,26 +31,14 @@
                     <value trigger="62"/>
                 </range>
                 <range name="enemies">
-                    <value name="B61" x="75000" y="0" z="41000" angle="200" race="Skaraan" hull="Enforcer" size="medium" />
+                    <value name="B61" x="75000" y="0" z="41000" angle="200" race="Skaraan" hull="Enforcer" size="medium" 
+                        extra="set_abilities" ability_captain="Teleport" 
+                        ability_clear="Cloak,Warp,Tractor,Drones,HET,AnitiMine,AntiTorp,shlddrain,shldvamp,LowVis,Stealth" />
                     <value name="B62" x="75140" y="-200" z="40800" angle="200" race="Torgoth" hull="Leviathan" size="medium" />
                     <value name="B63" x="74960" y="-200" z="42200" angle="200" race="Kralien" hull="Dreadnought" size="large" />
                     <value name="B64" x="75540" y="200" z="43100" angle="200" race="Kralien" hull="Battleship" size= "medium" />
                     <value name="B65" x="75440" y="200" z="43700" angle="200" race="Kralien" hull="Cruiser" size="small" />
                     <value name="B66" x="75340" y="200" z="43300" angle="200" race="Kralien" hull="Cruiser" size="small" />
-                </range>
-                <range name="abilities">
-                    <value match="clear" ability="Cloak"/>
-                    <value match="clear" ability="Warp"/>
-                    <value match="clear" ability="Tractor"/>
-                    <value match="captain" ability="Teleport"/>
-                    <value match="clear" ability="Drones"/>
-                    <value match="clear" ability="HET"/>
-                    <value match="clear" ability="AntiMine"/>
-                    <value match="clear" ability="AntiTorp"/>
-                    <value match="clear" ability="ShldDrain"/>
-                    <value match="clear" ability="ShldVamp"/>
-                    <value match="clear" ability="LowVis"/>
-                    <value match="clear" ability="Stealth"/>
                 </range>
             </struct>
             <struct>
@@ -73,27 +49,15 @@
                     <value trigger="53"/>
                 </range>
                 <range name="enemies">
-                    <value name="B51" x="65000" y="0" z="31000" angle="200" race="Skaraan" hull="Enforcer" size="medium" />
+                    <value name="B51" x="65000" y="0" z="31000" angle="200" race="Skaraan" hull="Enforcer" size="medium" 
+                        extra="set_abilities" ability_captain="Cloack" 
+                        ability_clear="Warp,Teleport,HET,AnitiMine,AntiTorp,shlddrain,shldvamp,LowVis,Stealth" />
                     <value name="B52" x="65140" y="-200" z="30800" angle="200" race="Torgoth" hull="Leviathan" size="medium" />
                     <value name="B53" x="64960" y="-200" z="32200" angle="200" race="Kralien" hull="Dreadnought" size="large" />
                     <value name="B54" x="65540" y="200" z="31300" angle="200" race="Kralien" hull="Battleship" size= "medium" />
                     <value name="B55" x="65440" y="-200" z="33000" angle="200" race="Kralien" hull="Cruiser" size="small" />
                     <value name="B56" x="65340" y="200" z="33300" angle="200" race="Kralien" hull="Cruiser" size="small" />
                     <value name="B57" x="65340" y="200" z="30600" angle="200" race="Arvonian" hull="Light Carrier" size="" />
-                </range>
-                <range name="abilities">
-                    <value match="captain" ability="Cloak"/>
-                    <value match="clear" ability="Warp"/>
-                    <value match="on" ability="Tractor"/>
-                    <value match="clear" ability="Teleport"/>
-                    <value match="on" ability="Drones"/>
-                    <value match="clear" ability="HET"/>
-                    <value match="clear" ability="AntiMine"/>
-                    <value match="clear" ability="AntiTorp"/>
-                    <value match="clear" ability="ShldDrain"/>
-                    <value match="clear" ability="ShldVamp"/>
-                    <value match="clear" ability="LowVis"/>
-                    <value match="clear" ability="Stealth"/>
                 </range>
             </struct>
             <struct>
@@ -105,27 +69,15 @@
                     <value trigger="44"/>
                 </range>
                 <range name="enemies">
-                    <value name="B41" x="65000" y="0" z="31000" angle="200" race="Skaraan" hull="Enforcer" size="medium" />
+                    <value name="B41" x="65000" y="0" z="31000" angle="200" race="Skaraan" hull="Enforcer" size="medium" 
+                        extra="set_abilities" ability_captain="Cloak" 
+                        ability_clear="Cloak,Warp,Teleport,HET,AnitiMine,AntiTorp,shlddrain,shldvamp,LowVis,Stealth" />                    
                     <value name="B42" x="65140" y="-200" z="30800" angle="200" race="Torgoth" hull="Leviathan" size="medium" />
                     <value name="B43" x="64960" y="-200" z="32200" angle="200" race="Kralien" hull="Dreadnought" size="large" />
                     <value name="B44" x="65440" y="200" z="31300" angle="200" race="Kralien" hull="Battleship" size= "medium" />
                     <value name="B45" x="65540" y="-200" z="33000" angle="200" race="Kralien" hull="Cruiser" size="small" />
                     <value name="B46" x="65340" y="200" z="33300" angle="200" race="Kralien" hull="Cruiser" size="small" />
                     <value name="B47" x="65340" y="200" z="30600" angle="200" race="Arvonian" hull="Carrier" size=" Carrier" />
-                </range>
-                <range name="abilities">
-                    <value match="captain" ability="Cloak"/>
-                    <value match="clear" ability="Warp"/>
-                    <value match="on" ability="Tractor"/>
-                    <value match="clear" ability="Teleport"/>
-                    <value match="on" ability="Drones"/>
-                    <value match="clear" ability="HET"/>
-                    <value match="clear" ability="AntiMine"/>
-                    <value match="clear" ability="AntiTorp"/>
-                    <value match="clear" ability="ShldDrain"/>
-                    <value match="clear" ability="ShldVamp"/>
-                    <value match="clear" ability="LowVis"/>
-                    <value match="clear" ability="Stealth"/>
                 </range>
             </struct>
             <struct>
@@ -138,27 +90,15 @@
                     <value trigger="35"/>
                 </range>
                 <range name="enemies">
-                    <value name="B31" x="44000" y="0" z="30000" angle="200" race="Skaraan" hull="Executor" size="large" />
+                    <value name="B31" x="44000" y="0" z="30000" angle="200" race="Skaraan" hull="Executor" size="large" 
+                        extra="set_abilities" ability_captain="Cloak" 
+                        ability_clear="Warp,Teleport,HET,AnitiMine,shlddrain,shldvamp,LowVis,Stealth" />                    
                     <value name="B32" x="44140" y="-200" z="29800" angle="200" race="Torgoth" hull="Leviathan" size="medium" />
                     <value name="B33" x="43960" y="-200" z="31200" angle="200" race="Kralien" hull="Dreadnought" size="large" />
                     <value name="B34" x="44133" y="200" z="30300" angle="200" race="Kralien" hull="Battleship" size= "medium" />
                     <value name="B35" x="44444" y="200" z="32300" angle="200" race="Kralien" hull="Cruiser" size="small" />
                     <value name="B36" x="43540" y="200" z="32430" angle="200" race="Kralien" hull="Cruiser" size="small" />
                     <value name="B37" x="44240" y="-200" z="29600" angle="200" race="Arvonian" hull="Carrier" size="Carrier" />
-                </range>
-                <range name="abilities">
-                    <value match="clear" ability="Cloak"/>
-                    <value match="captain" ability="Warp"/>
-                    <value match="on" ability="Tractor"/>
-                    <value match="clear" ability="Teleport"/>
-                    <value match="on" ability="Drones"/>
-                    <value match="clear" ability="HET"/>
-                    <value match="clear" ability="AntiMine"/>
-                    <value match="on" ability="AntiTorp"/>
-                    <value match="clear" ability="ShldDrain"/>
-                    <value match="clear" ability="ShldVamp"/>
-                    <value match="clear" ability="LowVis"/>
-                    <value match="clear" ability="Stealth"/>
                 </range>
             </struct>
             <struct>
@@ -172,27 +112,15 @@
                     <value trigger="26"/>
                 </range>
                 <range name="enemies">
-                    <value name="B21" x="75000" y="0" z="31000" angle="200" race="Skaraan" hull="Executor" size="large" />
+                    <value name="B21" x="75000" y="0" z="31000" angle="200" race="Skaraan" hull="Executor" size="large" 
+                    extra="set_abilities" ability_captain="Warp" 
+                    ability_clear="Cloak,Teleport,HET,AnitiMine,shlddrain,shldvamp,LowVis,Stealth" />
                     <value name="B22" x="75140" y="-200" z="30800" angle="200" race="Torgoth" hull="Behemoth" size="large" />
                     <value name="B23" x="74960" y="-200" z="32200" angle="200" race="Kralien" hull="Dreadnought" size="large" />
                     <value name="B24" x="75240" y="200" z="31300" angle="200" race="Kralien" hull="Battleship" size= "medium" />
                     <value name="B25" x="75540" y="200" z="33333" angle="200" race="Kralien" hull="Cruiser" size="small" />
                     <value name="B26" x="75040" y="-200" z="33300" angle="200" race="Kralien" hull="Cruiser" size="small" />
                     <value name="B27" x="75240" y="200" z="30600" angle="200" race="Arvonian" hull="Carrier" size=" Carrier" />
-                </range>
-                <range name="abilities">
-                    <value match="clear" ability="Cloak"/>
-                    <value match="captain" ability="Warp"/>
-                    <value match="on" ability="Tractor"/>
-                    <value match="clear" ability="Teleport"/>
-                    <value match="on" ability="Drones"/>
-                    <value match="clear" ability="HET"/>
-                    <value match="clear" ability="AntiMine"/>
-                    <value match="on" ability="AntiTorp"/>
-                    <value match="clear" ability="ShldDrain"/>
-                    <value match="clear" ability="ShldVamp"/>
-                    <value match="clear" ability="LowVis"/>
-                    <value match="clear" ability="Stealth"/>
                 </range>
             </struct>
             <struct>
@@ -207,7 +135,9 @@
                     <value trigger="17"/>
                 </range>
                 <range name="enemies">
-                    <value name="B11" x="66000" y="0" z="31000" angle="200" race="Skaraan" hull="Executor" size="large" />
+                    <value name="B11" x="66000" y="0" z="31000" angle="200" race="Skaraan" hull="Executor" size="large"
+                    extra="set_abilities" ability_captain="Warp" 
+                        ability_clear="Cloak,Teleport,HET,AnitiMine,shlddrain,shldvamp,LowVis,Stealth" />                    
                     <value name="B12" x="66140" y="-200" z="30800" angle="200" race="Torgoth" hull="Behemoth" size="large" />
                     <value name="B13" x="66960" y="-200" z="32200" angle="200" race="Kralien" hull="Dreadnought" size="large" />
                     <value name="B14" x="66540" y="200" z="31300" angle="200" race="Kralien" hull="Battleship" size= "medium" />
@@ -215,20 +145,6 @@
                     <value name="B16" x="66740" y="-200" z="33400" angle="200" race="Kralien" hull="Cruiser" size="small" />
                     <value name="B17" x="66040" y="200" z="30700" angle="200" race="Arvonian" hull="Carrier" size="Carrier" />
                     <value name="B18" x="66540" y="-200" z="30250" angle="200" race="Kralien" hull="Battleship" size="medium" />
-                </range>
-                <range name="abilities">
-                    <value match="clear" ability="Cloak"/>
-                    <value match="captain" ability="Warp"/>
-                    <value match="on" ability="Tractor"/>
-                    <value match="clear" ability="Teleport"/>
-                    <value match="on" ability="Drones"/>
-                    <value match="clear" ability="HET"/>
-                    <value match="clear" ability="AntiMine"/>
-                    <value match="on" ability="AntiTorp"/>
-                    <value match="clear" ability="ShldDrain"/>
-                    <value match="clear" ability="ShldVamp"/>
-                    <value match="clear" ability="LowVis"/>
-                    <value match="clear" ability="Stealth"/>
                 </range>
             </struct>
             <struct>
@@ -241,7 +157,9 @@
                     <value trigger="35"/>
                 </range>
                 <range name="enemies">
-                    <value name="B01" x="26000" y="0" z="32000" angle="200" race="Skaraan" hull="Executor" size="large" />
+                    <value name="B01" x="26000" y="0" z="32000" angle="200" race="Skaraan" hull="Executor" size="large" 
+                    extra="set_abilities" ability_captain="Warp" 
+                        ability_clear="HET,LowVis,Stealth" />
                     <value name="B02" x="26140" y="-200" z="31800" angle="200" race="Torgoth" hull="Behemoth" size="large" />
                     <value name="B03" x="26960" y="-200" z="33200" angle="200" race="Kralien" hull="Dreadnought" size="large" />
                     <value name="B04" x="26540" y="200" z="32300" angle="200" race="Kralien" hull="Battleship" size= "medium" />
@@ -249,20 +167,6 @@
                     <value name="B06" x="26740" y="-200" z="34400" angle="200" race="Kralien" hull="Cruiser" size="small" />
                     <value name="B07" x="26040" y="200" z="31700" angle="200" race="Arvonian" hull="Carrier" size="Carrier" />
                     <value name="B08" x="26540" y="-200" z="31250" angle="200" race="Kralien" hull="Battleship" size="medium" />
-                </range>
-                <range name="abilities">
-                    <value match="on" ability="Cloak"/>
-                    <value match="captain" ability="Warp"/>
-                    <value match="on" ability="Tractor"/>
-                    <value match="on" ability="Teleport"/>
-                    <value match="on" ability="Drones"/>
-                    <value match="clear" ability="HET"/>
-                    <value match="on" ability="AntiMine"/>
-                    <value match="on" ability="AntiTorp"/>
-                    <value match="on" ability="ShldDrain"/>
-                    <value match="on" ability="ShldVamp"/>
-                    <value match="clear" ability="LowVis"/>
-                    <value match="clear" ability="Stealth"/>
                 </range>
             </struct>
         </range>
@@ -279,23 +183,12 @@
       Congratulations, Artemis. You collected all of the ${collect}. We are sending a bonus fleet for you to fight.
             </incoming_comms_text>
             <repeat _range="enemies">
-                <create type="enemy" x="${x}" y="${y}" z="${z}" angle="200" name="${name}" raceKeys="${race} enemy" hullKeys="${hull} ${size}" fleetnumber="${fleet.number}"/>
-            </repeat>
-            <repeat _range="abilities">
-                <expand _skip="${match!=='captain'}">
-                    <set_special name="${enemies[0].name}" ship="-1" captain="5" ability="${ability}"/>
-                </expand>
-                <expand _skip="${match!=='clear'}">
-                    <set_special name="${enemies[0].name}" clear="yes" ability="${ability}"/>
-                </expand>
-                <expand _skip="${match!=='on'}">
-                    <set_special name="${enemies[0].name}" ability="${ability}"/>
-                </expand>
+                <expand _template="spawn" />
             </repeat>
             <set_variable name="${name}" value="1"/>
         </event>
         <repeat _range="enemies">
-            <expand _template="tonnage" fleetID="${fleet.name}" />
+            <expand _template="tonnage" conditions="if_var" variable="${fleet.name}" value="1" />
         </repeat>
     </repeat>
 </mission_data>

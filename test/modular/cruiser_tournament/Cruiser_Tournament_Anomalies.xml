@@ -1,7 +1,7 @@
 <mission_data version="1.0">
     <!-- Not a lot of use making these values -->
     <values>
-        <range name="anomolies">
+        <range name="anomalies">
             <value name="01" pickupType="0" x="32511.0" z="65063.0"/>
             <value name="02" pickupType="0" x="30469.0" z="46936.0"/>
             <value name="03" pickupType="0" x="36341.0" z="28936.0"/>
@@ -41,7 +41,7 @@
         </range>
     </values>
     <start>
-        <repeat _range="anomolies">
+        <repeat _range="anomalies">
             <create type="Anomaly" name="${name}" pickupType="${pickupType}" x="${x}" y="0.0" z="${z}"/>
         </repeat>
     </start>

@@ -19,7 +19,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+-50"/>
-    <big_message title="Friendly Freighter Delta Queen destroyed" subtitle1="Penalty -50 kilotons" subtitle2=""/>
+    <big_message title="Friendly Freighter Delta Queen destroyed" subtitle1="Penalty -50 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Friendly Freighter Delta Queen destroyed"/>
@@ -48,7 +48,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+-50"/>
-    <big_message title="Friendly Freighter Alpha Betty destroyed" subtitle1="Penalty -50 kilotons" subtitle2=""/>
+    <big_message title="Friendly Freighter Alpha Betty destroyed" subtitle1="Penalty -50 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Friendly Freighter Alpha Betty destroyed"/>

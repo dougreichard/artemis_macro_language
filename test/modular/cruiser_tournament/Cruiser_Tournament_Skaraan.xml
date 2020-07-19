@@ -1,18 +1,10 @@
 <mission_data version="1.0">
   <imports>
     <import name="Cruiser_Tournament_templates.xml" />
+    <import name="Cruiser_Tournament_spawn.xml" />
   </imports>
-  <start>
-    <create type="enemy" x="50500.0" y="0.0" z="41500.0" angle="260" name="K61" raceKeys="Skaraan enemy" hullKeys="small Defiler" fleetnumber="22"/>
-    <set_special name="K61" ability="Tractor"/>
-    <set_special name="K61" ship="-1" captain="5" ability="Warp"/>
-    <set_special name="K61" clear="yes" ability="Cloak"/>
-    <set_special name="K61" clear="yes" ability="AntiMine"/>
-    <set_special name="K61" clear="yes" ability="Drones"/>
-    <set_special name="K61" clear="yes" ability="ShldDrain"/>
-    <set_special name="K61" clear="yes" ability="ShldVamp"/>
-    <set_special name="K61" clear="yes" ability="LowVis"/>
-    <set_special name="K61" clear="yes" ability="Stealth"/>
-  </start>
-  <expand _template="tonnage" name="K61" race="Skaraan" hull="Defiler" />
+  <expand _template="tonnage_start" name="K61" x="50500.0" z="41500.0" angle="260"   race="Skaraan" hull="Defiler" size="small" fleetnumber="22"
+            extra="set_abilities" ability_captain="Warp" 
+          ability_clear="Cloak,Drones,AnitiMine,shlddrain,shldvamp,LowVis,Stealth" />
+
 </mission_data> 

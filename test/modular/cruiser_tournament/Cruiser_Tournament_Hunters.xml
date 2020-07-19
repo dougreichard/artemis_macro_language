@@ -1,8 +1,17 @@
 <mission_data>
-  <imports>
-    <import name="Cruiser_Tournament_templates.xml" />
-  </imports>
-
+    <imports>
+        <import name="Cruiser_Tournament_templates.xml" />
+        <import name="Cruiser_Tournament_spawn.xml" />
+    </imports>
+    <templates>
+        <template name="spawn_hunter">
+            <set_ship_text name="${name}" race="Torgoth" class="Whale Hunter" desc="Licensed Professional Hunter of Whales"/>
+            <add_ai name ="${name}" type ="CHASE_WHALE" value1="20000"/>
+            <add_ai name ="${name}" type ="CHASE_ANGER" value1="20000"/>
+            <set_special name="${name}" clear="yes" ability="Drones"/>
+            <set_timer name="${name}_timer" seconds="${timer}"/>
+        </template>
+    </templates>
     <values>
         <range name="hunters">
             <value name="Hunter[1]" timer="70" x="58300" y="57" z="78300" />
@@ -11,19 +20,6 @@
             <value name="Hunter[4]" timer="100" x="58200" y="-245" z="43500" />
         </range>
     </values>
-    <!-- Hunter Code  -->
-    <start>
-        <!-- Hunters  -->
-        <repeat _range="hunters">
-            <create type="enemy" x="${x}" y="${y}" z="${z}" angle="45" name="${name}" raceKeys="Torgoth" hullKeys="Goliath" fleetnumber="-1"/>
-            <set_ship_text name="${name}" race="Torgoth" class="Whale Hunter" desc="Licensed Professional Hunter of Whales"/>
-            <add_ai name ="${name}" type ="CHASE_WHALE" value1="20000"/>
-            <add_ai name ="${name}" type ="CHASE_ANGER" value1="20000"/>
-            <set_special name="${name}" clear="yes" ability="Drones"/>
-
-            <set_timer name="${name}_timer" seconds="${timer}"/>
-        </repeat>
-    </start>
     <!-- Hunter Beacons  -->
     <repeat _range="hunters">
         <event name="${name} Beacon Deploy">
@@ -46,7 +42,7 @@
         </repeat>
     </event>
     <repeat _range="hunters">
-        <!--Override text to match original  -->
-        <expand _template="tonnage" race="Enemy" hull="Hunter" />
+        <!--Override Race and HUll Text text   -->
+        <expand _template="tonnage_start" race="Enemy" hull="Hunter" raceKeys="Torgoth" hullKeys="Goliath" angle="45" extra="spawn_hunter" fleetnumber="-1" />
     </repeat>
 </mission_data>

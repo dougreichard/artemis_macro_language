@@ -5,23 +5,24 @@
     <incoming_comms_text from="Enemy Fleet">
       Congratulations, Artemis. You collected all of the Secret Code Cases. We are sending a bonus fleet for you to fight.
             </incoming_comms_text>
-    <create type="enemy" x="5000" y="0" z="41000" angle="200" name="B71" raceKeys="Skaraan enemy" hullKeys="Executor large" fleetnumber="97"/>
-    <create type="enemy" x="5140" y="-200" z="40800" angle="200" name="B72" raceKeys="Torgoth enemy" hullKeys="Leviathan medium" fleetnumber="97"/>
-    <create type="enemy" x="4960" y="-200" z="42200" angle="200" name="B73" raceKeys="Kralien enemy" hullKeys="Dreadnought large" fleetnumber="97"/>
-    <create type="enemy" x="5540" y="200" z="43300" angle="200" name="B74" raceKeys="Kralien enemy" hullKeys="Battleship medium" fleetnumber="97"/>
-    <create type="enemy" x="5440" y="200" z="43500" angle="200" name="B75" raceKeys="Kralien enemy" hullKeys="Cruiser small" fleetnumber="97"/>
-    <create type="enemy" x="5340" y="200" z="42300" angle="200" name="B76" raceKeys="Kralien enemy" hullKeys="Cruiser small" fleetnumber="97"/>
-    <set_special name="B71" clear="yes" ability="Teleport"/>
+    <create type="enemy" x="5000" y="0" z="41000" angle="200" name="B71" raceKeys="Skaraan enemy" hullKeys="Executor large"/>
     <set_special name="B71" ability="Warp"/>
     <set_special name="B71" ability="Tractor"/>
+    <set_special name="B71" clear="yes" ability="Teleport"/>
     <set_special name="B71" ability="Drones"/>
     <set_special name="B71" ability="HET"/>
     <set_special name="B71" ability="AntiMine"/>
-    <set_special name="B71" ship="-1" captain="5" ability="AntiTorp"/>
+    <set_special name="B71" ability="AntiTorp"/>
     <set_special name="B71" clear="yes" ability="ShldDrain"/>
     <set_special name="B71" ability="ShldVamp"/>
     <set_special name="B71" clear="yes" ability="LowVis"/>
     <set_special name="B71" clear="yes" ability="Stealth"/>
+    <set_special name="B71" ship="-1" captain="5" ability="AniTorp"/>
+    <create type="enemy" x="5140" y="-200" z="40800" angle="200" name="B72" raceKeys="Torgoth enemy" hullKeys="Leviathan medium"/>
+    <create type="enemy" x="4960" y="-200" z="42200" angle="200" name="B73" raceKeys="Kralien enemy" hullKeys="Dreadnought large"/>
+    <create type="enemy" x="5540" y="200" z="43300" angle="200" name="B74" raceKeys="Kralien enemy" hullKeys="Battleship medium"/>
+    <create type="enemy" x="5440" y="200" z="43500" angle="200" name="B75" raceKeys="Kralien enemy" hullKeys="Cruiser small"/>
+    <create type="enemy" x="5340" y="200" z="42300" angle="200" name="B76" raceKeys="Kralien enemy" hullKeys="Cruiser small"/>
     <set_variable name="Bonus_7" value="1"/>
   </event>
   <event name="B71 Surrendered">
@@ -45,7 +46,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+70"/>
-    <big_message title="Skaraan Executor B71 destroyed" subtitle1="70 kilotons" subtitle2=""/>
+    <big_message title="Skaraan Executor B71 destroyed" subtitle1="70 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Skaraan Executor B71 destroyed"/>
@@ -71,7 +72,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+90"/>
-    <big_message title="Torgoth Leviathan B72 destroyed" subtitle1="90 kilotons" subtitle2=""/>
+    <big_message title="Torgoth Leviathan B72 destroyed" subtitle1="90 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Torgoth Leviathan B72 destroyed"/>
@@ -97,7 +98,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+25"/>
-    <big_message title="Kralien Dreadnought B73 destroyed" subtitle1="25 kilotons" subtitle2=""/>
+    <big_message title="Kralien Dreadnought B73 destroyed" subtitle1="25 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Dreadnought B73 destroyed"/>
@@ -123,7 +124,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+17"/>
-    <big_message title="Kralien Battleship B74 destroyed" subtitle1="17 kilotons" subtitle2=""/>
+    <big_message title="Kralien Battleship B74 destroyed" subtitle1="17 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Battleship B74 destroyed"/>
@@ -149,7 +150,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
-    <big_message title="Kralien Cruiser B75 destroyed" subtitle1="9 kilotons" subtitle2=""/>
+    <big_message title="Kralien Cruiser B75 destroyed" subtitle1="9 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Cruiser B75 destroyed"/>
@@ -175,7 +176,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
-    <big_message title="Kralien Cruiser B76 destroyed" subtitle1="9 kilotons" subtitle2=""/>
+    <big_message title="Kralien Cruiser B76 destroyed" subtitle1="9 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Cruiser B76 destroyed"/>
@@ -187,24 +188,24 @@
     <incoming_comms_text from="Enemy Fleet">
       Congratulations, Artemis. You collected all of the Carapaction Coils. We are sending a bonus fleet for you to fight.
             </incoming_comms_text>
-    <create type="enemy" x="75000" y="0" z="41000" angle="200" name="B61" raceKeys="Skaraan enemy" hullKeys="Enforcer medium" fleetnumber="96"/>
-    <create type="enemy" x="75140" y="-200" z="40800" angle="200" name="B62" raceKeys="Torgoth enemy" hullKeys="Leviathan medium" fleetnumber="96"/>
-    <create type="enemy" x="74960" y="-200" z="42200" angle="200" name="B63" raceKeys="Kralien enemy" hullKeys="Dreadnought large" fleetnumber="96"/>
-    <create type="enemy" x="75540" y="200" z="43100" angle="200" name="B64" raceKeys="Kralien enemy" hullKeys="Battleship medium" fleetnumber="96"/>
-    <create type="enemy" x="75440" y="200" z="43700" angle="200" name="B65" raceKeys="Kralien enemy" hullKeys="Cruiser small" fleetnumber="96"/>
-    <create type="enemy" x="75340" y="200" z="43300" angle="200" name="B66" raceKeys="Kralien enemy" hullKeys="Cruiser small" fleetnumber="96"/>
-    <set_special name="B61" clear="yes" ability="Cloak"/>
+    <create type="enemy" x="75000" y="0" z="41000" angle="200" name="B61" raceKeys="Skaraan enemy" hullKeys="Enforcer medium"/>
     <set_special name="B61" clear="yes" ability="Warp"/>
     <set_special name="B61" clear="yes" ability="Tractor"/>
-    <set_special name="B61" ship="-1" captain="5" ability="Teleport"/>
+    <set_special name="B61" ability="Teleport"/>
     <set_special name="B61" clear="yes" ability="Drones"/>
     <set_special name="B61" clear="yes" ability="HET"/>
-    <set_special name="B61" clear="yes" ability="AntiMine"/>
-    <set_special name="B61" clear="yes" ability="AntiTorp"/>
+    <set_special name="B61" ability="AntiMine"/>
+    <set_special name="B61" ability="AntiTorp"/>
     <set_special name="B61" clear="yes" ability="ShldDrain"/>
     <set_special name="B61" clear="yes" ability="ShldVamp"/>
     <set_special name="B61" clear="yes" ability="LowVis"/>
     <set_special name="B61" clear="yes" ability="Stealth"/>
+    <set_special name="B61" ship="-1" captain="5" ability="Teleport"/>
+    <create type="enemy" x="75140" y="-200" z="40800" angle="200" name="B62" raceKeys="Torgoth enemy" hullKeys="Leviathan medium"/>
+    <create type="enemy" x="74960" y="-200" z="42200" angle="200" name="B63" raceKeys="Kralien enemy" hullKeys="Dreadnought large"/>
+    <create type="enemy" x="75540" y="200" z="43100" angle="200" name="B64" raceKeys="Kralien enemy" hullKeys="Battleship medium"/>
+    <create type="enemy" x="75440" y="200" z="43700" angle="200" name="B65" raceKeys="Kralien enemy" hullKeys="Cruiser small"/>
+    <create type="enemy" x="75340" y="200" z="43300" angle="200" name="B66" raceKeys="Kralien enemy" hullKeys="Cruiser small"/>
     <set_variable name="Bonus_6" value="1"/>
   </event>
   <event name="B61 Surrendered">
@@ -228,7 +229,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+50"/>
-    <big_message title="Skaraan Enforcer B61 destroyed" subtitle1="50 kilotons" subtitle2=""/>
+    <big_message title="Skaraan Enforcer B61 destroyed" subtitle1="50 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Skaraan Enforcer B61 destroyed"/>
@@ -254,7 +255,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+90"/>
-    <big_message title="Torgoth Leviathan B62 destroyed" subtitle1="90 kilotons" subtitle2=""/>
+    <big_message title="Torgoth Leviathan B62 destroyed" subtitle1="90 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Torgoth Leviathan B62 destroyed"/>
@@ -280,7 +281,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+25"/>
-    <big_message title="Kralien Dreadnought B63 destroyed" subtitle1="25 kilotons" subtitle2=""/>
+    <big_message title="Kralien Dreadnought B63 destroyed" subtitle1="25 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Dreadnought B63 destroyed"/>
@@ -306,7 +307,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+17"/>
-    <big_message title="Kralien Battleship B64 destroyed" subtitle1="17 kilotons" subtitle2=""/>
+    <big_message title="Kralien Battleship B64 destroyed" subtitle1="17 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Battleship B64 destroyed"/>
@@ -332,7 +333,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
-    <big_message title="Kralien Cruiser B65 destroyed" subtitle1="9 kilotons" subtitle2=""/>
+    <big_message title="Kralien Cruiser B65 destroyed" subtitle1="9 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Cruiser B65 destroyed"/>
@@ -358,7 +359,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
-    <big_message title="Kralien Cruiser B66 destroyed" subtitle1="9 kilotons" subtitle2=""/>
+    <big_message title="Kralien Cruiser B66 destroyed" subtitle1="9 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Cruiser B66 destroyed"/>
@@ -371,25 +372,25 @@
     <incoming_comms_text from="Enemy Fleet">
       Congratulations, Artemis. You collected all of the Infusion P-Coils. We are sending a bonus fleet for you to fight.
             </incoming_comms_text>
-    <create type="enemy" x="65000" y="0" z="31000" angle="200" name="B51" raceKeys="Skaraan enemy" hullKeys="Enforcer medium" fleetnumber="95"/>
-    <create type="enemy" x="65140" y="-200" z="30800" angle="200" name="B52" raceKeys="Torgoth enemy" hullKeys="Leviathan medium" fleetnumber="95"/>
-    <create type="enemy" x="64960" y="-200" z="32200" angle="200" name="B53" raceKeys="Kralien enemy" hullKeys="Dreadnought large" fleetnumber="95"/>
-    <create type="enemy" x="65540" y="200" z="31300" angle="200" name="B54" raceKeys="Kralien enemy" hullKeys="Battleship medium" fleetnumber="95"/>
-    <create type="enemy" x="65440" y="-200" z="33000" angle="200" name="B55" raceKeys="Kralien enemy" hullKeys="Cruiser small" fleetnumber="95"/>
-    <create type="enemy" x="65340" y="200" z="33300" angle="200" name="B56" raceKeys="Kralien enemy" hullKeys="Cruiser small" fleetnumber="95"/>
-    <create type="enemy" x="65340" y="200" z="30600" angle="200" name="B57" raceKeys="Arvonian enemy" hullKeys="Light Carrier " fleetnumber="95"/>
-    <set_special name="B51" ship="-1" captain="5" ability="Cloak"/>
+    <create type="enemy" x="65000" y="0" z="31000" angle="200" name="B51" raceKeys="Skaraan enemy" hullKeys="Enforcer medium"/>
     <set_special name="B51" clear="yes" ability="Warp"/>
     <set_special name="B51" ability="Tractor"/>
     <set_special name="B51" clear="yes" ability="Teleport"/>
     <set_special name="B51" ability="Drones"/>
     <set_special name="B51" clear="yes" ability="HET"/>
-    <set_special name="B51" clear="yes" ability="AntiMine"/>
-    <set_special name="B51" clear="yes" ability="AntiTorp"/>
+    <set_special name="B51" ability="AntiMine"/>
+    <set_special name="B51" ability="AntiTorp"/>
     <set_special name="B51" clear="yes" ability="ShldDrain"/>
     <set_special name="B51" clear="yes" ability="ShldVamp"/>
     <set_special name="B51" clear="yes" ability="LowVis"/>
     <set_special name="B51" clear="yes" ability="Stealth"/>
+    <set_special name="B51" ship="-1" captain="5" ability="Cloack"/>
+    <create type="enemy" x="65140" y="-200" z="30800" angle="200" name="B52" raceKeys="Torgoth enemy" hullKeys="Leviathan medium"/>
+    <create type="enemy" x="64960" y="-200" z="32200" angle="200" name="B53" raceKeys="Kralien enemy" hullKeys="Dreadnought large"/>
+    <create type="enemy" x="65540" y="200" z="31300" angle="200" name="B54" raceKeys="Kralien enemy" hullKeys="Battleship medium"/>
+    <create type="enemy" x="65440" y="-200" z="33000" angle="200" name="B55" raceKeys="Kralien enemy" hullKeys="Cruiser small"/>
+    <create type="enemy" x="65340" y="200" z="33300" angle="200" name="B56" raceKeys="Kralien enemy" hullKeys="Cruiser small"/>
+    <create type="enemy" x="65340" y="200" z="30600" angle="200" name="B57" raceKeys="Arvonian enemy" hullKeys="Light Carrier"/>
     <set_variable name="Bonus_5" value="1"/>
   </event>
   <event name="B51 Surrendered">
@@ -413,7 +414,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+50"/>
-    <big_message title="Skaraan Enforcer B51 destroyed" subtitle1="50 kilotons" subtitle2=""/>
+    <big_message title="Skaraan Enforcer B51 destroyed" subtitle1="50 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Skaraan Enforcer B51 destroyed"/>
@@ -439,7 +440,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+90"/>
-    <big_message title="Torgoth Leviathan B52 destroyed" subtitle1="90 kilotons" subtitle2=""/>
+    <big_message title="Torgoth Leviathan B52 destroyed" subtitle1="90 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Torgoth Leviathan B52 destroyed"/>
@@ -465,7 +466,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+25"/>
-    <big_message title="Kralien Dreadnought B53 destroyed" subtitle1="25 kilotons" subtitle2=""/>
+    <big_message title="Kralien Dreadnought B53 destroyed" subtitle1="25 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Dreadnought B53 destroyed"/>
@@ -491,7 +492,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+17"/>
-    <big_message title="Kralien Battleship B54 destroyed" subtitle1="17 kilotons" subtitle2=""/>
+    <big_message title="Kralien Battleship B54 destroyed" subtitle1="17 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Battleship B54 destroyed"/>
@@ -517,7 +518,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
-    <big_message title="Kralien Cruiser B55 destroyed" subtitle1="9 kilotons" subtitle2=""/>
+    <big_message title="Kralien Cruiser B55 destroyed" subtitle1="9 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Cruiser B55 destroyed"/>
@@ -543,7 +544,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
-    <big_message title="Kralien Cruiser B56 destroyed" subtitle1="9 kilotons" subtitle2=""/>
+    <big_message title="Kralien Cruiser B56 destroyed" subtitle1="9 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Cruiser B56 destroyed"/>
@@ -569,7 +570,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+25"/>
-    <big_message title="Arvonian Light Carrier B57 destroyed" subtitle1="25 kilotons" subtitle2=""/>
+    <big_message title="Arvonian Light Carrier B57 destroyed" subtitle1="25 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Arvonian Light Carrier B57 destroyed"/>
@@ -583,25 +584,25 @@
     <incoming_comms_text from="Enemy Fleet">
       Congratulations, Artemis. You collected all of the Tauron Focusers. We are sending a bonus fleet for you to fight.
             </incoming_comms_text>
-    <create type="enemy" x="65000" y="0" z="31000" angle="200" name="B41" raceKeys="Skaraan enemy" hullKeys="Enforcer medium" fleetnumber="94"/>
-    <create type="enemy" x="65140" y="-200" z="30800" angle="200" name="B42" raceKeys="Torgoth enemy" hullKeys="Leviathan medium" fleetnumber="94"/>
-    <create type="enemy" x="64960" y="-200" z="32200" angle="200" name="B43" raceKeys="Kralien enemy" hullKeys="Dreadnought large" fleetnumber="94"/>
-    <create type="enemy" x="65440" y="200" z="31300" angle="200" name="B44" raceKeys="Kralien enemy" hullKeys="Battleship medium" fleetnumber="94"/>
-    <create type="enemy" x="65540" y="-200" z="33000" angle="200" name="B45" raceKeys="Kralien enemy" hullKeys="Cruiser small" fleetnumber="94"/>
-    <create type="enemy" x="65340" y="200" z="33300" angle="200" name="B46" raceKeys="Kralien enemy" hullKeys="Cruiser small" fleetnumber="94"/>
-    <create type="enemy" x="65340" y="200" z="30600" angle="200" name="B47" raceKeys="Arvonian enemy" hullKeys="Carrier  Carrier" fleetnumber="94"/>
-    <set_special name="B41" ship="-1" captain="5" ability="Cloak"/>
+    <create type="enemy" x="65000" y="0" z="31000" angle="200" name="B41" raceKeys="Skaraan enemy" hullKeys="Enforcer medium"/>
     <set_special name="B41" clear="yes" ability="Warp"/>
     <set_special name="B41" ability="Tractor"/>
     <set_special name="B41" clear="yes" ability="Teleport"/>
     <set_special name="B41" ability="Drones"/>
     <set_special name="B41" clear="yes" ability="HET"/>
-    <set_special name="B41" clear="yes" ability="AntiMine"/>
-    <set_special name="B41" clear="yes" ability="AntiTorp"/>
+    <set_special name="B41" ability="AntiMine"/>
+    <set_special name="B41" ability="AntiTorp"/>
     <set_special name="B41" clear="yes" ability="ShldDrain"/>
     <set_special name="B41" clear="yes" ability="ShldVamp"/>
     <set_special name="B41" clear="yes" ability="LowVis"/>
     <set_special name="B41" clear="yes" ability="Stealth"/>
+    <set_special name="B41" ship="-1" captain="5" ability="Cloak"/>
+    <create type="enemy" x="65140" y="-200" z="30800" angle="200" name="B42" raceKeys="Torgoth enemy" hullKeys="Leviathan medium"/>
+    <create type="enemy" x="64960" y="-200" z="32200" angle="200" name="B43" raceKeys="Kralien enemy" hullKeys="Dreadnought large"/>
+    <create type="enemy" x="65440" y="200" z="31300" angle="200" name="B44" raceKeys="Kralien enemy" hullKeys="Battleship medium"/>
+    <create type="enemy" x="65540" y="-200" z="33000" angle="200" name="B45" raceKeys="Kralien enemy" hullKeys="Cruiser small"/>
+    <create type="enemy" x="65340" y="200" z="33300" angle="200" name="B46" raceKeys="Kralien enemy" hullKeys="Cruiser small"/>
+    <create type="enemy" x="65340" y="200" z="30600" angle="200" name="B47" raceKeys="Arvonian enemy" hullKeys="Carrier  Carrier"/>
     <set_variable name="Bonus_4" value="1"/>
   </event>
   <event name="B41 Surrendered">
@@ -625,7 +626,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+50"/>
-    <big_message title="Skaraan Enforcer B41 destroyed" subtitle1="50 kilotons" subtitle2=""/>
+    <big_message title="Skaraan Enforcer B41 destroyed" subtitle1="50 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Skaraan Enforcer B41 destroyed"/>
@@ -651,7 +652,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+90"/>
-    <big_message title="Torgoth Leviathan B42 destroyed" subtitle1="90 kilotons" subtitle2=""/>
+    <big_message title="Torgoth Leviathan B42 destroyed" subtitle1="90 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Torgoth Leviathan B42 destroyed"/>
@@ -677,7 +678,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+25"/>
-    <big_message title="Kralien Dreadnought B43 destroyed" subtitle1="25 kilotons" subtitle2=""/>
+    <big_message title="Kralien Dreadnought B43 destroyed" subtitle1="25 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Dreadnought B43 destroyed"/>
@@ -703,7 +704,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+17"/>
-    <big_message title="Kralien Battleship B44 destroyed" subtitle1="17 kilotons" subtitle2=""/>
+    <big_message title="Kralien Battleship B44 destroyed" subtitle1="17 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Battleship B44 destroyed"/>
@@ -729,7 +730,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
-    <big_message title="Kralien Cruiser B45 destroyed" subtitle1="9 kilotons" subtitle2=""/>
+    <big_message title="Kralien Cruiser B45 destroyed" subtitle1="9 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Cruiser B45 destroyed"/>
@@ -755,7 +756,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
-    <big_message title="Kralien Cruiser B46 destroyed" subtitle1="9 kilotons" subtitle2=""/>
+    <big_message title="Kralien Cruiser B46 destroyed" subtitle1="9 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Cruiser B46 destroyed"/>
@@ -781,7 +782,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+45"/>
-    <big_message title="Arvonian Carrier B47 destroyed" subtitle1="45 kilotons" subtitle2=""/>
+    <big_message title="Arvonian Carrier B47 destroyed" subtitle1="45 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Arvonian Carrier B47 destroyed"/>
@@ -796,25 +797,25 @@
     <incoming_comms_text from="Enemy Fleet">
       Congratulations, Artemis. You collected all of the Lateral Arrays. We are sending a bonus fleet for you to fight.
             </incoming_comms_text>
-    <create type="enemy" x="44000" y="0" z="30000" angle="200" name="B31" raceKeys="Skaraan enemy" hullKeys="Executor large" fleetnumber="93"/>
-    <create type="enemy" x="44140" y="-200" z="29800" angle="200" name="B32" raceKeys="Torgoth enemy" hullKeys="Leviathan medium" fleetnumber="93"/>
-    <create type="enemy" x="43960" y="-200" z="31200" angle="200" name="B33" raceKeys="Kralien enemy" hullKeys="Dreadnought large" fleetnumber="93"/>
-    <create type="enemy" x="44133" y="200" z="30300" angle="200" name="B34" raceKeys="Kralien enemy" hullKeys="Battleship medium" fleetnumber="93"/>
-    <create type="enemy" x="44444" y="200" z="32300" angle="200" name="B35" raceKeys="Kralien enemy" hullKeys="Cruiser small" fleetnumber="93"/>
-    <create type="enemy" x="43540" y="200" z="32430" angle="200" name="B36" raceKeys="Kralien enemy" hullKeys="Cruiser small" fleetnumber="93"/>
-    <create type="enemy" x="44240" y="-200" z="29600" angle="200" name="B37" raceKeys="Arvonian enemy" hullKeys="Carrier Carrier" fleetnumber="93"/>
-    <set_special name="B31" clear="yes" ability="Cloak"/>
-    <set_special name="B31" ship="-1" captain="5" ability="Warp"/>
+    <create type="enemy" x="44000" y="0" z="30000" angle="200" name="B31" raceKeys="Skaraan enemy" hullKeys="Executor large"/>
+    <set_special name="B31" clear="yes" ability="Warp"/>
     <set_special name="B31" ability="Tractor"/>
     <set_special name="B31" clear="yes" ability="Teleport"/>
     <set_special name="B31" ability="Drones"/>
     <set_special name="B31" clear="yes" ability="HET"/>
-    <set_special name="B31" clear="yes" ability="AntiMine"/>
+    <set_special name="B31" ability="AntiMine"/>
     <set_special name="B31" ability="AntiTorp"/>
     <set_special name="B31" clear="yes" ability="ShldDrain"/>
     <set_special name="B31" clear="yes" ability="ShldVamp"/>
     <set_special name="B31" clear="yes" ability="LowVis"/>
     <set_special name="B31" clear="yes" ability="Stealth"/>
+    <set_special name="B31" ship="-1" captain="5" ability="Cloak"/>
+    <create type="enemy" x="44140" y="-200" z="29800" angle="200" name="B32" raceKeys="Torgoth enemy" hullKeys="Leviathan medium"/>
+    <create type="enemy" x="43960" y="-200" z="31200" angle="200" name="B33" raceKeys="Kralien enemy" hullKeys="Dreadnought large"/>
+    <create type="enemy" x="44133" y="200" z="30300" angle="200" name="B34" raceKeys="Kralien enemy" hullKeys="Battleship medium"/>
+    <create type="enemy" x="44444" y="200" z="32300" angle="200" name="B35" raceKeys="Kralien enemy" hullKeys="Cruiser small"/>
+    <create type="enemy" x="43540" y="200" z="32430" angle="200" name="B36" raceKeys="Kralien enemy" hullKeys="Cruiser small"/>
+    <create type="enemy" x="44240" y="-200" z="29600" angle="200" name="B37" raceKeys="Arvonian enemy" hullKeys="Carrier Carrier"/>
     <set_variable name="Bonus_3" value="1"/>
   </event>
   <event name="B31 Surrendered">
@@ -838,7 +839,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+70"/>
-    <big_message title="Skaraan Executor B31 destroyed" subtitle1="70 kilotons" subtitle2=""/>
+    <big_message title="Skaraan Executor B31 destroyed" subtitle1="70 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Skaraan Executor B31 destroyed"/>
@@ -864,7 +865,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+90"/>
-    <big_message title="Torgoth Leviathan B32 destroyed" subtitle1="90 kilotons" subtitle2=""/>
+    <big_message title="Torgoth Leviathan B32 destroyed" subtitle1="90 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Torgoth Leviathan B32 destroyed"/>
@@ -890,7 +891,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+25"/>
-    <big_message title="Kralien Dreadnought B33 destroyed" subtitle1="25 kilotons" subtitle2=""/>
+    <big_message title="Kralien Dreadnought B33 destroyed" subtitle1="25 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Dreadnought B33 destroyed"/>
@@ -916,7 +917,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+17"/>
-    <big_message title="Kralien Battleship B34 destroyed" subtitle1="17 kilotons" subtitle2=""/>
+    <big_message title="Kralien Battleship B34 destroyed" subtitle1="17 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Battleship B34 destroyed"/>
@@ -942,7 +943,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
-    <big_message title="Kralien Cruiser B35 destroyed" subtitle1="9 kilotons" subtitle2=""/>
+    <big_message title="Kralien Cruiser B35 destroyed" subtitle1="9 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Cruiser B35 destroyed"/>
@@ -968,7 +969,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
-    <big_message title="Kralien Cruiser B36 destroyed" subtitle1="9 kilotons" subtitle2=""/>
+    <big_message title="Kralien Cruiser B36 destroyed" subtitle1="9 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Cruiser B36 destroyed"/>
@@ -994,7 +995,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+45"/>
-    <big_message title="Arvonian Carrier B37 destroyed" subtitle1="45 kilotons" subtitle2=""/>
+    <big_message title="Arvonian Carrier B37 destroyed" subtitle1="45 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Arvonian Carrier B37 destroyed"/>
@@ -1010,25 +1011,25 @@
     <incoming_comms_text from="Enemy Fleet">
       Congratulations, Artemis. You collected all of the Cetrocite Crystals. We are sending a bonus fleet for you to fight.
             </incoming_comms_text>
-    <create type="enemy" x="75000" y="0" z="31000" angle="200" name="B21" raceKeys="Skaraan enemy" hullKeys="Executor large" fleetnumber="92"/>
-    <create type="enemy" x="75140" y="-200" z="30800" angle="200" name="B22" raceKeys="Torgoth enemy" hullKeys="Behemoth large" fleetnumber="92"/>
-    <create type="enemy" x="74960" y="-200" z="32200" angle="200" name="B23" raceKeys="Kralien enemy" hullKeys="Dreadnought large" fleetnumber="92"/>
-    <create type="enemy" x="75240" y="200" z="31300" angle="200" name="B24" raceKeys="Kralien enemy" hullKeys="Battleship medium" fleetnumber="92"/>
-    <create type="enemy" x="75540" y="200" z="33333" angle="200" name="B25" raceKeys="Kralien enemy" hullKeys="Cruiser small" fleetnumber="92"/>
-    <create type="enemy" x="75040" y="-200" z="33300" angle="200" name="B26" raceKeys="Kralien enemy" hullKeys="Cruiser small" fleetnumber="92"/>
-    <create type="enemy" x="75240" y="200" z="30600" angle="200" name="B27" raceKeys="Arvonian enemy" hullKeys="Carrier  Carrier" fleetnumber="92"/>
-    <set_special name="B21" clear="yes" ability="Cloak"/>
-    <set_special name="B21" ship="-1" captain="5" ability="Warp"/>
+    <create type="enemy" x="75000" y="0" z="31000" angle="200" name="B21" raceKeys="Skaraan enemy" hullKeys="Executor large"/>
+    <set_special name="B21" ability="Warp"/>
     <set_special name="B21" ability="Tractor"/>
     <set_special name="B21" clear="yes" ability="Teleport"/>
     <set_special name="B21" ability="Drones"/>
     <set_special name="B21" clear="yes" ability="HET"/>
-    <set_special name="B21" clear="yes" ability="AntiMine"/>
+    <set_special name="B21" ability="AntiMine"/>
     <set_special name="B21" ability="AntiTorp"/>
     <set_special name="B21" clear="yes" ability="ShldDrain"/>
     <set_special name="B21" clear="yes" ability="ShldVamp"/>
     <set_special name="B21" clear="yes" ability="LowVis"/>
     <set_special name="B21" clear="yes" ability="Stealth"/>
+    <set_special name="B21" ship="-1" captain="5" ability="Warp"/>
+    <create type="enemy" x="75140" y="-200" z="30800" angle="200" name="B22" raceKeys="Torgoth enemy" hullKeys="Behemoth large"/>
+    <create type="enemy" x="74960" y="-200" z="32200" angle="200" name="B23" raceKeys="Kralien enemy" hullKeys="Dreadnought large"/>
+    <create type="enemy" x="75240" y="200" z="31300" angle="200" name="B24" raceKeys="Kralien enemy" hullKeys="Battleship medium"/>
+    <create type="enemy" x="75540" y="200" z="33333" angle="200" name="B25" raceKeys="Kralien enemy" hullKeys="Cruiser small"/>
+    <create type="enemy" x="75040" y="-200" z="33300" angle="200" name="B26" raceKeys="Kralien enemy" hullKeys="Cruiser small"/>
+    <create type="enemy" x="75240" y="200" z="30600" angle="200" name="B27" raceKeys="Arvonian enemy" hullKeys="Carrier  Carrier"/>
     <set_variable name="Bonus_2" value="1"/>
   </event>
   <event name="B21 Surrendered">
@@ -1052,7 +1053,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+70"/>
-    <big_message title="Skaraan Executor B21 destroyed" subtitle1="70 kilotons" subtitle2=""/>
+    <big_message title="Skaraan Executor B21 destroyed" subtitle1="70 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Skaraan Executor B21 destroyed"/>
@@ -1078,7 +1079,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+150"/>
-    <big_message title="Torgoth Behemoth B22 destroyed" subtitle1="150 kilotons" subtitle2=""/>
+    <big_message title="Torgoth Behemoth B22 destroyed" subtitle1="150 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Torgoth Behemoth B22 destroyed"/>
@@ -1104,7 +1105,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+25"/>
-    <big_message title="Kralien Dreadnought B23 destroyed" subtitle1="25 kilotons" subtitle2=""/>
+    <big_message title="Kralien Dreadnought B23 destroyed" subtitle1="25 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Dreadnought B23 destroyed"/>
@@ -1130,7 +1131,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+17"/>
-    <big_message title="Kralien Battleship B24 destroyed" subtitle1="17 kilotons" subtitle2=""/>
+    <big_message title="Kralien Battleship B24 destroyed" subtitle1="17 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Battleship B24 destroyed"/>
@@ -1156,7 +1157,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
-    <big_message title="Kralien Cruiser B25 destroyed" subtitle1="9 kilotons" subtitle2=""/>
+    <big_message title="Kralien Cruiser B25 destroyed" subtitle1="9 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Cruiser B25 destroyed"/>
@@ -1182,7 +1183,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
-    <big_message title="Kralien Cruiser B26 destroyed" subtitle1="9 kilotons" subtitle2=""/>
+    <big_message title="Kralien Cruiser B26 destroyed" subtitle1="9 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Cruiser B26 destroyed"/>
@@ -1208,7 +1209,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+45"/>
-    <big_message title="Arvonian Carrier B27 destroyed" subtitle1="45 kilotons" subtitle2=""/>
+    <big_message title="Arvonian Carrier B27 destroyed" subtitle1="45 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Arvonian Carrier B27 destroyed"/>
@@ -1225,26 +1226,26 @@
     <incoming_comms_text from="Enemy Fleet">
       Congratulations, Artemis. You collected all of the Cetrocite Crystals. We are sending a bonus fleet for you to fight.
             </incoming_comms_text>
-    <create type="enemy" x="66000" y="0" z="31000" angle="200" name="B11" raceKeys="Skaraan enemy" hullKeys="Executor large" fleetnumber="91"/>
-    <create type="enemy" x="66140" y="-200" z="30800" angle="200" name="B12" raceKeys="Torgoth enemy" hullKeys="Behemoth large" fleetnumber="91"/>
-    <create type="enemy" x="66960" y="-200" z="32200" angle="200" name="B13" raceKeys="Kralien enemy" hullKeys="Dreadnought large" fleetnumber="91"/>
-    <create type="enemy" x="66540" y="200" z="31300" angle="200" name="B14" raceKeys="Kralien enemy" hullKeys="Battleship medium" fleetnumber="91"/>
-    <create type="enemy" x="66640" y="200" z="33300" angle="200" name="B15" raceKeys="Kralien enemy" hullKeys="Cruiser small" fleetnumber="91"/>
-    <create type="enemy" x="66740" y="-200" z="33400" angle="200" name="B16" raceKeys="Kralien enemy" hullKeys="Cruiser small" fleetnumber="91"/>
-    <create type="enemy" x="66040" y="200" z="30700" angle="200" name="B17" raceKeys="Arvonian enemy" hullKeys="Carrier Carrier" fleetnumber="91"/>
-    <create type="enemy" x="66540" y="-200" z="30250" angle="200" name="B18" raceKeys="Kralien enemy" hullKeys="Battleship medium" fleetnumber="91"/>
-    <set_special name="B11" clear="yes" ability="Cloak"/>
-    <set_special name="B11" ship="-1" captain="5" ability="Warp"/>
+    <create type="enemy" x="66000" y="0" z="31000" angle="200" name="B11" raceKeys="Skaraan enemy" hullKeys="Executor large"/>
+    <set_special name="B11" ability="Warp"/>
     <set_special name="B11" ability="Tractor"/>
     <set_special name="B11" clear="yes" ability="Teleport"/>
     <set_special name="B11" ability="Drones"/>
     <set_special name="B11" clear="yes" ability="HET"/>
-    <set_special name="B11" clear="yes" ability="AntiMine"/>
+    <set_special name="B11" ability="AntiMine"/>
     <set_special name="B11" ability="AntiTorp"/>
     <set_special name="B11" clear="yes" ability="ShldDrain"/>
     <set_special name="B11" clear="yes" ability="ShldVamp"/>
     <set_special name="B11" clear="yes" ability="LowVis"/>
     <set_special name="B11" clear="yes" ability="Stealth"/>
+    <set_special name="B11" ship="-1" captain="5" ability="Warp"/>
+    <create type="enemy" x="66140" y="-200" z="30800" angle="200" name="B12" raceKeys="Torgoth enemy" hullKeys="Behemoth large"/>
+    <create type="enemy" x="66960" y="-200" z="32200" angle="200" name="B13" raceKeys="Kralien enemy" hullKeys="Dreadnought large"/>
+    <create type="enemy" x="66540" y="200" z="31300" angle="200" name="B14" raceKeys="Kralien enemy" hullKeys="Battleship medium"/>
+    <create type="enemy" x="66640" y="200" z="33300" angle="200" name="B15" raceKeys="Kralien enemy" hullKeys="Cruiser small"/>
+    <create type="enemy" x="66740" y="-200" z="33400" angle="200" name="B16" raceKeys="Kralien enemy" hullKeys="Cruiser small"/>
+    <create type="enemy" x="66040" y="200" z="30700" angle="200" name="B17" raceKeys="Arvonian enemy" hullKeys="Carrier Carrier"/>
+    <create type="enemy" x="66540" y="-200" z="30250" angle="200" name="B18" raceKeys="Kralien enemy" hullKeys="Battleship medium"/>
     <set_variable name="Bonus_1" value="1"/>
   </event>
   <event name="B11 Surrendered">
@@ -1268,7 +1269,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+70"/>
-    <big_message title="Skaraan Executor B11 destroyed" subtitle1="70 kilotons" subtitle2=""/>
+    <big_message title="Skaraan Executor B11 destroyed" subtitle1="70 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Skaraan Executor B11 destroyed"/>
@@ -1294,7 +1295,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+150"/>
-    <big_message title="Torgoth Behemoth B12 destroyed" subtitle1="150 kilotons" subtitle2=""/>
+    <big_message title="Torgoth Behemoth B12 destroyed" subtitle1="150 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Torgoth Behemoth B12 destroyed"/>
@@ -1320,7 +1321,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+25"/>
-    <big_message title="Kralien Dreadnought B13 destroyed" subtitle1="25 kilotons" subtitle2=""/>
+    <big_message title="Kralien Dreadnought B13 destroyed" subtitle1="25 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Dreadnought B13 destroyed"/>
@@ -1346,7 +1347,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+17"/>
-    <big_message title="Kralien Battleship B14 destroyed" subtitle1="17 kilotons" subtitle2=""/>
+    <big_message title="Kralien Battleship B14 destroyed" subtitle1="17 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Battleship B14 destroyed"/>
@@ -1372,7 +1373,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
-    <big_message title="Kralien Cruiser B15 destroyed" subtitle1="9 kilotons" subtitle2=""/>
+    <big_message title="Kralien Cruiser B15 destroyed" subtitle1="9 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Cruiser B15 destroyed"/>
@@ -1398,7 +1399,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
-    <big_message title="Kralien Cruiser B16 destroyed" subtitle1="9 kilotons" subtitle2=""/>
+    <big_message title="Kralien Cruiser B16 destroyed" subtitle1="9 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Cruiser B16 destroyed"/>
@@ -1424,7 +1425,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+45"/>
-    <big_message title="Arvonian Carrier B17 destroyed" subtitle1="45 kilotons" subtitle2=""/>
+    <big_message title="Arvonian Carrier B17 destroyed" subtitle1="45 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Arvonian Carrier B17 destroyed"/>
@@ -1450,7 +1451,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+17"/>
-    <big_message title="Kralien Battleship B18 destroyed" subtitle1="17 kilotons" subtitle2=""/>
+    <big_message title="Kralien Battleship B18 destroyed" subtitle1="17 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Battleship B18 destroyed"/>
@@ -1465,16 +1466,8 @@
     <incoming_comms_text from="Enemy Fleet">
       Congratulations, Artemis. You collected all of the High Density Power Cells. We are sending a bonus fleet for you to fight.
             </incoming_comms_text>
-    <create type="enemy" x="26000" y="0" z="32000" angle="200" name="B01" raceKeys="Skaraan enemy" hullKeys="Executor large" fleetnumber="90"/>
-    <create type="enemy" x="26140" y="-200" z="31800" angle="200" name="B02" raceKeys="Torgoth enemy" hullKeys="Behemoth large" fleetnumber="90"/>
-    <create type="enemy" x="26960" y="-200" z="33200" angle="200" name="B03" raceKeys="Kralien enemy" hullKeys="Dreadnought large" fleetnumber="90"/>
-    <create type="enemy" x="26540" y="200" z="32300" angle="200" name="B04" raceKeys="Kralien enemy" hullKeys="Battleship medium" fleetnumber="90"/>
-    <create type="enemy" x="26640" y="200" z="34300" angle="200" name="B05" raceKeys="Kralien enemy" hullKeys="Cruiser small" fleetnumber="90"/>
-    <create type="enemy" x="26740" y="-200" z="34400" angle="200" name="B06" raceKeys="Kralien enemy" hullKeys="Cruiser small" fleetnumber="90"/>
-    <create type="enemy" x="26040" y="200" z="31700" angle="200" name="B07" raceKeys="Arvonian enemy" hullKeys="Carrier Carrier" fleetnumber="90"/>
-    <create type="enemy" x="26540" y="-200" z="31250" angle="200" name="B08" raceKeys="Kralien enemy" hullKeys="Battleship medium" fleetnumber="90"/>
-    <set_special name="B01" ability="Cloak"/>
-    <set_special name="B01" ship="-1" captain="5" ability="Warp"/>
+    <create type="enemy" x="26000" y="0" z="32000" angle="200" name="B01" raceKeys="Skaraan enemy" hullKeys="Executor large"/>
+    <set_special name="B01" ability="Warp"/>
     <set_special name="B01" ability="Tractor"/>
     <set_special name="B01" ability="Teleport"/>
     <set_special name="B01" ability="Drones"/>
@@ -1485,6 +1478,14 @@
     <set_special name="B01" ability="ShldVamp"/>
     <set_special name="B01" clear="yes" ability="LowVis"/>
     <set_special name="B01" clear="yes" ability="Stealth"/>
+    <set_special name="B01" ship="-1" captain="5" ability="Warp"/>
+    <create type="enemy" x="26140" y="-200" z="31800" angle="200" name="B02" raceKeys="Torgoth enemy" hullKeys="Behemoth large"/>
+    <create type="enemy" x="26960" y="-200" z="33200" angle="200" name="B03" raceKeys="Kralien enemy" hullKeys="Dreadnought large"/>
+    <create type="enemy" x="26540" y="200" z="32300" angle="200" name="B04" raceKeys="Kralien enemy" hullKeys="Battleship medium"/>
+    <create type="enemy" x="26640" y="200" z="34300" angle="200" name="B05" raceKeys="Kralien enemy" hullKeys="Cruiser small"/>
+    <create type="enemy" x="26740" y="-200" z="34400" angle="200" name="B06" raceKeys="Kralien enemy" hullKeys="Cruiser small"/>
+    <create type="enemy" x="26040" y="200" z="31700" angle="200" name="B07" raceKeys="Arvonian enemy" hullKeys="Carrier Carrier"/>
+    <create type="enemy" x="26540" y="-200" z="31250" angle="200" name="B08" raceKeys="Kralien enemy" hullKeys="Battleship medium"/>
     <set_variable name="Bonus_0" value="1"/>
   </event>
   <event name="B01 Surrendered">
@@ -1508,7 +1509,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+70"/>
-    <big_message title="Skaraan Executor B01 destroyed" subtitle1="70 kilotons" subtitle2=""/>
+    <big_message title="Skaraan Executor B01 destroyed" subtitle1="70 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Skaraan Executor B01 destroyed"/>
@@ -1534,7 +1535,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+150"/>
-    <big_message title="Torgoth Behemoth B02 destroyed" subtitle1="150 kilotons" subtitle2=""/>
+    <big_message title="Torgoth Behemoth B02 destroyed" subtitle1="150 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Torgoth Behemoth B02 destroyed"/>
@@ -1560,7 +1561,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+25"/>
-    <big_message title="Kralien Dreadnought B03 destroyed" subtitle1="25 kilotons" subtitle2=""/>
+    <big_message title="Kralien Dreadnought B03 destroyed" subtitle1="25 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Dreadnought B03 destroyed"/>
@@ -1586,7 +1587,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+17"/>
-    <big_message title="Kralien Battleship B04 destroyed" subtitle1="17 kilotons" subtitle2=""/>
+    <big_message title="Kralien Battleship B04 destroyed" subtitle1="17 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Battleship B04 destroyed"/>
@@ -1612,7 +1613,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
-    <big_message title="Kralien Cruiser B05 destroyed" subtitle1="9 kilotons" subtitle2=""/>
+    <big_message title="Kralien Cruiser B05 destroyed" subtitle1="9 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Cruiser B05 destroyed"/>
@@ -1638,7 +1639,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
-    <big_message title="Kralien Cruiser B06 destroyed" subtitle1="9 kilotons" subtitle2=""/>
+    <big_message title="Kralien Cruiser B06 destroyed" subtitle1="9 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Cruiser B06 destroyed"/>
@@ -1664,7 +1665,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+45"/>
-    <big_message title="Arvonian Carrier B07 destroyed" subtitle1="45 kilotons" subtitle2=""/>
+    <big_message title="Arvonian Carrier B07 destroyed" subtitle1="45 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Arvonian Carrier B07 destroyed"/>
@@ -1690,7 +1691,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+17"/>
-    <big_message title="Kralien Battleship B08 destroyed" subtitle1="17 kilotons" subtitle2=""/>
+    <big_message title="Kralien Battleship B08 destroyed" subtitle1="17 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Battleship B08 destroyed"/>

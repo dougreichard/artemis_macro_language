@@ -1,23 +1,23 @@
 <mission_data version="1.0">
   <start>
-    <create type="enemy" x="40300.0" y="0.0" z="52300.0" angle="45" name="K00" raceKeys="Kralien enemy" hullKeys="small Cruiser" fleetnumber="68"/>
-    <create type="enemy" x="40300.0" y="0.0" z="52000.0" angle="45" name="K01" raceKeys="Kralien enemy" hullKeys="small Cruiser" fleetnumber="68"/>
-    <create type="enemy" x="40000.0" y="0.0" z="52000.0" angle="45" name="K02" raceKeys="Kralien enemy" hullKeys="small Cruiser" fleetnumber="68"/>
-    <create type="enemy" x="60000.0" y="0.0" z="47000.0" angle="180" name="K04" raceKeys="Kralien enemy" hullKeys="medium Battleship" fleetnumber="69"/>
-    <create type="enemy" x="60700.0" y="0.0" z="47000.0" angle="180" name="K05" raceKeys="Kralien enemy" hullKeys="medium Battleship" fleetnumber="69"/>
-    <create type="enemy" x="60300.0" y="0.0" z="47000.0" angle="180" name="K06" raceKeys="Kralien enemy" hullKeys="medium Battleship" fleetnumber="69"/>
-    <create type="enemy" x="70000.0" y="0.0" z="42000.0" angle="180" name="K07" raceKeys="Kralien enemy" hullKeys="large Dreadnought" fleetnumber="67"/>
-    <create type="enemy" x="69700.0" y="0.0" z="42000.0" angle="180" name="K08" raceKeys="Kralien enemy" hullKeys="large Dreadnought" fleetnumber="67"/>
-    <create type="enemy" x="70300.0" y="0.0" z="42000.0" angle="180" name="K09" raceKeys="Kralien enemy" hullKeys="large Dreadnought" fleetnumber="67"/>
-    <create type="enemy" x="60300.0" y="0.0" z="2300.0" angle="45" name="K10" raceKeys="Kralien enemy" hullKeys="small Cruiser" fleetnumber="57"/>
-    <create type="enemy" x="60300.0" y="0.0" z="2000.0" angle="45" name="K11" raceKeys="Kralien enemy" hullKeys="small Cruiser" fleetnumber="57"/>
-    <create type="enemy" x="60000.0" y="0.0" z="2000.0" angle="45" name="K12" raceKeys="Kralien enemy" hullKeys="small Cruiser" fleetnumber="57"/>
-    <create type="enemy" x="60000.0" y="0.0" z="17000.0" angle="180" name="K14" raceKeys="Kralien enemy" hullKeys="medium Battleship" fleetnumber="58"/>
-    <create type="enemy" x="59700.0" y="0.0" z="17000.0" angle="180" name="K15" raceKeys="Kralien enemy" hullKeys="medium Battleship" fleetnumber="58"/>
-    <create type="enemy" x="60300.0" y="0.0" z="17000.0" angle="180" name="K16" raceKeys="Kralien enemy" hullKeys="medium Battleship" fleetnumber="58"/>
-    <create type="enemy" x="60000.0" y="0.0" z="12000.0" angle="180" name="K17" raceKeys="Kralien enemy" hullKeys="large Dreadnought" fleetnumber="59"/>
-    <create type="enemy" x="59700.0" y="0.0" z="12000.0" angle="180" name="K18" raceKeys="Kralien enemy" hullKeys="large Dreadnought" fleetnumber="59"/>
-    <create type="enemy" x="60300.0" y="0.0" z="12000.0" angle="180" name="K19" raceKeys="Kralien enemy" hullKeys="large Dreadnought" fleetnumber="59"/>
+    <create type="enemy" x="40300.0" y="0.0" z="52300.0" angle="45" name="K00" raceKeys="Kralien enemy" hullKeys="Cruiser small" fleetnumber="68"/>
+    <create type="enemy" x="40300.0" y="0.0" z="52000.0" angle="45" name="K01" raceKeys="Kralien enemy" hullKeys="Cruiser small" fleetnumber="68"/>
+    <create type="enemy" x="40000.0" y="0.0" z="52000.0" angle="45" name="K02" raceKeys="Kralien enemy" hullKeys="Cruiser small" fleetnumber="68"/>
+    <create type="enemy" x="60000.0" y="0.0" z="47000.0" angle="180" name="K04" raceKeys="Kralien enemy" hullKeys="Battleship medium" fleetnumber="69"/>
+    <create type="enemy" x="60700.0" y="0.0" z="47000.0" angle="180" name="K05" raceKeys="Kralien enemy" hullKeys="Battleship medium" fleetnumber="69"/>
+    <create type="enemy" x="60300.0" y="0.0" z="47000.0" angle="180" name="K06" raceKeys="Kralien enemy" hullKeys="Battleship medium" fleetnumber="69"/>
+    <create type="enemy" x="70000.0" y="0.0" z="42000.0" angle="180" name="K07" raceKeys="Kralien enemy" hullKeys="Dreadnought large" fleetnumber="67"/>
+    <create type="enemy" x="69700.0" y="0.0" z="42000.0" angle="180" name="K08" raceKeys="Kralien enemy" hullKeys="Dreadnought large" fleetnumber="67"/>
+    <create type="enemy" x="70300.0" y="0.0" z="42000.0" angle="180" name="K09" raceKeys="Kralien enemy" hullKeys="Dreadnought large" fleetnumber="67"/>
+    <create type="enemy" x="60300.0" y="0.0" z="2300.0" angle="45" name="K10" raceKeys="Kralien enemy" hullKeys="Cruiser small" fleetnumber="57"/>
+    <create type="enemy" x="60300.0" y="0.0" z="2000.0" angle="45" name="K11" raceKeys="Kralien enemy" hullKeys="Cruiser small" fleetnumber="57"/>
+    <create type="enemy" x="60000.0" y="0.0" z="2000.0" angle="45" name="K12" raceKeys="Kralien enemy" hullKeys="Cruiser small" fleetnumber="57"/>
+    <create type="enemy" x="60000.0" y="0.0" z="17000.0" angle="180" name="K14" raceKeys="Kralien enemy" hullKeys="Battleship medium" fleetnumber="58"/>
+    <create type="enemy" x="59700.0" y="0.0" z="17000.0" angle="180" name="K15" raceKeys="Kralien enemy" hullKeys="Battleship medium" fleetnumber="58"/>
+    <create type="enemy" x="60300.0" y="0.0" z="17000.0" angle="180" name="K16" raceKeys="Kralien enemy" hullKeys="Battleship medium" fleetnumber="58"/>
+    <create type="enemy" x="60000.0" y="0.0" z="12000.0" angle="180" name="K17" raceKeys="Kralien enemy" hullKeys="Dreadnought large" fleetnumber="59"/>
+    <create type="enemy" x="59700.0" y="0.0" z="12000.0" angle="180" name="K18" raceKeys="Kralien enemy" hullKeys="Dreadnought large" fleetnumber="59"/>
+    <create type="enemy" x="60300.0" y="0.0" z="12000.0" angle="180" name="K19" raceKeys="Kralien enemy" hullKeys="Dreadnought large" fleetnumber="59"/>
   </start>
   <event name="K00 Surrendered">
     <if_variable name="K00_surrendered" comparator="EQUALS" value="0"/>
@@ -38,7 +38,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
-    <big_message title="Kralien Cruiser K00 destroyed" subtitle1="9 kilotons" subtitle2=""/>
+    <big_message title="Kralien Cruiser K00 destroyed" subtitle1="9 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Cruiser K00 destroyed"/>
@@ -62,7 +62,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
-    <big_message title="Kralien Cruiser K01 destroyed" subtitle1="9 kilotons" subtitle2=""/>
+    <big_message title="Kralien Cruiser K01 destroyed" subtitle1="9 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Cruiser K01 destroyed"/>
@@ -86,7 +86,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
-    <big_message title="Kralien Cruiser K02 destroyed" subtitle1="9 kilotons" subtitle2=""/>
+    <big_message title="Kralien Cruiser K02 destroyed" subtitle1="9 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Cruiser K02 destroyed"/>
@@ -110,7 +110,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+17"/>
-    <big_message title="Kralien Battleship K04 destroyed" subtitle1="17 kilotons" subtitle2=""/>
+    <big_message title="Kralien Battleship K04 destroyed" subtitle1="17 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Battleship K04 destroyed"/>
@@ -134,7 +134,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+17"/>
-    <big_message title="Kralien Battleship K05 destroyed" subtitle1="17 kilotons" subtitle2=""/>
+    <big_message title="Kralien Battleship K05 destroyed" subtitle1="17 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Battleship K05 destroyed"/>
@@ -158,7 +158,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+17"/>
-    <big_message title="Kralien Battleship K06 destroyed" subtitle1="17 kilotons" subtitle2=""/>
+    <big_message title="Kralien Battleship K06 destroyed" subtitle1="17 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Battleship K06 destroyed"/>
@@ -182,7 +182,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+25"/>
-    <big_message title="Kralien Dreadnought K07 destroyed" subtitle1="25 kilotons" subtitle2=""/>
+    <big_message title="Kralien Dreadnought K07 destroyed" subtitle1="25 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Dreadnought K07 destroyed"/>
@@ -206,7 +206,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+25"/>
-    <big_message title="Kralien Dreadnought K08 destroyed" subtitle1="25 kilotons" subtitle2=""/>
+    <big_message title="Kralien Dreadnought K08 destroyed" subtitle1="25 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Dreadnought K08 destroyed"/>
@@ -230,7 +230,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+25"/>
-    <big_message title="Kralien Dreadnought K09 destroyed" subtitle1="25 kilotons" subtitle2=""/>
+    <big_message title="Kralien Dreadnought K09 destroyed" subtitle1="25 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Dreadnought K09 destroyed"/>
@@ -254,7 +254,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
-    <big_message title="Kralien Cruiser K10 destroyed" subtitle1="9 kilotons" subtitle2=""/>
+    <big_message title="Kralien Cruiser K10 destroyed" subtitle1="9 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Cruiser K10 destroyed"/>
@@ -278,7 +278,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
-    <big_message title="Kralien Cruiser K11 destroyed" subtitle1="9 kilotons" subtitle2=""/>
+    <big_message title="Kralien Cruiser K11 destroyed" subtitle1="9 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Cruiser K11 destroyed"/>
@@ -302,7 +302,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+9"/>
-    <big_message title="Kralien Cruiser K12 destroyed" subtitle1="9 kilotons" subtitle2=""/>
+    <big_message title="Kralien Cruiser K12 destroyed" subtitle1="9 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Cruiser K12 destroyed"/>
@@ -326,7 +326,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+17"/>
-    <big_message title="Kralien Battleship K14 destroyed" subtitle1="17 kilotons" subtitle2=""/>
+    <big_message title="Kralien Battleship K14 destroyed" subtitle1="17 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Battleship K14 destroyed"/>
@@ -350,7 +350,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+17"/>
-    <big_message title="Kralien Battleship K15 destroyed" subtitle1="17 kilotons" subtitle2=""/>
+    <big_message title="Kralien Battleship K15 destroyed" subtitle1="17 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Battleship K15 destroyed"/>
@@ -374,7 +374,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+17"/>
-    <big_message title="Kralien Battleship K16 destroyed" subtitle1="17 kilotons" subtitle2=""/>
+    <big_message title="Kralien Battleship K16 destroyed" subtitle1="17 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Battleship K16 destroyed"/>
@@ -398,7 +398,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+25"/>
-    <big_message title="Kralien Dreadnought K17 destroyed" subtitle1="25 kilotons" subtitle2=""/>
+    <big_message title="Kralien Dreadnought K17 destroyed" subtitle1="25 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Dreadnought K17 destroyed"/>
@@ -422,7 +422,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+25"/>
-    <big_message title="Kralien Dreadnought K18 destroyed" subtitle1="25 kilotons" subtitle2=""/>
+    <big_message title="Kralien Dreadnought K18 destroyed" subtitle1="25 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Dreadnought K18 destroyed"/>
@@ -446,7 +446,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+25"/>
-    <big_message title="Kralien Dreadnought K19 destroyed" subtitle1="25 kilotons" subtitle2=""/>
+    <big_message title="Kralien Dreadnought K19 destroyed" subtitle1="25 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Kralien Dreadnought K19 destroyed"/>

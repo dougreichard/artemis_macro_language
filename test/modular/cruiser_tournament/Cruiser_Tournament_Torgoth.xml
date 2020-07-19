@@ -1,6 +1,7 @@
 <mission_data>
   <imports>
     <import name="Cruiser_Tournament_templates.xml" />
+    <import name="Cruiser_Tournament_spawn.xml" />
   </imports>
   <values>
     <range name="torgoth">
@@ -26,14 +27,8 @@
       </struct>
     </range>
   </values>
-  <start>
+
     <repeat _range="torgoth">
-      <create type="enemy" x="${x}" y="${y}" z="${z}" angle="45" name="${name}" raceKeys="Torgoth enemy" hullKeys="${size} ${hull}"  fleetnumber="5"/>
-      <set_special name="${name}" ship="0.0" captain="1.0"/>
-    </repeat>
-  </start>
-  <repeat _range="torgoth">
-    <!--Override text to match original  -->
-    <expand _template="tonnage" race="Torgoth" />
+      <expand _template="tonnage_start" race="Torgoth" angle="45" extra="spawn_torgoth" fleetnumber="5"/>
   </repeat>
 </mission_data>

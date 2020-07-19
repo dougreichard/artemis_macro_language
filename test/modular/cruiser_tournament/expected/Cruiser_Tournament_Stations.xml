@@ -45,7 +45,7 @@
   <event name="DS1 Destroyed">
     <if_variable name="DS1_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="DS1"/>
-    <big_message title="Friendly Base DS1 Destroyed" subtitle1="Penalty -90 kilotons" subtitle2=""/>
+    <big_message title="Friendly Base DS1 Destroyed" subtitle1="Penalty -90 kilotons"/>
     <log text="Friendly Base DS1 Destroyed"/>
     <set_variable name="DS1_dead" value="1"/>
     <set_variable name="Tonnage" value="Tonnage-90"/>
@@ -71,7 +71,7 @@
   <event name="DS2 Destroyed">
     <if_variable name="DS2_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="DS2"/>
-    <big_message title="Friendly Base DS2 Destroyed" subtitle1="Penalty -90 kilotons" subtitle2=""/>
+    <big_message title="Friendly Base DS2 Destroyed" subtitle1="Penalty -90 kilotons"/>
     <log text="Friendly Base DS2 Destroyed"/>
     <set_variable name="DS2_dead" value="1"/>
     <set_variable name="Tonnage" value="Tonnage-90"/>
@@ -97,7 +97,7 @@
   <event name="DS3 Destroyed">
     <if_variable name="DS3_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="DS3"/>
-    <big_message title="Friendly Base DS3 Destroyed" subtitle1="Penalty -90 kilotons" subtitle2=""/>
+    <big_message title="Friendly Base DS3 Destroyed" subtitle1="Penalty -90 kilotons"/>
     <log text="Friendly Base DS3 Destroyed"/>
     <set_variable name="DS3_dead" value="1"/>
     <set_variable name="Tonnage" value="Tonnage-90"/>
@@ -123,7 +123,7 @@
   <event name="DS4 Destroyed">
     <if_variable name="DS4_dead" comparator="EQUALS" value="0"/>
     <if_not_exists name="DS4"/>
-    <big_message title="Friendly Base DS4 Destroyed" subtitle1="Penalty -90 kilotons" subtitle2=""/>
+    <big_message title="Friendly Base DS4 Destroyed" subtitle1="Penalty -90 kilotons"/>
     <log text="Friendly Base DS4 Destroyed"/>
     <set_variable name="DS4_dead" value="1"/>
     <set_variable name="Tonnage" value="Tonnage-90"/>

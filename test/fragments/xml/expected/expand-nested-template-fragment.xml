@@ -18,7 +18,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+40"/>
-    <big_message title="Enemy  Hunter[1] destroyed" subtitle1="40 kilotons" subtitle2=""/>
+    <big_message title="Enemy  Hunter[1] destroyed" subtitle1="40 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Enemy  Hunter[1] destroyed"/>
@@ -42,7 +42,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+40"/>
-    <big_message title="Enemy  Hunter[2] destroyed" subtitle1="40 kilotons" subtitle2=""/>
+    <big_message title="Enemy  Hunter[2] destroyed" subtitle1="40 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Enemy  Hunter[2] destroyed"/>
@@ -66,7 +66,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+40"/>
-    <big_message title="Enemy  Hunter[3] destroyed" subtitle1="40 kilotons" subtitle2=""/>
+    <big_message title="Enemy  Hunter[3] destroyed" subtitle1="40 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Enemy  Hunter[3] destroyed"/>
@@ -90,7 +90,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+40"/>
-    <big_message title="Enemy  Hunter[4] destroyed" subtitle1="40 kilotons" subtitle2=""/>
+    <big_message title="Enemy  Hunter[4] destroyed" subtitle1="40 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Enemy  Hunter[4] destroyed"/>

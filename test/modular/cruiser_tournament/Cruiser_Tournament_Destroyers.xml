@@ -1,6 +1,7 @@
 <mission_data>
   <imports>
     <import name="Cruiser_Tournament_templates.xml" />
+    <import name="Cruiser_Tournament_spawn.xml" />
   </imports>
   <values>
     <range name="destroyers">
@@ -8,23 +9,19 @@
       <value x="99440.0" z="93234.0" name="Moscow" when="Moscow When" fixArtemis="yes" msg="We've had a massive systems failure"/>
     </range>
   </values>
-  <start>
-    <repeat _range="destroyers">
-      <create type="neutral" x="${x}" y="0.0" z="${z}" angle="213.7" name="${name}" raceKeys="Terran friendly" hullKeys="medium Destroyer"/>
-      <set_special name="${name}" ship="1.0" captain="1.0"/>
-      <set_variable name="${name}" value="0" integer="yes"/>
-    </repeat>
-  </start>
+
   <repeat _range="destroyers">
+    <expand _start="true" _template="spawn" type="neutral" angle="213.7" race="Terran friendly" hull="medium Destroyer" extra="spawn_destroyer" />
     <expand _template="tonnage_destroy" race="Terran" hull="Destroyer"  />
     <expand _template="broke" />
     <expand _template="fix" />
   </repeat>
-  <!-- THESE ARE NOT DIFFERENT ENOUGH -->
-  <!-- This is an experiment to build up pieces -->
-  <!-- Via nested / indirect templates  -->
-  <!-- Could make adding more easier?  -->
+ 
   <templates>
+  <template name="spawn_destroyer">
+       <set_special name="${name}" ship="1.0" captain="1.0"/>
+      <set_variable name="${name}" value="0" integer="yes"/>   
+  </template>
     <template name="broke">
       <params>
         <param name="name" description="description" />

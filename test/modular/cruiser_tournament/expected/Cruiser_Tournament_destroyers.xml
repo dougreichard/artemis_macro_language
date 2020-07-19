@@ -15,7 +15,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+-30"/>
-    <big_message title="Terran Destroyer Phoenix destroyed" subtitle1="Penalty -30 kilotons" subtitle2=""/>
+    <big_message title="Terran Destroyer Phoenix destroyed" subtitle1="Penalty -30 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Terran Destroyer Phoenix destroyed"/>
@@ -64,7 +64,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+-30"/>
-    <big_message title="Terran Destroyer Moscow destroyed" subtitle1="Penalty -30 kilotons" subtitle2=""/>
+    <big_message title="Terran Destroyer Moscow destroyed" subtitle1="Penalty -30 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Terran Destroyer Moscow destroyed"/>

@@ -1,0 +1,97 @@
+<mission_data version="1.0">
+    <templates>
+        <template name="spawn">
+            <params>
+                <param name="name" />
+                <param name="x" />
+                <param name="y" default="0.0"/>
+                <param name="angle" default=""/>
+                <param name="z" />
+                <param name="race" />
+                <param name="hull" />
+                <param name="size" default=""/>
+                <param name="type" default="enemy" />
+                <param name="hullKeys" default="${hull}${size?' '+size:''}" />
+                <param name="raceKeys" default="${race}${type=='enemy'?' enemy':''}" />
+                <param name="fleetnumber" default="" />
+                <param name="extra" description="description" default=""/>
+            </params>
+            <create type="${type}" x="${x}" y="${y}" z="${z}" angle="${angle}" name="${name}" raceKeys="${raceKeys}" hullKeys="${hullKeys}" fleetnumber="${fleetnumber}"/>
+            <expand _template="${extra}" _optional="true" />
+        </template>
+        <template name="spawn_event">
+            <params>
+                <param name="name" />
+                <param name="conditions" description="Additonal spawn conditons to check for" default=""/>
+                <param name="x" />
+                <param name="y" default="0.0" />
+                <param name="z" />
+                <param name="race" />
+                <param name="hull" />
+                <param name="angle" default="0.0" />
+                <param name="size" default=""/>
+                <param name="type" default="enemy" />
+                <param name="fleetnumber" default="1" />
+                <param name="extra" description="description" default=""/>
+            </params>
+            <event name="Spawn ${name}">
+                <expand _template="${conditions}" _optional="true" />
+                <if_variable name="Spawned[${name}]" comparator="EQUALS" value="0"/>
+                <expand _template="spawn"  />
+                <set_variable name="Spawned[${name}]" comparator="EQUALS" value="1"/>
+            </event>
+        </template>
+        <template name="if_var">
+            <params>
+                <param name="variable" description="The variable name"/>
+                <param name="value" description="The variable value" default="0"/>
+            </params>
+            <if_variable name="${variable}" comparator="EQUALS" value="${value}"/>
+        </template>
+        <!-- Common extra spawn info for pirates-->
+        <template name="spawn_pirate">
+            <params>
+                <param name="name" description="The name of the ship"/>
+            </params>
+            <set_special name="${name}" ability="Cloak"/>
+        </template>
+        <template name="spawn_torgoth">
+            <params>
+                <param name="name" description="The name of the ship"/>
+            </params>
+            <set_special name="${name}" ship="${ship}" captain="${captain}"/>
+        </template>
+        <template name="skaraan_f">
+            <set_special name="${name}" ship="-1" captain="5" ability="Warp"/>
+            <set_special name="${name}" ability="Tractor"/>
+            <set_special name="${name}" clear="yes" ability="Cloak"/>
+            <set_special name="${name}" clear="yes" ability="AntiMine"/>
+            <set_special name="${name}" clear="yes" ability="Drones"/>
+            <set_special name="${name}" clear="yes" ability="ShldDrain"/>
+            <set_special name="${name}" clear="yes" ability="ShldVamp"/>
+            <set_special name="${name}" clear="yes" ability="LowVis"/>
+            <set_special name="${name}" clear="yes" ability="Stealth"/>
+        </template>
+        <template name="set_abilities">
+            <params>
+                <param name="name" description="The name of the ship"/>
+                <param name="ability_captain" description="The captains ability"/>
+                <param name="ability_clear" description="The abilities to clear" default="" />
+            </params>
+            <set_special name="${name}" clear="${ability_clear.match(/warp/i)?'yes':''}" ability="Warp"/>
+            <set_special name="${name}" clear="${ability_clear.match(/tractor/i)?'yes':''}" ability="Tractor"/>
+            <set_special name="${name}" clear="${ability_clear.match(/teleport/i)?'yes':''}" ability="Teleport"/>
+            <set_special name="${name}" clear="${ability_clear.match(/drones/i)?'yes':''}" ability="Drones"/>
+            <set_special name="${name}" clear="${ability_clear.match(/het/i)?'yes':''}" ability="HET"/>
+            <set_special name="${name}" clear="${ability_clear.match(/antimine/i)?'yes':''}"  ability="AntiMine"/>
+            <set_special name="${name}" clear="${ability_clear.match(/antimine/i)?'yes':''}" ability="AntiTorp"/>
+            <set_special name="${name}" clear="${ability_clear.match(/shlddrain/i)?'yes':''}" ability="ShldDrain"/>
+            <set_special name="${name}" clear="${ability_clear.match(/shldvamp/i)?'yes':''}" ability="ShldVamp"/>
+            <set_special name="${name}" clear="${ability_clear.match(/lowvis/i)?'yes':''}" ability="LowVis"/>
+            <set_special name="${name}" clear="${ability_clear.match(/stealth/i)?'yes':''}" ability="Stealth"/>
+            <set_special name="${name}" ship="-1" captain="5" ability="${ability_captain}"/>
+        </template>
+
+    </templates>
+
+</mission_data>

@@ -1,7 +1,7 @@
 <mission_data>
   <start>
-    <create type="enemy" x="10.0" y="10.0" z="10" name="Lusty Wrench" raceKeys="Pirate" hullKeys="Strongbow" fleetnumber="1"/>
-    <create type="enemy" x="99990./0" y="-10.0" z="10" name="Nimbus" raceKeys="Pirate" hullKeys="Strongbow" fleetnumber="2"/>
+    <create type="enemy" x="10.0" y="10.0" z="10" name="Lusty Wrench" raceKeys="Pirate enemy" hullKeys="Strongbow" fleetnumber="1"/>
+    <create type="enemy" x="99990.0" y="-10.0" z="10" name="Nimbus" raceKeys="Pirate enemy" hullKeys="Strongbow" fleetnumber="2"/>
   </start>
   <event name="Lusty Wrench Surrendered">
     <if_variable name="Lusty Wrench_surrendered" comparator="EQUALS" value="0"/>
@@ -22,7 +22,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+20"/>
-    <big_message title="Pirate Strongbow Lusty Wrench destroyed" subtitle1="20 kilotons" subtitle2=""/>
+    <big_message title="Pirate Strongbow Lusty Wrench destroyed" subtitle1="20 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Pirate Strongbow Lusty Wrench destroyed"/>
@@ -46,7 +46,7 @@
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <set_variable name="Tonnage" value="Tonnage+40"/>
-    <big_message title="Pirate Strongbow Nimbus destroyed" subtitle1="40 kilotons" subtitle2=""/>
+    <big_message title="Pirate Strongbow Nimbus destroyed" subtitle1="40 kilotons"/>
     <set_variable name="report_score" value="1"/>
     <set_timer name="report_timer" seconds="8"/>
     <log text="Pirate Strongbow Nimbus destroyed"/>

@@ -1,21 +1,15 @@
 <mission_data>
     <imports>
         <import name="Cruiser_Tournament_templates.xml" />
+        <import name="Cruiser_Tournament_spawn.xml" />
     </imports>
     <values>
         <range name="pirates">
-            <value name="Lusty Wrench" x="10.0" y="10.0" z="10" weight="20" surrender="10" fleet="1" />
-            <value name="Nimbus" x="99990./0" y="-10.0" z="10" weight="40" surrender="20" fleet="2" />
+            <value name="Lusty Wrench" x="10.0" y="10.0" z="10" weight="20" surrender="10" fleetnumber="1" />
+            <value name="Nimbus" x="99990.0" y="-10.0" z="10" weight="40" surrender="20" fleetnumber="2" />
         </range>
     </values>
-    <!-- Hunter Code  -->
-    <start>
-        <repeat _range="pirates">
-            <create type="enemy" x="${x}" y="${y}" z="${z}" name="${name}" raceKeys="Pirate" hullKeys="Strongbow" fleetnumber="${fleet}"/>
-        </repeat>
-    </start>
     <repeat _range="pirates">
-        <!--Override text to match original  -->
-        <expand _template="tonnage" race="Pirate" hull="Strongbow" />
+        <expand _template="tonnage_start" race="Pirate" hull="Strongbow" />
     </repeat>
 </mission_data>

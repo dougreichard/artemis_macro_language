@@ -46,7 +46,7 @@
   <event name="Report Score">
     <if_timer_finished name="report_timer"/>
     <if_variable name="report_score" comparator="EQUALS" value="1"/>
-    <big_message title="Current score = |Tonnage| kilotons" subtitle1="Time = |Minutes| minutes remaining" subtitle2=""/>
+    <big_message title="Current score = |Tonnage| kilotons" subtitle1="Time = |Minutes| minutes remaining"/>
     <set_variable name="report_score" value="0"/>
     <log text="Score = |Tonnage| kt  |Minutes| minutes remaining."/>
   </event>
