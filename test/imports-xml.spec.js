@@ -68,7 +68,7 @@ describe('Mission File', () => {
             testFileFragment(file, "-template.xml")
         } else {
            loopTest(path.resolve(__dirname, 'fragments', 'xml'), "-fragment.xml")
-           loopTest(path.resolve(__dirname, 'modular', 'xml-templated'),"-template.xml")
+           loopTest(path.resolve(__dirname, 'modular', 'MISS_TheArena', 'xml-templated'),"-template.xml")
            loopTest(path.resolve(__dirname, 'modular', 'cruiser_tournament'),".xml")
         }
         it("Test Tree Navigation", async () => {
@@ -123,11 +123,11 @@ describe('Mission File', () => {
         })
 
         it("Test The Arena non-template merge", async () => {
-            let mission = await MissionFile.fromFile(path.resolve('test', 'modular', 'xml', 'TheArena-mission.xml'))
+            let mission = await MissionFile.fromFile(path.resolve('test', 'modular','MISS_TheArena', 'xml', 'TheArena-mission.xml'))
             await mission.processImports(mission)
             let xml = mission.toXML()
             // await expectReadCheck(xml, 'repeat-simple-nested-expected.xml')
-            await fs.writeFile(path.resolve('test', 'modular', 'xml', 'MISS_TheArena.xml'), xml, "utf8")
+            await fs.writeFile(path.resolve('test', 'modular', 'MISS_TheArena', 'xml', 'MISS_TheArena.xml'), xml, "utf8")
 
         })
     });
