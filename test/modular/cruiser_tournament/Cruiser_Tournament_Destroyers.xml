@@ -11,18 +11,18 @@
   </values>
 
   <repeat _range="destroyers">
-    <expand _start="true" _template="spawn" type="neutral" angle="213.7" race="Terran friendly" hull="medium Destroyer" extra="spawn_destroyer" />
-    <expand _template="tonnage_destroy" race="Terran" hull="Destroyer"  />
-    <expand _template="broke" />
-    <expand _template="fix" />
+    <spawn:create _start="true" type="neutral" angle="213.7" race="Terran friendly" hull="medium Destroyer" extra="spawn:destroyer" />
+    <tonnage:destroy race="Terran" hull="Destroyer"  />
+    <expand _template="friendly:broke" />
+    <expand _template="friendly:fix" />
   </repeat>
  
   <templates>
-  <template name="spawn_destroyer">
+  <template name="spawn:destroyer">
        <set_special name="${name}" ship="1.0" captain="1.0"/>
       <set_variable name="${name}" value="0" integer="yes"/>   
   </template>
-    <template name="broke">
+    <template name="friendly:broke">
       <params>
         <param name="name" description="description" />
         <param name="when" description="Extra condition needed"/>
@@ -55,7 +55,7 @@
       <set_comms_button text="Request Score Report" sideValue="2" player_slot="0"/>
       <set_comms_button text="Request Cargo Report" sideValue="2" player_slot="0"/>
     </template>
-    <template name="fix">
+    <template name="friendly:fix">
       <params>
         <param name="name" description="description" />
         <param name="fixArtemis" description="description" default=""/>

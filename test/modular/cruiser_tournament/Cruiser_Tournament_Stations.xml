@@ -50,7 +50,7 @@
       <set_variable name="${name}_hint" value="1"/>
     </event>
    
-    <expand _template="tonnage_destroy" race="Friendly" hull="Base" friend="true" />
+    <expand _template="tonnage:destroy" race="Friendly" hull="Base" friend="true" />
 
     <event name="Instructions from ${name}">
       <if_variable name="Minutes" comparator="EQUALS" value="${minutes}"/>

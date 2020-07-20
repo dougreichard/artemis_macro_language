@@ -29,6 +29,6 @@
   </values>
 
     <repeat _range="torgoth">
-      <expand _template="tonnage_start" race="Torgoth" angle="45" extra="spawn_torgoth" fleetnumber="5"/>
+      <tonnage:start race="Torgoth" angle="45" extra="spawn:torgoth" fleetnumber="5"/>
   </repeat>
 </mission_data>

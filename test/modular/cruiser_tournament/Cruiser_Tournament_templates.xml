@@ -3,7 +3,7 @@
     <import name="Cruiser_Tournament_Points.xml" />
   </imports>
   <templates>
-    <template name="tonnage_destroy">
+    <template name="tonnage:destroy">
       <params>
         <param name="name" description="The name of the ship"/>
         <param name="weight" description="The weight in tonnage of the ship" default="${POINTS[race][hull].weight}" />
@@ -27,7 +27,7 @@
         <log text="${race} ${hull} ${name} destroyed"/>
       </event>
     </template>
-    <template name="tonnage_surrender">
+    <template name="tonnage:surrender">
       <params>
         <param name="name" description="The name of the ship"/>
         <param name="weight" description="The weight in tonnage of the ship" default="${POINTS[race][hull].weight}" />
@@ -49,25 +49,25 @@
         <log text="${race} ${hull} ${name} Surrendered"/>
       </event>
     </template>
-    <template name="tonnage">
-      <expand _template="tonnage_surrender" />
-      <expand _template="tonnage_destroy" />
+    <template name="tonnage:points">
+      <expand _template="tonnage:surrender" />
+      <expand _template="tonnage:destroy" />
     </template>
-    <template name="tonnage_start">
+    <template name="tonnage:start">
       <params>
         <param name="friend" default=""/>
       </params>
-      <expand _start="true" _template="spawn" />
-      <expand _template="tonnage_surrender" _skip="${friend!=''}" />
-      <expand _template="tonnage_destroy" />
+      <expand _start="true" _template="spawn:create" />
+      <expand _template="tonnage:surrender" _skip="${friend!=''}" />
+      <expand _template="tonnage:destroy" />
     </template>
-    <template name="tonnage_event">
+    <template name="tonnage:event">
       <params>
         <param name="friend" default=""/>
       </params>
-      <expand _template="spawn_event" />
-      <expand _template="tonnage_surrender" _skip="${friend!=''}" />
-      <expand _template="tonnage_destroy" />
+      <expand _template="spawn:event" />
+      <expand _template="tonnage:surrender" _skip="${friend!=''}" />
+      <expand _template="tonnage:destroy" />
     </template>
   </templates>
 </mission_data>

@@ -10,6 +10,6 @@
         </range>
     </values>
     <repeat _range="pirates">
-        <expand _template="tonnage_start" race="Pirate" hull="Strongbow" />
+        <tonnage:start race="Pirate" hull="Strongbow" />
     </repeat>
 </mission_data>

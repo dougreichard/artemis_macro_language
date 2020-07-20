@@ -8,10 +8,10 @@
       <struct>
         <value name="First Period" />
         <range name="enemies">
-          <value name="Black Comet" x="99990.0" y="-10.0" z="10.0" angle="0" race="Pirate" hull="Strongbow" size=" " fleetnumber="-1" extra="spawn_pirate" />
+          <value name="Black Comet" x="99990.0" y="-10.0" z="10.0" angle="0" race="Pirate" hull="Strongbow" size=" " fleetnumber="-1" extra="spawn:pirate" />
           <value name="D12" x="16500" y="-350" z="41100" angle="270" race="Arvonian" hull="Light Carrier" size="carrier" fleetnumber="32" />
           <value name="R13" x="13000" y="450" z="40500" angle="245" race="Torgoth" hull="Goliath" size="small" fleetnumber="33" />
-          <value name="N14" x="51000" y="-80" z="31100" angle="200" race="Skaraan" hull="Defiler" size="small" fleetnumber="34" extra="set_abilities" ability_captain="AntiTorp" ability_clear="Cloak,Tractor,Teleport,Drones,AnitiMine,shlddrain,shldvamp,LowVis,Stealth" />
+          <value name="N14" x="51000" y="-80" z="31100" angle="200" race="Skaraan" hull="Defiler" size="small" fleetnumber="34" extra="set:abilities" ability_captain="AntiTorp" ability_clear="Cloak,Tractor,Teleport,Drones,AnitiMine,shlddrain,shldvamp,LowVis,Stealth" />
         </range>
       </struct>
       <struct>
@@ -19,7 +19,7 @@
         <range name="enemies">
           <value name="D16" x="16500" y="-500" z="41000" angle="270" race="Arvonian" hull="Carrier" size="carrier" fleetnumber="36" />
           <value name="R17" x="13000" y="500" z="40500" angle="245" race="Torgoth" hull="Leviathan" size="medium" fleetnumber="37" />
-          <value name="N18" x="51000" y="0" z="31000" angle="200" race="Skaraan" hull="Enforcer" size="medium" fleetnumber="38" extra="set_abilities" ability_captain="AntiTorp" ability_clear="Teleport,AnitiMine,shlddrain,shldvamp,LowVis,Stealth" />
+          <value name="N18" x="51000" y="0" z="31000" angle="200" race="Skaraan" hull="Enforcer" size="medium" fleetnumber="38" extra="set:abilities" ability_captain="AntiTorp" ability_clear="Teleport,AnitiMine,shlddrain,shldvamp,LowVis,Stealth" />
         </range>
       </struct>
       <struct>
@@ -28,7 +28,7 @@
           <value name="D20" x="16500" y="-500" z="71000" angle="270" race="Arvonian" hull="Carrier" size="carrier" fleetnumber="40" />
           <value name="R21" x="13000" y="500" z="30500" angle="245" race="Torgoth" hull="Behemoth" size="large" fleetnumber="41"/>
           <value name="R22" x="13500" y="-500" z="30000" angle="245" race="Torgoth" hull="Leviathan" size="medium" fleetnumber="41" />
-          <value name="N22" x="51000" y="0" z="21000" angle="200" race="Skaraan" hull="Executor" size="large" fleetnumber="42" extra="set_abilities" ability_captain="AntiTorp" ability_clear="AnitiMine,shlddrain,LowVis,Stealth" />
+          <value name="N22" x="51000" y="0" z="21000" angle="200" race="Skaraan" hull="Executor" size="large" fleetnumber="42" extra="set:abilities" ability_captain="AntiTorp" ability_clear="AnitiMine,shlddrain,LowVis,Stealth" />
         </range>
       </struct>
       <struct>
@@ -38,20 +38,20 @@
           <value name="D26" x="86700" y="500" z="31900" angle="270" race="Arvonian" hull="Carrier" size="carrier" fleetnumber="43"/>
           <value name="R27" x="13000" y="500" z="40500" angle="245" race="Torgoth" hull="Behemoth" size="large" fleetnumber="44" />
           <value name="R28" x="12600" y="-500" z="40600" angle="245" race="Torgoth" hull="Behemoth" size="large" fleetnumber="44"/>
-          <value name="N29" x="51000" y="0" z="31000" angle="200" race="Skaraan" hull="Executor" size="large" fleetnumber="46" extra="set_abilities" ability_captain="AntiTorp" ability_clear="AnitiMine,shlddrain,LowVis,Stealth" />
-          <value name="N30" x="51400" y="-200" z="30800" angle="200" race="Skaraan" hull="Executor" size="large" fleetnumber="46" extra="set_abilities" ability_captain="AntiTorp" ability_clear="shlddrain,LowVis,Stealth" />
+          <value name="N29" x="51000" y="0" z="31000" angle="200" race="Skaraan" hull="Executor" size="large" fleetnumber="46" extra="set:abilities" ability_captain="AntiTorp" ability_clear="AnitiMine,shlddrain,LowVis,Stealth" />
+          <value name="N30" x="51400" y="-200" z="30800" angle="200" race="Skaraan" hull="Executor" size="large" fleetnumber="46" extra="set:abilities" ability_captain="AntiTorp" ability_clear="shlddrain,LowVis,Stealth" />
         </range>
       </struct>
       <struct>
         <value name="Fifth Period" />
         <range name="enemies">
-          <value name="Skywayman" x="99990.0" y="-100.0" z="10.0" angle="0" race="Pirate" hull="Strongbow" size=" " fleetnumber="-1" extra="spawn_pirate" />
+          <value name="Skywayman" x="99990.0" y="-100.0" z="10.0" angle="0" race="Pirate" hull="Strongbow" size=" " fleetnumber="-1" extra="spawn:pirate" />
           <value name="D33" x="16500" y="-500" z="41000" angle="270" race="Arvonian" hull="Carrier" size="carrier" fleetnumber="50" />
           <value name="D34" x="16700" y="500" z="41900" angle="270" race="Arvonian" hull="Carrier" size="carrier" fleetnumber="50" />
           <value name="R35" x="88000" y="500" z="40500" angle="245" race="Torgoth" hull="Behemoth" size="large" fleetnumber="52" />
           <value name="R36" x="88600" y="-500" z="40600" angle="245" race="Torgoth" hull="Behemoth" size="large" fleetnumber="52" />
-          <value name="N37" x="51000" y="0" z="61000" angle="200" race="Skaraan" hull="Executor" size="large" fleetnumber="54" extra="set_abilities" ability_captain="AntiTorp" ability_clear="shlddrain,LowVis,Stealth" />
-          <value name="N38" x="51400" y="-200" z="60800" angle="200" race="Skaraan" hull="Executor" size="large" fleetnumber="54" extra="set_abilities" ability_captain="AntiTorp" ability_clear="shlddrain,LowVis,Stealth" />
+          <value name="N37" x="51000" y="0" z="61000" angle="200" race="Skaraan" hull="Executor" size="large" fleetnumber="54" extra="set:abilities" ability_captain="AntiTorp" ability_clear="shlddrain,LowVis,Stealth" />
+          <value name="N38" x="51400" y="-200" z="60800" angle="200" race="Skaraan" hull="Executor" size="large" fleetnumber="54" extra="set:abilities" ability_captain="AntiTorp" ability_clear="shlddrain,LowVis,Stealth" />
         </range>
       </struct>
     </range>
@@ -83,8 +83,8 @@
       <log text="Score = |Tonnage| kt  |Minutes| minutes remaining."/>
     </event>
     <repeat _range="enemies">
-      <expand _template="spawn_event" conditions="if_var" variable="Period_Counter" value="${_index+1}" />
-      <expand _template="tonnage" conditions="if_var" variable="Spawned[${name}]" value="1" />
+      <spawn:event conditions="cond:var" variable="Period_Counter" value="${_index+1}" />
+      <tonnage:points conditions="cond:var" variable="Spawned[${name}]" value="1" />
     </repeat>
   </repeat>
 

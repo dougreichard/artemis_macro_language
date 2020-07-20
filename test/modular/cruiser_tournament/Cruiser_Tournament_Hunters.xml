@@ -43,6 +43,6 @@
     </event>
     <repeat _range="hunters">
         <!--Override Race and HUll Text text   -->
-        <expand _template="tonnage_start" race="Enemy" hull="Hunter" raceKeys="Torgoth" hullKeys="Goliath" angle="45" extra="spawn_hunter" fleetnumber="-1" />
+        <tonnage:start race="Enemy" hull="Hunter" raceKeys="Torgoth" hullKeys="Goliath" angle="45" extra="spawn_hunter" fleetnumber="-1" />
     </repeat>
 </mission_data>

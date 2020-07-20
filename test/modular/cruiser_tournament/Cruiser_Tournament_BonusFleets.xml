@@ -14,7 +14,7 @@
                 </range>
                 <range name="enemies">
                     <value name="B71" x="5000" y="0" z="41000" angle="200" race="Skaraan" hull="Executor" size="large"
-                        extra="set_abilities" ability_captain="AniTorp" ability_clear="Teleport,shlddrain,LowVis,Stealth" />
+                        extra="set:abilities" ability_captain="AniTorp" ability_clear="Teleport,shlddrain,LowVis,Stealth" />
                     <value name="B72" x="5140" y="-200" z="40800" angle="200" race="Torgoth" hull="Leviathan" size="medium" />
                     <value name="B73" x="4960" y="-200" z="42200" angle="200" race="Kralien" hull="Dreadnought" size="large" />
                     <value name="B74" x="5540" y="200" z="43300" angle="200" race="Kralien" hull="Battleship" size= "medium" />
@@ -32,7 +32,7 @@
                 </range>
                 <range name="enemies">
                     <value name="B61" x="75000" y="0" z="41000" angle="200" race="Skaraan" hull="Enforcer" size="medium" 
-                        extra="set_abilities" ability_captain="Teleport" 
+                        extra="set:abilities" ability_captain="Teleport" 
                         ability_clear="Cloak,Warp,Tractor,Drones,HET,AnitiMine,AntiTorp,shlddrain,shldvamp,LowVis,Stealth" />
                     <value name="B62" x="75140" y="-200" z="40800" angle="200" race="Torgoth" hull="Leviathan" size="medium" />
                     <value name="B63" x="74960" y="-200" z="42200" angle="200" race="Kralien" hull="Dreadnought" size="large" />
@@ -50,7 +50,7 @@
                 </range>
                 <range name="enemies">
                     <value name="B51" x="65000" y="0" z="31000" angle="200" race="Skaraan" hull="Enforcer" size="medium" 
-                        extra="set_abilities" ability_captain="Cloack" 
+                        extra="set:abilities" ability_captain="Cloack" 
                         ability_clear="Warp,Teleport,HET,AnitiMine,AntiTorp,shlddrain,shldvamp,LowVis,Stealth" />
                     <value name="B52" x="65140" y="-200" z="30800" angle="200" race="Torgoth" hull="Leviathan" size="medium" />
                     <value name="B53" x="64960" y="-200" z="32200" angle="200" race="Kralien" hull="Dreadnought" size="large" />
@@ -70,7 +70,7 @@
                 </range>
                 <range name="enemies">
                     <value name="B41" x="65000" y="0" z="31000" angle="200" race="Skaraan" hull="Enforcer" size="medium" 
-                        extra="set_abilities" ability_captain="Cloak" 
+                        extra="set:abilities" ability_captain="Cloak" 
                         ability_clear="Cloak,Warp,Teleport,HET,AnitiMine,AntiTorp,shlddrain,shldvamp,LowVis,Stealth" />                    
                     <value name="B42" x="65140" y="-200" z="30800" angle="200" race="Torgoth" hull="Leviathan" size="medium" />
                     <value name="B43" x="64960" y="-200" z="32200" angle="200" race="Kralien" hull="Dreadnought" size="large" />
@@ -91,7 +91,7 @@
                 </range>
                 <range name="enemies">
                     <value name="B31" x="44000" y="0" z="30000" angle="200" race="Skaraan" hull="Executor" size="large" 
-                        extra="set_abilities" ability_captain="Cloak" 
+                        extra="set:abilities" ability_captain="Cloak" 
                         ability_clear="Warp,Teleport,HET,AnitiMine,shlddrain,shldvamp,LowVis,Stealth" />                    
                     <value name="B32" x="44140" y="-200" z="29800" angle="200" race="Torgoth" hull="Leviathan" size="medium" />
                     <value name="B33" x="43960" y="-200" z="31200" angle="200" race="Kralien" hull="Dreadnought" size="large" />
@@ -113,7 +113,7 @@
                 </range>
                 <range name="enemies">
                     <value name="B21" x="75000" y="0" z="31000" angle="200" race="Skaraan" hull="Executor" size="large" 
-                    extra="set_abilities" ability_captain="Warp" 
+                    extra="set:abilities" ability_captain="Warp" 
                     ability_clear="Cloak,Teleport,HET,AnitiMine,shlddrain,shldvamp,LowVis,Stealth" />
                     <value name="B22" x="75140" y="-200" z="30800" angle="200" race="Torgoth" hull="Behemoth" size="large" />
                     <value name="B23" x="74960" y="-200" z="32200" angle="200" race="Kralien" hull="Dreadnought" size="large" />
@@ -136,7 +136,7 @@
                 </range>
                 <range name="enemies">
                     <value name="B11" x="66000" y="0" z="31000" angle="200" race="Skaraan" hull="Executor" size="large"
-                    extra="set_abilities" ability_captain="Warp" 
+                    extra="set:abilities" ability_captain="Warp" 
                         ability_clear="Cloak,Teleport,HET,AnitiMine,shlddrain,shldvamp,LowVis,Stealth" />                    
                     <value name="B12" x="66140" y="-200" z="30800" angle="200" race="Torgoth" hull="Behemoth" size="large" />
                     <value name="B13" x="66960" y="-200" z="32200" angle="200" race="Kralien" hull="Dreadnought" size="large" />
@@ -158,7 +158,7 @@
                 </range>
                 <range name="enemies">
                     <value name="B01" x="26000" y="0" z="32000" angle="200" race="Skaraan" hull="Executor" size="large" 
-                    extra="set_abilities" ability_captain="Warp" 
+                    extra="set:abilities" ability_captain="Warp" 
                         ability_clear="HET,LowVis,Stealth" />
                     <value name="B02" x="26140" y="-200" z="31800" angle="200" race="Torgoth" hull="Behemoth" size="large" />
                     <value name="B03" x="26960" y="-200" z="33200" angle="200" race="Kralien" hull="Dreadnought" size="large" />
@@ -183,12 +183,12 @@
       Congratulations, Artemis. You collected all of the ${collect}. We are sending a bonus fleet for you to fight.
             </incoming_comms_text>
             <repeat _range="enemies">
-                <expand _template="spawn" />
+                <spawn:create />
             </repeat>
             <set_variable name="${name}" value="1"/>
         </event>
         <repeat _range="enemies">
-            <expand _template="tonnage" conditions="if_var" variable="${fleet.name}" value="1" />
+            <tonnage:points conditions="cond:var" variable="${fleet.name}" value="1" />
         </repeat>
     </repeat>
 </mission_data>

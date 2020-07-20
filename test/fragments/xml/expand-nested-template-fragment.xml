@@ -1,6 +1,6 @@
 <mission_data>
   <templates>
-    <template name="tonnage_destroy">
+    <template name="tonnage:destroy">
       <params>
         <param name="name" description="The name of the ship"/>
         <param name="weight" description="The weight in tonnage of the ship"/>
@@ -21,7 +21,7 @@
         <log text="${race} ${hull} ${name} destroyed"/>
       </event>
     </template>
-    <template name="tonnage_surrender">
+    <template name="tonnage:surrender">
       <params>
         <param name="name" description="The name of the ship"/>
         <param name="weight" description="The weight in tonnage of the ship"/>
@@ -42,9 +42,9 @@
         <log text="${race} ${hull} ${name} Surrendered"/>
       </event>
     </template>
-    <template name="tonnage">
-      <expand _template="tonnage_surrender" />
-      <expand _template="tonnage_destroy" />
+    <template name="tonnage:points">
+      <expand _template="tonnage:surrender" />
+      <expand _template="tonnage:destroy" />
     </template>
   </templates>
 
@@ -58,6 +58,6 @@
     </values>
     <repeat _range="hunters">
         <!--Override text to match original  -->
-        <expand _template="tonnage" race="Enemy" hull="" />
+        <tonnage:points race="Enemy" hull="" />
     </repeat>
 </mission_data>

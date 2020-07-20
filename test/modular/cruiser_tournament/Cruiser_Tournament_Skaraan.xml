@@ -3,8 +3,8 @@
     <import name="Cruiser_Tournament_templates.xml" />
     <import name="Cruiser_Tournament_spawn.xml" />
   </imports>
-  <expand _template="tonnage_start" name="K61" x="50500.0" z="41500.0" angle="260"   race="Skaraan" hull="Defiler" size="small" fleetnumber="22"
-            extra="set_abilities" ability_captain="Warp" 
+  <tonnage:start name="K61" x="50500.0" z="41500.0" angle="260"   race="Skaraan" hull="Defiler" size="small" fleetnumber="22"
+            extra="set:abilities" ability_captain="Warp" 
           ability_clear="Cloak,Drones,AnitiMine,shlddrain,shldvamp,LowVis,Stealth" />
 
 </mission_data> 

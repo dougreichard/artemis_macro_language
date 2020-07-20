@@ -1,0 +1,45 @@
+<mission_data>
+    <values>
+        <range name="whales">
+            <value name="Ed" x="40000" y="-500" z="91000" />
+            <value name="Al" x="40000" y="500" z="4000" />
+            <value name="Jo" x="60000" y="-500" z="4000" />
+            <value name="An" x="60000" y="500" z="91000" />
+            <value name="Ki" x="95000" y="-500" z="25000" />
+            <value name="Lu" x="5000" y="500" z="25000" />
+            <value name="Pi" x="5000" y="-500" z="40000" />
+            <value name="Te" x="95000" y="500" z="40000" />
+        </range>
+    </values>
+
+    <bonus:whales range="whales"/>
+
+    <event name="Add Whale Bonus">
+        <if_variable name="Bonus" comparator="GREATER" value="1"/>
+        <set_variable name="Tonnage" Value="Tonnage+Bonus"/>
+        <set_variable name="Bonus" value="0"/>
+    </event>
+
+
+
+    <templates>
+        <params>
+            <param name="name" description="description" deafult="" />
+            <param name="check" description="description" default="_"/>
+            <param name="check_valuek" description="description" default="0"/>
+            <param name="pod" description="description" default="1"/>
+        </params>
+        <template name="bonus:whales" >
+            <repeat _range="${range}">
+                <expand _start="true">
+                    <create type="monster" x="${x}" y="${y}" z="${z}" monsterType="1" name="${name}" podnumber="${pod}"/>
+                </expand>
+                <event name="Bonus ${name}">
+                    <if_variable name="${check}" comparator="EQUALS" value="${checkvar}"/>
+                    <if_exists name="${name}"/>
+                    <set_variable name="Bonus" value="Bonus+1"/>
+                </event>
+            </repeat>
+        </template>
+    </templates>
+</mission_data>

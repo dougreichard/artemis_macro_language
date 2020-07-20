@@ -1,6 +1,6 @@
 <mission_data version="1.0">
     <templates>
-        <template name="spawn">
+        <template name="spawn:create">
             <params>
                 <param name="name" />
                 <param name="x" />
@@ -19,7 +19,7 @@
             <create type="${type}" x="${x}" y="${y}" z="${z}" angle="${angle}" name="${name}" raceKeys="${raceKeys}" hullKeys="${hullKeys}" fleetnumber="${fleetnumber}"/>
             <expand _template="${extra}" _optional="true" />
         </template>
-        <template name="spawn_event">
+        <template name="spawn:event">
             <params>
                 <param name="name" />
                 <param name="conditions" description="Additonal spawn conditons to check for" default=""/>
@@ -37,11 +37,11 @@
             <event name="Spawn ${name}">
                 <expand _template="${conditions}" _optional="true" />
                 <if_variable name="Spawned[${name}]" comparator="EQUALS" value="0"/>
-                <expand _template="spawn"  />
+                <expand _template="spawn:create"  />
                 <set_variable name="Spawned[${name}]" comparator="EQUALS" value="1"/>
             </event>
         </template>
-        <template name="if_var">
+        <template name="cond:var">
             <params>
                 <param name="variable" description="The variable name"/>
                 <param name="value" description="The variable value" default="0"/>
@@ -49,30 +49,19 @@
             <if_variable name="${variable}" comparator="EQUALS" value="${value}"/>
         </template>
         <!-- Common extra spawn info for pirates-->
-        <template name="spawn_pirate">
+        <template name="spawn:pirate">
             <params>
                 <param name="name" description="The name of the ship"/>
             </params>
             <set_special name="${name}" ability="Cloak"/>
         </template>
-        <template name="spawn_torgoth">
+        <template name="spawn:torgoth">
             <params>
                 <param name="name" description="The name of the ship"/>
             </params>
             <set_special name="${name}" ship="${ship}" captain="${captain}"/>
         </template>
-        <template name="skaraan_f">
-            <set_special name="${name}" ship="-1" captain="5" ability="Warp"/>
-            <set_special name="${name}" ability="Tractor"/>
-            <set_special name="${name}" clear="yes" ability="Cloak"/>
-            <set_special name="${name}" clear="yes" ability="AntiMine"/>
-            <set_special name="${name}" clear="yes" ability="Drones"/>
-            <set_special name="${name}" clear="yes" ability="ShldDrain"/>
-            <set_special name="${name}" clear="yes" ability="ShldVamp"/>
-            <set_special name="${name}" clear="yes" ability="LowVis"/>
-            <set_special name="${name}" clear="yes" ability="Stealth"/>
-        </template>
-        <template name="set_abilities">
+        <template name="set:abilities">
             <params>
                 <param name="name" description="The name of the ship"/>
                 <param name="ability_captain" description="The captains ability"/>

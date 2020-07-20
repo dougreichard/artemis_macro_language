@@ -27,6 +27,6 @@
   </values>
   <repeat _range="kraliens">
     <!-- Gets params from range since they are named the same.-->
-    <expand _template="tonnage_start" />
+    <tonnage:start />
   </repeat>
 </mission_data>
