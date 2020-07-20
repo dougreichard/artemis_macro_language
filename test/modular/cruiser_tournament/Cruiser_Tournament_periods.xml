@@ -83,7 +83,7 @@
       <log text="Score = |Tonnage| kt  |Minutes| minutes remaining."/>
     </event>
     <repeat _range="enemies">
-      <spawn:event conditions="cond:var" variable="Period_Counter" value="${_index+1}" />
+      <spawn:event conditions="cond:var" variable="Period_Counter" value="${period._index+1}" />
       <tonnage:points conditions="cond:var" variable="Spawned[${name}]" value="1" />
     </repeat>
   </repeat>
