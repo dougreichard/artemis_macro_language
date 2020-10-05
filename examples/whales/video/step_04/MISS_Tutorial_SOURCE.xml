@@ -1,0 +1,44 @@
+<mission_data>
+  <templates>
+    <template name="whale">
+      <expand _start="true">
+          <create type="monster" x="${x}" y="${y}" z="${z}" monsterType="1" name="${name}" podnumber="6"/>
+      </expand>
+      <expand>
+        <event name="Bonus ${name}">
+          <if_variable name="PeriodEnd" comparator="EQUALS" value="1"/>
+          <if_exists name="${name}"/>
+          <set_variable name="Bonus" value="Bonus+1"/>
+        </event>
+      </expand>
+    </template>
+  </templates>
+
+  <values>
+    <range name="whales">
+      <value x="40000" y="-500" z="91000" name="Ed" />
+      <value x="40000" y="500" z="4000" name="Al" />
+      <value x="60000" y="-500" z="4000" name="Jo" />
+      <value x="60000" y="500" z="91000" name="An" />
+      <value x="95000" y="-500" z="25000" name="Ki" />
+      <value x="5000" y="500" z="25000" name="Lu" />
+      <value x="5000" y="-500" z="40000" name="Pi" />
+      <value x="95000" y="500" z="40000" name="Te" />
+    </range>
+  </values>
+
+  <start>
+    <create name="Artemis" z="50000" y="0" x="50000" player_slot="" type="player"/>
+  </start>
+
+  <repeat _range="whales">
+    <expand _template="whale" />
+  </repeat>
+
+  <event name="Add Whale Bonus">
+    <if_variable name="Bonus" comparator="GREATER" value="1"/>
+    <set_variable name="Tonnage" Value="Tonnage+Bonus"/>
+    <set_variable name="Bonus" value="0"/>
+  </event>
+
+</mission_data>

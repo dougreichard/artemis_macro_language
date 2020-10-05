@@ -1,0 +1,21 @@
+<mission_data>
+ <imports>
+  <import name="Tutorial_data.xml" />
+  <import name="Tutorial_library.xml" />
+ </imports>
+
+  <start>
+    <create name="Artemis" z="50000" y="0" x="50000" player_slot="" type="player"/>
+  </start>
+
+  <repeat _range="whales">
+    <expand _template="whale" />
+  </repeat>
+
+  <event name="Add Whale Bonus">
+    <if_variable name="Bonus" comparator="GREATER" value="1"/>
+    <set_variable name="Tonnage" Value="Tonnage+Bonus"/>
+    <set_variable name="Bonus" value="0"/>
+  </event>
+
+</mission_data>

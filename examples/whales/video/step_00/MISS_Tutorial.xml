@@ -1,0 +1,58 @@
+<mission_data>
+  <start>
+    <create name="Artemis" z="50000" y="0" x="50000" player_slot="" type="player"/>
+    <create type="monster" x="40000" y="-500" z="91000" monsterType="1" name="Ed" podnumber="6"/>
+    <create type="monster" x="40000" y="500" z="4000" monsterType="1" name="Al" podnumber="6"/>
+    <create type="monster" x="60000" y="-500" z="4000" monsterType="1" name="Jo" podnumber="6"/>
+    <create type="monster" x="60000" y="500" z="91000" monsterType="1" name="An" podnumber="6"/>
+    <create type="monster" x="95000" y="-500" z="25000" monsterType="1" name="Ki" podnumber="6"/>
+    <create type="monster" x="5000" y="500" z="25000" monsterType="1" name="Lu" podnumber="6"/>
+    <create type="monster" x="5000" y="-500" z="40000" monsterType="1" name="Pi" podnumber="6"/>
+    <create type="monster" x="95000" y="500" z="40000" monsterType="1" name="Te" podnumber="6"/>
+  </start>
+  <event name="Bonus Ed">
+    <if_variable name="PeriodEnd" comparator="EQUALS" value="1"/>
+    <if_exists name="Ed"/>
+    <set_variable name="Bonus" value="Bonus+1"/>
+  </event>
+  <event name="Bonus Al">
+    <if_variable name="PeriodEnd" comparator="EQUALS" value="1"/>
+    <if_exists name="Al"/>
+    <set_variable name="Bonus" value="Bonus+1"/>
+  </event>
+  <event name="Bonus Jo">
+    <if_variable name="PeriodEnd" comparator="EQUALS" value="1"/>
+    <if_exists name="Jo"/>
+    <set_variable name="Bonus" value="Bonus+1"/>
+  </event>
+  <event name="Bonus An">
+    <if_variable name="PeriodEnd" comparator="EQUALS" value="1"/>
+    <if_exists name="An"/>
+    <set_variable name="Bonus" value="Bonus+1"/>
+  </event>
+  <event name="Bonus Ki">
+    <if_variable name="PeriodEnd" comparator="EQUALS" value="1"/>
+    <if_exists name="Ki"/>
+    <set_variable name="Bonus" value="Bonus+1"/>
+  </event>
+  <event name="Bonus Lu">
+    <if_variable name="PeriodEnd" comparator="EQUALS" value="1"/>
+    <if_exists name="Lu"/>
+    <set_variable name="Bonus" value="Bonus+1"/>
+  </event>
+  <event name="Bonus Pi">
+    <if_variable name="PeriodEnd" comparator="EQUALS" value="1"/>
+    <if_exists name="Pi"/>
+    <set_variable name="Bonus" value="Bonus+1"/>
+  </event>
+  <event name="Bonus Te">
+    <if_variable name="PeriodEnd" comparator="EQUALS" value="1"/>
+    <if_exists name="Te"/>
+    <set_variable name="Bonus" value="Bonus+1"/>
+  </event>
+  <event name="Add Whale Bonus">
+    <if_variable name="Bonus" comparator="GREATER" value="1"/>
+    <set_variable name="Tonnage" Value="Tonnage+Bonus"/>
+    <set_variable name="Bonus" value="0"/>
+  </event>
+</mission_data>

@@ -195,7 +195,7 @@ async function processMission(file) {
     let base = path.basename(file, ".xml")
     let src = path.resolve(base + "_SOURCE.xml")
     if (options._all.source) {
-      src = options._all.source
+      src = path.resolve(options._all.source)
     }
     console.log(`Building ${base} for ${src}`)
     let mission = await MissionFile.fromFile(src)

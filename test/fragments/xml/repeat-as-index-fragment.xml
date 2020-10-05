@@ -1,0 +1,9 @@
+<mission_data version="1.0">
+   <start>
+    <repeat _length="5" _as="x" >
+        <repeat _length="3" _as="y" >
+            <set_variable name="m_${x}_x_${y}" value="${_.float(x)*_.float(y)}" />
+        </repeat>
+    </repeat>
+  </start>
+</mission_data>

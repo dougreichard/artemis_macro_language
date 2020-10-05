@@ -61,8 +61,8 @@ describe('Mission File', () => {
     describe('Fragment tests', () => {
         //allow the debugging of a specific fragment
         if (process.env.fragment) {
-            let file = path.resolve(__dirname, 'fragments', 'xml', process.env.fragment)
-            testFileFragment(file, "-fragment.xml")
+            let dir = path.resolve(__dirname, 'fragments', 'xml')
+            testFileFragment(dir, process.env.fragment)
         } if (process.env.modular) {
             let file = path.resolve(__dirname, 'modular', 'xml-templated', process.env.modular)
             testFileFragment(file, "-template.xml")

@@ -1,0 +1,15 @@
+<mission_data>
+  <values>
+    <range name="whales">
+      <value x="40000" y="-500" z="91000" name="Ed" />
+      <value x="40000" y="500" z="4000" name="Al" />
+      <value x="60000" y="-500" z="4000" name="Jo" />
+      <value x="60000" y="500" z="91000" name="An" />
+      <value x="95000" y="-500" z="25000" name="Ki" />
+      <value x="5000" y="500" z="25000" name="Lu" />
+      <value x="5000" y="-500" z="40000" name="Pi" />
+      <value x="95000" y="500" z="40000" name="Te" />
+    </range>
+  </values>
+
+</mission_data>

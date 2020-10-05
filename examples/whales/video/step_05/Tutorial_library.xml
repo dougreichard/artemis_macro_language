@@ -1,0 +1,16 @@
+<mission_data>
+  <templates>
+    <template name="whale">
+      <expand _start="true">
+          <create type="monster" x="${x}" y="${y}" z="${z}" monsterType="1" name="${name}" podnumber="6"/>
+      </expand>
+      <expand>
+        <event name="Bonus ${name}">
+          <if_variable name="PeriodEnd" comparator="EQUALS" value="1"/>
+          <if_exists name="${name}"/>
+          <set_variable name="Bonus" value="Bonus+1"/>
+        </event>
+      </expand>
+    </template>
+  </templates>
+</mission_data>

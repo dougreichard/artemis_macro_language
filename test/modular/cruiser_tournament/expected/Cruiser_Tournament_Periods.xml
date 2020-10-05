@@ -49,7 +49,7 @@
     <log text="Pirate Strongbow Black Comet destroyed"/>
   </event>
   <event name="Spawn D12">
-    <if_variable name="Period_Counter" comparator="EQUALS" value="2"/>
+    <if_variable name="Period_Counter" comparator="EQUALS" value="1"/>
     <if_variable name="Spawned[D12]" comparator="EQUALS" value="0"/>
     <create type="enemy" x="16500" y="-350" z="41100" angle="270" name="D12" raceKeys="Arvonian enemy" hullKeys="Light Carrier carrier" fleetnumber="32"/>
     <set_variable name="Spawned[D12]" comparator="EQUALS" value="1"/>
@@ -79,7 +79,7 @@
     <log text="Arvonian Light Carrier D12 destroyed"/>
   </event>
   <event name="Spawn R13">
-    <if_variable name="Period_Counter" comparator="EQUALS" value="3"/>
+    <if_variable name="Period_Counter" comparator="EQUALS" value="1"/>
     <if_variable name="Spawned[R13]" comparator="EQUALS" value="0"/>
     <create type="enemy" x="13000" y="450" z="40500" angle="245" name="R13" raceKeys="Torgoth enemy" hullKeys="Goliath small" fleetnumber="33"/>
     <set_variable name="Spawned[R13]" comparator="EQUALS" value="1"/>
@@ -109,7 +109,7 @@
     <log text="Torgoth Goliath R13 destroyed"/>
   </event>
   <event name="Spawn N14">
-    <if_variable name="Period_Counter" comparator="EQUALS" value="4"/>
+    <if_variable name="Period_Counter" comparator="EQUALS" value="1"/>
     <if_variable name="Spawned[N14]" comparator="EQUALS" value="0"/>
     <create type="enemy" x="51000" y="-80" z="31100" angle="200" name="N14" raceKeys="Skaraan enemy" hullKeys="Defiler small" fleetnumber="34"/>
     <set_special name="N14" ability="Warp"/>
@@ -161,7 +161,7 @@
     <log text="Score = |Tonnage| kt  |Minutes| minutes remaining."/>
   </event>
   <event name="Spawn D16">
-    <if_variable name="Period_Counter" comparator="EQUALS" value="1"/>
+    <if_variable name="Period_Counter" comparator="EQUALS" value="2"/>
     <if_variable name="Spawned[D16]" comparator="EQUALS" value="0"/>
     <create type="enemy" x="16500" y="-500" z="41000" angle="270" name="D16" raceKeys="Arvonian enemy" hullKeys="Carrier carrier" fleetnumber="36"/>
     <set_variable name="Spawned[D16]" comparator="EQUALS" value="1"/>
@@ -221,7 +221,7 @@
     <log text="Torgoth Leviathan R17 destroyed"/>
   </event>
   <event name="Spawn N18">
-    <if_variable name="Period_Counter" comparator="EQUALS" value="3"/>
+    <if_variable name="Period_Counter" comparator="EQUALS" value="2"/>
     <if_variable name="Spawned[N18]" comparator="EQUALS" value="0"/>
     <create type="enemy" x="51000" y="0" z="31000" angle="200" name="N18" raceKeys="Skaraan enemy" hullKeys="Enforcer medium" fleetnumber="38"/>
     <set_special name="N18" ability="Warp"/>
@@ -273,7 +273,7 @@
     <log text="Score = |Tonnage| kt  |Minutes| minutes remaining."/>
   </event>
   <event name="Spawn D20">
-    <if_variable name="Period_Counter" comparator="EQUALS" value="1"/>
+    <if_variable name="Period_Counter" comparator="EQUALS" value="3"/>
     <if_variable name="Spawned[D20]" comparator="EQUALS" value="0"/>
     <create type="enemy" x="16500" y="-500" z="71000" angle="270" name="D20" raceKeys="Arvonian enemy" hullKeys="Carrier carrier" fleetnumber="40"/>
     <set_variable name="Spawned[D20]" comparator="EQUALS" value="1"/>
@@ -303,7 +303,7 @@
     <log text="Arvonian Carrier D20 destroyed"/>
   </event>
   <event name="Spawn R21">
-    <if_variable name="Period_Counter" comparator="EQUALS" value="2"/>
+    <if_variable name="Period_Counter" comparator="EQUALS" value="3"/>
     <if_variable name="Spawned[R21]" comparator="EQUALS" value="0"/>
     <create type="enemy" x="13000" y="500" z="30500" angle="245" name="R21" raceKeys="Torgoth enemy" hullKeys="Behemoth large" fleetnumber="41"/>
     <set_variable name="Spawned[R21]" comparator="EQUALS" value="1"/>
@@ -363,7 +363,7 @@
     <log text="Torgoth Leviathan R22 destroyed"/>
   </event>
   <event name="Spawn N22">
-    <if_variable name="Period_Counter" comparator="EQUALS" value="4"/>
+    <if_variable name="Period_Counter" comparator="EQUALS" value="3"/>
     <if_variable name="Spawned[N22]" comparator="EQUALS" value="0"/>
     <create type="enemy" x="51000" y="0" z="21000" angle="200" name="N22" raceKeys="Skaraan enemy" hullKeys="Executor large" fleetnumber="42"/>
     <set_special name="N22" ability="Warp"/>
@@ -415,7 +415,7 @@
     <log text="Score = |Tonnage| kt  |Minutes| minutes remaining."/>
   </event>
   <event name="Spawn D25">
-    <if_variable name="Period_Counter" comparator="EQUALS" value="1"/>
+    <if_variable name="Period_Counter" comparator="EQUALS" value="4"/>
     <if_variable name="Spawned[D25]" comparator="EQUALS" value="0"/>
     <create type="enemy" x="86500" y="-500" z="31000" angle="270" name="D25" raceKeys="Arvonian enemy" hullKeys="Carrier carrier" fleetnumber="43"/>
     <set_variable name="Spawned[D25]" comparator="EQUALS" value="1"/>
@@ -445,7 +445,7 @@
     <log text="Arvonian Carrier D25 destroyed"/>
   </event>
   <event name="Spawn D26">
-    <if_variable name="Period_Counter" comparator="EQUALS" value="2"/>
+    <if_variable name="Period_Counter" comparator="EQUALS" value="4"/>
     <if_variable name="Spawned[D26]" comparator="EQUALS" value="0"/>
     <create type="enemy" x="86700" y="500" z="31900" angle="270" name="D26" raceKeys="Arvonian enemy" hullKeys="Carrier carrier" fleetnumber="43"/>
     <set_variable name="Spawned[D26]" comparator="EQUALS" value="1"/>
@@ -475,7 +475,7 @@
     <log text="Arvonian Carrier D26 destroyed"/>
   </event>
   <event name="Spawn R27">
-    <if_variable name="Period_Counter" comparator="EQUALS" value="3"/>
+    <if_variable name="Period_Counter" comparator="EQUALS" value="4"/>
     <if_variable name="Spawned[R27]" comparator="EQUALS" value="0"/>
     <create type="enemy" x="13000" y="500" z="40500" angle="245" name="R27" raceKeys="Torgoth enemy" hullKeys="Behemoth large" fleetnumber="44"/>
     <set_variable name="Spawned[R27]" comparator="EQUALS" value="1"/>
@@ -535,7 +535,7 @@
     <log text="Torgoth Behemoth R28 destroyed"/>
   </event>
   <event name="Spawn N29">
-    <if_variable name="Period_Counter" comparator="EQUALS" value="5"/>
+    <if_variable name="Period_Counter" comparator="EQUALS" value="4"/>
     <if_variable name="Spawned[N29]" comparator="EQUALS" value="0"/>
     <create type="enemy" x="51000" y="0" z="31000" angle="200" name="N29" raceKeys="Skaraan enemy" hullKeys="Executor large" fleetnumber="46"/>
     <set_special name="N29" ability="Warp"/>
@@ -577,7 +577,7 @@
     <log text="Skaraan Executor N29 destroyed"/>
   </event>
   <event name="Spawn N30">
-    <if_variable name="Period_Counter" comparator="EQUALS" value="6"/>
+    <if_variable name="Period_Counter" comparator="EQUALS" value="4"/>
     <if_variable name="Spawned[N30]" comparator="EQUALS" value="0"/>
     <create type="enemy" x="51400" y="-200" z="30800" angle="200" name="N30" raceKeys="Skaraan enemy" hullKeys="Executor large" fleetnumber="46"/>
     <set_special name="N30" ability="Warp"/>
@@ -629,7 +629,7 @@
     <log text="Score = |Tonnage| kt  |Minutes| minutes remaining."/>
   </event>
   <event name="Spawn Skywayman">
-    <if_variable name="Period_Counter" comparator="EQUALS" value="1"/>
+    <if_variable name="Period_Counter" comparator="EQUALS" value="5"/>
     <if_variable name="Spawned[Skywayman]" comparator="EQUALS" value="0"/>
     <create type="enemy" x="99990.0" y="-100.0" z="10.0" angle="0" name="Skywayman" raceKeys="Pirate enemy" hullKeys="Strongbow  " fleetnumber="-1"/>
     <set_special name="Skywayman" ability="Cloak"/>
@@ -660,7 +660,7 @@
     <log text="Pirate Strongbow Skywayman destroyed"/>
   </event>
   <event name="Spawn D33">
-    <if_variable name="Period_Counter" comparator="EQUALS" value="2"/>
+    <if_variable name="Period_Counter" comparator="EQUALS" value="5"/>
     <if_variable name="Spawned[D33]" comparator="EQUALS" value="0"/>
     <create type="enemy" x="16500" y="-500" z="41000" angle="270" name="D33" raceKeys="Arvonian enemy" hullKeys="Carrier carrier" fleetnumber="50"/>
     <set_variable name="Spawned[D33]" comparator="EQUALS" value="1"/>
@@ -690,7 +690,7 @@
     <log text="Arvonian Carrier D33 destroyed"/>
   </event>
   <event name="Spawn D34">
-    <if_variable name="Period_Counter" comparator="EQUALS" value="3"/>
+    <if_variable name="Period_Counter" comparator="EQUALS" value="5"/>
     <if_variable name="Spawned[D34]" comparator="EQUALS" value="0"/>
     <create type="enemy" x="16700" y="500" z="41900" angle="270" name="D34" raceKeys="Arvonian enemy" hullKeys="Carrier carrier" fleetnumber="50"/>
     <set_variable name="Spawned[D34]" comparator="EQUALS" value="1"/>
@@ -720,7 +720,7 @@
     <log text="Arvonian Carrier D34 destroyed"/>
   </event>
   <event name="Spawn R35">
-    <if_variable name="Period_Counter" comparator="EQUALS" value="4"/>
+    <if_variable name="Period_Counter" comparator="EQUALS" value="5"/>
     <if_variable name="Spawned[R35]" comparator="EQUALS" value="0"/>
     <create type="enemy" x="88000" y="500" z="40500" angle="245" name="R35" raceKeys="Torgoth enemy" hullKeys="Behemoth large" fleetnumber="52"/>
     <set_variable name="Spawned[R35]" comparator="EQUALS" value="1"/>
@@ -780,7 +780,7 @@
     <log text="Torgoth Behemoth R36 destroyed"/>
   </event>
   <event name="Spawn N37">
-    <if_variable name="Period_Counter" comparator="EQUALS" value="6"/>
+    <if_variable name="Period_Counter" comparator="EQUALS" value="5"/>
     <if_variable name="Spawned[N37]" comparator="EQUALS" value="0"/>
     <create type="enemy" x="51000" y="0" z="61000" angle="200" name="N37" raceKeys="Skaraan enemy" hullKeys="Executor large" fleetnumber="54"/>
     <set_special name="N37" ability="Warp"/>
@@ -822,7 +822,7 @@
     <log text="Skaraan Executor N37 destroyed"/>
   </event>
   <event name="Spawn N38">
-    <if_variable name="Period_Counter" comparator="EQUALS" value="7"/>
+    <if_variable name="Period_Counter" comparator="EQUALS" value="5"/>
     <if_variable name="Spawned[N38]" comparator="EQUALS" value="0"/>
     <create type="enemy" x="51400" y="-200" z="60800" angle="200" name="N38" raceKeys="Skaraan enemy" hullKeys="Executor large" fleetnumber="54"/>
     <set_special name="N38" ability="Warp"/>

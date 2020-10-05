@@ -1,0 +1,19 @@
+<mission_data version="1.0">
+  <start>
+    <set_variable name="m_0_x_0" value="0"/>
+    <set_variable name="m_0_x_1" value="0"/>
+    <set_variable name="m_0_x_2" value="0"/>
+    <set_variable name="m_1_x_0" value="0"/>
+    <set_variable name="m_1_x_1" value="1"/>
+    <set_variable name="m_1_x_2" value="2"/>
+    <set_variable name="m_2_x_0" value="0"/>
+    <set_variable name="m_2_x_1" value="2"/>
+    <set_variable name="m_2_x_2" value="4"/>
+    <set_variable name="m_3_x_0" value="0"/>
+    <set_variable name="m_3_x_1" value="3"/>
+    <set_variable name="m_3_x_2" value="6"/>
+    <set_variable name="m_4_x_0" value="0"/>
+    <set_variable name="m_4_x_1" value="4"/>
+    <set_variable name="m_4_x_2" value="8"/>
+  </start>
+</mission_data>

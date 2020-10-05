@@ -170,7 +170,7 @@ class MissionFile {
    */
     toXML() {
         if (!this.model) return
-        let xml = convert.js2xml(this.model, { compact: false, ignoreComment: true, spaces: 2})
+        let xml = convert.js2xml(this.model, { compact: false, ignoreComment: true, spaces: 2 })
 
         // remove those annoying empty attributes
         xml = xml.replace(/\s\w+=\"\"/gi, "");
@@ -305,10 +305,12 @@ class MissionFile {
      * @returns {FoundChild} The element object|undefined and its index|-1
      */
     findFirstChild(parent, tag) {
-        for (let i = 0, l = parent.elements.length; i &lt; l; i++) {
-            let element = parent.elements[i]
-            if (element.type == 'element' &amp;&amp; element.name === tag) {
-                return { element, index: i }
+        if (parent.elements) {
+            for (let i = 0, l = parent.elements.length; i &lt; l; i++) {
+                let element = parent.elements[i]
+                if (element.type == 'element' &amp;&amp; element.name === tag) {
+                    return { element, index: i }
+                }
             }
         }
         return { element: undefined, index: -1 }
@@ -321,6 +323,9 @@ class MissionFile {
     */
     findElements(parent, tag) {
         let ret = []
+        if (!parent.elements) {
+            return ret
+        }
         for (let i = 0, l = parent.elements.length; i &lt; l; i++) {
             let element = parent.elements[i]
             if (element.type == 'element' &amp;&amp; element.name === tag) {
@@ -335,15 +340,30 @@ class MissionFile {
     * Finds all child elements that match a tag
     * @param {ModelElement} parent The element to search
     * @param {string} tag The tag to find
+    * @param {string} check_template True if should check tag is a template name
     * @returns {FoundChild[]} The element objects matching tag
     */
-    findChildren(parent, tag) {
+    findChildren(parent, tag, check_template) {
         let ret = []
+        if (!parent.elements) {
+            return ret
+        }
         for (let i = 0, l = parent.elements.length; i &lt; l; i++) {
             let element = parent.elements[i]
             if (element.type == 'element' &amp;&amp; element.name === tag) {
                 ret.push({ element, index: i })
-            } else if (element.type == 'element' &amp;&amp; !tag) {
+            } else if (element.type == 'element' &amp;&amp; check_template &amp;&amp; tag) {
+                if (this.templates &amp;&amp; this.templates[element.name]) {
+                    if (!element.attributes) {
+                        element.attributes = {}
+                    }
+                    element.attributes._template = element.name
+                    element.name = "expand"
+                    ret.push({ element, index: i })
+                }
+
+            }
+            else if (element.type == 'element' &amp;&amp; !tag) {
                 ret.push({ element, i: index })
             }
         }
@@ -358,6 +378,9 @@ class MissionFile {
     removeChildren(parent, tag) {
         let ret = []
         let filtered = []
+        if (!parent.elements) {
+            return ret
+        }
         for (let i = 0, l = parent.elements.length; i &lt; l; i++) {
             let element = parent.elements[i]
             if (element.type == 'element' &amp;&amp; element.name === tag) {
@@ -388,10 +411,12 @@ class MissionFile {
      * @returns {FoundChild[]} The element objects matching tag
      */
     removeFirstChild(parent, tag) {
-        for (let i = 0, l = parent.elements.length; i &lt; l; i++) {
-            let element = parent.elements[i]
-            if (element.type == 'element' &amp;&amp; element.name === tag) {
-                return { element: parent.elements.splice(i, 1)[0], index: i }
+        if (parent.elements) {
+            for (let i = 0, l = parent.elements.length; i &lt; l; i++) {
+                let element = parent.elements[i]
+                if (element.type == 'element' &amp;&amp; element.name === tag) {
+                    return { element: parent.elements.splice(i, 1)[0], index: i }
+                }
             }
         }
         return { element: undefined, index: -1 }
@@ -591,7 +616,7 @@ class MissionFile {
     * Expand all the templates
     */
     async processExpandTemplates(parent, tempStart) {
-        let expands = this.findChildren(parent, "expand")
+        let expands = this.findChildren(parent, "expand", true)
         // ANY expands exist, make sure we keep expanding.
         let count = expands.length;
         // Walking backward to do simple replace in place
@@ -599,7 +624,7 @@ class MissionFile {
             let ele = expands[i].element
             let template = ele
             // Expand any macro in the attributes
-            let addToStart =  ele.attributes &amp;&amp; ele.attributes._start
+            let addToStart = ele.attributes &amp;&amp; ele.attributes._start
             if (ele.attributes &amp;&amp; ele.attributes._template !== undefined) {
                 let templateName = ele.attributes._template
                 template = this.templates[templateName]
@@ -612,7 +637,7 @@ class MissionFile {
                     count--
                     continue;
                 }
-            } 
+            }
 
 
             let outerScope = { plugins: this.plugins }
@@ -645,7 +670,7 @@ class MissionFile {
                 if (test == 'true') {
                     parent.elements.splice(expands[i].index, 1)
                     continue
-                } 
+                }
             }
             // 
             if (ele.attributes &amp;&amp; ele.attributes._template) {
@@ -676,7 +701,7 @@ class MissionFile {
             } else {
                 parent.elements.splice(expands[i].index, 1, ...replaceWith)
             }
-           
+
         }
         return count
     }
@@ -688,7 +713,7 @@ class MissionFile {
         // Process them at the top level
         let mission_data = this.findFirstElement(this.model, "mission_data")
         if (!mission_data) return
-        let tempStart = {type:"element", name:"start", elements:[]}
+        let tempStart = { type: "element", name: "start", elements: [] }
         count += await this.processExpandTemplates(mission_data, tempStart)
         if (count) {
             if (tempStart.elements.length) {
@@ -759,7 +784,7 @@ class MissionFile {
                         if (value.search(/\$/) >= 0) {
                             v = await interpolate(value, values)
                         }
-                    } 
+                    }
                     clone.attributes[key] = v
                 }
                 catch (e) {
@@ -882,7 +907,7 @@ class MissionFile {
                 }
                 isActuallyArray = Array.isArray(range)
             } else if (element.attributes._length) {
-                range = { length: parseInt(element.attributes._length) }
+                range = { length: parseInt(element.attributes._length), isIndex:true}
                 if (range.length == 0) {
 
                 } else if (!range.length) {
@@ -914,7 +939,12 @@ class MissionFile {
                 scope._index = i
 
                 if (rangeAs) {
-                    scope[rangeAs] = scope
+                    if (range.isIndex) {
+                        scope[rangeAs] = i
+                    } else {
+                        scope[rangeAs] = scope
+                    }
+                    
                 }
 
                 if (skipFilter) {
@@ -1008,61 +1038,70 @@ class MissionFile {
         if (!mission_data) return
         let imports = this.removeFirstElement(mission_data, "imports")
         if (!imports) return
+        let more = true;
+        /// Process any repeats
+        while (more) {
+            more = false;
+            more |= await this.processAllRepeatsFor(imports)
+            more |= await this.processExpandTemplates(imports)
+        }
+
         let importEles = this.findElements(imports, "import")
         for (let i = 0, l = importEles.length; i &lt; l; i++) {
             let ele = importEles[i]
-            let name = ele.attributes.name
-            let value = ele.attributes.value
-            let as = ele.attributes.as
-            let skip = ele.attributes.skip
-            if (skip) {
-                let checkSkip = await interpolate(skip, this.data)
-                if (checkSkip === 'true') continue;
-            }
-            if (!name) {
-                this.error({ message: `Import without a name` })
-            }
-            if (path.extname(name) === ".js") {
-                await this.fromScript(name)
-                continue
-            }
-            if (path.extname(name) === ".json") {
-                await this.fromJson(name, value)
-                continue
-            }
+            await this.processImport(ele)
+        }
+    }
+    async processImport(ele) {
+        let name = ele.attributes.name
+        let value = ele.attributes.value
+        let as = ele.attributes.as
+        let skip = ele.attributes.skip
+        if (skip) {
+            let checkSkip = await interpolate(skip, this.data)
+            if (checkSkip === 'true') return;
+        }
+        if (!name) {
+            this.error({ message: `Import without a name` })
+        }
+        if (path.extname(name) === ".js") {
+            await this.fromScript(name)
+            return
+        }
+        if (path.extname(name) === ".json") {
+            await this.fromJson(name, value)
+            return
+        }
 
-            let mission
-            if (path.extname(name) === ".txt") {
-                if (as === "json") {
-                    await this.fromLogToJson(name, value)
-                    continue
-                } else {
-                    mission = await this.fromLogToXml(name)
-                }
-
+        let mission
+        if (path.extname(name) === ".txt") {
+            if (as === "json") {
+                await this.fromLogToJson(name, value)
+                return
             } else {
-                mission = await MissionFile.fromFile(path.resolve(this.basedir, name))
+                mission = await this.fromLogToXml(name)
             }
 
-            if (mission) {
+        } else {
+            mission = await MissionFile.fromFile(path.resolve(this.basedir, name))
+        }
 
-                // Expand templates
-                await mission.processFile(this)
-                /////////////////////////////////////////////
-                // 
-                this.removePluginsFromImport(mission)
-                Object.assign(this.data, mission.data)
-                Object.assign(this.templates, mission.templates)
-                //main.addErrors(mission)
-
-                if (this.model) {
-                    // Merge / Start
-                    mission.mergeStart(this)
-                    // Merge  events
-                    mission.mergeEvents(this)
-                }
-
+        if (mission) {
+            // Expand templates
+            await mission.processFile(this)
+            /////////////////////////////////////////////
+            // 
+            this.removePluginsFromImport(mission)
+            Object.assign(this.data, mission.data)
+            Object.assign(this.templates, mission.templates)
+            //main.addErrors(mission)
+            if (this.model) {
+                // Merge / Start
+                mission.mergeStart(this)
+                // Merge  events
+                mission.mergeEvents(this)
             }
+
         }
     }
     /**
@@ -1090,12 +1129,13 @@ class MissionFile {
             if (values) {
                 Object.assign(this.data, values)
             }
+            await this.processTemplates()
             await this.processImports(this)
             // This is to reset any values after imports
             if (values) {
                 Object.assign(this.data, values)
             }
-            await this.processTemplates()
+
 
             // Keep expanding stuff until there isn't anymore
             let more = true
@@ -1140,7 +1180,7 @@ exports.MissionFile = MissionFile</code></pre>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.4</a> on Sat Jul 18 2020 22:04:53 GMT-0400 (Eastern Daylight Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.4</a> on Sun Oct 04 2020 21:05:10 GMT-0400 (Eastern Daylight Time)
 </footer>
 
 <script> prettyPrint(); </script>

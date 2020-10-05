@@ -36,8 +36,8 @@
                 "${workspaceFolder}/test/imports-xml.spec.js"
             ],
             "env": {
-                "aa-fragment": "repeat-outer-nested-fragment.xml",
-                "modular": "TheArena-eggs-template.xml"
+                "fragment": "import-repeat-fragment.xml",
+                "aamodular": "TheArena-eggs-template.xml"
             },
             "internalConsoleOptions": "openOnSessionStart",
             "skipFiles": [

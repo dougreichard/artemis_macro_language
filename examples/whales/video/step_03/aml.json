@@ -1,0 +1,6 @@
+{
+    "mission": "..\\MISS_Tutorial.xml",
+    "source": "MISS_Tutorial_SOURCE.xml",
+    "xinstall": true,
+    "xartemis": "M:\\Data\\personal\\Artemis 2.7.5"
+}
