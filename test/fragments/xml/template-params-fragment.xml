@@ -1,0 +1,25 @@
+<mission_data version="1.0">
+  <templates>
+    <template name="tsn:GM_Buttons">
+			<params>
+				<param name="x_across"/>
+				<param name="y_across"/>
+				<param name="x_start"/>
+				<param name="y_start"/>
+				<param name="x_gap"/>
+				<param name="y_gap"/>
+				<param name="h"/>
+				<param name="w"/>
+			</params>
+			<repeat _length="${y_across}" _as="y"> 
+				<repeat _length="${x_across}" _as="x">
+					<set_gm_button text="Sector ${_.int(y)*_.int(x_across)+_.int(x)+1}" x="${_.int(w)*_.int(x)+_.int(x_gap)*_.int(x)+_.int(x_start)}" y="${_.int(y) +_.int(y_start)}" h="${h}" w="${w}" />
+				</repeat>
+			</repeat>
+		</template>
+    </templates>
+    
+  <start>
+	<tsn:GM_Buttons x_across="5" y_across="2" x_start="100" y_start="200" x_gap="3" y_gap="2" h="10" w="100" />
+  </start>
+</mission_data>

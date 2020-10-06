@@ -1,0 +1,14 @@
+<mission_data version="1.0">
+  <start>
+    <set_gm_button text="Sector 1" x="100" y="200" h="10" w="100"/>
+    <set_gm_button text="Sector 2" x="203" y="200" h="10" w="100"/>
+    <set_gm_button text="Sector 3" x="306" y="200" h="10" w="100"/>
+    <set_gm_button text="Sector 4" x="409" y="200" h="10" w="100"/>
+    <set_gm_button text="Sector 5" x="512" y="200" h="10" w="100"/>
+    <set_gm_button text="Sector 6" x="100" y="201" h="10" w="100"/>
+    <set_gm_button text="Sector 7" x="203" y="201" h="10" w="100"/>
+    <set_gm_button text="Sector 8" x="306" y="201" h="10" w="100"/>
+    <set_gm_button text="Sector 9" x="409" y="201" h="10" w="100"/>
+    <set_gm_button text="Sector 10" x="512" y="201" h="10" w="100"/>
+  </start>
+</mission_data>
