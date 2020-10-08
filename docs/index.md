@@ -22,9 +22,10 @@ The Artemis Scripting Macro Language enhances the existing XML to enable:
 ## Additional tags
 
 - [imports](tag-imports.md) Merges another file into mission. Merge starts tags into a single tag.
-- [values](tag-values.md) Create a data to use with while **generating** scripts (not when running)
-- [templates](tag-templates) Create a template of common code resuse multiple times.
-- [expand](tag-expand) Expands a template using supplied data
-- [ranges](tag-ranges.md) Create a list of data to use with a repeat tag
 - [repeat](tag-repeat.md) Creates multiple copies of something varying using data from a range
+- [values](tag-values.md) Create a data to use with while **generating** scripts (not when running)
+- [ranges](tag-ranges.md) Create a list of data to use with a repeat tag
+- [template strings](template-strings.md) The way to use values to generate part of the script.
+- [expand](tag-expand) Expands a template using supplied data
+- [templates](tag-templates) Create a template of common code resuse multiple times.
 

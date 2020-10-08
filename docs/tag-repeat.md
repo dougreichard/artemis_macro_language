@@ -77,5 +77,15 @@ If Eggs has 5 eggs, and Ships has 8 ships, this is expanded 40 times pair each e
     </repeat>
   </repeat>
 ```
+# conditional skiping 
+You can use the attribute _skip to specify a condition to skip items.
 
+The following example skips odd numbers
 
+``` xml
+ <start>
+    <repeat _length="5" _skip="_.int(_index)%2">
+        <set_variable name="even_number_${_index}" value="1.0"/>
+    </repeat>
+  </start>
+```
