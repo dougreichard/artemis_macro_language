@@ -1,7 +1,14 @@
-class MyPlugin{
+class MyClass{
      get text() {
-         return "Hello, classes"
+         return "Hello, property"
      }
+     convert(v, t) {
+         return `${v}, ${t}`;
+     }
+}
+
+function test(v)  {
+    return "Hello, "+ v
 }
 
 async function init( basedir) {
@@ -11,5 +18,6 @@ async function init( basedir) {
 exports.init = init
 exports.MyPlugin = {
     message: "Hello, Javascript",
-    myPlugin: new MyPlugin()
+    myInstance: new MyClass(),
+    test: test
 }

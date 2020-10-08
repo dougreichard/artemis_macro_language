@@ -3,5 +3,8 @@
   <start>
     <big-message title="Hello, Javascript"/>
     <big-message title="inline Hello, Javascript"/>
+    <big-message title="Instance Hello, Plugin"/>
+    <big-message title="Property Hello, property"/>
+    <big-message title="function Hello, Function"/>
   </start>
 </mission_data>

@@ -12,6 +12,9 @@
         <expand _template="test"/>
         <expand>
             <big-message title="inline ${plugins.MyPlugin.message}"/>
+            <big-message title="Instance ${plugins.MyPlugin.myInstance.convert('Hello', 'Plugin')}"/>
+            <big-message title="Property ${plugins.MyPlugin.myInstance.text}"/>
+            <big-message title="function ${plugins.MyPlugin.test('Function')}"/>
         </expand>
     </start>
 </mission_data> 
