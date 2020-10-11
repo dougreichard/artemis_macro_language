@@ -77,8 +77,19 @@ If Eggs has 5 eggs, and Ships has 8 ships, this is expanded 40 times pair each e
     </repeat>
   </repeat>
 ```
+
+Repeats using the `_length` attribute can also use the `_as` attribute, which is useful for iterating over multiple sets of numbers.
+
+``` sml
+<repeat _length="5" _as="x">
+    <repeat _length="4" _as="y">
+        <!-- Stuff using ${x} and ${y} -->
+    </repeat>
+</repeat>
+```
+
 # conditional skipping 
-You can use the attribute _skip to specify a condition to skip items.
+You can use the attribute `_skip` to specify a condition to skip items.
 
 The following example skips odd numbers
 
