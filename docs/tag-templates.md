@@ -31,11 +31,11 @@ Say, for example, that you want to write a script that uses the multiple of two 
     </templates>
 ```
 In place of `<big-message title="${a * b}"/>` you would use whatever bit of scripting you need. This is the part of the template that is actually added to the resulting script. 
-The `${x * y}` bit is a "Template string". It will do a calculation and the result will be placed in the final script. See https://dougreichard.github.io/artemis_macro_language/template-strings.html for more information on those, they are also super useful. 
+The `${x * y}` bit is a [template string](https://dougreichard.github.io/artemis_macro_language/template-strings.html). It will do a calculation and the result will be placed in the final script.
 
 So now we've defined a template. But how do we use it?
 
-Within your source xml file, find the location where you want the output of the template. We will use an `expand` tag to tell AML to "expand" the result of the template into the mission script.
+Within your source xml file, find the location where you want the output of the template. We will use an [expand](tag-expand.md) tag to tell AML to "expand" the result of the template into the mission script.
 In this context, the `expand` tag will look like this:
 
 ``` xml
@@ -44,7 +44,7 @@ In this context, the `expand` tag will look like this:
     b="2"/>
 ```
 
-First, we specify the name of the template (in this case, "template_name"), then the name and value of each parameter. For more details on using `expand`, see https://dougreichard.github.io/artemis_macro_language/tag-expand
+First, we specify the name of the template (in this case, "template_name"), then the name and value of each parameter.
 
 So what does the mission script look like when we run AML.exe? 
 
