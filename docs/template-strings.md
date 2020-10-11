@@ -68,7 +68,8 @@ The data can then be access in templates scripts.
 </expand>
 ```
 
-#Imports with imported javascript
+## Imports with imported javascript
+
 Say you have two xml files, as follows:
 
 template.xml
