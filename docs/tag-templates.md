@@ -44,7 +44,7 @@ In this context, the `expand` tag will look like this:
     b="2"/>
 ```
 
-First, we specify the name of the template (in this case, "template_name"), then the name and value of each parameter. 
+First, we specify the name of the template (in this case, "template_name"), then the name and value of each parameter. For more details on using `expand`, see https://dougreichard.github.io/artemis_macro_language/tag-expand
 
 So what does the mission script look like when we run AML.exe? 
 
