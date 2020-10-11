@@ -1,5 +1,5 @@
 # repeat tag
-The repeat tag will repeat the content within it using a range for values
+The repeat tag will repeat the content within it using a range for values. For those of you familiar with programming languages, you can think of a repeat as a for loop.
 
 ``` xml
  <start>
