@@ -39,7 +39,7 @@ Within your source xml file, find the location where you want the output of the 
 In this context, the `expand` tag will look like this:
 
 ``` xml
-<expand _template="template_name"
+<expand _template="multiply"
     a="1"
     b="2"/>
 ```
