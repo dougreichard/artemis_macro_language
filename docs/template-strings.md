@@ -68,8 +68,35 @@ The data can then be access in templates scripts.
 </expand>
 ```
 
-For a more complete example see:
+#Imports with imported javascript
+Say you have two xml files, as follows:
 
+template.xml
+``` xml
+<imports>
+    <import name="MyPlugin.js"/>
+</imports>
+<templates>
+    <template _name="basic_template">
+        <params>
+        </params>
+        <big-message text="${plugins.MyPlugin.message}"/>
+    </template>
+</templates>
+```
+
+useTemplate.xml
+``` xml
+<imports>
+  <import name="template.xml"/>
+</imports>
+<expand _template="basic_template"/>
+```
+The above will not work properly. Since useTemplate.xml utilizes at template from template.xml, and the template calls a javascript function, useTemplate.xml must also import MyPlugin.js.
+
+
+
+For a more complete example see:
 
 
 [AML Source XML](https://github.com/dougreichard/artemis_macro_language/blob/master/test/fragments/xml/script-simple-fragment.xml)
