@@ -31,7 +31,7 @@ Say, for example, that you want to write a script that uses the multiple of two 
     </templates>
 ```
 In place of `<big-message title="${a * b}"/>` you would use whatever bit of scripting you need. This is the part of the template that is actually added to the resulting script. 
-The `${x * y}` bit is a [template string](https://dougreichard.github.io/artemis_macro_language/template-strings.html). It will do a calculation and the result will be placed in the final script.
+The `${a * b}` bit is a [template string](https://dougreichard.github.io/artemis_macro_language/template-strings.html). It will do a calculation and the result will be placed in the final script.
 
 So now we've defined a template. But how do we use it?
 
