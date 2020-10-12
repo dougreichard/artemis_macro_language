@@ -1,11 +1,11 @@
 # repeat tag
-The repeat tag will repeat the content within it using a range for values
+The repeat tag will repeat the content within it using a range for values. For those of you familiar with programming languages, you can think of a repeat as a for loop.
 
 ``` xml
  <start>
     <repeat _length="5" >
         <set_variable name="egg${_index}" value="1.0"/>
-        <set_timer name="egg${_index}}_Timer" seconds="${25+_index*5}"/>
+        <set_timer name="egg${_index}_Timer" seconds="${25+_index*5}"/>
     </repeat>
   </start>
 ```
@@ -49,9 +49,9 @@ Will produce the following
     <set_variable name="egg3" value="1.0"/>
     <set_timer name="egg3_Timer" seconds="35"/>
     <set_variable name="egg4" value="1.0"/>
-    <set_timer name="egg4_Timer" seconds="35"/>
+    <set_timer name="egg4_Timer" seconds="40"/>
     <set_variable name="egg5" value="1.0"/>
-    <set_timer name="egg5_Timer" seconds="35"/>
+    <set_timer name="egg5_Timer" seconds="45"/>
 </start>
 ```
 
@@ -77,8 +77,19 @@ If Eggs has 5 eggs, and Ships has 8 ships, this is expanded 40 times pair each e
     </repeat>
   </repeat>
 ```
-# conditional skiping 
-You can use the attribute _skip to specify a condition to skip items.
+
+Repeats using the `_length` attribute can also use the `_as` attribute, which is useful for iterating over multiple sets of numbers.
+
+``` sml
+<repeat _length="5" _as="x">
+    <repeat _length="4" _as="y">
+        <!-- Stuff using ${x} and ${y} -->
+    </repeat>
+</repeat>
+```
+
+# conditional skipping 
+You can use the attribute `_skip` to specify a condition to skip items.
 
 The following example skips odd numbers
 
