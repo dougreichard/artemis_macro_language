@@ -63,7 +63,7 @@ describe('Mission File', () => {
         if (process.env.fragment) {
             let dir = path.resolve(__dirname, 'fragments', 'xml')
             testFileFragment(dir, process.env.fragment)
-        } if (process.env.modular) {
+        } else if (process.env.modular) {
             let file = path.resolve(__dirname, 'modular', 'xml-templated', process.env.modular)
             testFileFragment(file, "-template.xml")
         } else {

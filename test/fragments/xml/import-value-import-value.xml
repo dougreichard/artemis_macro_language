@@ -1,5 +1,10 @@
 <mission_data version="1.0">
   <values>
     <value indirect="import"/>
+    <range name="myrange">
+      <value file="import"/>
+      <value file="import1"/>
+      <value file="import"/>
+    </range>
   </values>
 </mission_data>
