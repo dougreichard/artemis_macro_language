@@ -2,9 +2,9 @@
   <values>
     <value indirect="import"/>
     <range name="myrange">
-      <value file="import"/>
-      <value file="import1"/>
-      <value file="import"/>
+      <value v="value" imp="import" file="import"/>
+      <value v="value" imp="import" file="import1"/>
+      <value v="value" imp="import" file="value1"/>
     </range>
   </values>
 </mission_data>

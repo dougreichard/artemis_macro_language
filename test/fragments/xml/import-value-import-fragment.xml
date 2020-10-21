@@ -6,5 +6,11 @@
         <repeat _range="myrange"  >	
             <import name="import-value-import-${file}.xml" />
         </repeat>
+         <repeat _range="myrange"  _as="O">	
+            <repeat _range="myrange"  _as="I">	
+                <import name="import-${I.v}-${O.imp}-${I.file}.xml" />
+            </repeat>
+        </repeat>
+        <import name="import-value-import-${indirect}.xml" />
     </imports>
 </mission_data> 
