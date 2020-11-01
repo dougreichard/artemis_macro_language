@@ -1,4 +1,11 @@
 <mission_data version="1.0">
+  <templates>
+    <template name="test">
+        <repeat _range="${r}">
+          <set_variable name="${Ships.ship}" value="1.0"/>
+        </repeat>
+    </template>
+  </templates>
   <values>
     <range name="Ships">
       <struct>
@@ -28,6 +35,9 @@
         <set_variable name="${Fighters.pilot}" value="2.0"/>
       </repeat>
     </repeat>
+    <expand _template="test" r="Ships" />
+      
+    
   </start>
 
 

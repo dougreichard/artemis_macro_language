@@ -6,5 +6,7 @@
     <set_variable name="Interpid" value="1.0"/>
     <set_variable name="Remy" value="2.0"/>
     <set_variable name="Jango" value="2.0"/>
+    <set_variable name="Artemis" value="1.0"/>
+    <set_variable name="Interpid" value="1.0"/>
   </start>
 </mission_data>

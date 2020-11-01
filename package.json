@@ -2,11 +2,12 @@
   "name": "artemis-macro-language",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "bin": "lib/index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "mocha -u bdd --timeout 999999 --colors ./test/",
     "docs": "jsdoc -c jsdoc-config.json",
-    "pkg": "pkg index.js  --output build\\aml.exe  -t win-x64",
+    "pkg": "pkg .  --output build\\aml.exe  -t win-x64",
     "quiet": "cd .\\examples\\quiet-is-the-hunt && ..\\..\\build\\aml ",
     "tourn": "cd .\\test\\modular\\cruiser_tournament && ..\\..\\..\\build\\aml "
   },
@@ -16,15 +17,16 @@
     "chalk": "^4.0.0",
     "command-line-args": "^5.1.1",
     "command-line-usage": "^6.1.0",
+    "pkg": "^4.4.9",
     "xml-js": "^1.6.11"
   },
   "devDependencies": {
     "chai": "^4.2.0",
     "jsdoc": "^3.6.4",
-    "mocha": "^7.1.2",
-    "pkg": "^4.4.8"
+    "mocha": "^7.1.2"
   },
   "pkg": {
+    "scripts": "lib/**/*.js",
     "assets": []
   }
 }
