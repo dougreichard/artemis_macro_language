@@ -36,7 +36,7 @@
                 "${workspaceFolder}/test/imports-xml.spec.js"
             ],
             "env": {
-                "fragment": "import-value-import-fragment.xml",
+                "fragment": "import-script-simple-fragment.xml",
                 "aamodular": "TheArena-eggs-template.xml"
             },
             "internalConsoleOptions": "openOnSessionStart",

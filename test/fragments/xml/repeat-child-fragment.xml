@@ -1,12 +1,13 @@
 <mission_data version="1.0">
   <templates>
     <template name="test">
-        <repeat _range="${r}">
-          <set_variable name="${Ships.ship}" value="1.0"/>
+        <repeat _range="${r}" _as="sh">
+          <set_variable name="${sh.ship}" value="1.0"/>
         </repeat>
     </template>
   </templates>
   <values>
+    <value myrange="Ships"/>
     <range name="Ships">
       <struct>
         <value ship="Artemis" />
@@ -36,6 +37,7 @@
       </repeat>
     </repeat>
     <expand _template="test" r="Ships" />
+    <expand _template="test" r="${myrange}" />
       
     
   </start>

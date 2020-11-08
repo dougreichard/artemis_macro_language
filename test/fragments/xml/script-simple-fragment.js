@@ -1,23 +1,35 @@
-class MyClass{
-     get text() {
-         return "Hello, property"
-     }
-     convert(v, t) {
-         return `${v}, ${t}`;
-     }
+class MyClass {
+    get text() {
+        return "Hello, property"
+    }
+    convert(v, t) {
+        return `${v}, ${t}`;
+    }
 }
 
-function test(v)  {
-    return "Hello, "+ v
+function test(v) {
+    return "Hello, " + v
 }
 
-async function init( basedir) {
+function ar_func(v) {
+    return ["hello","world"]
+}
+
+async function init(basedir) {
     //console.log('Plugin init')
+    return {
+        pA: {
+            pB: {
+                pC: [10, 20, 30]
+            }
+        }
+    }
 }
 
 exports.init = init
 exports.MyPlugin = {
     message: "Hello, Javascript",
     myInstance: new MyClass(),
-    test: test
+    test: test,
+    ar_func: ar_func
 }

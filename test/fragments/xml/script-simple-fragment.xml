@@ -15,6 +15,17 @@
             <big-message title="Instance ${plugins.MyPlugin.myInstance.convert('Hello', 'Plugin')}"/>
             <big-message title="Property ${plugins.MyPlugin.myInstance.text}"/>
             <big-message title="function ${plugins.MyPlugin.test('Function')}"/>
+            <big-message title="function ${pA.pB.pC[1]}"/>
+            <repeat _range="pA.pB.pC" >
+                <big-message title="function ${_item}"/>
+            </repeat>
+            <repeat _range="pA.pB.pC" >
+                <big-message title="function ${pC}"/>
+            </repeat>
+            <repeat _range="plugins.MyPlugin.ar_func()" >
+                <big-message title="function ${_item}"/>
+            </repeat>
+                            
         </expand>
     </start>
 </mission_data> 
