@@ -5,9 +5,9 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    tags:
+    - '*'
+ 
 
 jobs:
   build:
@@ -40,3 +40,16 @@ jobs:
         name: aml-exe
         path: build/aml.exe
         retention-days: 5
+    - name: GH Release
+      # You may pin to the exact commit or the version.
+      # uses: softprops/action-gh-release@b7e450da2a4b4cb4bfbae528f788167786cfcedf
+      uses: softprops/action-gh-release@v0.1.5
+      with:
+        # Path to load note-worthy description of changes in release from
+        body_path: release.md
+        # Creates a draft release. Defaults to false
+        draft: false
+        # Identify the release as a prerelease. Defaults to false
+        prerelease: true
+        # Newline-delimited list of path globs for asset files to upload
+        files: build/aml.exe
