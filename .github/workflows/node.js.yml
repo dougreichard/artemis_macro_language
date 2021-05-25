@@ -53,3 +53,5 @@ jobs:
         prerelease: true
         # Newline-delimited list of path globs for asset files to upload
         files: build/aml.exe
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
