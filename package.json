@@ -7,7 +7,8 @@
   "scripts": {
     "test": "mocha -u bdd --timeout 999999 --colors ./test/",
     "docs": "jsdoc -c jsdoc-config.json",
-    "pkg": "pkg .  --output build\\aml.exe  -t win-x64",
+    "pkg": "pkg .  --output build/aml.exe  -t win-x64",
+    "build": "pkg .  --output build\\aml.exe  -t win-x64",
     "quiet": "cd .\\examples\\quiet-is-the-hunt && ..\\..\\build\\aml ",
     "tourn": "cd .\\test\\modular\\cruiser_tournament && ..\\..\\..\\build\\aml "
   },
